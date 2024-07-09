@@ -34,15 +34,19 @@ const NavComponent = () => {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">Baby Name Nestlings</p>
+          <Link href={`/`} className="text-black">
+            <AcmeLogo />
+            <p className="font-bold text-inherit ">Baby Name Nestlings</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">Baby Name Nestlings</p>
+          <Link href={`/`} className="text-black">
+            <AcmeLogo />
+            <p className="font-bold text-inherit ">Baby Name Nestlings</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 

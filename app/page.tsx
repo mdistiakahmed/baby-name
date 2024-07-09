@@ -4,6 +4,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import Link from "next/link";
 
 const x = [
   {
@@ -78,6 +81,12 @@ export default function Home() {
               </Accordion>
             );
           })}
+
+          <div className="flex items-center justify-end p-5">
+            <Button variant="contained" endIcon={<SendIcon />}>
+              See More
+            </Button>
+          </div>
         </div>
 
         <div className="p-5 mt-5 rounded-lg">
@@ -122,6 +131,12 @@ export default function Home() {
               </Accordion>
             );
           })}
+
+          <div className="flex items-center justify-end p-5">
+            <Button variant="contained" endIcon={<SendIcon />}>
+              See More
+            </Button>
+          </div>
         </div>
 
         <div className="p-5 mt-5 rounded-lg">
@@ -166,6 +181,10 @@ export default function Home() {
               </Accordion>
             );
           })}
+
+          <div className="flex items-center justify-end p-5">
+            <Link href={`/muslim/baby-name`}>See More</Link>
+          </div>
         </div>
       </div>
     </div>
