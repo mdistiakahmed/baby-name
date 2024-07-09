@@ -18,12 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={inter.className}
-        style={{
-          backgroundImage: "url('/background.webp')",
-        }}
-      >
+      <body className={inter.className}>
         <NextUIProvider>
           <NavComponent />
           <div>{children}</div>

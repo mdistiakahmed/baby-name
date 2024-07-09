@@ -49,9 +49,13 @@ export default function Home() {
               className="rounded-lg"
             />
           </div>
-          <h3 className="text-2xl font-bold text-center my-5 underline">
-            Most Popular Baby Names
-          </h3>
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h3 className="text-2xl font-bold text-center mt-5 ">
+              Most Popular Baby Names
+            </h3>
+            <Image src="/underline.svg" alt="B" height={300} width={400} />
+          </div>
+
           {x.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
@@ -68,11 +72,11 @@ export default function Home() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <ul>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
                     {nameObj.stories.map((story: any, idx: any) => {
                       return (
-                        <li key={idx}>
-                          <p>{story}</p>
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story}</p>
                         </li>
                       );
                     })}
@@ -82,10 +86,13 @@ export default function Home() {
             );
           })}
 
-          <div className="flex items-center justify-end p-5">
-            <Button variant="contained" endIcon={<SendIcon />}>
+          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+            <Link
+              href={`/popular/baby-name`}
+              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+            >
               See More
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -99,9 +106,13 @@ export default function Home() {
               className="rounded-lg"
             />
           </div>
-          <h3 className="text-2xl font-bold text-center my-5 underline">
-            Popular Baby Names in USA
-          </h3>
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h3 className="text-2xl font-bold text-center mt-5 ">
+              Popular Baby Names in USA
+            </h3>
+            <Image src="/underline.svg" alt="B" height={300} width={400} />
+          </div>
+
           {x.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
@@ -118,11 +129,11 @@ export default function Home() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <ul>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
                     {nameObj.stories.map((story: any, idx: any) => {
                       return (
-                        <li key={idx}>
-                          <p>{story}</p>
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story}</p>
                         </li>
                       );
                     })}
@@ -132,10 +143,13 @@ export default function Home() {
             );
           })}
 
-          <div className="flex items-center justify-end p-5">
-            <Button variant="contained" endIcon={<SendIcon />}>
+          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+            <Link
+              href={`/usa/baby-name`}
+              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+            >
               See More
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -149,9 +163,13 @@ export default function Home() {
               className="rounded-lg"
             />
           </div>
-          <h3 className="text-2xl font-bold text-center my-5 underline">
-            Muslim baby names
-          </h3>
+
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h3 className="text-2xl font-bold text-center mt-5 ">
+              Muslim baby names
+            </h3>
+            <Image src="/underline.svg" alt="B" height={300} width={400} />
+          </div>
           {x.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
@@ -168,11 +186,11 @@ export default function Home() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <ul>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
                     {nameObj.stories.map((story: any, idx: any) => {
                       return (
-                        <li key={idx}>
-                          <p>{story}</p>
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story}</p>
                         </li>
                       );
                     })}
@@ -182,8 +200,13 @@ export default function Home() {
             );
           })}
 
-          <div className="flex items-center justify-end p-5">
-            <Link href={`/muslim/baby-name`}>See More</Link>
+          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+            <Link
+              href={`/muslim/baby-name`}
+              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+            >
+              See More
+            </Link>
           </div>
         </div>
       </div>

@@ -2,3 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-botton::before {
+    content: "";
+    display: block;
+    width: 40px; /* Adjust width as needed */
+    height: 100%;
+    background-color: #f06246;
+    transform: skewX(-20deg);
+    position: absolute;
+    top: 0;
+    right: -20px; /* Adjust based on the width */
+  }
+
+  .custom-botton:hover::before {
+    background-color: #f8c194; /* Change to the desired hover color */
+  }
+
+  .custom-botton::after {
+    background: url("/button-arrow.svg") 100% no-repeat;
+    content: "";
+    display: block;
+    width: 10rem; /* Adjust width as needed */
+    height: 5rem;
+    position: absolute;
+    top: -20px;
+    right: -80px;
+
+  }
+
+  .custom-botton:hover::after {
+    background: url("/button-arrow-hover.svg") 100% no-repeat;
+  }
+
+ 
