@@ -10,6 +10,22 @@ export const metadata: Metadata = {
   title: "Baby Name Nestlings",
   description:
     "Beautiful baby names, girl names, boy names, meanings, origins, famous peoples",
+  openGraph: {
+    title: "Baby Name Nestlings",
+    description:
+      "Beautiful baby names, girl names, boy names, meanings, origins, famous peoples",
+    type: "article",
+    locale: "en_US",
+    url: `http://babynamenestlings.com/`,
+    siteName: "BabyNameNestlings",
+    images: [
+      {
+        url: "baby1.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
