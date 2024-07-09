@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Baby Name Nestlings",
-  description: "Beautiful baby names from around the world",
+  description:
+    "Beautiful baby names, girl names, boy names, meanings, origins, famous peoples",
 };
 
 export default function RootLayout({
