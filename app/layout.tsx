@@ -7,7 +7,7 @@ import { NextUIProvider } from "@nextui-org/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Baby Names",
+  title: "Baby Name Nestlings",
   description: "Beautiful baby names from around the world",
 };
 

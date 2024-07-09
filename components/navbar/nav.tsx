@@ -27,7 +27,7 @@ const NavComponent = () => {
   ];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar disableAnimation isBordered className="bg-gray-300">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -35,14 +35,14 @@ const NavComponent = () => {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">BABY NAMES</p>
+          <p className="font-bold text-inherit">Baby Name Nestlings</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">BABY NAMES</p>
+          <p className="font-bold text-inherit">Baby Name Nestlings</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -64,7 +64,7 @@ const NavComponent = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu>
+      <NavbarMenu className="bg-gray-300">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
