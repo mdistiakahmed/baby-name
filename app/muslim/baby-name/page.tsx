@@ -3,8 +3,12 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Pagination from "@mui/material/Pagination";
 import Link from "next/link";
 import { Metadata } from "next";
+import { muslimGirlNames } from "./muslim-girl-names";
+import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
+import LetterSearch from "@/components/search/LetterSearch";
 
 export const metadata: Metadata = {
   title: "Muslim Girl Baby Name | BabyNameNestlings",
@@ -26,34 +30,9 @@ export const metadata: Metadata = {
   },
 };
 
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Ahmed",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Nishat",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
-
 const MuslimBabyName = () => {
+  const total = muslimGirlNames.length;
+  console.log(total);
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px]">
@@ -67,13 +46,28 @@ const MuslimBabyName = () => {
               className="rounded-lg"
             />
           </div>
-          <div className="flex flex-col items-center justify-center mb-5">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <h3 className="text-2xl font-bold text-center mt-5 ">
               Muslim Girl Baby Names
             </h3>
+
+            <div>
+              <AutoCompleteSearch placeHolder="Search name" />
+            </div>
+
+            <div>
+              <LetterSearch />
+            </div>
           </div>
 
-          {x.map((nameObj: any, index: any) => {
+          <Accordion>
+            <AccordionSummary aria-controls="panel1-content" id="panel1-header">
+              <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
+              <p className="text-sm  font-bold text-black">Meaning</p>
+            </AccordionSummary>
+          </Accordion>
+
+          {muslimGirlNames.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -81,7 +75,7 @@ const MuslimBabyName = () => {
                   aria-controls="panel1-content"
                   id="panel1-header"
                 >
-                  <p className="w-[40%] flex-shrink-0 text-xl font-semibold text-black">
+                  <p className="w-[40%] flex-shrink-0  text-black">
                     {nameObj.name}
                   </p>
                   <p className="text-sm  text-black">{nameObj.meaning}</p>
@@ -91,7 +85,7 @@ const MuslimBabyName = () => {
                     {nameObj.stories.map((story: any, idx: any) => {
                       return (
                         <li key={idx} className="mb-2">
-                          <p className="text-gray-800 text-md">{story}</p>
+                          <p className="text-gray-800 text-md">{story} </p>
                         </li>
                       );
                     })}
@@ -101,13 +95,13 @@ const MuslimBabyName = () => {
             );
           })}
 
-          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-            <Link
-              href={`/popular/baby-name`}
-              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-            >
-              See More
-            </Link>
+          <div className="flex items-center justify-center p-10">
+            <Pagination
+              count={5}
+              variant="outlined"
+              color="secondary"
+              size="small"
+            />
           </div>
         </div>
       </div>
