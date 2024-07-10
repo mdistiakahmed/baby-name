@@ -1,4 +1,4 @@
-export const muslimGirlNames = [
+export const nameList = [
   {
     "name": "Aaliyah ",
     "meaning": "High, exalted, sublime",

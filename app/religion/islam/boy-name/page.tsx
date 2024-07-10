@@ -4,17 +4,17 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
-import { muslimGirlNames } from "./muslim-girl-names";
+import { nameList } from "./muslim-boy-names";
 import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 
 export const metadata: Metadata = {
-  title: "Muslim Girl Baby Name | BabyNameNestlings",
-  description: "Islamic girl baby name along with their meaning and origin",
+  title: "Muslim Boy Name | BabyNameNestlings",
+  description: "Islamic boy name along with their meaning and origin",
   openGraph: {
-    title: "Muslim Girl Baby Name | BabyNameNestlings",
-    description: "Islamic girl baby name along with their meaning and origin",
+    title: "Muslim Boy Name | BabyNameNestlings",
+    description: "Islamic boy name along with their meaning and origin",
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/muslim/baby-name`,
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
 };
 
-const MuslimBabyName = () => {
-  const total = muslimGirlNames.length;
+const MuslimBoyName = () => {
+  const total = nameList.length;
 
   const totalItem = 560;
   const itemsPerPage = 100;
@@ -57,7 +57,7 @@ const MuslimBabyName = () => {
             <div>
               <AutoCompleteSearch
                 placeHolder="Search name"
-                nameList={muslimGirlNames}
+                nameList={nameList}
               />
             </div>
 
@@ -73,7 +73,7 @@ const MuslimBabyName = () => {
             </AccordionSummary>
           </Accordion>
 
-          {muslimGirlNames.map((nameObj: any, index: any) => {
+          {nameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -114,4 +114,4 @@ const MuslimBabyName = () => {
   );
 };
 
-export default MuslimBabyName;
+export default MuslimBoyName;

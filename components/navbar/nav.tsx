@@ -6,42 +6,15 @@ import {
   NavbarBrand,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem,
   NavbarContent,
   NavbarItem,
   Link,
-  DropdownSection,
 } from "@nextui-org/react";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  cn,
-} from "@nextui-org/react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import { AcmeLogo } from "./AcmeLogo";
 import CategoryDropdown from "./CategoryDropdown";
 
 const NavComponent = () => {
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
-  const iconClasses =
-    "text-xl text-default-500 pointer-events-none flex-shrink-0";
-
   return (
     <Navbar disableAnimation isBordered className="bg-gray-300">
       <NavbarContent className="sm:hidden" justify="start">

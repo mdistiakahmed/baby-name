@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "Islamic girl baby name along with their meaning and origin",
     type: "article",
     locale: "en_US",
-    url: `http://babynamenestlings.com/muslim/baby-name`,
+    url: `http://babynamenestlings.com/religion/islam/girl-name`,
     siteName: "BabyNameNestlings",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-const MuslimBabyName = () => {
+const MuslimGirlName = () => {
   const total = muslimGirlNames.length;
 
   const totalItem = 560;
@@ -114,4 +114,4 @@ const MuslimBabyName = () => {
   );
 };
 
-export default MuslimBabyName;
+export default MuslimGirlName;
