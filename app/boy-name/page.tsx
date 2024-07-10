@@ -39,10 +39,10 @@ const MuslimBoyName = () => {
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px]">
-        <div className="p-5 mb-5 rounded-lg">
+        <div className="mb-5">
           <div className="flex items-center justify-center rounded-lg">
             <Image
-              src="/baby1.jpg"
+              src="/baby-boy.webp"
               alt="B"
               height={300}
               width={400}
@@ -51,7 +51,7 @@ const MuslimBoyName = () => {
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <h3 className="text-2xl font-bold text-center ">
-              Muslim Girl Baby Names
+              Muslim Boy Names
             </h3>
 
             <div>

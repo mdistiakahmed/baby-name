@@ -18,7 +18,7 @@ const NavComponent = () => {
   return (
     <Navbar disableAnimation isBordered className="bg-gray-300">
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle />
+        <CategoryDropdown isMobile={true} />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
@@ -44,10 +44,6 @@ const NavComponent = () => {
           <CategoryDropdown />
         </NavbarItem>
       </NavbarContent>
-
-      <NavbarMenu className="bg-gray-300">
-        <CategoryDropdown />
-      </NavbarMenu>
     </Navbar>
   );
 };

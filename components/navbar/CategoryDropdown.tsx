@@ -8,10 +8,10 @@ import {
   cn,
   Avatar,
 } from "@nextui-org/react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Image from "next/image";
+import MenuIcon from "@mui/icons-material/Menu";
 
-const CategoryDropdown = () => {
+const CategoryDropdown = ({ isMobile = false }: any) => {
   const counties = [
     {
       name: "Bangladesh",
@@ -59,8 +59,6 @@ const CategoryDropdown = () => {
       image: "/church-icon.svg",
     },
   ];
-  const iconClasses =
-    "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   const religionsOptions = religions.flatMap((r, index) => [
     <DropdownItem
@@ -163,7 +161,10 @@ const CategoryDropdown = () => {
       }}
     >
       <DropdownTrigger>
-        <Button color="primary">Search By Category</Button>
+        <div>
+          {isMobile && <MenuIcon />}
+          {!isMobile && <Button color="primary">Search By Category</Button>}
+        </div>
       </DropdownTrigger>
       <DropdownMenu
         variant="faded"
