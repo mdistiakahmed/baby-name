@@ -31,6 +31,8 @@ const StyledMenu = styled((props: MenuProps) => (
     borderRadius: 6,
     marginTop: theme.spacing(1),
     minWidth: 180,
+    maxHeight: 200,
+    overflowY: "auto",
     color:
       theme.palette.mode === "light"
         ? "rgb(55, 65, 81)"
@@ -66,6 +68,8 @@ const LetterSearch = () => {
     setAnchorEl(null);
   };
 
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
   return (
     <div>
       <Button
@@ -77,6 +81,7 @@ const LetterSearch = () => {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        fullWidth
       >
         Search by Letter
       </Button>
@@ -89,20 +94,17 @@ const LetterSearch = () => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <SearchIcon />A
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <SearchIcon />B
-        </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
-          <SearchIcon />C
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <SearchIcon />
-          More
-        </MenuItem>
+        {alphabet.map((letter, index) => (
+          <div key={letter}>
+            <MenuItem onClick={handleClose} disableRipple>
+              <SearchIcon />
+              {letter}
+            </MenuItem>
+            {(index + 1) % 5 === 0 && index < alphabet.length - 1 && (
+              <Divider sx={{ my: 0.5 }} />
+            )}
+          </div>
+        ))}
       </StyledMenu>
     </div>
   );

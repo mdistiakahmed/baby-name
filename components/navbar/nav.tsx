@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Navbar,
@@ -8,7 +10,17 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
+  DropdownSection,
 } from "@nextui-org/react";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+  cn,
+} from "@nextui-org/react";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import { AcmeLogo } from "./AcmeLogo";
 
@@ -25,6 +37,9 @@ const NavComponent = () => {
     "Help & Feedback",
     "Log Out",
   ];
+
+  const iconClasses =
+    "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
     <Navbar disableAnimation isBordered className="bg-gray-300">
@@ -52,41 +67,284 @@ const NavComponent = () => {
 
       <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Country
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#" aria-current="page" color="foreground">
-            Religious
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Top 100
-          </Link>
+          <Dropdown
+            showArrow
+            classNames={{
+              base: "before:bg-default-200", // change arrow background
+              content:
+                "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+            }}
+          >
+            <DropdownTrigger>
+              <Button color="primary">Search By Category</Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              variant="faded"
+              aria-label="Dropdown menu with description"
+              style={{ maxHeight: "300px", overflowY: "auto" }}
+            >
+              <DropdownSection title="Actions">
+                <DropdownItem
+                  key="new"
+                  shortcut="⌘N"
+                  description="Create a new file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  New file
+                </DropdownItem>
+                <DropdownItem
+                  key="copy"
+                  shortcut="⌘C"
+                  description="Copy the file link"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Copy link
+                </DropdownItem>
+                <DropdownItem
+                  key="edit"
+                  shortcut="⌘⇧E"
+                  description="Allows you to edit the file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Edit file
+                </DropdownItem>
+              </DropdownSection>
+              <DropdownSection title="Actions">
+                <DropdownItem
+                  key="new"
+                  shortcut="⌘N"
+                  description="Create a new file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  New file
+                </DropdownItem>
+                <DropdownItem
+                  key="copy"
+                  shortcut="⌘C"
+                  description="Copy the file link"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Copy link
+                </DropdownItem>
+                <DropdownItem
+                  key="edit"
+                  shortcut="⌘⇧E"
+                  description="Allows you to edit the file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Edit file
+                </DropdownItem>
+              </DropdownSection>
+              <DropdownSection title="Actions">
+                <DropdownItem
+                  key="new"
+                  shortcut="⌘N"
+                  description="Create a new file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  New file
+                </DropdownItem>
+                <DropdownItem
+                  key="copy"
+                  shortcut="⌘C"
+                  description="Copy the file link"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Copy link
+                </DropdownItem>
+                <DropdownItem
+                  key="edit"
+                  shortcut="⌘⇧E"
+                  description="Allows you to edit the file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Edit file
+                </DropdownItem>
+              </DropdownSection>
+              <DropdownSection title="Actions">
+                <DropdownItem
+                  key="new"
+                  shortcut="⌘N"
+                  description="Create a new file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  New file
+                </DropdownItem>
+                <DropdownItem
+                  key="copy"
+                  shortcut="⌘C"
+                  description="Copy the file link"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                >
+                  Copy link
+                </DropdownItem>
+                <DropdownItem
+                  key="edit"
+                  shortcut="⌘⇧E"
+                  description="Allows you to edit the file"
+                  startContent={<MoreHorizIcon className={iconClasses} />}
+                  onClick={() => console.log("edit clicked...")}
+                >
+                  Edit file
+                </DropdownItem>
+              </DropdownSection>
+              <DropdownSection title="Danger zone">
+                <DropdownItem
+                  key="delete"
+                  className="text-danger"
+                  color="danger"
+                  shortcut="⌘⇧D"
+                  description="Permanently delete the file"
+                  startContent={
+                    <MoreHorizIcon className={cn(iconClasses, "text-danger")} />
+                  }
+                >
+                  Delete file
+                </DropdownItem>
+              </DropdownSection>
+            </DropdownMenu>
+          </Dropdown>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu className="bg-gray-300">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <Dropdown
+          showArrow
+          classNames={{
+            base: "before:bg-default-200", // change arrow background
+            content:
+              "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+          }}
+        >
+          <DropdownTrigger>
+            <Button color="primary">Search By Category</Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            variant="faded"
+            aria-label="Dropdown menu with description"
+            style={{ maxHeight: "400px", overflowY: "auto" }}
+          >
+            <DropdownSection title="Actions">
+              <DropdownItem
+                key="new"
+                shortcut="⌘N"
+                description="Create a new file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                New file
+              </DropdownItem>
+              <DropdownItem
+                key="copy"
+                shortcut="⌘C"
+                description="Copy the file link"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Copy link
+              </DropdownItem>
+              <DropdownItem
+                key="edit"
+                shortcut="⌘⇧E"
+                description="Allows you to edit the file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Edit file
+              </DropdownItem>
+            </DropdownSection>
+            <DropdownSection title="Actions">
+              <DropdownItem
+                key="new"
+                shortcut="⌘N"
+                description="Create a new file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                New file
+              </DropdownItem>
+              <DropdownItem
+                key="copy"
+                shortcut="⌘C"
+                description="Copy the file link"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Copy link
+              </DropdownItem>
+              <DropdownItem
+                key="edit"
+                shortcut="⌘⇧E"
+                description="Allows you to edit the file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Edit file
+              </DropdownItem>
+            </DropdownSection>
+            <DropdownSection title="Actions">
+              <DropdownItem
+                key="new"
+                shortcut="⌘N"
+                description="Create a new file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                New file
+              </DropdownItem>
+              <DropdownItem
+                key="copy"
+                shortcut="⌘C"
+                description="Copy the file link"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Copy link
+              </DropdownItem>
+              <DropdownItem
+                key="edit"
+                shortcut="⌘⇧E"
+                description="Allows you to edit the file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Edit file
+              </DropdownItem>
+            </DropdownSection>
+            <DropdownSection title="Actions">
+              <DropdownItem
+                key="new"
+                shortcut="⌘N"
+                description="Create a new file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                New file
+              </DropdownItem>
+              <DropdownItem
+                key="copy"
+                shortcut="⌘C"
+                description="Copy the file link"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+              >
+                Copy link
+              </DropdownItem>
+              <DropdownItem
+                key="edit"
+                shortcut="⌘⇧E"
+                description="Allows you to edit the file"
+                startContent={<MoreHorizIcon className={iconClasses} />}
+                onClick={() => console.log("edit clicked...")}
+              >
+                Edit file
+              </DropdownItem>
+            </DropdownSection>
+            <DropdownSection title="Danger zone">
+              <DropdownItem
+                key="delete"
+                className="text-danger"
+                color="danger"
+                shortcut="⌘⇧D"
+                description="Permanently delete the file"
+                startContent={
+                  <MoreHorizIcon className={cn(iconClasses, "text-danger")} />
+                }
+              >
+                Delete file
+              </DropdownItem>
+            </DropdownSection>
+          </DropdownMenu>
+        </Dropdown>
       </NavbarMenu>
     </Navbar>
   );

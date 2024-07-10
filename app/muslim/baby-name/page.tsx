@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { muslimGirlNames } from "./muslim-girl-names";
 import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
+import PaginationComponent from "@/components/pagination/PaginationComponent";
 
 export const metadata: Metadata = {
   title: "Muslim Girl Baby Name | BabyNameNestlings",
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
 const MuslimBabyName = () => {
   const total = muslimGirlNames.length;
   console.log(total);
+
+  const totalItem = 560;
+  const itemsPerPage = 100;
+  const nextPageBaseUrl = `/muslim/baby-name`;
+
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px]">
@@ -47,7 +53,7 @@ const MuslimBabyName = () => {
             />
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
-            <h3 className="text-2xl font-bold text-center mt-5 ">
+            <h3 className="text-2xl font-bold text-center ">
               Muslim Girl Baby Names
             </h3>
 
@@ -96,11 +102,10 @@ const MuslimBabyName = () => {
           })}
 
           <div className="flex items-center justify-center p-10">
-            <Pagination
-              count={5}
-              variant="outlined"
-              color="secondary"
-              size="small"
+            <PaginationComponent
+              totalItem={totalItem}
+              itemsPerPage={itemsPerPage}
+              nextPageBaseUrl={nextPageBaseUrl}
             />
           </div>
         </div>
