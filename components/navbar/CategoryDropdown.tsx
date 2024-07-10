@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const CategoryDropdown = ({ isMobile = false }: any) => {
+const CategoryDropdown = ({ isMobile }: any) => {
   const counties = [
     {
       name: "Bangladesh",
@@ -151,6 +151,9 @@ const CategoryDropdown = ({ isMobile = false }: any) => {
     </DropdownItem>,
   ]);
 
+  const handleButtonClick = () => {
+    // Handle button click logic if needed
+  };
   return (
     <Dropdown
       showArrow
@@ -163,7 +166,11 @@ const CategoryDropdown = ({ isMobile = false }: any) => {
       <DropdownTrigger>
         <div>
           {isMobile && <MenuIcon />}
-          {!isMobile && <Button color="primary">Search By Category</Button>}
+          {!isMobile && (
+            <p className="bg-[#006fee] text-white p-2 rounded-lg cursor-pointer">
+              Search By Category
+            </p>
+          )}
         </div>
       </DropdownTrigger>
       <DropdownMenu

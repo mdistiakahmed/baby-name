@@ -14,12 +14,21 @@ export async function generateMetadata({
 }: any): Promise<Metadata | undefined> {
   const { religionName, gender } = params;
 
+  const title =
+    (religionName === "islam"
+      ? "Muslim"
+      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
+    " " +
+    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
+    " " +
+    "Name";
+
   return {
-    title: `${religionName} ${gender} Name | BabyNameNestlings`,
-    description: `Discover ${religionName} ${gender} Name along with their meaning and historic importance`,
+    title: `${title}  | BabyNameNestlings`,
+    description: `Discover ${title} along with their meaning and historic importance`,
     openGraph: {
-      title: `${religionName} ${gender} Name | BabyNameNestlings`,
-      description: `Discover ${religionName} ${gender} Name along with their meaning and historic importance`,
+      title: `${title}  | BabyNameNestlings`,
+      description: `Discover ${title} along with their meaning and historic importance`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}`,
@@ -48,9 +57,6 @@ const ReligiousNames = async ({ params }: any) => {
     (gender.charAt(0).toUpperCase() + gender.slice(1)) +
     " " +
     "Name";
-
-  console.log(religionName);
-  console.log(gender);
 
   const totalItem = 560;
   const itemsPerPage = 100;
@@ -89,7 +95,7 @@ const ReligiousNames = async ({ params }: any) => {
             </div>
 
             <div>
-              <LetterSearch />
+              <LetterSearch positions={positions} />
             </div>
           </div>
 

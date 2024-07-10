@@ -1,17 +1,14 @@
 "use client";
-import * as React from "react";
 
 import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
 import Divider from "@mui/material/Divider";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -58,8 +55,11 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-const LetterSearch = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+const LetterSearch = ({ positions }: any) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -68,7 +68,25 @@ const LetterSearch = () => {
     setAnchorEl(null);
   };
 
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const onSelect = (letter: string) => {
+    const segments = pathname.split("/");
+    const lastSegment = segments[segments.length - 1];
+
+    // Check if last segment ends with a single letter
+    if (lastSegment.length === 1) {
+      const newPath = pathname.replace(/\/[A-Z]$/, `/${letter}`);
+      router.push(newPath);
+    } else {
+      const newPath = `${pathname}/${letter}`;
+      router.push(newPath);
+    }
+
+    setAnchorEl(null);
+  };
+
+  const alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(
+    ","
+  );
 
   return (
     <div>
@@ -96,7 +114,13 @@ const LetterSearch = () => {
       >
         {alphabet.map((letter, index) => (
           <div key={letter}>
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem
+              onClick={() => onSelect(letter)}
+              disableRipple
+              disabled={
+                positions && positions[index] && positions[index][0] === -1
+              }
+            >
               <SearchIcon />
               {letter}
             </MenuItem>

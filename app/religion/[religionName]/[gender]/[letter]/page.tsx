@@ -4,33 +4,63 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
-import { muslimGirlNames } from "./muslim-girl-names";
 import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
+import { getData } from "@/utils/getData";
 
-export const metadata: Metadata = {
-  title: "Muslim Girl Baby Name | BabyNameNestlings",
-  description: "Islamic girl baby name along with their meaning and origin",
-  openGraph: {
-    title: "Muslim Girl Baby Name | BabyNameNestlings",
-    description: "Islamic girl baby name along with their meaning and origin",
-    type: "article",
-    locale: "en_US",
-    url: `http://babynamenestlings.com/muslim/baby-name`,
-    siteName: "BabyNameNestlings",
-    images: [
-      {
-        url: "baby1.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-};
+export async function generateMetadata({
+  params,
+}: any): Promise<Metadata | undefined> {
+  const { religionName, gender, letter } = params;
 
-const MuslimBabyName = () => {
-  const total = muslimGirlNames.length;
+  const title =
+    (religionName === "islam"
+      ? "Muslim"
+      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
+    " " +
+    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
+    " " +
+    `name starts with ${letter}`;
+
+  return {
+    title: `${title}  | BabyNameNestlings`,
+    description: `Discover ${title} along with their meaning and historic importance`,
+    openGraph: {
+      title: `${title}  | BabyNameNestlings`,
+      description: `Discover ${title} along with their meaning and historic importance`,
+      type: "article",
+      locale: "en_US",
+      url: `http://babynamenestlings.com/${religionName}/${gender}/${letter}`,
+      siteName: "BabyNameNestlings",
+      images: [
+        {
+          url: "/baby-boy.webp",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
+
+const ReligionCategoryNameByLetter = async ({ params }: any) => {
+  const { religionName, gender, letter } = params;
+
+  const { nameList, positions } = await getData("dataFile1");
+  const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
+  const boundary = positions[pos];
+
+  const letterNameList = nameList.slice(boundary[0], boundary[1] + 1);
+
+  const title =
+    (religionName === "islam"
+      ? "Muslim"
+      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
+    " " +
+    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
+    " " +
+    "Name";
 
   const totalItem = 560;
   const itemsPerPage = 100;
@@ -38,11 +68,11 @@ const MuslimBabyName = () => {
 
   return (
     <div className="flex items-center justify-center w-full">
-      <div className=" w-[95vw] md:w-[70vw] py-[20px]">
-        <div className="p-5 mb-5 rounded-lg">
+      <div className=" w-[95vw] md:w-[70vw] ">
+        <div className="mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
             <Image
-              src="/baby1.jpg"
+              src="/baby-boy.webp"
               alt="B"
               height={300}
               width={400}
@@ -50,19 +80,26 @@ const MuslimBabyName = () => {
             />
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
-            <h3 className="text-2xl font-bold text-center ">
-              Muslim Girl Baby Names
-            </h3>
+            <div className="flex gap-4 items-center">
+              <Image
+                alt={religionName}
+                height={6}
+                width={6}
+                className="w-6 h-6"
+                src={"/islam-icon.svg"}
+              />
+              <h3 className="text-2xl font-bold text-center ">{title}</h3>
+            </div>
 
             <div>
               <AutoCompleteSearch
                 placeHolder="Search name"
-                nameList={muslimGirlNames}
+                nameList={nameList}
               />
             </div>
 
             <div>
-              <LetterSearch />
+              <LetterSearch positions={positions} />
             </div>
           </div>
 
@@ -73,7 +110,7 @@ const MuslimBabyName = () => {
             </AccordionSummary>
           </Accordion>
 
-          {muslimGirlNames.map((nameObj: any, index: any) => {
+          {letterNameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -114,4 +151,4 @@ const MuslimBabyName = () => {
   );
 };
 
-export default MuslimBabyName;
+export default ReligionCategoryNameByLetter;

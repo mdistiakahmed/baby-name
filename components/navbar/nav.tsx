@@ -16,7 +16,7 @@ import CategoryDropdown from "./CategoryDropdown";
 
 const NavComponent = () => {
   return (
-    <Navbar disableAnimation isBordered className="bg-gray-300">
+    <Navbar isBordered className="bg-gray-300">
       <NavbarContent className="sm:hidden" justify="start">
         <CategoryDropdown isMobile={true} />
       </NavbarContent>
