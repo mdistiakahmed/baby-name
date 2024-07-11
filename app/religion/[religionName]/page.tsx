@@ -7,55 +7,25 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
+import { dummanyNameList, getReligionByName } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const { religionName, gender } = params;
-
-  const title =
-    (religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    "Name";
+  const { religionName } = params;
+  const religionDetails = getReligionByName(religionName);
 
   return {
-    title: `${title}  | BabyNameNestlings`,
-    description: `Find ${title} along with their meaning and historic importance`,
+    title: `${religionDetails.desc} Baby Name  | BabyNameNestlings`,
+    description: `Find ${religionDetails.desc.toLocaleLowerCase()} names having
+          referrenced in holy book and historial values`,
     openGraph: {
-      title: `${title}  | BabyNameNestlings`,
-      description: `Find ${title} along with their meaning and historic importance`,
+      title: `${religionDetails.desc} Baby Name  | BabyNameNestlings`,
+      description: `Find ${religionDetails.desc.toLocaleLowerCase()} names having
+          referrenced in holy book and historial values`,
       type: "article",
       locale: "en_US",
-      url: `http://babynamenestlings.com/${religionName}/${gender}`,
+      url: `http://babynamenestlings.com/${religionName}`,
       siteName: "BabyNameNestlings",
       images: [
         {
@@ -70,6 +40,7 @@ export async function generateMetadata({
 
 const ReligionPage = ({ params }: any) => {
   const { religionName } = params;
+  const religionDetails = getReligionByName(religionName);
   const updatedReligionName =
     religionName === "islam"
       ? "Muslim"
@@ -86,18 +57,18 @@ const ReligionPage = ({ params }: any) => {
             height={6}
             width={6}
             className="w-6 h-6"
-            src={"/islam-icon.svg"}
+            src={`${religionDetails.image}`}
           />
           <h3 className="text-2xl font-bold text-center ">{title}</h3>
         </div>
         <p className="text-xl text-center">
-          Find Islamic names having referrenced in Quran and Hadith along with
-          historical values
+          Find {religionDetails.desc.toLocaleLowerCase()} names having
+          referrenced in holy book and historial values
         </p>
 
-        <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
+        <div className="flex flex-col md:flex-row gap-2 my-[20px] cursor-pointer">
           <Link href={`/religion/${religionName}/boy`}>
-            <div className="h-[250px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
+            <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
               <Image
                 alt={religionName}
                 height={20}
@@ -105,13 +76,13 @@ const ReligionPage = ({ params }: any) => {
                 className="w-20 h-20"
                 src={"/young-boy-icon.svg"}
               />
-              <p className="text-2xl text-center font-semibold">
-                Find Boys Name
+              <p className="text-xl text-center ">
+                Find {religionDetails.desc} Boys Name
               </p>
             </div>
           </Link>
           <Link href={`/religion/${religionName}/girl`}>
-            <div className="h-[250px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
+            <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
               <Image
                 alt={religionName}
                 height={20}
@@ -119,8 +90,8 @@ const ReligionPage = ({ params }: any) => {
                 className="w-20 h-20"
                 src={"/young-girl-icon.svg"}
               />
-              <p className="text-2xl text-center font-semibold">
-                Find Girls Name
+              <p className="text-xl text-center ">
+                Find {religionDetails.desc} Girls Name
               </p>
             </div>
           </Link>
@@ -130,11 +101,11 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {updatedReligionName} Girl Name in {currentYear}
+                Top 10 {updatedReligionName} Girls Name in {currentYear}
               </h3>
             </div>
 
-            {x.map((nameObj: any, index: any) => {
+            {dummanyNameList.map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary
@@ -177,11 +148,11 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {updatedReligionName} Boy Name in {currentYear}
+                Top 10 {updatedReligionName} Boys Name in {currentYear}
               </h3>
             </div>
 
-            {x.map((nameObj: any, index: any) => {
+            {dummanyNameList.map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary

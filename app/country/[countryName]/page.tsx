@@ -7,47 +7,22 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
+import { dummanyNameList, getCountryByName } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const { countryName } = params;
-
-  const title = countryName + "Name";
+  const countryDetails = getCountryByName(countryName);
 
   return {
-    title: `${title}  | BabyNameNestlings`,
-    description: `Find ${title} along with their meaning and historic importance`,
+    title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
+    description: `Find most popular and beautiful ${countryDetails.desc} name for your
+          sweet baby.`,
     openGraph: {
-      title: `${title}  | BabyNameNestlings`,
-      description: `Find ${title} along with their meaning and historic importance`,
+      title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
+      description: `Find most popular and beautiful ${countryDetails.desc} name for your
+          sweet baby.`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/country/${countryName}`,
@@ -65,7 +40,7 @@ export async function generateMetadata({
 
 const SelectedCountryPage = ({ params }: any) => {
   const { countryName } = params;
-  const title = countryName + " " + "Name";
+  const countryDetails = getCountryByName(countryName);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -73,17 +48,19 @@ const SelectedCountryPage = ({ params }: any) => {
       <div className=" w-[95vw] md:w-[70vw] flex flex-col  gap-4 items-center justify-center m-5">
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Image
-            alt={countryName}
-            height={6}
-            width={6}
-            className="w-6 h-6"
-            src={"/islam-icon.svg"}
+            alt={""}
+            height={20}
+            width={20}
+            className="w-auto h-20"
+            src={`https://flagcdn.com/${countryDetails.code}.svg`}
           />
-          <h3 className="text-2xl font-bold text-center ">{title}</h3>
+          <h1 className="text-2xl font-bold text-center ">
+            {countryDetails.desc} Baby Name
+          </h1>
         </div>
         <p className="text-xl text-center">
-          Find Islamic names having referrenced in Quran and Hadith along with
-          historical values
+          Find most popular and beautiful {countryDetails.desc} name for your
+          sweet baby.
         </p>
 
         <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
@@ -96,8 +73,8 @@ const SelectedCountryPage = ({ params }: any) => {
                 className="w-20 h-20"
                 src={"/young-boy-icon.svg"}
               />
-              <p className="text-2xl text-center font-semibold">
-                Find Boys Name
+              <p className="text-xl text-center font-semibold">
+                Find {countryDetails.desc} Boys Name
               </p>
             </div>
           </Link>
@@ -110,8 +87,8 @@ const SelectedCountryPage = ({ params }: any) => {
                 className="w-20 h-20"
                 src={"/young-girl-icon.svg"}
               />
-              <p className="text-2xl text-center font-semibold">
-                Find Girls Name
+              <p className="text-xl text-center font-semibold">
+                Find {countryDetails.desc} Girls Name
               </p>
             </div>
           </Link>
@@ -121,11 +98,11 @@ const SelectedCountryPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {countryName} Girl Name in {currentYear}
+                Top 10 {countryDetails.desc} Girl Name in {currentYear}
               </h3>
             </div>
 
-            {x.map((nameObj: any, index: any) => {
+            {dummanyNameList.map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary
@@ -168,11 +145,11 @@ const SelectedCountryPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {countryName} Boy Name in {currentYear}
+                Top 10 {countryDetails.desc} Boy Name in {currentYear}
               </h3>
             </div>
 
-            {x.map((nameObj: any, index: any) => {
+            {dummanyNameList.map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary

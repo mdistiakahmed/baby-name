@@ -4,110 +4,76 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownSection,
-  Button,
-  cn,
   Avatar,
 } from "@nextui-org/react";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
+import { countries, religions } from "@/utils/constants";
+import { useRouter } from "next/navigation";
 
 const CategoryDropdown = ({ isMobile }: any) => {
-  const counties = [
-    {
-      name: "Bangladesh",
-      code: "bd",
-      desc: "Bangladeshi names",
-    },
-    {
-      name: "India",
-      code: "in",
-      desc: "Indian names",
-    },
-    {
-      name: "Japan",
-      code: "jp",
-      desc: "Japanese names",
-    },
-    {
-      name: "Korea",
-      code: "kr",
-      desc: "Korean names",
-    },
-    {
-      name: "USA",
-      code: "us",
-      desc: "American names",
-    },
-  ];
+  const router = useRouter();
 
-  const religions = [
-    {
-      name: "Islamic",
-      image: "/islam-icon.svg",
-    },
-    {
-      name: "Hindu",
-      image: "/hindu-temple-icon.svg",
-    },
-    {
-      name: "Christian",
-      image: "/church-icon.svg",
-    },
-  ];
+  const handleItemClick = (path: string) => {
+    router.push(path);
+  };
 
   const religionsOptions = religions.flatMap((r, index) => [
     <DropdownItem
-      key={`${r.name}-boy`}
+      textValue={r.name}
+      key={index}
       startContent={
         <Image
-          alt={"boy"}
+          alt={"R"}
           height={6}
           width={6}
           className="w-6 h-6"
           src={r.image}
         />
       }
+      onClick={() => handleItemClick(`/religion/${r.name.toLocaleLowerCase()}`)}
     >
-      {`${r.name} name`}
+      {`${r.desc} name`}
     </DropdownItem>,
   ]);
 
   const genderOptions = [
     <DropdownItem
-      key={`boy`}
-      description={`Baby boy names`}
+      key={`girl`}
+      textValue={`girl`}
       startContent={
         <Image
           alt={"girl"}
           height={6}
           width={6}
           className="w-6 h-6"
-          src={`/male-symbol-icon.svg`}
+          src={`/young-girl-icon.svg`}
         />
       }
     >
-      {`Boy names`}
+      Girl name
     </DropdownItem>,
     <DropdownItem
-      key={`girl`}
-      description={`Baby girl names `}
+      key={`boy`}
+      textValue={`boy`}
       startContent={
         <Image
           alt={"girl"}
           height={6}
           width={6}
           className="w-6 h-6"
-          src={`/woman-symbol-icon.svg`}
+          src={`/young-boy-icon.svg`}
         />
       }
     >
-      {`Girl names`}
+      Boy name
     </DropdownItem>,
   ];
 
-  const countriesOptions = counties.flatMap((c, index) => [
+  const countriesOptions = countries.flatMap((c, index) => [
     <DropdownItem
       key={`${index}-boy`}
+      textValue={c.name}
       startContent={
         <Avatar
           alt={c.name}
@@ -115,14 +81,12 @@ const CategoryDropdown = ({ isMobile }: any) => {
           src={`https://flagcdn.com/${c.code}.svg`}
         />
       }
+      onClick={() => handleItemClick(`/country/${c.name.toLocaleLowerCase()}`)}
     >
-      {c.desc}
+      {c.desc} name
     </DropdownItem>,
   ]);
 
-  const handleButtonClick = () => {
-    // Handle button click logic if needed
-  };
   return (
     <Dropdown
       showArrow

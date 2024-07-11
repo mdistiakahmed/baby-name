@@ -7,33 +7,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
+import { countries, dummanyNameList } from "@/utils/constants";
 
 export const metadata: Metadata = {
   title: "Baby Names By Country | BabyNameNestlings",
@@ -60,45 +34,17 @@ const CountryHomePage = () => {
   const title = updatedReligionName + " " + "Name";
   const currentYear = new Date().getFullYear();
 
-  const counties = [
-    {
-      name: "Bangladesh",
-      code: "bd",
-      desc: "Bangladeshi names",
-    },
-    {
-      name: "India",
-      code: "in",
-      desc: "Indian names",
-    },
-    {
-      name: "Japan",
-      code: "jp",
-      desc: "Japanese names",
-    },
-    {
-      name: "Korea",
-      code: "kr",
-      desc: "Korean names",
-    },
-    {
-      name: "USA",
-      code: "us",
-      desc: "American names",
-    },
-  ];
-
   const countryTop50 = (
     <div>
-      {counties.map((c: any, index: any) => (
+      {countries.map((c: any, index: any) => (
         <div className="rounded-lg" key={index}>
           <div className="flex flex-col items-center justify-center mb-5">
             <h3 className="text-2xl font-bold text-center mt-5 ">
-              Top 10 {c.name} Name in {currentYear}
+              Top 10 {c.desc} Name in {currentYear}
             </h3>
           </div>
 
-          {x.map((nameObj: any, index2: any) => {
+          {dummanyNameList.map((nameObj: any, index2: any) => {
             return (
               <Accordion key={index2}>
                 <AccordionSummary
@@ -144,7 +90,7 @@ const CountryHomePage = () => {
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-[40px] cursor-pointer">
-        {counties.map((c, index) => {
+        {countries.map((c, index) => {
           const mobileBgClass =
             index % 2 === 0
               ? "bg-[#f06246] hover:bg-[#f3917d]"
@@ -165,7 +111,7 @@ const CountryHomePage = () => {
                   className="w-auto h-20"
                   src={`https://flagcdn.com/${c.code}.svg`}
                 />
-                <p className="text-xl text-center ">Find {c.desc}</p>
+                <p className="text-xl text-center ">Find {c.desc} Name</p>
               </div>
             </Link>
           );
