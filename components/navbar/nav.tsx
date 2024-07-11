@@ -16,23 +16,23 @@ import CategoryDropdown from "./CategoryDropdown";
 
 const NavComponent = () => {
   return (
-    <Navbar isBordered className="bg-gray-300">
+    <Navbar isBordered className="bg-[#f06246]">
       <NavbarContent className="sm:hidden" justify="start">
         <CategoryDropdown isMobile={true} />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <Link href={`/`} className="text-black">
+          <Link href={`/`} className="text-white">
             <AcmeLogo />
-            <p className="font-bold text-inherit ">Baby Name Nestlings</p>
+            <p className="font-bold text-inherit">Baby Name Nestlings</p>
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
-          <Link href={`/`} className="text-black">
+          <Link href={`/`} className="text-white">
             <AcmeLogo />
             <p className="font-bold text-inherit ">Baby Name Nestlings</p>
           </Link>

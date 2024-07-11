@@ -33,14 +33,76 @@ const x = [
   },
 ];
 
+const religions = [
+  {
+    name: "Buddhist",
+    image: "/buddhism-icon.svg",
+    path: "buddhist",
+  },
+  {
+    name: "Christian",
+    image: "/church-icon.svg",
+    path: "christian",
+  },
+  {
+    name: "Hindu",
+    image: "/hindu-temple-icon.svg",
+    path: "hindu",
+  },
+  {
+    name: "Islamic",
+    image: "/islam-icon.svg",
+    path: "islam",
+  },
+];
+
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+  const religionSection = (
+    <div className="flex flex-col items-center justify-center">
+      <h3 className="text-xl font-semibold">Find Name by Religion</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-[40px] cursor-pointer">
+        {religions.map((r, index) => {
+          const mobileBgClass =
+            index % 2 === 0
+              ? "bg-[#f06246] hover:bg-[#f3917d]"
+              : "bg-[#006fee] hover:bg-[#88b3e3]";
+          const mediumBgClass =
+            index === 0 || index === 3
+              ? "bg-[#f06246] hover:bg-[#f3917d]"
+              : "bg-[#006fee] hover:bg-[#88b3e3]";
+          return (
+            <Link href={`/religion/${r.path}`} key={index}>
+              <div
+                className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
+              >
+                <Image
+                  alt={""}
+                  height={20}
+                  width={20}
+                  className="w-20 h-20"
+                  src={r.image}
+                />
+                <p className="text-2xl text-center font-semibold">
+                  Find {r.name} Name
+                </p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
   return (
     <div className="flex items-center justify-center w-full">
-      <div className=" w-[95vw] md:w-[70vw] py-[20px]">
+      <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
+        <h1 className="text-2xl font-bold text-center">
+          Find Most Beautiful Name for Your Baby
+        </h1>
         <div className="p-5 mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
             <Image
-              src="/baby1.jpg"
+              src="/baby-boy.webp"
               alt="B"
               height={300}
               width={400}
@@ -48,8 +110,8 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col items-center justify-center mb-5">
-            <h3 className="text-2xl font-bold text-center mt-5 ">
-              Most Popular Baby Names (Girl)
+            <h3 className="text-xl font-bold text-center mt-5 ">
+              Top 10 Names in {currentYear}
             </h3>
           </div>
 
@@ -92,6 +154,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {religionSection}
       </div>
     </div>
   );

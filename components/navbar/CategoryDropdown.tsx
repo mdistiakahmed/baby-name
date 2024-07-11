@@ -134,7 +134,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
     >
       <DropdownTrigger>
         <div>
-          {isMobile && <MenuIcon />}
+          {isMobile && <MenuIcon sx={{ color: "white" }} />}
           {!isMobile && (
             <p className="bg-[#006fee] text-white p-2 rounded-lg cursor-pointer">
               Search By Category

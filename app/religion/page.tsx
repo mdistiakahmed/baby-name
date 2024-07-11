@@ -93,48 +93,50 @@ const ReligionCategoryPage = () => {
           Find baby names based on religious significance
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-[40px] cursor-pointer">
-          {religions.map((r, index) => {
-            const mobileBgClass =
-              index % 2 === 0
-                ? "bg-[#f06246] hover:bg-[#f3917d]"
-                : "bg-[#006fee] hover:bg-[#88b3e3]";
-            const mediumBgClass =
-              index === 0 || index === 3
-                ? "bg-[#f06246] hover:bg-[#f3917d]"
-                : "bg-[#006fee] hover:bg-[#88b3e3]";
-            return (
-              <Link href={`/religion/${r.path}`} key={index}>
-                <div
-                  className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
-                >
-                  <Image
-                    alt={""}
-                    height={20}
-                    width={20}
-                    className="w-20 h-20"
-                    src={r.image}
-                  />
-                  <p className="text-2xl text-center font-semibold">
-                    Find {r.name} Name
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
+        <div className="flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-[40px] cursor-pointer">
+            {religions.map((r, index) => {
+              const mobileBgClass =
+                index % 2 === 0
+                  ? "bg-[#f06246] hover:bg-[#f3917d]"
+                  : "bg-[#006fee] hover:bg-[#88b3e3]";
+              const mediumBgClass =
+                index === 0 || index === 3
+                  ? "bg-[#f06246] hover:bg-[#f3917d]"
+                  : "bg-[#006fee] hover:bg-[#88b3e3]";
+              return (
+                <Link href={`/religion/${r.path}`} key={index}>
+                  <div
+                    className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
+                  >
+                    <Image
+                      alt={""}
+                      height={20}
+                      width={20}
+                      className="w-20 h-20"
+                      src={r.image}
+                    />
+                    <p className="text-2xl text-center font-semibold">
+                      Find {r.name} Name
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         {religions.map((r, index) => (
-          <div className="rounded-lg">
+          <div className="rounded-lg" key={index}>
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
                 Top 10 {r.name} Name in {currentYear}
               </h3>
             </div>
 
-            {x.map((nameObj: any, index: any) => {
+            {x.map((nameObj: any, index2: any) => {
               return (
-                <Accordion key={index}>
+                <Accordion key={index2}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1-content"
