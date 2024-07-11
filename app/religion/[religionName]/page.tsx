@@ -1,14 +1,39 @@
 import Image from "next/image";
+import { Metadata } from "next";
+import Link from "next/link";
+
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Metadata } from "next";
-import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
-import LetterSearch from "@/components/search/LetterSearch";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
-import Link from "next/link";
+
+const x = [
+  {
+    name: "Istiak",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Istiak",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Istiak",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+];
 
 export async function generateMetadata({
   params,
@@ -45,12 +70,12 @@ export async function generateMetadata({
 
 const ReligionPage = ({ params }: any) => {
   const { religionName } = params;
-  const title =
-    (religionName === "islam"
+  const updatedReligionName =
+    religionName === "islam"
       ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    "Name";
+      : religionName.charAt(0).toUpperCase() + religionName.slice(1);
+  const title = updatedReligionName + " " + "Name";
+  const currentYear = new Date().getFullYear();
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -71,27 +96,129 @@ const ReligionPage = ({ params }: any) => {
         </p>
 
         <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
-          <div className="h-[250px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
-            <p className="text-2xl text-center font-semibold">Find Boys Name</p>
-            <Image
-              alt={religionName}
-              height={20}
-              width={20}
-              className="w-20 h-20"
-              src={"/young-boy-icon.svg"}
-            />
+          <Link href={`/religion/${religionName}/boy`}>
+            <div className="h-[250px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
+              <Image
+                alt={religionName}
+                height={20}
+                width={20}
+                className="w-20 h-20"
+                src={"/young-boy-icon.svg"}
+              />
+              <p className="text-2xl text-center font-semibold">
+                Find Boys Name
+              </p>
+            </div>
+          </Link>
+          <Link href={`/religion/${religionName}/girl`}>
+            <div className="h-[250px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
+              <Image
+                alt={religionName}
+                height={20}
+                width={20}
+                className="w-20 h-20"
+                src={"/young-girl-icon.svg"}
+              />
+              <p className="text-2xl text-center font-semibold">
+                Find Girls Name
+              </p>
+            </div>
+          </Link>
+        </div>
+
+        <div className="boy-girl-example-container">
+          <div className="rounded-lg">
+            <div className="flex flex-col items-center justify-center mb-5">
+              <h3 className="text-2xl font-bold text-center mt-5 ">
+                Top 10 {updatedReligionName} Girl Name in {currentYear}
+              </h3>
+            </div>
+
+            {x.map((nameObj: any, index: any) => {
+              return (
+                <Accordion key={index}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                  >
+                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                      {nameObj.name}
+                    </Typography>
+                    <Typography sx={{ color: "text.secondary" }}>
+                      {nameObj.meaning}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                      {nameObj.stories.map((story: any, idx: any) => {
+                        return (
+                          <li key={idx} className="mb-2">
+                            <p className="text-gray-800 text-md">{story}</p>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
+
+            <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+              <Link
+                href={`/religion/${religionName}/girl`}
+                className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+              >
+                See More
+              </Link>
+            </div>
           </div>
-          <div className="h-[250px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
-            <p className="text-2xl text-center font-semibold">
-              Find Girls Name
-            </p>
-            <Image
-              alt={religionName}
-              height={20}
-              width={20}
-              className="w-20 h-20"
-              src={"/young-girl-icon.svg"}
-            />
+
+          <div className="rounded-lg">
+            <div className="flex flex-col items-center justify-center mb-5">
+              <h3 className="text-2xl font-bold text-center mt-5 ">
+                Top 10 {updatedReligionName} Boy Name in {currentYear}
+              </h3>
+            </div>
+
+            {x.map((nameObj: any, index: any) => {
+              return (
+                <Accordion key={index}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                  >
+                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                      {nameObj.name}
+                    </Typography>
+                    <Typography sx={{ color: "text.secondary" }}>
+                      {nameObj.meaning}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                      {nameObj.stories.map((story: any, idx: any) => {
+                        return (
+                          <li key={idx} className="mb-2">
+                            <p className="text-gray-800 text-md">{story}</p>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
+
+            <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+              <Link
+                href={`/religion/${religionName}/boy`}
+                className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+              >
+                See More
+              </Link>
+            </div>
           </div>
         </div>
       </div>

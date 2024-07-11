@@ -16,32 +16,27 @@ const CategoryDropdown = ({ isMobile }: any) => {
     {
       name: "Bangladesh",
       code: "bd",
-      boy_desc: "Bangladeshi boy names",
-      girl_desc: "Bangladeshi girl names",
+      desc: "Bangladeshi names",
     },
     {
       name: "India",
       code: "in",
-      boy_desc: "Indian boy names",
-      girl_desc: "Indian girl names",
+      desc: "Indian names",
     },
     {
       name: "Japan",
       code: "jp",
-      boy_desc: "Japanese boy names",
-      girl_desc: "Japanse girl names",
+      desc: "Japanese names",
     },
     {
       name: "Korea",
       code: "kr",
-      boy_desc: "Korean boy names",
-      girl_desc: "Korean girl names",
+      desc: "Korean names",
     },
     {
       name: "USA",
       code: "us",
-      boy_desc: "American boy names",
-      girl_desc: "American girl names",
+      desc: "American names",
     },
   ];
 
@@ -73,21 +68,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
         />
       }
     >
-      {`${r.name} boy name`}
-    </DropdownItem>,
-    <DropdownItem
-      key={`${r.name}-girl`}
-      startContent={
-        <Image
-          alt={"girl"}
-          height={6}
-          width={6}
-          className="w-6 h-6"
-          src={r.image}
-        />
-      }
-    >
-      {`${r.name} girl name`}
+      {`${r.name} name`}
     </DropdownItem>,
   ]);
 
@@ -135,19 +116,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
         />
       }
     >
-      {c.boy_desc}
-    </DropdownItem>,
-    <DropdownItem
-      key={`${index}-girl`}
-      startContent={
-        <Avatar
-          alt={c.name}
-          className="w-6 h-6"
-          src={`https://flagcdn.com/${c.code}.svg`}
-        />
-      }
-    >
-      {c.girl_desc}
+      {c.desc}
     </DropdownItem>,
   ]);
 
