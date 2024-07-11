@@ -8,11 +8,13 @@ import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
+import { getReligionByName } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const { religionName, gender } = params;
+  const religionDetails = getReligionByName(religionName);
 
   const title =
     (religionName === "islam"
@@ -24,11 +26,11 @@ export async function generateMetadata({
     "Name";
 
   return {
-    title: `${title}  | BabyNameNestlings`,
-    description: `Discover ${title} along with their meaning and historic importance`,
+    title: `${religionDetails.desc} ${gender} Names`,
+    description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
     openGraph: {
-      title: `${title}  | BabyNameNestlings`,
-      description: `Discover ${title} along with their meaning and historic importance`,
+      title: `${religionDetails.desc} ${gender} Names`,
+      description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}`,
@@ -46,8 +48,11 @@ export async function generateMetadata({
 
 const ReligiousNames = async ({ params }: any) => {
   const { religionName, gender } = params;
+  const religionDetails = getReligionByName(religionName);
 
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getData(
+    gender === "girl" ? "dataFile1" : "dataFile2"
+  );
 
   const title =
     (religionName === "islam"
@@ -82,9 +87,11 @@ const ReligiousNames = async ({ params }: any) => {
                 height={6}
                 width={6}
                 className="w-6 h-6"
-                src={"/islam-icon.svg"}
+                src={religionDetails.image}
               />
-              <h3 className="text-2xl font-bold text-center ">{title}</h3>
+              <h1 className="text-2xl font-bold text-center ">
+                {religionDetails.desc} {gender} Names
+              </h1>
             </div>
 
             <div>
