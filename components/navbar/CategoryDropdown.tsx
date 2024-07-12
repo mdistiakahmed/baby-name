@@ -50,6 +50,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
           src={`/young-girl-icon.svg`}
         />
       }
+      onClick={() => handleItemClick(`/gender/girl`)}
     >
       Girl name
     </DropdownItem>,
@@ -65,6 +66,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
           src={`/young-boy-icon.svg`}
         />
       }
+      onClick={() => handleItemClick(`/gender/boy`)}
     >
       Boy name
     </DropdownItem>,

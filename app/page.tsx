@@ -5,87 +5,45 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
 import Link from "next/link";
-
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
-
-const religions = [
-  {
-    name: "Buddhist",
-    image: "/buddhism-icon.svg",
-    path: "buddhist",
-  },
-  {
-    name: "Christian",
-    image: "/church-icon.svg",
-    path: "christian",
-  },
-  {
-    name: "Hindu",
-    image: "/hindu-temple-icon.svg",
-    path: "hindu",
-  },
-  {
-    name: "Islamic",
-    image: "/islam-icon.svg",
-    path: "islam",
-  },
-];
-
-const counties = [
-  {
-    name: "Bangladesh",
-    code: "bd",
-    desc: "Bangladeshi names",
-  },
-  {
-    name: "India",
-    code: "in",
-    desc: "Indian names",
-  },
-  {
-    name: "Japan",
-    code: "jp",
-    desc: "Japanese names",
-  },
-  {
-    name: "Korea",
-    code: "kr",
-    desc: "Korean names",
-  },
-  {
-    name: "USA",
-    code: "us",
-    desc: "American names",
-  },
-];
+import { countries, dummanyNameList, religions } from "@/utils/constants";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+
+  const genderSection = (
+    <div className="my-20">
+      <h2 className="text-center text-xl font-semibold">
+        Find Names By Gender
+      </h2>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-2 my-[20px] cursor-pointer">
+        <Link href={`/gender/boy`}>
+          <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
+            <Image
+              alt={""}
+              height={20}
+              width={20}
+              className="w-20 h-20"
+              src={"/young-boy-icon.svg"}
+            />
+            <p className="text-xl text-center ">Find Boys Name</p>
+          </div>
+        </Link>
+        <Link href={`/gender/girl`}>
+          <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
+            <Image
+              alt={""}
+              height={20}
+              width={20}
+              className="w-20 h-20"
+              src={"/young-girl-icon.svg"}
+            />
+            <p className="text-xl text-center ">Find Girls Name</p>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+
   const religionSection = (
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-xl font-semibold">Find Name by Religion</h3>
@@ -112,7 +70,7 @@ export default function Home() {
                   src={r.image}
                 />
                 <p className="text-2xl text-center font-semibold">
-                  Find {r.name} Name
+                  Find {r.desc} Name
                 </p>
               </div>
             </Link>
@@ -134,7 +92,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-xl font-semibold">Find Name by Country</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-[40px] cursor-pointer">
-        {counties.map((c, index) => {
+        {countries.map((c, index) => {
           const mobileBgClass =
             index % 2 === 0
               ? "bg-[#f06246] hover:bg-[#f3917d]"
@@ -195,7 +153,7 @@ export default function Home() {
             </h3>
           </div>
 
-          {x.map((nameObj: any, index: any) => {
+          {dummanyNameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -234,6 +192,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <div>{genderSection}</div>
         <div>{religionSection}</div>
 
         <div className="mt-10">{countrySection}</div>

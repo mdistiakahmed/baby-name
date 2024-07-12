@@ -4,6 +4,7 @@ import "./globals.css";
 import NavComponent from "@/components/navbar/nav";
 import { NextUIProvider } from "@nextui-org/react";
 import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           <NavComponent />
           <Breadcrumb />
           <div>{children}</div>
+          <Footer />
         </NextUIProvider>
       </body>
     </html>

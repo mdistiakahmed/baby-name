@@ -31,21 +31,34 @@ export const religions = [
     name: "Islam",
     desc: "Islamic",
     image: "/islam-icon.svg",
+    path: "christian",
   },
   {
     name: "Hindu",
     desc: "Hindu",
     image: "/hindu-temple-icon.svg",
+    path: "hindu",
   },
   {
     name: "Christian",
     desc: "Christian",
     image: "/church-icon.svg",
+    path: "christian",
   },
   {
     name: "Buddhist",
     desc: "Buddhist",
     image: "/buddhism-icon.svg",
+    path: "buddhist",
+  },
+];
+
+export const gender = [
+  {
+    name: "Girl",
+  },
+  {
+    name: "Boy",
   },
 ];
 
