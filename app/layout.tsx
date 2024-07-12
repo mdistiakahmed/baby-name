@@ -5,6 +5,7 @@ import NavComponent from "@/components/navbar/nav";
 import { NextUIProvider } from "@nextui-org/react";
 import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import Footer from "@/components/footer/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-P2GM4FBYCH" />
       <body className={inter.className}>
         <NextUIProvider>
           <NavComponent />
