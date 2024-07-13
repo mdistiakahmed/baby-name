@@ -7,27 +7,26 @@ import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
-import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const { religionName, gender, letter } = params;
-  const religionDetails = getReligionByName(religionName);
+  const { genderName, letter } = params;
 
-  const title = `${religionDetails.desc} ${gender} names starts with ${letter}`;
+  const title = `${genderName} name starts with ${letter
+    .charAt(0)
+    .toUpperCase()}`;
 
   return {
     title: `${title}  | BabyNameNestlings`,
-    description: `Find ${title} names having
-          referrenced in holy book and historial values`,
+    description: `Discover ${title} with their meaning and historic importance`,
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
-      description: `Find ${title} names having
-          referrenced in holy book and historial values`,
+      description: `Discover ${title} with their meaning and historic importance`,
       type: "article",
       locale: "en_US",
-      url: `http://babynamenestlings.com/${religionName}/${gender}/${letter}`,
+      url: `http://babynamenestlings.com/gender/${genderName}/${letter}`,
       siteName: "BabyNameNestlings",
       images: [
         {
@@ -40,9 +39,9 @@ export async function generateMetadata({
   };
 }
 
-const ReligionCategoryNameByLetter = async ({ params }: any) => {
-  const { religionName, gender, letter } = params;
-  const religionDetails = getReligionByName(religionName);
+const CountryGenderLetterPage = async ({ params }: any) => {
+  const { genderName, letter } = params;
+  const genderDetalis = getGenderByName(genderName);
 
   const { nameList, positions } = await getData("dataFile1");
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
@@ -54,6 +53,9 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
   );
 
   const totalItem = boundary[1] - boundary[0] + 1;
+  const title = `${genderDetalis.name} name starts with ${letter
+    .charAt(0)
+    .toUpperCase()}`;
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -71,15 +73,13 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <Image
-                alt={religionName}
+                alt={genderName}
                 height={10}
                 width={10}
                 className="w-auto h-10"
-                src={religionDetails.image}
+                src={genderDetalis.image}
               />
-              <h3 className="text-2xl font-bold text-center ">
-                {religionDetails.desc} {gender} names starts with {letter}
-              </h3>
+              <h1 className="text-2xl text-center ">{title}</h1>
             </div>
 
             <div>
@@ -131,4 +131,4 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
   );
 };
 
-export default ReligionCategoryNameByLetter;
+export default CountryGenderLetterPage;

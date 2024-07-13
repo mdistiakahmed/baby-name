@@ -4,31 +4,25 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
-import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
-import { ITEMS_PER_PAGE } from "@/utils/constants";
+import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const { countryName, gender } = params;
+  const countryDetails = getCountryByName(countryName);
 
-  const title =
-    countryName.charAt(0).toUpperCase() +
-    countryName.slice(1) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    "Name";
+  const title = `${countryDetails.desc} ${gender} name`;
 
   return {
     title: `${title}  | BabyNameNestlings`,
-    description: `Discover ${title} along with their meaning and historic importance`,
+    description: `Find most beautiful ${title} name for your baby.`,
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
-      description: `Discover ${title} along with their meaning and historic importance`,
+      description: `Find most beautiful ${title} name for your baby.`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/country/${countryName}/${gender}`,
@@ -44,18 +38,10 @@ export async function generateMetadata({
   };
 }
 
-const ReligiousNames = async ({ params }: any) => {
+const SelectedCountryByGenderNames = async ({ params }: any) => {
   const { countryName, gender } = params;
-
+  const countryDetails = getCountryByName(countryName);
   const { nameList, positions } = await getData("dataFile1");
-
-  const title =
-    countryName.charAt(0).toUpperCase() +
-    countryName.slice(1) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    "Name";
 
   const totalItem = nameList.length;
   const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);
@@ -77,12 +63,14 @@ const ReligiousNames = async ({ params }: any) => {
             <div className="flex gap-4 items-center">
               <Image
                 alt={countryName}
-                height={6}
-                width={6}
-                className="w-6 h-6"
-                src={"/islam-icon.svg"}
+                height={10}
+                width={10}
+                className="w-auto h-10"
+                src={`https://flagcdn.com/${countryDetails.code}.svg`}
               />
-              <h3 className="text-2xl font-bold text-center ">{title}</h3>
+              <h1 className="text-2xl text-center ">
+                {countryDetails.desc} {gender} name
+              </h1>
             </div>
 
             <div>
@@ -134,4 +122,4 @@ const ReligiousNames = async ({ params }: any) => {
   );
 };
 
-export default ReligiousNames;
+export default SelectedCountryByGenderNames;

@@ -4,32 +4,27 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
-import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
-import { ITEMS_PER_PAGE } from "@/utils/constants";
+import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const { religionName, gender, letter } = params;
+  const religionDetails = getReligionByName(religionName);
 
-  const title =
-    (religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    `name starts with ${letter}`;
+  const title = `${religionDetails.desc} ${gender} names starts with ${letter}`;
 
   return {
     title: `${title}  | BabyNameNestlings`,
-    description: `Discover ${title} along with their meaning and historic importance`,
+    description: `Find ${title} names having
+          referrenced in holy book and historial values`,
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
-      description: `Discover ${title} along with their meaning and historic importance`,
+      description: `Find ${title} names having
+          referrenced in holy book and historial values`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}/${letter}`,
@@ -47,6 +42,7 @@ export async function generateMetadata({
 
 const PaginatedReligiousGenderLetterPage = async ({ params }: any) => {
   const { religionName, gender, letter, pageId } = params;
+  const religionDetails = getReligionByName(religionName);
 
   const { nameList, positions } = await getData("dataFile1");
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
@@ -54,18 +50,8 @@ const PaginatedReligiousGenderLetterPage = async ({ params }: any) => {
 
   const letterNameList = nameList.slice(boundary[0], boundary[1] + 1);
 
-  const title =
-    (religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    "Name";
-
   const pageNumber = Number(pageId);
   const totalItem = letterNameList.length;
-  const currentPageUrl = `/religion/${religionName}/${gender}/pagination/${pageId}`;
 
   const paginatedNameList = letterNameList.slice(
     (pageNumber - 1) * ITEMS_PER_PAGE,
@@ -92,16 +78,11 @@ const PaginatedReligiousGenderLetterPage = async ({ params }: any) => {
                 height={6}
                 width={6}
                 className="w-6 h-6"
-                src={"/islam-icon.svg"}
+                src={religionDetails.image}
               />
-              <h3 className="text-2xl font-bold text-center ">{title}</h3>
-            </div>
-
-            <div>
-              <AutoCompleteSearch
-                placeHolder="Search name"
-                nameList={nameList}
-              />
+              <h3 className="text-2xl font-bold text-center ">
+                {religionDetails.desc} {gender} names starts with {letter}
+              </h3>
             </div>
 
             <div>
@@ -147,7 +128,6 @@ const PaginatedReligiousGenderLetterPage = async ({ params }: any) => {
           <div className="flex items-center justify-center p-10">
             <PaginationComponent
               totalItem={totalItem}
-              currentPageUrl={currentPageUrl}
               pageNumber={pageNumber}
             />
           </div>

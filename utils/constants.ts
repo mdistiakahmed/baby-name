@@ -95,7 +95,7 @@ export const getReligionByName = (name: string) => {
 
 export const dummanyNameList = [
   {
-    name: "Istiak",
+    name: "Mohammad",
     meaning: "Love, Affection, Attraction",
     stories: [
       "Md Istiak Ahmed was a great computer scientiest born in 1994.",
@@ -111,7 +111,47 @@ export const dummanyNameList = [
     ],
   },
   {
+    name: "Ahmed",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Ahmed",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Mohammad",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
     name: "Istiak",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Ahmed",
+    meaning: "Love, Affection, Attraction",
+    stories: [
+      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
+      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+    ],
+  },
+  {
+    name: "Ahmed",
     meaning: "Love, Affection, Attraction",
     stories: [
       "Md Istiak Ahmed was a great computer scientiest born in 1994.",

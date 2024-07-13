@@ -4,7 +4,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
-import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
@@ -16,21 +15,12 @@ export async function generateMetadata({
   const { religionName, gender } = params;
   const religionDetails = getReligionByName(religionName);
 
-  const title =
-    (religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    "Name";
-
   return {
     title: `${religionDetails.desc} ${gender} Names`,
-    description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
+    description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
     openGraph: {
       title: `${religionDetails.desc} ${gender} Names`,
-      description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
+      description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}`,
@@ -82,13 +72,6 @@ const ReligiousNames = async ({ params }: any) => {
               <h1 className="text-2xl font-bold text-center ">
                 {religionDetails.desc} {gender} Names
               </h1>
-            </div>
-
-            <div>
-              <AutoCompleteSearch
-                placeHolder="Search name"
-                nameList={nameList}
-              />
             </div>
 
             <div>

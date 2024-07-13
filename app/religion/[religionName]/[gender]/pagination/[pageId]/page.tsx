@@ -16,21 +16,12 @@ export async function generateMetadata({
   const { religionName, gender } = params;
   const religionDetails = getReligionByName(religionName);
 
-  const title =
-    (religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1)) +
-    " " +
-    (gender.charAt(0).toUpperCase() + gender.slice(1)) +
-    " " +
-    "Name";
-
   return {
     title: `${religionDetails.desc} ${gender} Names`,
-    description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
+    description: `Find ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
     openGraph: {
       title: `${religionDetails.desc} ${gender} Names`,
-      description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and historic importance`,
+      description: `Find ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}`,
@@ -56,7 +47,6 @@ const PaginatedReligiousGenderPage = async ({ params }: any) => {
 
   const pageNumber = Number(pageId);
   const totalItem = nameList.length;
-  const currentPageUrl = `/religion/${religionName}/${gender}`;
 
   const paginatedNameList = nameList.slice(
     (pageNumber - 1) * ITEMS_PER_PAGE,
@@ -133,7 +123,6 @@ const PaginatedReligiousGenderPage = async ({ params }: any) => {
           <div className="flex items-center justify-center p-10">
             <PaginationComponent
               totalItem={totalItem}
-              currentPageUrl={currentPageUrl}
               pageNumber={pageNumber}
             />
           </div>

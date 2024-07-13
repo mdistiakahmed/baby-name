@@ -7,40 +7,14 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-const x = [
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-  {
-    name: "Istiak",
-    meaning: "Love, Affection, Attraction",
-    stories: [
-      "Md Istiak Ahmed was a great computer scientiest born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
-    ],
-  },
-];
+import { dummanyNameList, religions } from "@/utils/constants";
 
 export const metadata: Metadata = {
   title: "Baby Names By Religion | BabyNameNestlings",
-  description: "Find baby names based on religious importance",
+  description: "Find baby names based on religious values",
   openGraph: {
     title: "Baby Names By Religion | BabyNameNestlings",
-    description: "Find baby names based on religious importance",
+    description: "Find baby names based on religious values",
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/religion`,
@@ -56,32 +30,7 @@ export const metadata: Metadata = {
 };
 
 const ReligionCategoryPage = () => {
-  const updatedReligionName = "";
-  const title = updatedReligionName + " " + "Name";
   const currentYear = new Date().getFullYear();
-
-  const religions = [
-    {
-      name: "Buddhist",
-      image: "/buddhism-icon.svg",
-      path: "buddhist",
-    },
-    {
-      name: "Christian",
-      image: "/church-icon.svg",
-      path: "christian",
-    },
-    {
-      name: "Hindu",
-      image: "/hindu-temple-icon.svg",
-      path: "hindu",
-    },
-    {
-      name: "Islamic",
-      image: "/islam-icon.svg",
-      path: "islam",
-    },
-  ];
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -134,7 +83,7 @@ const ReligionCategoryPage = () => {
               </h3>
             </div>
 
-            {x.map((nameObj: any, index2: any) => {
+            {dummanyNameList.map((nameObj: any, index2: any) => {
               return (
                 <Accordion key={index2}>
                   <AccordionSummary

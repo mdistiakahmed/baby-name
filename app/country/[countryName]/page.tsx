@@ -17,12 +17,10 @@ export async function generateMetadata({
 
   return {
     title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
-    description: `Find most popular and beautiful ${countryDetails.desc} name for your
-          sweet baby.`,
+    description: `Find most beautiful ${countryDetails.desc} name for your baby.`,
     openGraph: {
       title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
-      description: `Find most popular and beautiful ${countryDetails.desc} name for your
-          sweet baby.`,
+      description: `Find most beautiful ${countryDetails.desc} name for your baby.`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/country/${countryName}`,
@@ -59,8 +57,7 @@ const SelectedCountryPage = ({ params }: any) => {
           </h1>
         </div>
         <p className="text-xl text-center">
-          Find most popular and beautiful {countryDetails.desc} name for your
-          sweet baby.
+          Find most beautiful {countryDetails.desc} name for your baby.
         </p>
 
         <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">

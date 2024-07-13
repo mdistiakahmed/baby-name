@@ -11,10 +11,10 @@ import { countries, dummanyNameList } from "@/utils/constants";
 
 export const metadata: Metadata = {
   title: "Baby Names By Country | BabyNameNestlings",
-  description: "Find baby names based on country",
+  description: "Find baby names based on country and cultural values",
   openGraph: {
     title: "Baby Names By Country | BabyNameNestlings",
-    description: "Find baby names based on country",
+    description: "Find baby names based on country and cultural values",
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/country`,
@@ -30,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 const CountryHomePage = () => {
-  const updatedReligionName = "";
-  const title = updatedReligionName + " " + "Name";
   const currentYear = new Date().getFullYear();
 
   const countryTop50 = (
@@ -105,7 +103,7 @@ const CountryHomePage = () => {
                 className={`h-[180px] w-[250px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
               >
                 <Image
-                  alt={""}
+                  alt={"C"}
                   height={20}
                   width={20}
                   className="w-auto h-20"
@@ -135,7 +133,7 @@ const CountryHomePage = () => {
           Baby Names By Country
         </h1>
         <p className="text-xl text-center">
-          Find baby names based on country and cultural significance
+          Find baby names based on country and cultural values
         </p>
 
         <div>{countrySection}</div>

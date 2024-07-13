@@ -7,27 +7,25 @@ import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
-import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const { religionName, gender, letter } = params;
-  const religionDetails = getReligionByName(religionName);
+  const { countryName, gender, pageId } = params;
+  const countryDetails = getCountryByName(countryName);
 
-  const title = `${religionDetails.desc} ${gender} names starts with ${letter}`;
+  const title = `${countryDetails.desc} ${gender} name`;
 
   return {
     title: `${title}  | BabyNameNestlings`,
-    description: `Find ${title} names having
-          referrenced in holy book and historial values`,
+    description: `Find most beautiful ${title} name for your baby.`,
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
-      description: `Find ${title} names having
-          referrenced in holy book and historial values`,
+      description: `Find most beautiful ${title} name for your baby.`,
       type: "article",
       locale: "en_US",
-      url: `http://babynamenestlings.com/${religionName}/${gender}/${letter}`,
+      url: `http://babynamenestlings.com/country/${countryName}/${gender}`,
       siteName: "BabyNameNestlings",
       images: [
         {
@@ -40,20 +38,18 @@ export async function generateMetadata({
   };
 }
 
-const ReligionCategoryNameByLetter = async ({ params }: any) => {
-  const { religionName, gender, letter } = params;
-  const religionDetails = getReligionByName(religionName);
-
+const PaginatedCountryGenderPage = async ({ params }: any) => {
+  const { countryName, gender, pageId } = params;
+  const countryDetails = getCountryByName(countryName);
   const { nameList, positions } = await getData("dataFile1");
-  const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
-  const boundary = positions[pos];
 
-  const letterNameList = nameList.slice(
-    boundary[0],
-    Math.min(boundary[1] + 1, boundary[0] + ITEMS_PER_PAGE)
+  const pageNumber = Number(pageId);
+  const totalItem = nameList.length;
+
+  const paginatedNameList = nameList.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
   );
-
-  const totalItem = boundary[1] - boundary[0] + 1;
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -69,17 +65,17 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
             />
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="flex gap-4 items-center">
               <Image
-                alt={religionName}
+                alt={countryName}
                 height={10}
                 width={10}
                 className="w-auto h-10"
-                src={religionDetails.image}
+                src={`https://flagcdn.com/${countryDetails.code}.svg`}
               />
-              <h3 className="text-2xl font-bold text-center ">
-                {religionDetails.desc} {gender} names starts with {letter}
-              </h3>
+              <h1 className="text-2xl font-bold text-center ">
+                {countryDetails.desc} {gender} name
+              </h1>
             </div>
 
             <div>
@@ -94,7 +90,7 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {letterNameList.map((nameObj: any, index: any) => {
+          {paginatedNameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -123,7 +119,10 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
           })}
 
           <div className="flex items-center justify-center p-10">
-            <PaginationComponent totalItem={totalItem} />
+            <PaginationComponent
+              totalItem={totalItem}
+              pageNumber={pageNumber}
+            />
           </div>
         </div>
       </div>
@@ -131,4 +130,4 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
   );
 };
 
-export default ReligionCategoryNameByLetter;
+export default PaginatedCountryGenderPage;

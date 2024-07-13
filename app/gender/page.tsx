@@ -6,7 +6,28 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList, gender, getReligionByName } from "@/utils/constants";
+import { dummanyNameList, gender } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Baby Names By Gender | BabyNameNestlings",
+  description: "Find worlds most beautiful boy and girl names",
+  openGraph: {
+    title: "Baby Names By Gender | BabyNameNestlings",
+    description: "Find worlds most beautiful boy and girl names",
+    type: "article",
+    locale: "en_US",
+    url: `http://babynamenestlings.com/gender`,
+    siteName: "BabyNameNestlings",
+    images: [
+      {
+        url: "/baby-boy.webp",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+};
 
 const GenderCategoryPage = () => {
   const currentYear = new Date().getFullYear();

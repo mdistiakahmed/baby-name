@@ -41,11 +41,6 @@ export async function generateMetadata({
 const ReligionPage = ({ params }: any) => {
   const { religionName } = params;
   const religionDetails = getReligionByName(religionName);
-  const updatedReligionName =
-    religionName === "islam"
-      ? "Muslim"
-      : religionName.charAt(0).toUpperCase() + religionName.slice(1);
-  const title = updatedReligionName + " " + "Name";
   const currentYear = new Date().getFullYear();
 
   return (
@@ -59,7 +54,9 @@ const ReligionPage = ({ params }: any) => {
             className="w-6 h-6"
             src={`${religionDetails.image}`}
           />
-          <h3 className="text-2xl font-bold text-center ">{title}</h3>
+          <h3 className="text-2xl font-bold text-center ">
+            {religionDetails.desc} Baby Names
+          </h3>
         </div>
         <p className="text-xl text-center">
           Find {religionDetails.desc.toLocaleLowerCase()} names having
@@ -101,7 +98,7 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {updatedReligionName} Girls Name in {currentYear}
+                Top 10 {religionDetails.desc} Girls Name in {currentYear}
               </h3>
             </div>
 
@@ -148,7 +145,7 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {updatedReligionName} Boys Name in {currentYear}
+                Top 10 {religionDetails.desc} Boys Name in {currentYear}
               </h3>
             </div>
 
