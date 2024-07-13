@@ -41,7 +41,7 @@ export async function generateMetadata({
 const SelectedCountryByGenderNames = async ({ params }: any) => {
   const { countryName, gender } = params;
   const countryDetails = getCountryByName(countryName);
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getData("usaBoyName");
 
   const totalItem = nameList.length;
   const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);

@@ -13,6 +13,17 @@ export const getData = async (param: string) => {
           "../data/religion/islam/boy/muslim-boy-names"
         ));
         break;
+      case "usaBoyName":
+        ({ nameList, positions } = await import(
+          "../data/country/usa/boy/usa-boy-names"
+        ));
+        break;
+
+      case "usagirlName":
+        ({ nameList, positions } = await import(
+          "../data/country/usa/boy/usa-boy-names"
+        ));
+        break;
       default:
         throw new Error(`No data file found for param: ${param}`);
     }

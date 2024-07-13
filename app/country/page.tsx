@@ -8,6 +8,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { countries, dummanyNameList } from "@/utils/constants";
+import { getData } from "@/utils/getData";
 
 export const metadata: Metadata = {
   title: "Baby Names By Country | BabyNameNestlings",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CountryHomePage = () => {
+const CountryHomePage = async () => {
   const currentYear = new Date().getFullYear();
 
   const countryTop50 = (

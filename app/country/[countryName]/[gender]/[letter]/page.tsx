@@ -43,7 +43,7 @@ const CountryGenderLetterPage = async ({ params }: any) => {
   const { countryName, gender, letter } = params;
   const countryDetails = getCountryByName(countryName);
 
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getData("usaBoyName");
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
   const boundary = positions[pos];
 

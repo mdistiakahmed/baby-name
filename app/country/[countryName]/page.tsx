@@ -7,7 +7,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList, getCountryByName } from "@/utils/constants";
+import { getCountryByName } from "@/utils/constants";
+import { getData } from "@/utils/getData";
 
 export async function generateMetadata({
   params,
@@ -36,10 +37,13 @@ export async function generateMetadata({
   };
 }
 
-const SelectedCountryPage = ({ params }: any) => {
+const SelectedCountryPage = async ({ params }: any) => {
   const { countryName } = params;
   const countryDetails = getCountryByName(countryName);
   const currentYear = new Date().getFullYear();
+
+  const top20BoyNames = await getData("usaBoyName");
+  const top20GirlNames = await getData("usagirlName");
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -95,39 +99,41 @@ const SelectedCountryPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {countryDetails.desc} Girl Name in {currentYear}
+                Top 20 {countryDetails.desc} Girl Name in {currentYear}
               </h3>
             </div>
 
-            {dummanyNameList.map((nameObj: any, index: any) => {
-              return (
-                <Accordion key={index}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                  >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                      {nameObj.name}
-                    </Typography>
-                    <Typography sx={{ color: "text.secondary" }}>
-                      {nameObj.meaning}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                      {nameObj.stories.map((story: any, idx: any) => {
-                        return (
-                          <li key={idx} className="mb-2">
-                            <p className="text-gray-800 text-md">{story}</p>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
+            {top20GirlNames.nameList
+              .slice(0, 20)
+              .map((nameObj: any, index: any) => {
+                return (
+                  <Accordion key={index}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header"
+                    >
+                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        {nameObj.name}
+                      </Typography>
+                      <Typography sx={{ color: "text.secondary" }}>
+                        {nameObj.meaning}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        {nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">{story}</p>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
 
             <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
               <Link
@@ -142,39 +148,41 @@ const SelectedCountryPage = ({ params }: any) => {
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {countryDetails.desc} Boy Name in {currentYear}
+                Top 20 {countryDetails.desc} Boy Name in {currentYear}
               </h3>
             </div>
 
-            {dummanyNameList.map((nameObj: any, index: any) => {
-              return (
-                <Accordion key={index}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                  >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                      {nameObj.name}
-                    </Typography>
-                    <Typography sx={{ color: "text.secondary" }}>
-                      {nameObj.meaning}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                      {nameObj.stories.map((story: any, idx: any) => {
-                        return (
-                          <li key={idx} className="mb-2">
-                            <p className="text-gray-800 text-md">{story}</p>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
+            {top20BoyNames.nameList
+              .slice(0, 20)
+              .map((nameObj: any, index: any) => {
+                return (
+                  <Accordion key={index}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header"
+                    >
+                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        {nameObj.name}
+                      </Typography>
+                      <Typography sx={{ color: "text.secondary" }}>
+                        {nameObj.meaning}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        {nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">{story}</p>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
 
             <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
               <Link

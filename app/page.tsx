@@ -5,10 +5,14 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
 import Link from "next/link";
-import { countries, dummanyNameList, religions } from "@/utils/constants";
+import { countries, religions } from "@/utils/constants";
+import { getData } from "@/utils/getData";
 
-export default function Home() {
+const HomePage = async () => {
   const currentYear = new Date().getFullYear();
+
+  const top20BoyNames = await getData("usaBoyName");
+  const top20GirlNames = await getData("usagirlName");
 
   const genderSection = (
     <div className="my-20">
@@ -154,35 +158,37 @@ export default function Home() {
                   Top 20 Girls Names in {currentYear}
                 </h3>
               </div>
-              {dummanyNameList.map((nameObj: any, index: any) => {
-                return (
-                  <Accordion key={index}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1-content"
-                      id="panel1-header"
-                    >
-                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                        {nameObj.name}
-                      </Typography>
-                      <Typography sx={{ color: "text.secondary" }}>
-                        {nameObj.meaning}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                        {nameObj.stories.map((story: any, idx: any) => {
-                          return (
-                            <li key={idx} className="mb-2">
-                              <p className="text-gray-800 text-md">{story}</p>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </AccordionDetails>
-                  </Accordion>
-                );
-              })}
+              {top20GirlNames.nameList
+                .slice(0, 20)
+                .map((nameObj: any, index: any) => {
+                  return (
+                    <Accordion key={index}>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1-content"
+                        id="panel1-header"
+                      >
+                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                          {nameObj.name}
+                        </Typography>
+                        <Typography sx={{ color: "text.secondary" }}>
+                          {nameObj.meaning}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                          {nameObj.stories.map((story: any, idx: any) => {
+                            return (
+                              <li key={idx} className="mb-2">
+                                <p className="text-gray-800 text-md">{story}</p>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </AccordionDetails>
+                    </Accordion>
+                  );
+                })}
 
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
@@ -200,35 +206,37 @@ export default function Home() {
                   Top 20 Boys Names in {currentYear}
                 </h3>
               </div>
-              {dummanyNameList.map((nameObj: any, index: any) => {
-                return (
-                  <Accordion key={index}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1-content"
-                      id="panel1-header"
-                    >
-                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                        {nameObj.name}
-                      </Typography>
-                      <Typography sx={{ color: "text.secondary" }}>
-                        {nameObj.meaning}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                        {nameObj.stories.map((story: any, idx: any) => {
-                          return (
-                            <li key={idx} className="mb-2">
-                              <p className="text-gray-800 text-md">{story}</p>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </AccordionDetails>
-                  </Accordion>
-                );
-              })}
+              {top20BoyNames.nameList
+                .slice(0, 20)
+                .map((nameObj: any, index: any) => {
+                  return (
+                    <Accordion key={index}>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1-content"
+                        id="panel1-header"
+                      >
+                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                          {nameObj.name}
+                        </Typography>
+                        <Typography sx={{ color: "text.secondary" }}>
+                          {nameObj.meaning}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                          {nameObj.stories.map((story: any, idx: any) => {
+                            return (
+                              <li key={idx} className="mb-2">
+                                <p className="text-gray-800 text-md">{story}</p>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </AccordionDetails>
+                    </Accordion>
+                  );
+                })}
 
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
@@ -248,4 +256,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;
