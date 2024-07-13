@@ -69,6 +69,7 @@ const LetterSearch = ({ positions }: any) => {
   };
 
   const onSelect = (letter: string) => {
+    console.log(letter);
     const segments = pathname.split("/");
     const lastSegment = segments[segments.length - 1];
     const isPaginatedPage = segments.includes("pagination");
