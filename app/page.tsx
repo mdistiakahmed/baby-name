@@ -19,7 +19,7 @@ const HomePage = async () => {
       <h2 className="text-center text-xl font-semibold">
         Find Names By Gender
       </h2>
-      <p className="text-center">
+      <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Browse our comprehensive selection of baby names categorized by gender.
         Whether you're looking for baby names for boys or girls, you'll find a
         wide range of options that cater to your preferences and style.
@@ -34,7 +34,7 @@ const HomePage = async () => {
               className="w-20 h-20"
               src={"/young-boy-icon.svg"}
             />
-            <p className="text-xl text-center ">Baby boy name</p>
+            <p className="text-xl text-center ">Baby name (boy)</p>
           </div>
         </Link>
         <Link href={`/gender/girl`}>
@@ -46,7 +46,7 @@ const HomePage = async () => {
               className="w-20 h-20"
               src={"/young-girl-icon.svg"}
             />
-            <p className="text-xl text-center ">Baby girl name</p>
+            <p className="text-xl text-center ">Baby name (girl)</p>
           </div>
         </Link>
       </div>
@@ -56,7 +56,7 @@ const HomePage = async () => {
   const religionSection = (
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-xl font-semibold">Find Name by Religion</h3>
-      <p className="text-center">
+      <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Find meaningful baby names inspired by religious beliefs and traditions.
         Our curated list includes baby names from diverse religious backgrounds,
         offering a deep connection to faith and spirituality.
@@ -105,7 +105,7 @@ const HomePage = async () => {
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-xl font-semibold">Baby Name by Country</h3>
-      <p className="text-center">
+      <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Explore our extensive collection of baby names from various countries
         around the world. Discover unique and popular baby names that reflect
         the cultural heritage and traditions of different nations.
@@ -154,8 +154,14 @@ const HomePage = async () => {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
         <h1 className="text-2xl font-bold text-center">
-          {`Discover Beautiful Baby Names You\'ll Cherish`}
+          Discover Beautiful Baby Names You&apos;ll Cherish
         </h1>
+        <p className="text-center text-lg leading-relaxed text-gray-800 mt-4">
+          Welcome to BabyNameNestlings, your ultimate destination for finding
+          the perfect baby name. Explore our extensive collection of unique and
+          meaningful baby names, carefully curated to help you choose a name
+          that your family will treasure forever.
+        </p>
         <div className="p-5 mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
             <Image
@@ -268,6 +274,21 @@ const HomePage = async () => {
         <div>{religionSection}</div>
 
         <div className="mt-10">{countrySection}</div>
+
+        <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
+          Choosing the perfect baby name is a cherished and significant decision
+          for every parent. A beautiful baby name not only carries cultural,
+          familial, and personal significance, but it also shapes the identity
+          and future of your child. At BabyNameNestlings, we understand the
+          importance of finding a baby name that resonates with love, meaning,
+          and uniqueness. Our extensive database of baby names offers a variety
+          of options to reflect your values and preferences. Whether you are
+          seeking traditional baby names, modern baby names, or names with a
+          specific cultural heritage, we provide a comprehensive selection to
+          help you find the ideal name for your little one. Explore our
+          collection and discover the perfect baby name that your family will
+          cherish for generations.
+        </p>
       </div>
     </div>
   );
