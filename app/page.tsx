@@ -21,8 +21,9 @@ const HomePage = async () => {
       </h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Browse our comprehensive selection of baby names categorized by gender.
-        Whether you're looking for baby names for boys or girls, you'll find a
-        wide range of options that cater to your preferences and style.
+        Whether you&apos;re looking for baby names for boys or girls,
+        you&apos;ll find a wide range of options that cater to your preferences
+        and style.
       </p>
       <div className="flex flex-col md:flex-row items-center justify-center gap-2 my-[20px] cursor-pointer">
         <Link href={`/gender/boy`}>
@@ -35,6 +36,10 @@ const HomePage = async () => {
               src={"/young-boy-icon.svg"}
             />
             <p className="text-xl text-center ">Baby name (boy)</p>
+            <p className="text-sm text-center mt-2">
+              Explore a variety of beautiful baby names perfect for your little
+              girl.
+            </p>
           </div>
         </Link>
         <Link href={`/gender/girl`}>
@@ -47,6 +52,10 @@ const HomePage = async () => {
               src={"/young-girl-icon.svg"}
             />
             <p className="text-xl text-center ">Baby name (girl)</p>
+            <p className="text-sm text-center mt-2">
+              Explore a variety of beautiful baby names perfect for your little
+              girl.
+            </p>
           </div>
         </Link>
       </div>
@@ -86,6 +95,7 @@ const HomePage = async () => {
                 <p className="text-2xl text-center font-semibold">
                   {r.desc} baby name
                 </p>
+                <p className="text-sm text-center mt-2">{r.shortDescription}</p>
               </div>
             </Link>
           );
@@ -135,6 +145,7 @@ const HomePage = async () => {
                 <p className="text-xl text-center font-semibold">
                   {c.desc} baby name
                 </p>
+                <p className="text-sm text-center mt-2">{c.shortDescription}</p>
               </div>
             </Link>
           );
