@@ -8,6 +8,7 @@ import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
+import { ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
@@ -56,9 +57,8 @@ const ReligiousNames = async ({ params }: any) => {
     " " +
     "Name";
 
-  const totalItem = 560;
-  const itemsPerPage = 100;
-  const nextPageBaseUrl = `/muslim/baby-name`;
+  const totalItem = nameList.length;
+  const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -86,13 +86,6 @@ const ReligiousNames = async ({ params }: any) => {
             </div>
 
             <div>
-              <AutoCompleteSearch
-                placeHolder="Search name"
-                nameList={nameList}
-              />
-            </div>
-
-            <div>
               <LetterSearch positions={positions} />
             </div>
           </div>
@@ -104,7 +97,7 @@ const ReligiousNames = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {nameList.map((nameObj: any, index: any) => {
+          {firstPageData.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -133,11 +126,7 @@ const ReligiousNames = async ({ params }: any) => {
           })}
 
           <div className="flex items-center justify-center p-10">
-            <PaginationComponent
-              totalItem={totalItem}
-              itemsPerPage={itemsPerPage}
-              nextPageBaseUrl={nextPageBaseUrl}
-            />
+            <PaginationComponent totalItem={totalItem} />
           </div>
         </div>
       </div>

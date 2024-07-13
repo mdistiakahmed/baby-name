@@ -127,7 +127,7 @@ const ReligionCategoryPage = () => {
         </div>
 
         {religions.map((r, index) => (
-          <div className="rounded-lg" key={index}>
+          <div className="rounded-lg w-full" key={index}>
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
                 Top 10 {r.name} Name in {currentYear}

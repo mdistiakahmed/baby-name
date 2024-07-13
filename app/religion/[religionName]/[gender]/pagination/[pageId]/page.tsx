@@ -46,16 +46,22 @@ export async function generateMetadata({
   };
 }
 
-const ReligiousNames = async ({ params }: any) => {
-  const { religionName, gender } = params;
+const PaginatedReligiousGenderPage = async ({ params }: any) => {
+  const { religionName, gender, pageId } = params;
   const religionDetails = getReligionByName(religionName);
 
   const { nameList, positions } = await getData(
     gender === "girl" ? "dataFile1" : "dataFile2"
   );
 
+  const pageNumber = Number(pageId);
   const totalItem = nameList.length;
-  const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);
+  const currentPageUrl = `/religion/${religionName}/${gender}`;
+
+  const paginatedNameList = nameList.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
+  );
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -85,13 +91,6 @@ const ReligiousNames = async ({ params }: any) => {
             </div>
 
             <div>
-              <AutoCompleteSearch
-                placeHolder="Search name"
-                nameList={nameList}
-              />
-            </div>
-
-            <div>
               <LetterSearch positions={positions} />
             </div>
           </div>
@@ -103,7 +102,7 @@ const ReligiousNames = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {firstPageData.map((nameObj: any, index: any) => {
+          {paginatedNameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -132,7 +131,11 @@ const ReligiousNames = async ({ params }: any) => {
           })}
 
           <div className="flex items-center justify-center p-10">
-            <PaginationComponent totalItem={totalItem} />
+            <PaginationComponent
+              totalItem={totalItem}
+              currentPageUrl={currentPageUrl}
+              pageNumber={pageNumber}
+            />
           </div>
         </div>
       </div>
@@ -140,4 +143,4 @@ const ReligiousNames = async ({ params }: any) => {
   );
 };
 
-export default ReligiousNames;
+export default PaginatedReligiousGenderPage;

@@ -8,6 +8,7 @@ import AutoCompleteSearch from "@/components/search/AutoCompleteSearch";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData } from "@/utils/getData";
+import { ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
@@ -51,7 +52,10 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
   const boundary = positions[pos];
 
-  const letterNameList = nameList.slice(boundary[0], boundary[1] + 1);
+  const letterNameList = nameList.slice(
+    boundary[0],
+    Math.min(boundary[1] + 1, boundary[0] + ITEMS_PER_PAGE)
+  );
 
   const title =
     (religionName === "islam"
@@ -62,9 +66,8 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
     " " +
     "Name";
 
-  const totalItem = 560;
-  const itemsPerPage = 100;
-  const nextPageBaseUrl = `/muslim/baby-name`;
+  const totalItem = boundary[1] - boundary[0] + 1;
+  const currentPageUrl = `/religion/${religionName}/${gender}/${letter}`;
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -89,13 +92,6 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
                 src={"/islam-icon.svg"}
               />
               <h3 className="text-2xl font-bold text-center ">{title}</h3>
-            </div>
-
-            <div>
-              <AutoCompleteSearch
-                placeHolder="Search name"
-                nameList={nameList}
-              />
             </div>
 
             <div>
@@ -141,8 +137,7 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
           <div className="flex items-center justify-center p-10">
             <PaginationComponent
               totalItem={totalItem}
-              itemsPerPage={itemsPerPage}
-              nextPageBaseUrl={nextPageBaseUrl}
+              currentPageUrl={currentPageUrl}
             />
           </div>
         </div>

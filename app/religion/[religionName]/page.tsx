@@ -97,8 +97,8 @@ const ReligionPage = ({ params }: any) => {
           </Link>
         </div>
 
-        <div className="boy-girl-example-container">
-          <div className="rounded-lg">
+        <div className="w-full">
+          <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
                 Top 10 {updatedReligionName} Girls Name in {currentYear}
@@ -145,7 +145,7 @@ const ReligionPage = ({ params }: any) => {
             </div>
           </div>
 
-          <div className="rounded-lg">
+          <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
                 Top 10 {updatedReligionName} Boys Name in {currentYear}

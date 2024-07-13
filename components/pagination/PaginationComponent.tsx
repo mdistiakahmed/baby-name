@@ -1,19 +1,30 @@
 "use client";
 
+import { ITEMS_PER_PAGE } from "@/utils/constants";
 import { Pagination } from "@mui/material";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
-const PaginationComponent = ({
-  totalItem,
-  itemsPerPage,
-  nextPageBaseUrl,
-}: any) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const PaginationComponent = ({ totalItem, pageNumber }: any) => {
+  const pathname = usePathname();
+  const [currentPage, setCurrentPage] = useState(pageNumber ? pageNumber : 1);
+  const router = useRouter();
 
-  const pageCount = Math.ceil(totalItem / itemsPerPage);
+  const pageCount = Math.ceil(totalItem / ITEMS_PER_PAGE);
   const handlePageChange = (event: any, value: any) => {
     setCurrentPage(value);
-    console.log(`Current page is ${value}`);
+    const segments = pathname.split("/");
+    const lastSegment = segments[segments.length - 1];
+    const isPaginatedPage = segments.includes("pagination");
+
+    if (isPaginatedPage) {
+      segments.pop();
+      const newUrl = segments.join("/");
+      router.push(`${newUrl}/${value}`);
+    } else {
+      const newPath = `${pathname}/pagination/${value}`;
+      router.push(newPath);
+    }
   };
   return (
     <Pagination

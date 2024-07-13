@@ -71,9 +71,18 @@ const LetterSearch = ({ positions }: any) => {
   const onSelect = (letter: string) => {
     const segments = pathname.split("/");
     const lastSegment = segments[segments.length - 1];
+    const isPaginatedPage = segments.includes("pagination");
 
     // Check if last segment ends with a single letter
-    if (lastSegment.length === 1) {
+    if (isPaginatedPage) {
+      segments.pop();
+      segments.pop();
+      if (segments[segments.length - 1].length === 1) {
+        segments.pop();
+      }
+      const newUrl = segments.join("/");
+      router.push(`${newUrl}/${letter}`);
+    } else if (lastSegment.length === 1) {
       const newPath = pathname.replace(/\/[A-Z]$/, `/${letter}`);
       router.push(newPath);
     } else {

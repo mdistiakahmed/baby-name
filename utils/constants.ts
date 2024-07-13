@@ -31,7 +31,7 @@ export const religions = [
     name: "Islam",
     desc: "Islamic",
     image: "/islam-icon.svg",
-    path: "christian",
+    path: "islam",
   },
   {
     name: "Hindu",
@@ -56,11 +56,24 @@ export const religions = [
 export const gender = [
   {
     name: "Girl",
+    image: "/young-girl-icon.svg",
   },
   {
     name: "Boy",
+    image: "/young-boy-icon.svg",
   },
 ];
+
+export const ITEMS_PER_PAGE = 5;
+
+export const genderMap = gender.reduce((map, g) => {
+  map[g.name.toLowerCase()] = g;
+  return map;
+}, {} as Record<string, { name: string; image: string }>);
+
+export const getGenderByName = (name: string) => {
+  return genderMap[name.toLowerCase()];
+};
 
 export const countryMap = countries.reduce((map, country) => {
   map[country.name.toLowerCase()] = country;

@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#006fee] text-white py-8 mt-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div className="container px-10 flex flex-col md:flex-row justify-between items-center">
         <Link href="/">
           <div className="mb-4 md:mb-0">
             <h2 className="text-lg font-semibold">Baby Name Nestlings</h2>

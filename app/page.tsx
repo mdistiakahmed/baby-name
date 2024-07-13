@@ -113,8 +113,8 @@ export default function Home() {
                   className="w-auto h-20"
                   src={`https://flagcdn.com/${c.code}.svg`}
                 />
-                <p className="text-2xl text-center font-semibold">
-                  Find {c.desc}
+                <p className="text-xl text-center font-semibold">
+                  Find {c.desc} Name
                 </p>
               </div>
             </Link>
@@ -147,49 +147,98 @@ export default function Home() {
               className="rounded-lg"
             />
           </div>
-          <div className="flex flex-col items-center justify-center mb-5">
-            <h3 className="text-xl font-bold text-center mt-5 ">
-              Top 10 Names in {currentYear}
-            </h3>
-          </div>
+          <div className="flex flex-col md:flex-row gap-5">
+            <div>
+              <div className="flex flex-col items-center justify-center mb-5">
+                <h3 className="text-xl font-bold text-center mt-5 ">
+                  Top 20 Girls Names in {currentYear}
+                </h3>
+              </div>
+              {dummanyNameList.map((nameObj: any, index: any) => {
+                return (
+                  <Accordion key={index}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header"
+                    >
+                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        {nameObj.name}
+                      </Typography>
+                      <Typography sx={{ color: "text.secondary" }}>
+                        {nameObj.meaning}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        {nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">{story}</p>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
 
-          {dummanyNameList.map((nameObj: any, index: any) => {
-            return (
-              <Accordion key={index}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
+              <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+                <Link
+                  href={`/gender/girl`}
+                  className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    {nameObj.name}
-                  </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
-                    {nameObj.meaning}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                    {nameObj.stories.map((story: any, idx: any) => {
-                      return (
-                        <li key={idx} className="mb-2">
-                          <p className="text-gray-800 text-md">{story}</p>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </AccordionDetails>
-              </Accordion>
-            );
-          })}
+                  See More
+                </Link>
+              </div>
+            </div>
 
-          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-            <Link
-              href={`/popular/baby-name`}
-              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-            >
-              See More
-            </Link>
+            <div>
+              <div className="flex flex-col items-center justify-center mb-5">
+                <h3 className="text-xl font-bold text-center mt-5 ">
+                  Top 20 Boys Names in {currentYear}
+                </h3>
+              </div>
+              {dummanyNameList.map((nameObj: any, index: any) => {
+                return (
+                  <Accordion key={index}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header"
+                    >
+                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        {nameObj.name}
+                      </Typography>
+                      <Typography sx={{ color: "text.secondary" }}>
+                        {nameObj.meaning}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        {nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">{story}</p>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
+
+              <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+                <Link
+                  href={`/gender/boy`}
+                  className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+                >
+                  See More
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
         <div>{genderSection}</div>
