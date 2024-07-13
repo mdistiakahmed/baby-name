@@ -23,7 +23,7 @@ const HomePage = async () => {
         <Link href={`/gender/boy`}>
           <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
             <Image
-              alt={""}
+              alt="boyes name"
               height={20}
               width={20}
               className="w-20 h-20"
@@ -35,7 +35,7 @@ const HomePage = async () => {
         <Link href={`/gender/girl`}>
           <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
             <Image
-              alt={""}
+              alt="girls name"
               height={20}
               width={20}
               className="w-20 h-20"
@@ -67,7 +67,7 @@ const HomePage = async () => {
                 className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
               >
                 <Image
-                  alt={""}
+                  alt={`${r.desc} Name`}
                   height={20}
                   width={20}
                   className="w-20 h-20"
@@ -111,7 +111,7 @@ const HomePage = async () => {
                 className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
               >
                 <Image
-                  alt={""}
+                  alt={`${c.desc} Name`}
                   height={20}
                   width={20}
                   className="w-auto h-20"
@@ -145,7 +145,7 @@ const HomePage = async () => {
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"
-              alt="B"
+              alt="Baby name"
               height={300}
               width={400}
               className="rounded-lg"
