@@ -10,20 +10,18 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Baby Name Nestlings",
-  description:
-    "Beautiful baby names, girl names, boy names, meanings, origins, famous peoples",
+  title: "Find Baby Names | BabyNameNestlings",
+  description: "Cherish Every Name, Love Every Choice",
   openGraph: {
-    title: "Baby Name Nestlings",
-    description:
-      "Beautiful baby names, girl names, boy names, meanings, origins, famous peoples",
+    title: "Find Baby Names | BabyNameNestlings",
+    description: "Cherish Every Name, Love Every Choice",
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/`,
     siteName: "BabyNameNestlings",
     images: [
       {
-        url: "baby1.jpg",
+        url: "baby-boy.webp",
         width: 1200,
         height: 630,
       },

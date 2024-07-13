@@ -135,7 +135,7 @@ export default function Home() {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
         <h1 className="text-2xl font-bold text-center">
-          Find Most Beautiful Name for Your Baby
+          Cherish Every Name, Love Every Choice
         </h1>
         <div className="p-5 mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
