@@ -10,11 +10,13 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Find Baby Names | BabyNameNestlings",
-  description: "Cherish Every Name, Love Every Choice",
+  title: "Find the Perfect Baby Name | BabyNameNestlings",
+  description:
+    "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
   openGraph: {
-    title: "Find Baby Names | BabyNameNestlings",
-    description: "Cherish Every Name, Love Every Choice",
+    title: "Find the Perfect Baby Name | BabyNameNestlings",
+    description:
+      "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/`,

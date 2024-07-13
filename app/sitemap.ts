@@ -42,12 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "weekly" as any,
         priority: 0.8,
       },
-      ...alphabet.map((letter) => ({
-        url: `${BASE_URL}/country/${country.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as any,
-        priority: 0.5,
-      })),
+      // ...alphabet.map((letter) => ({
+      //   url: `${BASE_URL}/country/${country.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
+      //   lastModified: new Date(),
+      //   changeFrequency: "monthly" as any,
+      //   priority: 0.5,
+      // })),
     ]),
   ]);
 
@@ -65,12 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "weekly" as any,
         priority: 0.8,
       },
-      ...alphabet.map((letter) => ({
-        url: `${BASE_URL}/religion/${religion.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as any,
-        priority: 0.5,
-      })),
+      // ...alphabet.map((letter) => ({
+      //   url: `${BASE_URL}/religion/${religion.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
+      //   lastModified: new Date(),
+      //   changeFrequency: "monthly" as any,
+      //   priority: 0.5,
+      // })),
     ]),
   ]);
 
@@ -88,12 +88,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as any,
         priority: 0.8,
       },
-      ...alphabet.map((letter) => ({
-        url: `${BASE_URL}/gender/${g.name.toLowerCase()}/${letter}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as any,
-        priority: 0.5,
-      })),
+      // ...alphabet.map((letter) => ({
+      //   url: `${BASE_URL}/gender/${g.name.toLowerCase()}/${letter}`,
+      //   lastModified: new Date(),
+      //   changeFrequency: "monthly" as any,
+      //   priority: 0.5,
+      // })),
     ]),
   ];
 

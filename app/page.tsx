@@ -19,6 +19,11 @@ const HomePage = async () => {
       <h2 className="text-center text-xl font-semibold">
         Find Names By Gender
       </h2>
+      <p className="text-center">
+        Browse our comprehensive selection of baby names categorized by gender.
+        Whether you're looking for baby names for boys or girls, you'll find a
+        wide range of options that cater to your preferences and style.
+      </p>
       <div className="flex flex-col md:flex-row items-center justify-center gap-2 my-[20px] cursor-pointer">
         <Link href={`/gender/boy`}>
           <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
@@ -29,7 +34,7 @@ const HomePage = async () => {
               className="w-20 h-20"
               src={"/young-boy-icon.svg"}
             />
-            <p className="text-xl text-center ">Find Boys Name</p>
+            <p className="text-xl text-center ">Baby boy name</p>
           </div>
         </Link>
         <Link href={`/gender/girl`}>
@@ -41,7 +46,7 @@ const HomePage = async () => {
               className="w-20 h-20"
               src={"/young-girl-icon.svg"}
             />
-            <p className="text-xl text-center ">Find Girls Name</p>
+            <p className="text-xl text-center ">Baby girl name</p>
           </div>
         </Link>
       </div>
@@ -51,6 +56,11 @@ const HomePage = async () => {
   const religionSection = (
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-xl font-semibold">Find Name by Religion</h3>
+      <p className="text-center">
+        Find meaningful baby names inspired by religious beliefs and traditions.
+        Our curated list includes baby names from diverse religious backgrounds,
+        offering a deep connection to faith and spirituality.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-[40px] cursor-pointer">
         {religions.map((r, index) => {
           const mobileBgClass =
@@ -74,7 +84,7 @@ const HomePage = async () => {
                   src={r.image}
                 />
                 <p className="text-2xl text-center font-semibold">
-                  Find {r.desc} Name
+                  {r.desc} baby name
                 </p>
               </div>
             </Link>
@@ -94,7 +104,12 @@ const HomePage = async () => {
 
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
-      <h3 className="text-xl font-semibold">Find Name by Country</h3>
+      <h3 className="text-xl font-semibold">Baby Name by Country</h3>
+      <p className="text-center">
+        Explore our extensive collection of baby names from various countries
+        around the world. Discover unique and popular baby names that reflect
+        the cultural heritage and traditions of different nations.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-[40px] cursor-pointer">
         {countries.map((c, index) => {
           const mobileBgClass =
@@ -118,7 +133,7 @@ const HomePage = async () => {
                   src={`https://flagcdn.com/${c.code}.svg`}
                 />
                 <p className="text-xl text-center font-semibold">
-                  Find {c.desc} Name
+                  {c.desc} baby name
                 </p>
               </div>
             </Link>
@@ -139,7 +154,7 @@ const HomePage = async () => {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
         <h1 className="text-2xl font-bold text-center">
-          Cherish Every Name, Love Every Choice
+          {`Discover Beautiful Baby Names You\'ll Cherish`}
         </h1>
         <div className="p-5 mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
@@ -155,7 +170,7 @@ const HomePage = async () => {
             <div>
               <div className="flex flex-col items-center justify-center mb-5">
                 <h3 className="text-xl font-bold text-center mt-5 ">
-                  Top 20 Girls Names in {currentYear}
+                  Popular baby names (girl) from 1994 - {currentYear}
                 </h3>
               </div>
               {top20GirlNames.nameList
@@ -203,7 +218,7 @@ const HomePage = async () => {
             <div>
               <div className="flex flex-col items-center justify-center mb-5">
                 <h3 className="text-xl font-bold text-center mt-5 ">
-                  Top 20 Boys Names in {currentYear}
+                  Popular baby names (boy) from 1994 - {currentYear}
                 </h3>
               </div>
               {top20BoyNames.nameList
