@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { dummanyNameList, gender } from "@/utils/constants";
 import { Metadata } from "next";
+import { getData } from "@/utils/getData";
 
 export const metadata: Metadata = {
   title: "Baby Names By Gender | BabyNameNestlings",
@@ -30,8 +31,10 @@ export const metadata: Metadata = {
   },
 };
 
-const GenderCategoryPage = () => {
+const GenderCategoryPage = async () => {
   const currentYear = new Date().getFullYear();
+  const { nameList: girlNameList } = await getData("usagirlName");
+  const { nameList: boyNameList } = await getData("usaBoyName");
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] flex flex-col  gap-4 items-center justify-center m-5">
@@ -61,54 +64,99 @@ const GenderCategoryPage = () => {
             </div>
           </Link>
         </div>
-        {gender.map((g, index) => (
-          <div className="rounded-lg w-full" key={index}>
-            <div className="flex flex-col items-center justify-center mb-5">
-              <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 50 {g.name} Name in {currentYear}
-              </h3>
-            </div>
-
-            {dummanyNameList.map((nameObj: any, index: any) => {
-              return (
-                <Accordion key={index}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                  >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                      {nameObj.name}
-                    </Typography>
-                    <Typography sx={{ color: "text.secondary" }}>
-                      {nameObj.meaning}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                      {nameObj.stories.map((story: any, idx: any) => {
-                        return (
-                          <li key={idx} className="mb-2">
-                            <p className="text-gray-800 text-md">{story}</p>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
-
-            <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-              <Link
-                href={`/gender/${g.name}`}
-                className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-              >
-                See More
-              </Link>
-            </div>
+        <div className="rounded-lg w-full">
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h3 className="text-2xl font-bold text-center mt-5 ">
+              Top 50 Girl Name in {currentYear}
+            </h3>
           </div>
-        ))}
+
+          {girlNameList.slice(0, 50).map((nameObj: any, index: any) => {
+            return (
+              <Accordion key={index}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    {nameObj.name}
+                  </Typography>
+                  <Typography sx={{ color: "text.secondary" }}>
+                    {nameObj.meaning}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                    {nameObj.stories.map((story: any, idx: any) => {
+                      return (
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </AccordionDetails>
+              </Accordion>
+            );
+          })}
+
+          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+            <Link
+              href={`/gender/girl`}
+              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+            >
+              See More
+            </Link>
+          </div>
+        </div>
+
+        <div className="rounded-lg w-full">
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h3 className="text-2xl font-bold text-center mt-5 ">
+              Top 50 Boy Name in {currentYear}
+            </h3>
+          </div>
+
+          {boyNameList.slice(0, 50).map((nameObj: any, index: any) => {
+            return (
+              <Accordion key={index}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    {nameObj.name}
+                  </Typography>
+                  <Typography sx={{ color: "text.secondary" }}>
+                    {nameObj.meaning}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                    {nameObj.stories.map((story: any, idx: any) => {
+                      return (
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </AccordionDetails>
+              </Accordion>
+            );
+          })}
+
+          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
+            <Link
+              href={`/gender/girl`}
+              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
+            >
+              See More
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

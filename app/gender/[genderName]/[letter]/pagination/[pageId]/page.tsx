@@ -48,7 +48,9 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
   const { genderName, letter, pageId } = params;
   const genderDetalis = getGenderByName(genderName);
 
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getData(
+    genderName === "girl" ? "usagirlName" : "usaBoyName"
+  );
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
   const boundary = positions[pos];
 

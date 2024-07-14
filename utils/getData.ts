@@ -21,7 +21,7 @@ export const getData = async (param: string) => {
 
       case "usagirlName":
         ({ nameList, positions } = await import(
-          "../data/country/usa/boy/usa-boy-names"
+          "../data/country/usa/girl/use-girl-names"
         ));
         break;
       default:

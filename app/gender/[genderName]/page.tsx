@@ -39,7 +39,9 @@ export async function generateMetadata({
 const page = async ({ params }: any) => {
   const { genderName } = params;
   const genderDetalis = getGenderByName(genderName);
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getData(
+    genderName === "girl" ? "usagirlName" : "usaBoyName"
+  );
 
   const totalItem = nameList.length;
   const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);

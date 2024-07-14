@@ -184,9 +184,9 @@ const HomePage = async () => {
             />
           </div>
           <div className="flex flex-col md:flex-row gap-5">
-            <div>
+            <div className="flex-1">
               <div className="flex flex-col items-center justify-center mb-5">
-                <h3 className="text-xl font-bold text-center mt-5 ">
+                <h3 className="text-xl font-bold text-center mt-5 break-words">
                   Popular baby names (girl) from 1994 - {currentYear}
                 </h3>
               </div>
@@ -232,7 +232,7 @@ const HomePage = async () => {
               </div>
             </div>
 
-            <div>
+            <div className="flex-1">
               <div className="flex flex-col items-center justify-center mb-5">
                 <h3 className="text-xl font-bold text-center mt-5 ">
                   Popular baby names (boy) from 1994 - {currentYear}

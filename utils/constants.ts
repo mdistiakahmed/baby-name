@@ -86,7 +86,7 @@ export const gender = [
   },
 ];
 
-export const ITEMS_PER_PAGE = 5;
+export const ITEMS_PER_PAGE = 50;
 
 export const genderMap = gender.reduce((map, g) => {
   map[g.name.toLowerCase()] = g;
