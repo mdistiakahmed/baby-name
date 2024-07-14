@@ -22,8 +22,8 @@ const HollywoodMovieBabyName = () => {
           <p className="text-lg leading-relaxed text-gray-800 mt-4">
             Hollywood movies have long served as a mirror reflecting societal
             trends, including the popularity of names given to characters. From
-            timeless classics to modern innovations, here's a glimpse into the
-            world of girls' names that have graced the silver screen.
+            timeless classics to modern innovations, here&apos;s a glimpse into
+            the world of girls&apos; names that have graced the silver screen.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-4">
@@ -34,11 +34,11 @@ const HollywoodMovieBabyName = () => {
             Names like <strong>Audrey</strong>, <strong>Grace</strong>, and{" "}
             <strong>Elizabeth</strong> evoke a sense of timeless elegance on
             screen. Think of <strong>Audrey Hepburn</strong> in{" "}
-            <strong>"Breakfast at Tiffanys,"</strong> embodying sophistication
-            with her character Holly Golightly. Similarly, the regal grace of
-            names like <strong>Grace (Kelly)</strong>
+            <strong>&quot;Breakfast at Tiffanys,&quot;</strong> embodying
+            sophistication with her character Holly Golightly. Similarly, the
+            regal grace of names like <strong>Grace (Kelly)</strong>
             and <strong>Elizabeth (Taylor)</strong> has left an indelible mark
-            on Hollywood's history.
+            on Hollywood&apos;s history.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-4">
@@ -48,11 +48,11 @@ const HollywoodMovieBabyName = () => {
           <p className="text-lg leading-relaxed text-gray-800 mt-4">
             Certain names carry an inherent strength and resilience, often
             mirrored in their characters. <strong>Scarlett</strong>, from{" "}
-            <strong>"Gone with the Wind,"</strong>
+            <strong>&quot;Gone with the Wind,&quot;</strong>
             embodies fiery determination and passion. In contemporary cinema,
             characters like <strong>Katniss</strong> from{" "}
-            <strong>"The Hunger Games"</strong> bring forth images of bravery
-            and independence, showcasing how names can shape character
+            <strong>&quot;The Hunger Games&quot;</strong> bring forth images of
+            bravery and independence, showcasing how names can shape character
             identities on screen.
           </p>
 
@@ -64,10 +64,10 @@ const HollywoodMovieBabyName = () => {
             As societal trends evolve, so do naming conventions in Hollywood.
             Modern films often feature names that reflect diversity and global
             influences. <strong>Mia</strong> (<strong>Emma Stone</strong> in{" "}
-            <strong>"La La Land"</strong>) and <strong>Luna</strong> (
-            <strong> Emma Watson</strong> in <strong> "Harry Potter"</strong>)
-            showcase the growing popularity of shorter, softer names with
-            international appeal.
+            <strong>&quot;La La Land&quot;</strong>) and <strong>Luna</strong> (
+            <strong> Emma Watson</strong> in{" "}
+            <strong> &quot;Harry Potter&quot;</strong>) showcase the growing
+            popularity of shorter, softer names with international appeal.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-4">
@@ -77,9 +77,10 @@ const HollywoodMovieBabyName = () => {
           <p className="text-lg leading-relaxed text-gray-800 mt-4">
             Hollywood also celebrates cultural diversity through names that
             reflect different heritages. <strong>Leia</strong> (
-            <strong>Carrie Fisher</strong> in <strong>"Star Wars"</strong>) has
-            become synonymous with resilience and leadership, while names like
-            <strong> Mulan</strong> (Disney's animated feature) celebrate
+            <strong>Carrie Fisher</strong> in{" "}
+            <strong>&quot;Star Wars&quot;</strong>) has become synonymous with
+            resilience and leadership, while names like
+            <strong> Mulan</strong> (Disney&apos;s animated feature) celebrate
             cultural heroes in a way that resonates worldwide.
           </p>
 
