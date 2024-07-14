@@ -33,8 +33,8 @@ const ThingsToConsiderWhileNameChoosing = () => {
             The meaning and origin of a name can add depth and significance.
             Many parents choose names that reflect their cultural heritage or
             have personal significance. Research the meanings and origins of
-            names to find one that resonates with you and your family's values
-            or traditions.
+            names to find one that resonates with you and your family&apos;s
+            values or traditions.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-4">
