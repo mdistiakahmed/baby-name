@@ -86,6 +86,30 @@ export const gender = [
   },
 ];
 
+export const articleList = [
+  {
+    title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
+    image: "/kids-movies-watch-with-family.webp",
+    excerpt: `Hollywood movies have long served as a mirror reflecting societal
+            trends, including the popularity of names given to characters.`,
+    url: "/articles/hollywood-movies-baby-names",
+  },
+  {
+    title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
+    image: "/kids-movies-watch-with-family.webp",
+    excerpt: `Hollywood movies have long served as a mirror reflecting societal
+            trends, including the popularity of names given to characters.`,
+    url: "/articles/hollywood-movies-baby-names",
+  },
+  {
+    title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
+    image: "/kids-movies-watch-with-family.webp",
+    excerpt: `Hollywood movies have long served as a mirror reflecting societal
+            trends, including the popularity of names given to characters.`,
+    url: "/articles/hollywood-movies-baby-names",
+  },
+];
+
 export const ITEMS_PER_PAGE = 50;
 
 export const genderMap = gender.reduce((map, g) => {

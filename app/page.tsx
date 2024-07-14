@@ -5,8 +5,9 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
 import Link from "next/link";
-import { countries, religions } from "@/utils/constants";
+import { articleList, countries, religions } from "@/utils/constants";
 import { getData } from "@/utils/getData";
+import YouMayLIkeSection from "@/components/you-may-like/YouMayLIkeSection";
 
 const HomePage = async () => {
   const currentYear = new Date().getFullYear();

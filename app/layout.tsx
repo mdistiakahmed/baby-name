@@ -6,6 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import Footer from "@/components/footer/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import YouMayLIkeSection from "@/components/you-may-like/YouMayLIkeSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <NavComponent />
           <Breadcrumb />
           <div>{children}</div>
+          <YouMayLIkeSection />
           <Footer />
         </NextUIProvider>
       </body>
