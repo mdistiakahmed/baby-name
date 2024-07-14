@@ -26,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as any,
       priority: 0.2,
     },
+    {
+      url: `${BASE_URL}/articles`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as any,
+      priority: 0.8,
+    },
   ];
 
   const countryCategories = countries.flatMap((country) => [

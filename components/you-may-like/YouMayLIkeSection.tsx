@@ -1,9 +1,19 @@
+"use client";
+
 import { articleList } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { usePathname } from "next/navigation";
 
 const YouMayLIkeSection = () => {
+  const pathname = usePathname();
+
+  console.log("pathname", pathname);
+
+  if (pathname === "/articles") {
+    return null;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center my-10 py-8 bg-gray-100">
       <h3 className="text-2xl font-semibold mb-6">You May Also Like</h3>

@@ -43,8 +43,12 @@ const SelectedCountryPage = async ({ params }: any) => {
   const countryDetails = getCountryByName(countryName);
   const currentYear = new Date().getFullYear();
 
-  const top20BoyNames = await getData("usaBoyName");
-  const top20GirlNames = await getData("usagirlName");
+  const top20BoyNames = await getData(
+    countryName.toLowerCase() === "india" ? "indiaBoyName" : "usaBoyName"
+  );
+  const top20GirlNames = await getData(
+    countryName.toLowerCase() === "india" ? "indiaGirlName" : "usagirlName"
+  );
 
   return (
     <div className="flex items-center justify-center w-full">
