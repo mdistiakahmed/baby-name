@@ -95,18 +95,16 @@ export const articleList = [
     url: "/articles/hollywood-movies-baby-names",
   },
   {
-    title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
-    image: "/kids-movies-watch-with-family.webp",
-    excerpt: `Hollywood movies have long served as a mirror reflecting societal
-            trends, including the popularity of names given to characters.`,
-    url: "/articles/hollywood-movies-baby-names",
+    title: "Things to Consider While Choosing a Baby Name",
+    image: "/choose-a-name.webp",
+    excerpt: ``,
+    url: "/articles/things-to-consider-while-choosing-a-baby-name",
   },
   {
-    title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
-    image: "/kids-movies-watch-with-family.webp",
-    excerpt: `Hollywood movies have long served as a mirror reflecting societal
-            trends, including the popularity of names given to characters.`,
-    url: "/articles/hollywood-movies-baby-names",
+    title: "Exploring American Baby Names: Diversity and Tradition",
+    image: "/american-baby.webp",
+    excerpt: ``,
+    url: "/articles/american-baby-names",
   },
 ];
 
