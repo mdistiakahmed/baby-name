@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import Footer from "@/components/footer/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import YouMayLIkeSection from "@/components/you-may-like/YouMayLIkeSection";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-P2GM4FBYCH" />
+      <Head>
+        <GoogleAnalytics gaId="G-P2GM4FBYCH" />
+      </Head>
+
       <body className={inter.className}>
         <NextUIProvider>
           <NavComponent />
