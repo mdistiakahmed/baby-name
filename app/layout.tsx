@@ -7,7 +7,6 @@ import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import Footer from "@/components/footer/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import YouMayLIkeSection from "@/components/you-may-like/YouMayLIkeSection";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +14,9 @@ export const metadata: Metadata = {
   title: "Find the Perfect Baby Name | BabyNameNestlings",
   description:
     "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
+  other: {
+    "google-site-verification": "cm72aHj1hmDL3KsA8DhR_aZDEngjkhWG8tPokxyCK54",
+  },
   openGraph: {
     title: "Find the Perfect Baby Name | BabyNameNestlings",
     description:
@@ -42,12 +44,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics gaId="G-P2GM4FBYCH" />
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="cm72aHj1hmDL3KsA8DhR_aZDEngjkhWG8tPokxyCK54"
-        />
-      </Head>
       <body className={inter.className}>
         <NextUIProvider>
           <NavComponent />
