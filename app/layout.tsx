@@ -41,10 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-P2GM4FBYCH" />
       <Head>
-        <GoogleAnalytics gaId="G-P2GM4FBYCH" />
+        <meta
+          name="google-site-verification"
+          content="cm72aHj1hmDL3KsA8DhR_aZDEngjkhWG8tPokxyCK54"
+        />
       </Head>
-
       <body className={inter.className}>
         <NextUIProvider>
           <NavComponent />
