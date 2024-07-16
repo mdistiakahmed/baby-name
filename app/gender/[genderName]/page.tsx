@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import { Metadata } from "next";
 
@@ -39,12 +39,10 @@ export async function generateMetadata({
 const page = async ({ params }: any) => {
   const { genderName } = params;
   const genderDetalis = getGenderByName(genderName);
-  const { nameList, positions } = await getData(
-    genderName === "girl" ? "usagirlName" : "usaBoyName"
-  );
+  const { nameList, positions } = await getDataUpdated(null, null, genderName);
 
-  const totalItem = nameList.length;
-  const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);
+  const totalItem = nameList?.length;
+  const firstPageData = nameList?.slice(0, ITEMS_PER_PAGE);
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] ">
@@ -84,7 +82,7 @@ const page = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {firstPageData.map((nameObj: any, index: any) => {
+          {firstPageData?.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary

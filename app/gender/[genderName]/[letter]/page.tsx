@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
@@ -44,9 +44,12 @@ const CountryGenderLetterPage = async ({ params }: any) => {
   const { genderName, letter } = params;
   const genderDetalis = getGenderByName(genderName);
 
-  const { nameList, positions } = await getData(
-    genderName === "girl" ? "usagirlName" : "usaBoyName"
+  const { nameList, positions }: any = await getDataUpdated(
+    null,
+    null,
+    genderName
   );
+
   const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
   const boundary = positions[pos];
 

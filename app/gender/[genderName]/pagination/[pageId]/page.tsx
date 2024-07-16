@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 import {
   getCountryByName,
   getGenderByName,
@@ -42,12 +42,12 @@ export async function generateMetadata({
 const PaginatedGenderPage = async ({ params }: any) => {
   const { genderName, pageId } = params;
   const genderDetalis = getGenderByName(genderName);
-  const { nameList, positions } = await getData("dataFile1");
+  const { nameList, positions } = await getDataUpdated(null, null, genderName);
 
   const pageNumber = Number(pageId);
-  const totalItem = nameList.length;
+  const totalItem = nameList?.length;
 
-  const paginatedNameList = nameList.slice(
+  const paginatedNameList = nameList?.slice(
     (pageNumber - 1) * ITEMS_PER_PAGE,
     pageNumber * ITEMS_PER_PAGE
   );
@@ -91,7 +91,7 @@ const PaginatedGenderPage = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {paginatedNameList.map((nameObj: any, index: any) => {
+          {paginatedNameList?.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary

@@ -44,3 +44,35 @@ export const getData = async (param: string) => {
     throw error;
   }
 };
+
+export const getDataUpdated = async (
+  country: any,
+  religion: any,
+  gender: any
+) => {
+  try {
+    let nameList, positions;
+
+    if (!country && !religion) {
+      switch (gender) {
+        case "boy":
+          ({ nameList, positions } = await import(
+            "../data/country/usa/boy/usa-boy-names"
+          ));
+          break;
+        case "girl":
+          ({ nameList, positions } = await import(
+            "../data/country/usa/girl/use-girl-names"
+          ));
+          break;
+        default:
+          throw new Error(`No data file found for param: ${gender}`);
+      }
+    }
+
+    return { nameList, positions };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
