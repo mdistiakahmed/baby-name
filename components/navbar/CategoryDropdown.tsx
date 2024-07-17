@@ -72,6 +72,25 @@ const CategoryDropdown = ({ isMobile }: any) => {
     </DropdownItem>,
   ];
 
+  const articlesOptions = [
+    <DropdownItem
+      key={`articles`}
+      textValue={`articles`}
+      startContent={
+        <Image
+          alt={"blog"}
+          height={6}
+          width={6}
+          className="w-6 h-6"
+          src={`/blog.svg`}
+        />
+      }
+      onClick={() => handleItemClick(`/articles`)}
+    >
+      Articles
+    </DropdownItem>,
+  ];
+
   const countriesOptions = countries.flatMap((c, index) => [
     <DropdownItem
       key={`${index}-boy`}
@@ -118,6 +137,7 @@ const CategoryDropdown = ({ isMobile }: any) => {
           {religionsOptions}
         </DropdownSection>
         <DropdownSection title="By Country">{countriesOptions}</DropdownSection>
+        <DropdownSection title="Articles">{articlesOptions}</DropdownSection>
       </DropdownMenu>
     </Dropdown>
   );

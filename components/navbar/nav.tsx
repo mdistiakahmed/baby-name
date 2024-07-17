@@ -4,8 +4,6 @@ import React from "react";
 import {
   Navbar,
   NavbarBrand,
-  NavbarMenuToggle,
-  NavbarMenu,
   NavbarContent,
   NavbarItem,
   Link,
@@ -42,6 +40,11 @@ const NavComponent = () => {
       <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem>
           <CategoryDropdown />
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/articles" className="text-white font-medium">
+            <p>articles</p>
+          </Link>
         </NavbarItem>
       </NavbarContent>
     </Navbar>

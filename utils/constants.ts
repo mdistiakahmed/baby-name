@@ -38,20 +38,12 @@ export const countries = [
 
 export const religions = [
   {
-    name: "Islam",
-    desc: "Islamic",
-    image: "/islam-icon.svg",
-    path: "islam",
+    name: "Buddhist",
+    desc: "Buddhist",
+    image: "/buddhism-icon.svg",
+    path: "buddhist",
     shortDescription:
-      "Discover meaningful Islamic baby names inspired by rich traditions and values.",
-  },
-  {
-    name: "Hindu",
-    desc: "Hindu",
-    image: "/hindu-temple-icon.svg",
-    path: "hindu",
-    shortDescription:
-      "Explore beautiful Hindu baby names that reflect spiritual beliefs and cultural heritage.",
+      "Uncover serene Buddhist baby names that embody peace and enlightenment.",
   },
   {
     name: "Christian",
@@ -62,12 +54,20 @@ export const religions = [
       "Find classic and modern Christian baby names inspired by biblical traditions.",
   },
   {
-    name: "Buddhist",
-    desc: "Buddhist",
-    image: "/buddhism-icon.svg",
-    path: "buddhist",
+    name: "Hindu",
+    desc: "Hindu",
+    image: "/hindu-temple-icon.svg",
+    path: "hindu",
     shortDescription:
-      "Uncover serene Buddhist baby names that embody peace and enlightenment.",
+      "Explore beautiful Hindu baby names that reflect spiritual beliefs and cultural heritage.",
+  },
+  {
+    name: "Islam",
+    desc: "Islamic",
+    image: "/islam-icon.svg",
+    path: "islam",
+    shortDescription:
+      "Discover meaningful Islamic baby names inspired by rich traditions and values.",
   },
 ];
 
