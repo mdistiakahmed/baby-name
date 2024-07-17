@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
@@ -42,7 +42,11 @@ export async function generateMetadata({
 const PaginatedCountryGenderPage = async ({ params }: any) => {
   const { countryName, gender, pageId } = params;
   const countryDetails = getCountryByName(countryName);
-  const { nameList, positions } = await getData("usaBoyName");
+  const { nameList, positions } = (await getDataUpdated(
+    countryName,
+    null,
+    gender
+  )) as any;
 
   const pageNumber = Number(pageId);
   const totalItem = nameList.length;

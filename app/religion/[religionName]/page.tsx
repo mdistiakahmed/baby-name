@@ -8,6 +8,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { dummanyNameList, getReligionByName } from "@/utils/constants";
+import { getDataUpdated } from "@/utils/getData";
 
 export async function generateMetadata({
   params,
@@ -39,10 +40,16 @@ export async function generateMetadata({
   };
 }
 
-const ReligionPage = ({ params }: any) => {
+const ReligionPage = async ({ params }: any) => {
   const { religionName } = params;
   const religionDetails = getReligionByName(religionName);
   const currentYear = new Date().getFullYear();
+
+  const { nameList: boyNameList, positions: boyPositions } =
+    (await getDataUpdated(null, religionName, "boy")) as any;
+
+  const { nameList: girlNameList, positions: girlPositions } =
+    (await getDataUpdated(null, religionName, "girl")) as any;
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -99,11 +106,11 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {religionDetails.desc} Girls Name in {currentYear}
+                Top 20 {religionDetails.desc} Girls Name in {currentYear}
               </h3>
             </div>
 
-            {dummanyNameList.map((nameObj: any, index: any) => {
+            {girlNameList.slice(0, 20).map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary
@@ -146,11 +153,11 @@ const ReligionPage = ({ params }: any) => {
           <div className="rounded-lg w-full">
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
-                Top 10 {religionDetails.desc} Boys Name in {currentYear}
+                Top 20 {religionDetails.desc} Boys Name in {currentYear}
               </h3>
             </div>
 
-            {dummanyNameList.map((nameObj: any, index: any) => {
+            {boyNameList.slice(0, 20).map((nameObj: any, index: any) => {
               return (
                 <Accordion key={index}>
                   <AccordionSummary

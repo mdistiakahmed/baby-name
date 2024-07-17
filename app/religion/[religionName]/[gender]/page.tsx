@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
@@ -40,9 +40,11 @@ const ReligiousNames = async ({ params }: any) => {
   const { religionName, gender } = params;
   const religionDetails = getReligionByName(religionName);
 
-  const { nameList, positions } = await getData(
-    gender === "girl" ? "dataFile1" : "dataFile2"
-  );
+  const { nameList, positions } = (await getDataUpdated(
+    null,
+    religionName,
+    gender
+  )) as any;
 
   const totalItem = nameList.length;
   const firstPageData = nameList.slice(0, ITEMS_PER_PAGE);

@@ -68,6 +68,53 @@ export const getDataUpdated = async (
         default:
           throw new Error(`No data file found for param: ${gender}`);
       }
+    } else if (country) {
+      switch (country.toLowerCase()) {
+        case "usa":
+          if (gender === "boy") {
+            ({ nameList, positions } = await import(
+              "../data/country/usa/boy/usa-boy-names"
+            ));
+          } else {
+            ({ nameList, positions } = await import(
+              "../data/country/usa/girl/use-girl-names"
+            ));
+          }
+
+          break;
+        case "india":
+          break;
+        default:
+          throw new Error(`No data file found for param: ${gender}`);
+      }
+    } else if (religion) {
+      switch (religion.toLowerCase()) {
+        case "christian":
+          if (gender === "boy") {
+            ({ nameList, positions } = await import(
+              "../data/country/usa/boy/usa-boy-names"
+            ));
+          } else {
+            ({ nameList, positions } = await import(
+              "../data/country/usa/girl/use-girl-names"
+            ));
+          }
+
+          break;
+        case "islam":
+          if (gender === "boy") {
+            ({ nameList, positions } = await import(
+              "../data/religion/islam/boy/muslim-boy-names"
+            ));
+          } else {
+            ({ nameList, positions } = await import(
+              "../data/religion/islam/girl/muslim-girl-names"
+            ));
+          }
+          break;
+        default:
+          throw new Error(`No data file found for param: ${gender}`);
+      }
     }
 
     return { nameList, positions };
