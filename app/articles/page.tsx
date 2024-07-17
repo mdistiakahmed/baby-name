@@ -1,39 +1,16 @@
 import { client } from "@/sanity/lib/client";
-import { articleList } from "@/utils/constants";
+import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export interface Tag {
-  name: string;
-  slug: { current: string };
-  _id: string;
-}
-
-export interface Post {
-  title: string;
-  slug: { current: string };
-  publishedAt: string;
-  excerpt: string;
-  body: any;
-  tags: Array<Tag>;
-  _id: string;
-}
-
 async function getPosts() {
   const query = `
     *[_type == "post"] {
-  title,
-  slug,
-  publishedAt,
-  excerpt,
-  tags[]-> {
-      _id,
+      title,
       slug,
-      name
+      heroImage
     }
-}
-
   `;
 
   const data = await client.fetch(query);
@@ -41,47 +18,43 @@ async function getPosts() {
 }
 
 const ArticleHomePage = async () => {
-  const posts: Post[] = await getPosts();
-  console.log(posts);
-
-  const postList = posts.map((po) => (
-    <div key={po._id}>
-      <Link href={`/posts/${po?.slug?.current}`}>
-        <h2>{po?.title}</h2>
-        <p> {new Date(po?.publishedAt).toDateString()}</p>
-        <p>{po?.excerpt}</p>
-      </Link>
-      {po?.tags?.map((t) => <p key={t._id}>{t.name}</p>)}
-    </div>
-  ));
+  const posts: any[] = await getPosts();
 
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
-        <div className="flex flex-col items-center justify-center my-10 py-8 bg-gray-100">
-          <h3 className="text-2xl font-semibold mb-6">Articles on Baby Name</h3>
-
-          <div className="flex flex-col gap-10 my-10">{postList}</div>
+        <div className="flex flex-col items-center justify-center  py-8 bg-gray-100">
+          <h3 className="text-2xl font-semibold mb-6">Articles</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl px-4">
-            {articleList.map((article, index) => {
+            {posts.map((article, index) => {
+              const { heroImage } = article;
               return (
                 <Link
-                  href={article.url}
+                  href={`/articles/${article?.slug?.current}`}
                   key={index}
                   className="bg-white shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer"
                 >
                   <Image
-                    src={article.image}
+                    src={urlForImage(heroImage)}
                     height={200}
                     width={200}
                     className="h-[200px] w-full object-cover"
-                    alt={article.title.substring(0, 10)}
+                    alt={heroImage.alt || "post"}
                   />
-                  <div className="p-4">
+                  <div className="p-4 pb-0">
                     <h4 className="text-lg font-medium mb-2">
                       {article.title}
                     </h4>
+                  </div>
+
+                  <div className="flex items-center justify-center pb-2">
+                    <Image
+                      src="/button-arrow.svg"
+                      height={20}
+                      width={80}
+                      alt="see more"
+                    />
                   </div>
                 </Link>
               );

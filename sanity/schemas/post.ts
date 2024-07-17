@@ -19,6 +19,23 @@ export const post = {
       options: { source: "title" },
       validation: (rule: Rule) => rule.required().error("Required"),
     },
+
+    {
+      name: "heroImage",
+      title: "Hero Image",
+      type: "image",
+      fields: [
+        {
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+        },
+      ],
+      options: {
+        hotspot: true, // Enables hotspot/crop functionality in the Studio
+      },
+      validation: (rule: Rule) => rule.required().error("Required"),
+    },
     {
       name: "publishedAt",
       title: "Published At",
@@ -44,13 +61,6 @@ export const post = {
           fields: [{ type: "text", name: "alt", title: "Alt" }],
         },
       ],
-    },
-
-    {
-      name: "tags",
-      title: "Tags",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "tag" }] }],
     },
   ],
 };

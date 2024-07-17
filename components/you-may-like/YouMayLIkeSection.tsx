@@ -8,8 +8,6 @@ import { usePathname } from "next/navigation";
 const YouMayLIkeSection = () => {
   const pathname = usePathname();
 
-  console.log("pathname", pathname);
-
   if (pathname === "/articles" || pathname.includes("/studio")) {
     return null;
   }
@@ -21,7 +19,7 @@ const YouMayLIkeSection = () => {
         {articleList.map((article, index) => {
           return (
             <Link
-              href={"/articles/a/first-post"}
+              href={article.url}
               key={index}
               className="bg-white shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer"
             >
