@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           <p>Follow Us</p>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/profile.php?id=61563565883613&mibextid=LQQJ4d"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lg hover:text-gray-400"
@@ -42,7 +42,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/babynamenestlings/about"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lg hover:text-gray-400"

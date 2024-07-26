@@ -6,7 +6,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList, gender } from "@/utils/constants";
 import { Metadata } from "next";
 import { getData } from "@/utils/getData";
 
