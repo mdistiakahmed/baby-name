@@ -3,9 +3,7 @@ export const nameList = [
     name: "Aaliyah ",
     meaning: "High, exalted, sublime",
     stories: [
-      "Originated from arabic word آية",
-      "Md Istiak Ahmed was a great computer scientist born in 1994.",
-      "Istiak Ashiq was a novelist who wrote Gitanjoli",
+      "Aaliyah means “rising, ascending” and “highborn, exalted, sublime.” These meanings make it a powerful and spiritual choice for baby, especially for baby girls born into the Muslim faith.",
     ],
   },
   {
@@ -79,6 +77,13 @@ export const nameList = [
     ],
   },
   {
+    name: "aleela",
+    meaning: "Majestic, Glorious",
+    stories: [
+      "A name denoting grandeur and dignity, often associated with a regal and admirable presence.",
+    ],
+  },
+  {
     name: "Aleena",
     meaning: "Soft, delicate",
     stories: [
@@ -129,7 +134,7 @@ export const nameList = [
   {
     name: "Areebah",
     meaning: "witty, smart, wise",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Arisha",
@@ -210,6 +215,91 @@ export const nameList = [
     stories: ["A name that reflects generosity and kindness."],
   },
   {
+    name: "Cemal",
+    meaning: "Beauty.",
+    stories: [],
+  },
+  {
+    name: "Ceyda",
+    meaning: "A beautiful woman",
+    stories: [],
+  },
+  {
+    name: "Chaand",
+    meaning: "Variant Of Chand: The Moon.",
+    stories: [],
+  },
+  {
+    name: "Chadia",
+    meaning: "gracious",
+    stories: [],
+  },
+  {
+    name: "Chafia",
+    meaning: "look after",
+    stories: [],
+  },
+  {
+    name: "Chahr Zad",
+    meaning: "Most Beautiful",
+    stories: [],
+  },
+  {
+    name: "Chaman ara",
+    meaning: "The Beauty Of The Garden",
+    stories: [],
+  },
+  {
+    name: "Chana",
+    meaning: "Gracious, Merciful",
+    stories: [],
+  },
+  {
+    name: "Chand bibi",
+    meaning: "A woman like the moon",
+    stories: [],
+  },
+  {
+    name: "Chandi",
+    meaning: "A precious metal, white wrapper",
+    stories: [],
+  },
+  {
+    name: "Chandra",
+    meaning: "Beautiful As The Moon",
+    stories: [],
+  },
+  {
+    name: "Chashni",
+    meaning: "Sweet Thing",
+    stories: [],
+  },
+  {
+    name: "Daena",
+    meaning: "Divine Knowledge",
+    stories: [],
+  },
+  {
+    name: "Dahab",
+    meaning: "Gold.",
+    stories: [],
+  },
+  {
+    name: "Dahila",
+    meaning: "In Scandinavian meaning is : Flower named for botanist A. Dahl.",
+    stories: [],
+  },
+  {
+    name: "Daima",
+    meaning: "Everlasting",
+    stories: [],
+  },
+  {
+    name: "Daina",
+    meaning: "religious, pious, spiritual.",
+    stories: [],
+  },
+  {
     name: "Dalia",
     meaning: "Flower ",
     stories: [
@@ -217,11 +307,21 @@ export const nameList = [
     ],
   },
   {
+    name: "Dami",
+    meaning: "Creator, Wisdom",
+    stories: [],
+  },
+  {
     name: "Dana",
     meaning: "valuable and beautiful pearl ",
     stories: [
       'Dana or Danah, in Arabic, means "the most perfectly sized, valuable and beautiful pearl". This name is used mainly by Arab states of the Persian Gulf (Eastern Arabia), due to their traditional pearl diving professions wherein they gave different type of pearls names.',
     ],
+  },
+  {
+    name: "Daneen",
+    meaning: "Princess",
+    stories: [],
   },
   {
     name: "Dania",
@@ -236,6 +336,41 @@ export const nameList = [
     ],
   },
   {
+    name: "Darakhshan",
+    meaning: "Bright",
+    stories: [],
+  },
+  {
+    name: "Dariya",
+    meaning: "learned",
+    stories: [],
+  },
+  {
+    name: "Darya",
+    meaning: "Sea",
+    stories: [],
+  },
+  {
+    name: "Dasia",
+    meaning: "Daisy Flower; D + Asia",
+    stories: [],
+  },
+  {
+    name: "Diba",
+    meaning: "silk Brocade",
+    stories: [],
+  },
+  {
+    name: "Dilara",
+    meaning: "Beloved",
+    stories: [],
+  },
+  {
+    name: "Dilkash",
+    meaning: "Attractive, captivating.",
+    stories: [],
+  },
+  {
     name: "Dina",
     meaning: "loyal, obedient ",
     stories: [
@@ -243,11 +378,31 @@ export const nameList = [
     ],
   },
   {
+    name: "Dishad",
+    meaning: "Happy, Glad, Cheerful",
+    stories: [],
+  },
+  {
+    name: "Doha",
+    meaning: "Forenoon.",
+    stories: [],
+  },
+  {
+    name: "Dua",
+    meaning: "WORSHIP, PLEADED, Devotion",
+    stories: [],
+  },
+  {
     name: "Dunya",
     meaning: '"lower or lowest", or "nearer or nearest"',
     stories: [
       "Dunya refers to the life of this world from the moment we are born until the moment we die. When a person dies their soul leaves the dunya (this world), and thus begins the first step towards the akhirah (afterlife) in which they live eternally in Heaven or Hell.",
     ],
+  },
+  {
+    name: "Dur afshan",
+    meaning: "Scattered pearls",
+    stories: [],
   },
   {
     name: "Duriya",
@@ -271,10 +426,108 @@ export const nameList = [
     ],
   },
   {
+    name: "Ehzazunissa",
+    meaning: "Precious and cherished woman",
+    stories: [
+      'Ehzazunissa means "precious and cherished woman," highlighting the value and affection for the individual.',
+    ],
+  },
+  {
     name: "Eiman",
     meaning: "Faith,  belief ",
     stories: [
       "The name “Eiman” is deeply rooted in Arabic culture and language. It is derived from the Arabic word “إيمان” (pronounced as ee-MAHN), which translates to “faith” or “belief.” In Islamic tradition, the term signifies a sincere conviction and trust in Allah",
+    ],
+  },
+  {
+    name: "Eira",
+    meaning: "Snow",
+    stories: [
+      'Eira is of Welsh origin, meaning "snow." It evokes purity and a serene, wintry beauty.',
+    ],
+  },
+  {
+    name: "Eishah",
+    meaning: "Alive, living",
+    stories: [
+      'Eishah is derived from the Arabic word "Aysha," which means "living" or "alive," symbolizing vitality and life.',
+    ],
+  },
+  {
+    name: "Elham",
+    meaning: "Inspiration or Revelation",
+    stories: [
+      'Elham is an Arabic name meaning "inspiration" or "revelation." It signifies a source of creativity and divine insight.',
+    ],
+  },
+  {
+    name: "Eliza",
+    meaning: "Consecrated to God",
+    stories: [
+      'Eliza is a name of Hebrew origin, meaning "consecrated to God." It reflects a spiritual connection and dedication.',
+    ],
+  },
+  {
+    name: "Elma",
+    meaning: "Apple or Fruit",
+    stories: [
+      'Elma is of Turkish origin, meaning "apple" or "fruit." It conveys simplicity and natural beauty.',
+    ],
+  },
+  {
+    name: "Elnaz",
+    meaning: "Delicate and charming",
+    stories: [
+      'Elnaz means "delicate and charming," often used to describe someone with a refined and attractive personality.',
+    ],
+  },
+  {
+    name: "Emami",
+    meaning: "Eminent or distinguished",
+    stories: [
+      "Emami signifies someone who is eminent or distinguished, suggesting a sense of honor and high regard.",
+    ],
+  },
+  {
+    name: "Emel",
+    meaning: "Hope or aspiration",
+    stories: [
+      "Emel signifies hope and aspiration, representing a sense of optimism and future dreams.",
+    ],
+  },
+  {
+    name: "Emira",
+    meaning: "Princess or Leader",
+    stories: [
+      'Emira is an Arabic name meaning "princess" or "leader." It denotes nobility and leadership.',
+    ],
+  },
+  {
+    name: "Emiri",
+    meaning: "Leader or ruler",
+    stories: [
+      'Emiri means "leader" or "ruler," often used to denote a person with authority and leadership qualities.',
+    ],
+  },
+  {
+    name: "Emna",
+    meaning: "Trustworthy or faithful",
+    stories: [
+      'Emna means "trustworthy" or "faithful," reflecting qualities of reliability and integrity.',
+    ],
+  },
+  {
+    name: "Ereshva",
+    meaning: "The bright one",
+    stories: [
+      'Ereshva means "the bright one," symbolizing a person who brings light and positivity into the lives of others.',
+    ],
+  },
+  {
+    name: "Erina",
+    meaning: "Peaceful or Calm",
+    stories: [
+      'Erina is of Persian origin, meaning "peaceful" or "calm." It represents tranquility and serenity.',
     ],
   },
   {
@@ -290,13 +543,114 @@ export const nameList = [
     stories: ["A heavenly name that signifies a divine flower."],
   },
   {
-    name: "Farah",
-    meaning: "joy, good-looking",
+    name: "Esra",
+    meaning: "Journey by night",
     stories: [
-      "Though it's more commonly considered a classic name for baby girls,",
-      "Farah enjoys gender-neutral status and is fitting as a unisex title",
-      "",
+      'Esra is of Arabic origin, meaning "journey by night." It often symbolizes a significant or transformative journey.',
     ],
+  },
+  {
+    name: "Ewaz",
+    meaning: "Eternal or everlasting",
+    stories: [
+      'Ewaz signifies "eternal" or "everlasting," conveying a sense of permanence and timelessness.',
+    ],
+  },
+  {
+    name: "Eylul",
+    meaning: "September",
+    stories: [
+      'Eylul is a Turkish name meaning "September," often associated with the autumn season and its beauty.',
+    ],
+  },
+  {
+    name: "Ezzah",
+    meaning: "Esteem or Honor",
+    stories: [
+      'Ezzah is an Arabic name meaning "esteem" or "honor." It reflects high respect and dignity.',
+    ],
+  },
+  {
+    name: "Fabeha",
+    meaning: "Beautiful, radiant",
+    stories: ["Conveys beauty and charm, both physically and spiritually."],
+  },
+  {
+    name: "Fahmida",
+    meaning: '"Understanding" or "Intelligent"',
+    stories: [
+      "Fahmida denotes intelligence and understanding, highlighting wisdom and insight.",
+    ],
+  },
+  {
+    name: "Faiqa",
+    meaning: "Superior, Eminent",
+    stories: [
+      "Denotes someone who is distinguished or superior, often used to signify high status or excellence.",
+    ],
+  },
+  {
+    name: "Faiza",
+    meaning: "Victorious, successful",
+    stories: ["Represents achievement and triumph in one's endeavors."],
+  },
+  {
+    name: "Fajr",
+    meaning: "Dawn",
+    stories: [
+      "Refers to the early morning light or dawn, symbolizing a new beginning or the start of a new day.",
+    ],
+  },
+  {
+    name: "Falak",
+    meaning: "Sky, celestial",
+    stories: [
+      "Represents the sky or heavens, symbolizing vastness and beauty.",
+    ],
+  },
+  {
+    name: "Fana",
+    meaning: "Annihilation, Transience",
+    stories: [
+      "In Islamic philosophy, it represents the concept of impermanence or the spiritual idea of annihilation of",
+    ],
+  },
+  {
+    name: "Farah",
+    meaning: "Joy, happiness",
+    stories: ["Signifies a sense of joy and pleasure."],
+  },
+  {
+    name: "Fareeha",
+    meaning: "Joyful, happy",
+    stories: ["Reflects a lively and happy personality."],
+  },
+  {
+    name: "Farheen",
+    meaning: "Happy, cheerful",
+    stories: ["Denotes joyfulness and a cheerful disposition."],
+  },
+  {
+    name: "Faria",
+    meaning: "Fairy, enchanting",
+    stories: ["Suggests a magical and charming nature."],
+  },
+  {
+    name: "Farida",
+    meaning: "Unique, precious",
+    stories: ["Means precious and one of a kind, emphasizing rarity."],
+  },
+  {
+    name: "Farishta",
+    meaning: '"Angel"',
+    stories: [
+      "Farishta means angel, symbolizing purity, protection, and divine guidance.",
+    ],
+  },
+  {
+    name: "Farwa",
+    meaning: "Soft, gentle",
+    stories: ["Indicates a soft and gentle nature."],
   },
   {
     name: "Faryal",
@@ -307,9 +661,16 @@ export const nameList = [
     ],
   },
   {
-    name: "Faryal",
-    meaning: "Angel",
-    stories: ["A name that means an angelic and ethereal being."],
+    name: "Farzana",
+    meaning: "Intelligent, wise",
+    stories: ["Implies wisdom and intelligence."],
+  },
+  {
+    name: "Fatiha",
+    meaning: '"The Opening" or "The First Chapter"',
+    stories: [
+      "Fatiha is a significant name derived from the opening chapter of the Quran, symbolizing new beginnings and guidance.",
+    ],
   },
   {
     name: "Fatima ",
@@ -319,10 +680,29 @@ export const nameList = [
     ],
   },
   {
+    name: "Fatima Zahra",
+    meaning: '"Fatima the Radiant" or',
+    stories: [],
+  },
+  {
     name: "Fauzia",
     meaning: "Triumphant, Successful",
     stories: [
       "An Arabic-origin feminine name, Fauzia is widely used in Urdu, Bengali, Pakistani, and broader Arabic-speaking communities. It is an alternate transcription of the Urdu name Fawzia, derived from the Arabic root Fawzi, meaning ‘triumph.’ This name symbolizes victory and success, making it a powerful and positive choice for a girl. The variants of Fauzia include Fawziyya in Arabic, Fouzia in Urdu, and Fevziye in Turkish.",
+    ],
+  },
+  {
+    name: "Feeha",
+    meaning: '"A Gift" or "Blessing"',
+    stories: [
+      "Feeha means a gift or blessing, emphasizing the preciousness and cherished nature of the individual.",
+    ],
+  },
+  {
+    name: "Filza",
+    meaning: '"Pure" or "Innocent"',
+    stories: [
+      "Filza means pure and innocent, reflecting a sense of purity and virtue.",
     ],
   },
   {
@@ -342,10 +722,43 @@ export const nameList = [
     ],
   },
   {
+    name: "Freya",
+    meaning: '"Noble Woman" or "Lady"',
+    stories: [
+      "Freya is a name of Norse origin, meaning noble lady, associated with beauty and strength.",
+    ],
+  },
+  {
     name: "Gazal",
     meaning: "love poem, or any poetry expressing strong emotion",
     stories: [
       "The word ghazal originates from the Arabic word غزل (ġazal). This genre of Arabic poetry is derived from غَزَل (ḡazal) or غَزِلَ (ḡazila) - To sweet-talk, to flirt, to display amorous gestures. The Arabic word غزل ġazal is pronounced [ˈɣazal].",
+    ],
+  },
+  {
+    name: "Ghada",
+    meaning: "Graceful, elegant; a type of tree",
+    stories: [
+      "Represents grace and elegance, and is often used for its soft, delicate connotation.",
+    ],
+  },
+  {
+    name: "Ghalia",
+    meaning: "Precious, valuable; distinguished",
+    stories: [
+      "Signifies high value and preciousness, often used for someone cherished.",
+    ],
+  },
+  {
+    name: "Ghana",
+    meaning: '"Ghana" means musical or melodious.',
+    stories: ["Symbolizes harmony and charm,"],
+  },
+  {
+    name: "Ghania",
+    meaning: "Wealthy, prosperous; beautiful",
+    stories: [
+      "A name symbolizing wealth and beauty, often associated with grace and elegance.",
     ],
   },
   {
@@ -354,6 +767,85 @@ export const nameList = [
     stories: [
       'The name Ghazala is a beautiful and feminine name of Arabic origin. It is derived from the word "ghazal," which means "gazelle." Gazelles are graceful and elegant animals, and they are often seen as symbols of love and beauty.',
     ],
+  },
+  {
+    name: "Ghazia",
+    meaning: "A woman who has fought in the path of Allah; warrior",
+    stories: [
+      "Indicates a strong and courageous woman, often with a sense of duty and honor.",
+    ],
+  },
+  {
+    name: "Ghizlan",
+    meaning: "Young gazelle; graceful and delicate",
+    stories: [
+      "Represents grace and delicacy, akin to the elegant movement of a gazelle.",
+    ],
+  },
+  {
+    name: "Giti",
+    meaning: "World; life",
+    stories: [
+      "Symbolizes the beauty and essence of life, often reflecting a sense of global connection.",
+    ],
+  },
+  {
+    name: "Goli",
+    meaning: "A term used for someone with a sweet disposition",
+    stories: [
+      "Implies sweetness and kindness, often appreciated for its gentle sound.",
+    ],
+  },
+  {
+    name: "Gul",
+    meaning: '"Gul" means flower.',
+    stories: ["Represents beauty and elegance, a simple yet classic name."],
+  },
+  {
+    name: "Gul Afsan",
+    meaning: '"Gul" means flower and "Afsan" means story or tale.',
+    stories: ["A poetic name combining beauty and narrative."],
+  },
+  {
+    name: "Gul E rana",
+    meaning: "Flower of the garden; beautiful and charming",
+    stories: [
+      "A poetic name reflecting beauty and charm, likened to a lovely flower in a garden.",
+    ],
+  },
+  {
+    name: "Gulab",
+    meaning: '"Gulab" means rose.',
+    stories: [
+      "Symbolizes love and beauty, often associated with the rose flower.",
+    ],
+  },
+  {
+    name: "Gulbadan",
+    meaning: "One with a beautiful body; a term for a beautiful girl",
+    stories: ["Refers to someone who is physically attractive and elegant."],
+  },
+  {
+    name: "Gulistan",
+    meaning: '"Gul" means flower and "istan" means place or land.',
+    stories: ['Meaning "land of flowers," suggesting a place of beauty.'],
+  },
+  {
+    name: "Gulnar",
+    meaning: '"Gul" means flower and "Nar" means pomegranate.',
+    stories: [
+      "Represents the beauty of flowers and the richness of pomegranates.",
+    ],
+  },
+  {
+    name: "Gulnaz",
+    meaning: '"Gul" means flower and "Naz" means pride.',
+    stories: ["A name reflecting pride and beauty, like a flower."],
+  },
+  {
+    name: "Gulrukh",
+    meaning: "Face like a flower; beautiful",
+    stories: ["Describes someone with a lovely and flower-like appearance."],
   },
   {
     name: "Gulzar",
@@ -368,6 +860,11 @@ export const nameList = [
       "In the rich tapestry of Arabic culture and history, Hadia has weaved its way through the annals of time, leaving its mark from ancient civilizations to the modern-day",
       "",
     ],
+  },
+  {
+    name: "Hadiya",
+    meaning: "Gift",
+    stories: ["A name signifying that the child is a precious gift."],
   },
   {
     name: "Hafsa",
@@ -406,14 +903,17 @@ export const nameList = [
     ],
   },
   {
-    name: "Hania",
-    meaning: "Happy",
-    stories: ["A joyful name that denotes happiness."],
+    name: "Harira",
+    meaning: "A kind of soup",
+    stories: [
+      "In Arabic, refers to a nourishing soup",
+      "symbolizes warmth and care.",
+    ],
   },
   {
     name: "Haseena",
     meaning: "Beautiful",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Haya",
@@ -433,6 +933,42 @@ export const nameList = [
     ],
   },
   {
+    name: "Hibba",
+    meaning: "Gift, present",
+    stories: ["Implies being a precious gift or blessing."],
+  },
+  {
+    name: "Hifza",
+    meaning: "Protector",
+    stories: ["Represents strength and protection, signifying a guardian."],
+  },
+  {
+    name: "Hira",
+    meaning: "A mountain in Saudi Arabia; Radiance",
+    stories: [
+      "Hira is known for its association with the Cave of Hira, where the Prophet Muhammad received his first revelation. It symbolizes enlightenment and purity.",
+    ],
+  },
+  {
+    name: "Hoor",
+    meaning: "Beautiful maiden with radiant eyes",
+    stories: [
+      "Refers to heavenly beings with beautiful eyes in Islamic tradition.",
+    ],
+  },
+  {
+    name: "Huda",
+    meaning: "Guidance; Right path",
+    stories: [
+      "Huda signifies divine guidance and the path of righteousness, ideal for a name with spiritual significance.",
+    ],
+  },
+  {
+    name: "Huma",
+    meaning: "A mythical bird, believed to bring happiness",
+    stories: ["Associated with a legendary bird that symbolizes good fortune."],
+  },
+  {
     name: "Humaira",
     meaning: "Reddish colour",
     stories: [
@@ -447,14 +983,21 @@ export const nameList = [
     ],
   },
   {
-    name: "Ibtisam ",
-    meaning: "Smile",
+    name: "Ibtihaj",
+    meaning: "Joyful, delight",
     stories: [
-      "Ibtisam (Arabic: ابتسام)",
-      'What better name to bestow upon your beaming bundle of joy than one that boasts the sweetest definition of “smile"',
-      "Ibtisam is a feminine name of Arabic origin and is considered to be quite rare, allowing baby to truly make it their own.\n Whether you feel like baby has a bubbly personality that is infectious, or perhaps you’re hoping to encourage baby to face each day with positivity",
-      "Ibtisam makes for a wonderful choice.",
+      "Represents joy and delight, a name that brings a sense of happiness and celebration.",
     ],
+  },
+  {
+    name: "Ibtisam",
+    meaning: "Smile",
+    stories: ["A name reflecting joy and positivity."],
+  },
+  {
+    name: "Iffah",
+    meaning: "Chastity or Modesty",
+    stories: ["Indicates purity and virtue."],
   },
   {
     name: "Ifrah",
@@ -467,11 +1010,31 @@ export const nameList = [
     ],
   },
   {
-    name: "Iman",
-    meaning: "Faith, belief ",
+    name: "Ilham",
+    meaning: "Inspiration",
     stories: [
-      "Iman (Arabic: إِيمَان, romanized: ʾīmān, lit. 'faith' or 'belief', also 'recognition') in Islamic theology denotes a believer's recognition of faith and deeds in the religious aspects of Islam. Its most simple definition is the belief in the six articles of faith, known as arkān al-īmān.",
+      "Represents a source of inspiration and creativity, often used for a person who motivates and inspires others.",
     ],
+  },
+  {
+    name: "Ilyana",
+    meaning: "Moonlight",
+    stories: ["Conveys a sense of tranquility and beauty."],
+  },
+  {
+    name: "Imaan",
+    meaning: "Faith",
+    stories: ["Represents deep belief and trust in God."],
+  },
+  {
+    name: "Imanara",
+    meaning: "Light of Faith",
+    stories: ["Symbolizes the illumination of faith."],
+  },
+  {
+    name: "Imara",
+    meaning: "Prosperity or Leadership",
+    stories: ["Reflects strength and the ability to guide others."],
   },
   {
     name: "Inaya",
@@ -488,11 +1051,55 @@ export const nameList = [
     ],
   },
   {
+    name: "Irfana",
+    meaning: "Knowledgeable",
+    stories: ["Represents wisdom and knowledge."],
+  },
+  {
+    name: "Isbah",
+    meaning: "Morning light",
+    stories: [
+      "Symbolizes the beauty and freshness of the morning light, often associated with new beginnings.",
+    ],
+  },
+  {
+    name: "Ishaana",
+    meaning: "Goddess Saraswati",
+    stories: ["Named after the goddess of knowledge."],
+  },
+  {
+    name: "Ishra",
+    meaning: "Dawn or Morning Light",
+    stories: ["Symbolizes new beginnings and enlightenment."],
+  },
+  {
     name: "Ishrat",
     meaning: "pleasure, happiness,  joy",
     stories: [
       'Ishrat is a Muslim name of Arabic origin that means "pleasure", "delight", "happiness", "joy". It is also sometimes interpreted as meaning "companionship" or "intimacy".',
     ],
+  },
+  {
+    name: "Izdihar",
+    meaning: "Blossoming, flourishing",
+    stories: [
+      "Signifies growth and prosperity, often used to describe someone who is thriving and blossoming.",
+    ],
+  },
+  {
+    name: "Izzah",
+    meaning: "Honor or Dignity",
+    stories: ["Represents respect and high regard."],
+  },
+  {
+    name: "Jahan",
+    meaning: "Variant Of Jehan: The World.",
+    stories: [],
+  },
+  {
+    name: "Jalila",
+    meaning: "Great, exalted",
+    stories: ["A name reflecting nobility and high status."],
   },
   {
     name: "Jameela",
@@ -502,10 +1109,22 @@ export const nameList = [
     ],
   },
   {
-    name: "Jannat",
-    meaning: "Paradise ",
+    name: "Janan",
+    meaning: "Heart, soul",
+    stories: ["Represents deep affection and spiritual connection."],
+  },
+  {
+    name: "jannatul",
+    meaning: "Paradise",
     stories: [
-      "In Islam, Jannah (Arabic: جَنَّةٍ, romanized: janna, pl. جَنّٰت jannāt, lit. 'paradise' or 'garden') is the final abode of the righteous.",
+      "Represents the ultimate beauty and tranquility of paradise, symbolizing a serene and perfect state.",
+    ],
+  },
+  {
+    name: "Jasia",
+    meaning: "New, fresh, or young",
+    stories: [
+      "Jasia represents something new and fresh, embodying the qualities of youth and renewal.",
     ],
   },
   {
@@ -514,10 +1133,48 @@ export const nameList = [
     stories: ["A name that reflects bravery and courage."],
   },
   {
+    name: "Jasmine",
+    meaning: "In American meaning is : Fragrant flower",
+    stories: [],
+  },
+  {
+    name: "Jasmira",
+    meaning: "Jasmine flower",
+    stories: ["Symbolizes beauty and grace, like the fragrant flower."],
+  },
+  {
     name: "Javeria",
     meaning: "Beautiful,  charming,  who bring good news/ Happiness ",
     stories: [
       'The name Javeria is an Arabic name that means "beautiful," "graceful," or "charming." It is a popular name in many Muslim-majority countries, including Pakistan, India, and Banglades.',
+    ],
+  },
+  {
+    name: "Jazba",
+    meaning: "Passion, zeal",
+    stories: [
+      "Jazba reflects intense passion and enthusiasm, denoting a spirited and dynamic personality.",
+    ],
+  },
+  {
+    name: "Jazira",
+    meaning: "Island",
+    stories: [
+      "Represents independence and uniqueness, like an island standing out from the mainland.",
+    ],
+  },
+  {
+    name: "Johara",
+    meaning: "Precious gem, jewel",
+    stories: [
+      "Johara signifies a rare and valuable gem, symbolizing beauty and rarity.",
+    ],
+  },
+  {
+    name: "Jumanah",
+    meaning: "Pearl",
+    stories: [
+      "Signifies purity and rarity, similar to the precious and lustrous nature of a pearl.",
     ],
   },
   {
@@ -541,9 +1198,30 @@ export const nameList = [
     stories: ["A name that means perfection and completeness."],
   },
   {
+    name: "Kaniz",
+    meaning: "Girl / Young Woman",
+    stories: [
+      "A classic name with a timeless appeal, symbolizing youth and femininity.",
+    ],
+  },
+  {
+    name: "Kanza",
+    meaning: "Treasure",
+    stories: [
+      "A rare and precious name symbolizing wealth and value, perfect for a cherished daughter.",
+    ],
+  },
+  {
     name: "Kashaf",
     meaning: "Revelation, manifestation",
-    stories: ["Originated from arabic word"],
+    stories: [],
+  },
+  {
+    name: "Kauthar",
+    meaning: "Abundance",
+    stories: [
+      "Represents a river in paradise, symbolizing abundance and divine blessings.",
+    ],
   },
   {
     name: "Khadija",
@@ -552,6 +1230,32 @@ export const nameList = [
       "Meaning:Early baby",
       "Trustworthy",
       'Respect. Those looking for an Arabic name to inspire ambition in their little one will adore Khadija, a girl\'s name meaning "early baby," "trustworthy," and "respect." Related to Khadijah, it refers to the first wife and follower of prophet Muhammad',
+    ],
+  },
+  {
+    name: "Khasbah",
+    meaning: "Flowering Plant",
+    stories: ["Represents growth and beauty, akin to a blooming flower."],
+  },
+  {
+    name: "Kifaya",
+    meaning: "Sufficiency / Enough",
+    stories: [
+      "Represents self-sufficiency and completeness, reflecting a sense of fulfillment.",
+    ],
+  },
+  {
+    name: "Kiran",
+    meaning: "Ray of Light",
+    stories: [
+      "A name conveying brightness and clarity, ideal for a girl who brings light into the world.",
+    ],
+  },
+  {
+    name: "Kiranaz",
+    meaning: "Ray of the Moon",
+    stories: [
+      "A celestial name symbolizing purity and light, akin to the moon's gentle glow.",
     ],
   },
   {
@@ -570,13 +1274,6 @@ export const nameList = [
       "heavenly, Female of the haven, Female of the Haven, Prettiest Woman in all the heavens",
     stories: [
       'The name Laiba is of Arabic origin, and it is a common name in many Arabic-speaking countries. The meaning of the name Laiba is "heavenly," and it is derived from the Arabic word "laib."',
-    ],
-  },
-  {
-    name: "Laiba",
-    meaning: 'Pretty, A beautiful Hoor Of Heaven".',
-    stories: [
-      'The name Laiba is a baby girl name of Urdu origin meaning "Gorgeous".',
     ],
   },
   {
@@ -621,13 +1318,6 @@ export const nameList = [
     stories: [
       "This name is primarily used for females and carries a meaning of “wild cow,” a reference to the animal's striking beauty",
       "especially its big and captivating eyes.",
-    ],
-  },
-  {
-    name: "Maha",
-    meaning: "Beautiful eyes, half moon",
-    stories: [
-      'Maha (Arabic: مها, mahā) is an Arabic female given name meaning "half moon" or "beautiful eyes". The wild deer — or the Arabian oryx antelope, which is identified with the word mahā in some sources — has been traditionally celebrated in Arabic poetry for the beauty of its eyes',
     ],
   },
   {
@@ -769,6 +1459,16 @@ export const nameList = [
     ],
   },
   {
+    name: "Nabeeha",
+    meaning: "Intelligent, Noble",
+    stories: ["A name signifying intelligence and nobility."],
+  },
+  {
+    name: "Nabeela",
+    meaning: "Noble; distinguished",
+    stories: ["A name reflecting high status and nobility."],
+  },
+  {
     name: "Nadia ",
     meaning: "Hope, expectation",
     stories: [
@@ -785,6 +1485,26 @@ export const nameList = [
     ],
   },
   {
+    name: "Nadiya",
+    meaning: "Hope; expectation",
+    stories: ["Conveys optimism and hope for the future."],
+  },
+  {
+    name: "Naeema",
+    meaning: "Comfort, Ease",
+    stories: ["Reflects a sense of comfort and tranquility."],
+  },
+  {
+    name: "Nafisa",
+    meaning: "Precious; valuable",
+    stories: ["Conveys the value and rarity of a precious gem."],
+  },
+  {
+    name: "Nahla",
+    meaning: "A drink of water, Honey bee",
+    stories: ["Symbolizes sweetness and refreshment."],
+  },
+  {
     name: "Naila",
     meaning: "Attainer, successful ",
     stories: [
@@ -793,8 +1513,53 @@ export const nameList = [
   },
   {
     name: "Naima",
-    meaning: "Comfort, Ease",
-    stories: ["A name that signifies comfort and tranquility."],
+    meaning: "Tranquil, Calm",
+    stories: ["Signifies a peaceful and calm nature."],
+  },
+  {
+    name: "Nainika",
+    meaning: "Charming, One who has beautiful eyes",
+    stories: ["Denotes a charming girl with beautiful eyes."],
+  },
+  {
+    name: "Najma",
+    meaning: "Star",
+    stories: ["Refers to a star, representing someone who shines brightly."],
+  },
+  {
+    name: "Najma",
+    meaning: "Star",
+    stories: ["Represents a bright and shining star."],
+  },
+  {
+    name: "Nakia",
+    meaning: "Pure, Faithful",
+    stories: ["A name symbolizing purity and faithfulness."],
+  },
+  {
+    name: "Nalani",
+    meaning: "Calm skies",
+    stories: ["Signifies serenity and a sense of calmness."],
+  },
+  {
+    name: "name",
+    meaning: "meaning",
+    stories: ["notes"],
+  },
+  {
+    name: "Name",
+    meaning: "Meaning",
+    stories: ["Description"],
+  },
+  {
+    name: "Namira",
+    meaning: "Leopard, Brave",
+    stories: ["Reflects bravery and strength."],
+  },
+  {
+    name: "Nara",
+    meaning: "An oak tree, Happy",
+    stories: ["Represents happiness and stability like an oak tree."],
   },
   {
     name: "Naseem",
@@ -804,11 +1569,71 @@ export const nameList = [
     ],
   },
   {
+    name: "Nasha",
+    meaning: "Scent, Perfume",
+    stories: ["Denotes a girl who brings a pleasant aroma."],
+  },
+  {
+    name: "Nashita",
+    meaning: "Energetic, lively",
+    stories: ["Describes someone full of energy and vitality."],
+  },
+  {
+    name: "Nasira",
+    meaning: "Victorious, Helper",
+    stories: ["Represents victory and a helpful nature."],
+  },
+  {
+    name: "Natara",
+    meaning: "Nature",
+    stories: ["Signifies a connection with nature and its beauty."],
+  },
+  {
+    name: "Nawal",
+    meaning: "Gift, Generosity",
+    stories: ["A name reflecting generosity and being a gift."],
+  },
+  {
+    name: "Nawra",
+    meaning: "Flower",
+    stories: ["Represents a girl who blooms like a flower."],
+  },
+  {
+    name: "Nayla",
+    meaning: "Successful, Winner",
+    stories: ["Signifies success and a winning attitude."],
+  },
+  {
+    name: "Nayomi",
+    meaning: "Soft, Gentle",
+    stories: ["Reflects a gentle and soft nature."],
+  },
+  {
     name: "Nazia",
     meaning: "a woman of whom you can be proud ",
     stories: [
       'The name Nazia is a girl\'s name meaning "a woman of whom you can be proud". Nazia is a name seen in both Pakistan and India, which derives from the word naaz, meaning pride. It may be difficult to introduce this name into the West, given the first four letters, which is unfortunate given its lovely meaning.',
     ],
+  },
+  {
+    name: "Neesa",
+    meaning: "Pure, Holy",
+    stories: ["Symbolizes purity and holiness."],
+  },
+  {
+    name: "Nehama",
+    meaning: "Comfort, Consolation",
+    stories: ["A name meaning comfort and consolation."],
+  },
+  {
+    name: "Nehla",
+    meaning: "Gift",
+    stories: ["Denotes a girl who is considered a precious gift."],
+  },
+  {
+    name: "Nesima",
+    meaning: "Breeze",
+    stories: ["Represents a gentle and refreshing breeze."],
   },
   {
     name: "Nida",
@@ -818,14 +1643,24 @@ export const nameList = [
     ],
   },
   {
+    name: "Nidhal",
+    meaning: "Effort, perseverance",
+    stories: ["Signifies perseverance and hard work."],
+  },
+  {
+    name: "Nighat",
+    meaning: "Sight, Vision",
+    stories: [],
+  },
+  {
     name: "Nisa",
-    meaning: "Chase, pure, holy",
-    stories: [
-      "Meaning:Women",
-      "Chase",
-      "Pure",
-      "Holy. Nisa is a girl's name of Turkish origin. Meaning “women,” it stems from the Arabic word for women, nisa. There's also a chapter of the Qur'an, An-Nisa, which is tied to this name",
-    ],
+    meaning: "Woman; female",
+    stories: ["Represents the essence and strength of women."],
+  },
+  {
+    name: "Nisar",
+    meaning: "Self-sacrificing",
+    stories: ["Indicates someone who is willing to sacrifice for others."],
   },
   {
     name: "Nishat",
@@ -836,6 +1671,11 @@ export const nameList = [
     ],
   },
   {
+    name: "Nisma",
+    meaning: "Breeze",
+    stories: ["Represents a gentle and refreshing breeze."],
+  },
+  {
     name: "Noor",
     meaning: "light",
     stories: [
@@ -843,10 +1683,40 @@ export const nameList = [
     ],
   },
   {
-    name: "Nur",
-    meaning: "Light",
+    name: "Nooriyah",
+    meaning: "Luminous; radiant",
+    stories: ["A variation of Noor, emphasizing brightness and light."],
+  },
+  {
+    name: "Nuha",
+    meaning: "Intelligence, Wisdom",
+    stories: ["A name denoting wisdom and intelligence."],
+  },
+  {
+    name: "Nura",
+    meaning: "Light, radiance",
+    stories: ["Symbolizes brightness and illumination, often used poetically."],
+  },
+  {
+    name: "Nuray",
+    meaning: "Radiant moon",
+    stories: ["Symbolizes a bright and radiant personality."],
+  },
+  {
+    name: "Obeida",
+    meaning: "Servant of God",
+    stories: ["A rare name expressing devotion and service to God."],
+  },
+  {
+    name: "Olia",
+    meaning: "Moonlight",
+    stories: ["A unique name signifying the gentle glow of moonlight."],
+  },
+  {
+    name: "Omaira",
+    meaning: "Red",
     stories: [
-      'Nur is both used for baby boy and baby girl  name of Arabic origin that means "light." Also commonly spelled Noor or Nor, it is a popular name among baby boys and girls alike. Nur calls to mind a happy, radiant baby with a contagious smile and a resilient spirit',
+      "An uncommon name symbolizing the color red, often associated with passion and love.",
     ],
   },
   {
@@ -855,11 +1725,63 @@ export const nameList = [
     stories: ["A name that denotes growth and prosperity."],
   },
   {
-    name: "pakiza",
-    meaning: "ure, Chaste, Polite, Nice, A pure and serene individual",
+    name: "Omayma",
+    meaning: "Young mother",
+    stories: ["A unique name meaning a nurturing and caring young mother."],
+  },
+  {
+    name: "Omera",
+    meaning: "Inspiring",
+    stories: ["A rare name representing someone who inspires others."],
+  },
+  {
+    name: "Orifah",
+    meaning: "Light of the moon",
+    stories: ["An uncommon name that symbolizes the serene light of the moon."],
+  },
+  {
+    name: "Orya",
+    meaning: "Gold",
     stories: [
-      "The meaning of Pakiza is : Pure, Chaste, Polite, Nice, A pure and serene individual. Gender. Girl. Origin. Arabic.",
+      "A unique name meaning gold, symbolizing value and preciousness.",
     ],
+  },
+  {
+    name: "Orzala",
+    meaning: "Brightness",
+    stories: ["An uncommon name symbolizing brightness and radiance."],
+  },
+  {
+    name: "Osama",
+    meaning: "Pure",
+    stories: ["A unique name meaning pure and untainted."],
+  },
+  {
+    name: "Osna",
+    meaning: "Blessing",
+    stories: ["An uncommon name meaning a divine blessing."],
+  },
+  {
+    name: "Owaina",
+    meaning: "Little helper",
+    stories: [
+      "A unique name denoting someone who assists and supports others.",
+    ],
+  },
+  {
+    name: "Ozza",
+    meaning: "Deer",
+    stories: ["A rare name representing the grace and beauty of a deer."],
+  },
+  {
+    name: "Pakeezah",
+    meaning: "Pure, clean",
+    stories: ["Signifies purity and cleanliness."],
+  },
+  {
+    name: "Pakiza",
+    meaning: "Clean, pure",
+    stories: ["A name highlighting cleanliness and purity."],
   },
   {
     name: "Palwasha",
@@ -883,9 +1805,64 @@ export const nameList = [
     ],
   },
   {
+    name: "Parastoo",
+    meaning: "Swallow (bird)",
+    stories: ["A name inspired by the graceful swallow bird."],
+  },
+  {
+    name: "Pari Gul",
+    meaning: "Fairy flower",
+    stories: ["Represents beauty and delicacy like a fairy and a flower."],
+  },
+  {
+    name: "Parinda",
+    meaning: "Bird",
+    stories: ["Symbolizes freedom and grace, like a bird."],
+  },
+  {
     name: "Parisa",
     meaning: "Like a Fairy",
     stories: ["A magical name that means fairy-like."],
+  },
+  {
+    name: "Pariza",
+    meaning: "Fairy-like",
+    stories: ["A name that evokes a delicate and magical presence."],
+  },
+  {
+    name: "Parizad",
+    meaning: "Born of a fairy",
+    stories: ["Evokes a sense of magical and fairy-like origin."],
+  },
+  {
+    name: "Parsa",
+    meaning: "Devout, pious",
+    stories: ["Reflects a devout and pious nature."],
+  },
+  {
+    name: "Parveenah",
+    meaning: "Superior, magnificent",
+    stories: ["Denotes magnificence and superiority."],
+  },
+  {
+    name: "Parwasha",
+    meaning: "Fairy-like",
+    stories: ["A name that evokes fairy-like charm and beauty."],
+  },
+  {
+    name: "Puria",
+    meaning: "Complete, full",
+    stories: ["Represents completeness and fullness."],
+  },
+  {
+    name: "Purnoor",
+    meaning: "Full of light",
+    stories: ["Represents brightness and radiance."],
+  },
+  {
+    name: "Qabila",
+    meaning: "Able, wise",
+    stories: ["A name that signifies wisdom and ability."],
   },
   {
     name: "Qabool",
@@ -907,6 +1884,16 @@ export const nameList = [
     ],
   },
   {
+    name: "Qadria",
+    meaning: "Powerful",
+    stories: ["Reflects strength and power in its meaning."],
+  },
+  {
+    name: "Qalila",
+    meaning: "Little, tiny",
+    stories: ["A name that denotes delicacy and subtlety."],
+  },
+  {
     name: "Qamar",
     meaning: 'moon", "natural satellite", or "moonlight',
     stories: [
@@ -914,11 +1901,90 @@ export const nameList = [
     ],
   },
   {
+    name: "Qaniah",
+    meaning: "Content, satisfied",
+    stories: ["Represents a state of contentment and satisfaction."],
+  },
+  {
+    name: "Qanita",
+    meaning: "Devout, worshipper",
+    stories: ["Reflects piety and devotion in religious practices."],
+  },
+  {
+    name: "Qaraah",
+    meaning: "Reader, reciter",
+    stories: [
+      "Denotes a person who reads or recites, often used for those who recite the Quran.",
+    ],
+  },
+  {
+    name: "Qaribah",
+    meaning: "Near, close",
+    stories: [
+      "Signifies closeness or proximity, both physically and emotionally.",
+    ],
+  },
+  {
+    name: "Qasira",
+    meaning: "Short, petite",
+    stories: ["A name that highlights a petite and delicate stature."],
+  },
+  {
+    name: "Qatira",
+    meaning: "Perfumed",
+    stories: ["Symbolizes someone who is fragrant and pleasant like perfume."],
+  },
+  {
+    name: "Qaysara",
+    meaning: "Empress, queen",
+    stories: ["Reflects royalty and high status."],
+  },
+  {
+    name: "Qazha",
+    meaning: "Light rain",
+    stories: ["Signifies gentleness and subtlety, like a light rain."],
+  },
+  {
+    name: "Qindeel",
+    meaning: "Light, lamp",
+    stories: ["Represents brightness and guidance, like a lamp."],
+  },
+  {
+    name: "Qismah",
+    meaning: "Destiny, fate",
+    stories: ["Reflects the belief in destiny and predetermined fate."],
+  },
+  {
+    name: "Qudsiya",
+    meaning: "Holy, sacred",
+    stories: ["Denotes sanctity and holiness."],
+  },
+  {
     name: "Qudsiyah",
     meaning: "suggests a person who is devout and religious",
     stories: [
       'The name Qudsiyah is a beautiful and meaningful name that suggests a person who is devout and religious. It is also a name that suggests purity, innocence, and goodness. The name Qudsiyah is derived from the Arabic word "quds" (sacredness). In Islam, Qudsia is one of the names of Allah, and it means "the Most Holy."',
     ],
+  },
+  {
+    name: "Qurratulain",
+    meaning: "Delight of the eyes",
+    stories: ["Symbolizes someone who brings joy and delight."],
+  },
+  {
+    name: "Qutaylah",
+    meaning: "Companion",
+    stories: ["Represents companionship and friendship."],
+  },
+  {
+    name: "Qutayyah",
+    meaning: "Graceful",
+    stories: ["Reflects elegance and gracefulness."],
+  },
+  {
+    name: "Qutbah",
+    meaning: "Narrator",
+    stories: ["Denotes someone who tells stories or narrates."],
   },
   {
     name: "Raaiqa",
@@ -930,7 +1996,14 @@ export const nameList = [
   {
     name: "Raawiya",
     meaning: "Transmitter (of Ancient Arabic Poetry)",
-    stories: ["Originated from arabic word"],
+    stories: [],
+  },
+  {
+    name: "Rabea",
+    meaning: "Spring, garden",
+    stories: [
+      "A beautiful and uncommon name that signifies freshness and new beginnings.",
+    ],
   },
   {
     name: "Rabia",
@@ -942,11 +2015,40 @@ export const nameList = [
     ],
   },
   {
-    name: "Rabia",
-    meaning: "Spring ",
+    name: "Radhia",
+    meaning: "Content, satisfied",
     stories: [
-      "A female given name from Arabic, meaning spring, meant to symbolize the beginning of life, hope and the advent of happiness after a dark winter. The name of the first female Sufi saint, Rabia El Basri.",
+      "A unique name representing a person who is content and at peace.",
     ],
+  },
+  {
+    name: "Rafeea",
+    meaning: "Exalted, high",
+    stories: [
+      "A rare name that denotes someone who holds a high status or position.",
+    ],
+  },
+  {
+    name: "Rahila",
+    meaning: "Traveller, one who departs",
+    stories: [
+      "An uncommon name for a girl who is adventurous and loves to explore.",
+    ],
+  },
+  {
+    name: "Rahma",
+    meaning: "Mercy, compassion",
+    stories: ["A unique name symbolizing kindness and empathy."],
+  },
+  {
+    name: "Raida",
+    meaning: "Leader, pioneer",
+    stories: ["A distinctive name for a girl who leads and inspires others."],
+  },
+  {
+    name: "Rameela",
+    meaning: "Happy, delightful",
+    stories: ["A rare name that reflects joy and delight."],
   },
   {
     name: "Ramia",
@@ -1167,15 +2269,13 @@ export const nameList = [
   },
   {
     name: "Tahira",
-    meaning: "pure",
-    stories: [
-      "Tahira is a baby girl name of Arabic and Urdu origin. Meaning “virginal” and “pure,” this baby name can perfectly describe baby's innocence and delicate nature.",
-    ],
+    meaning: "Pure, Chaste",
+    stories: ["A name that means purity and chastity."],
   },
   {
     name: "Tahira",
     meaning: "Pure, Chaste",
-    stories: ["A name that means purity and chastity."],
+    stories: ["A name meaning purity and virtue."],
   },
   {
     name: "Tahmina",
@@ -1199,6 +2299,16 @@ export const nameList = [
     ],
   },
   {
+    name: "Taima",
+    meaning: "Oasis",
+    stories: ["A name that signifies a serene and tranquil place."],
+  },
+  {
+    name: "Talitha",
+    meaning: "Little girl",
+    stories: ["A sweet and gentle name meaning a young girl."],
+  },
+  {
     name: "Tammanah",
     meaning: "Wished",
     stories: [
@@ -1208,7 +2318,7 @@ export const nameList = [
   {
     name: "Tamseel",
     meaning: "parable,  example ",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Tanaz",
@@ -1218,11 +2328,26 @@ export const nameList = [
     ],
   },
   {
+    name: "Taqiya",
+    meaning: "God-fearing, Pious",
+    stories: ["Denotes a person who is devout and religious."],
+  },
+  {
     name: "Taqwa",
     meaning: "\nDevoutness, Heedfulness of God, Devotion to Allah",
     stories: [
       "Derived from the Arabic root word 'Waqaya' which means 'to shield' or 'to guard,' Taqwa can be best described as God-consciousness. It is a heightened sense of awareness of Allah's presence, leading an individual to avoid displeasing Him.Nov 14, 2023",
     ],
+  },
+  {
+    name: "Tarannum",
+    meaning: "Melody, Song",
+    stories: ["A name that reflects musicality and harmony."],
+  },
+  {
+    name: "Tarifa",
+    meaning: "Uncommon, Rare",
+    stories: ["A unique name meaning something rare and exceptional."],
   },
   {
     name: "Tarin",
@@ -1232,11 +2357,276 @@ export const nameList = [
     ],
   },
   {
+    name: "Tasbih",
+    meaning: "Glorification",
+    stories: ["Refers to the act of glorifying God, reflecting piety."],
+  },
+  {
+    name: "Tasnim",
+    meaning: "Fountain in Paradise",
+    stories: ["Refers to a heavenly spring in Islamic tradition."],
+  },
+  {
+    name: "Tawfiqa",
+    meaning: "Success",
+    stories: ["A name symbolizing success and prosperity."],
+  },
+  {
+    name: "Taybah",
+    meaning: "Goodness",
+    stories: ["A name symbolizing purity and kindness."],
+  },
+  {
+    name: "Tayma",
+    meaning: "Desert",
+    stories: ["Represents vastness and openness, signifying freedom."],
+  },
+  {
+    name: "Tazeen",
+    meaning: "Decoration, Adornment",
+    stories: ["Signifies beauty and embellishment."],
+  },
+  {
     name: "Tehreem",
     meaning: "prohibited, respect, prevention ",
     stories: [
       "Tahreem can be written as tahrim also. In Quran there's a sura called,At-Taḥrīm (Arabic: التحريم, \"Banning, Prohibition\") is the 66th Surah or chapter of the Quran and contains 12 verses (ayah). This Surah deals with questions regarding Muhammad's wives.",
     ],
+  },
+  {
+    name: "Thanaa",
+    meaning: "Praise",
+    stories: ["A name that means to express admiration and gratitude."],
+  },
+  {
+    name: "Thara",
+    meaning: "Wealth",
+    stories: ["Denotes abundance and prosperity."],
+  },
+  {
+    name: "Tharwat",
+    meaning: "Wealth, Fortune",
+    stories: ["Signifies richness and good fortune."],
+  },
+  {
+    name: "Tuba",
+    meaning: "Blessedness, Bliss",
+    stories: ["Refers to a tree in paradise, symbolizing happiness."],
+  },
+  {
+    name: "Tuhfa",
+    meaning: "Gift",
+    stories: ["A name that means a precious gift."],
+  },
+  {
+    name: "Tunay",
+    meaning: "Bright Moon",
+    stories: ["A name representing brightness and clarity."],
+  },
+  {
+    name: "Tuqa",
+    meaning: "Piety",
+    stories: ["A name denoting devoutness and righteousness."],
+  },
+  {
+    name: "Turfa",
+    meaning: "Rare",
+    stories: ["A truly unique name that means rare or uncommon."],
+  },
+  {
+    name: "Udaina",
+    meaning: "Bright, beautiful",
+    stories: ["Symbolizes beauty and elegance"],
+  },
+  {
+    name: "Udaya",
+    meaning: "Success, prosperity",
+    stories: ["Symbolizes a person who brings good fortune"],
+  },
+  {
+    name: "Ujala",
+    meaning: "Bright, shining",
+    stories: ["Represents radiance and brilliance"],
+  },
+  {
+    name: "Ula",
+    meaning: "Jewel of the sea",
+    stories: ["A unique name symbolizing a precious gem"],
+  },
+  {
+    name: "Ulayya",
+    meaning: "Sublime, lofty",
+    stories: ["Represents someone with noble qualities"],
+  },
+  {
+    name: "Ulfah",
+    meaning: "Friendship, harmony",
+    stories: ["A name that signifies unity and companionship"],
+  },
+  {
+    name: "Ulfat",
+    meaning: "Affection, intimacy",
+    stories: ["Denotes a loving and close relationship"],
+  },
+  {
+    name: "Umaiza",
+    meaning: "Bright, beautiful, and soft",
+    stories: ["Denotes beauty and gentleness"],
+  },
+  {
+    name: "Umama",
+    meaning: "Three hundred camels",
+    stories: ["A rare name denoting wealth and abundance"],
+  },
+  {
+    name: "Umara",
+    meaning: "Prosperous, flourishing",
+    stories: ["Implies success and well-being"],
+  },
+  {
+    name: "Umaymah",
+    meaning: "Young mother",
+    stories: ["A name denoting nurturing and care"],
+  },
+  {
+    name: "Umeira",
+    meaning: "Living a long life",
+    stories: ["Implies longevity and a fulfilling life"],
+  },
+  {
+    name: "Umniya",
+    meaning: "Wish, desire",
+    stories: ["Represents a hopeful and aspirational individual"],
+  },
+  {
+    name: "Unaysah",
+    meaning: "Affectionate",
+    stories: ["A name implying warmth and kindness"],
+  },
+  {
+    name: "Urooj",
+    meaning: "Ascension, rise",
+    stories: ["A name that implies progress and achievement"],
+  },
+  {
+    name: "Uruj",
+    meaning: "Progress",
+    stories: ["Represents growth and development"],
+  },
+  {
+    name: "Urwa",
+    meaning: "Support, pillar",
+    stories: ["Represents strength and reliability"],
+  },
+  {
+    name: "Usha",
+    meaning: "Dawn, morning light",
+    stories: ["Symbolizes a new beginning and hope"],
+  },
+  {
+    name: "Uswa",
+    meaning: "Model of behavior, example",
+    stories: ["Signifies a person who is exemplary"],
+  },
+  {
+    name: "Uzma",
+    meaning: "Greatest, most high",
+    stories: ["Signifies someone of great stature and respect"],
+  },
+  {
+    name: "Vaiza",
+    meaning: "Wise, judicious",
+    stories: ["A girl who is known for her wisdom and good judgment."],
+  },
+  {
+    name: "Vakila",
+    meaning: "Intelligent",
+    stories: ["A girl blessed with intelligence and sharp mind."],
+  },
+  {
+    name: "Valisha",
+    meaning: "Beloved",
+    stories: ["A girl who is dearly loved and cherished by all."],
+  },
+  {
+    name: "Varda",
+    meaning: "Rose",
+    stories: ["A girl who is as beautiful and delicate as a rose."],
+  },
+  {
+    name: "Varisha",
+    meaning: "Lightning",
+    stories: ["A girl who is as bright and striking as lightning."],
+  },
+  {
+    name: "Vasila",
+    meaning: "Close, intimate friend",
+    stories: ["A girl who is a close and trusted friend."],
+  },
+  {
+    name: "Veeda",
+    meaning: "Evident, clear",
+    stories: ["A girl who is clear and evident in her actions."],
+  },
+  {
+    name: "Veera",
+    meaning: "Brave",
+    stories: ["A girl who is known for her bravery and courage."],
+  },
+  {
+    name: "Veesha",
+    meaning: "Wealthy",
+    stories: ["A girl who is blessed with wealth and prosperity."],
+  },
+  {
+    name: "Vehdat",
+    meaning: "Unity",
+    stories: ["A girl who brings unity and togetherness."],
+  },
+  {
+    name: "Veyza",
+    meaning: "Precious",
+    stories: ["A girl who is considered very precious and valuable."],
+  },
+  {
+    name: "Vihana",
+    meaning: "Dawn",
+    stories: ["A girl who signifies the beginning of a new day."],
+  },
+  {
+    name: "Vildana",
+    meaning: "Moonlight",
+    stories: ["A girl who shines brightly like the moon."],
+  },
+  {
+    name: "Viniya",
+    meaning: "Polite, modest",
+    stories: ["A girl known for her politeness and modesty."],
+  },
+  {
+    name: "Virina",
+    meaning: "Strong",
+    stories: ["A girl who is strong and resilient."],
+  },
+  {
+    name: "Visara",
+    meaning: "Hope",
+    stories: ["A girl who brings hope and optimism."],
+  },
+  {
+    name: "Viyana",
+    meaning: "Wisdom",
+    stories: ["A girl who is wise beyond her years."],
+  },
+  {
+    name: "Viza",
+    meaning: "One who knows",
+    stories: ["A girl who is knowledgeable and well-informed."],
+  },
+  {
+    name: "Vizala",
+    meaning: "Honorable",
+    stories: ["A girl who is honorable and dignified."],
   },
   {
     name: "Waarda",
@@ -1260,11 +2650,26 @@ export const nameList = [
     ],
   },
   {
+    name: "Wafiyah",
+    meaning: "Loyal, faithful",
+    stories: ["A name that signifies a girl who is loyal and faithful."],
+  },
+  {
+    name: "Wahdah",
+    meaning: "Unity, oneness",
+    stories: ["Represents the concept of unity and oneness."],
+  },
+  {
     name: "Wahida",
     meaning: "One, Unique, Sole, Single",
     stories: [
       'Wahida or Waheeda (Arabic: وحيدة) is an Arabic feminine given name, the feminine form of Wahid or Waheed, which mean "peerless" or "unique".',
     ],
+  },
+  {
+    name: "Wajeehah",
+    meaning: "Eminent, distinguished",
+    stories: ["A name for a girl who is eminent and distinguished."],
   },
   {
     name: "Wajiha",
@@ -1274,6 +2679,11 @@ export const nameList = [
     ],
   },
   {
+    name: "Wakilah",
+    meaning: "One who is trusted",
+    stories: ["Signifies a trustworthy and reliable person."],
+  },
+  {
     name: "waniya",
     meaning: "Gift of Allah SWT",
     stories: [
@@ -1281,9 +2691,14 @@ export const nameList = [
     ],
   },
   {
+    name: "Waniya",
+    meaning: "Gift of Allah",
+    stories: ["Represents a precious gift from Allah."],
+  },
+  {
     name: "Waqi",
     meaning: "Protector, also lofty,  wise, forceful",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Wardha",
@@ -1291,6 +2706,81 @@ export const nameList = [
     stories: [
       'Origin- Arabic.Warda is also an Arabic name meaning "rose," popular among Egyptian families.',
     ],
+  },
+  {
+    name: "Warithah",
+    meaning: "Inheritor, heiress",
+    stories: ["A girl who is an inheritor or heiress."],
+  },
+  {
+    name: "Wasayrah",
+    meaning: "Expansive, ample",
+    stories: ["Signifies someone with an expansive and ample personality."],
+  },
+  {
+    name: "Wasifah",
+    meaning: "Descriptive, narrator",
+    stories: ["Represents someone who is descriptive or a narrator."],
+  },
+  {
+    name: "Wasilah",
+    meaning: "Connection, bond",
+    stories: ["A name that represents a strong connection or bond."],
+  },
+  {
+    name: "Wathiqah",
+    meaning: "Confident, certain",
+    stories: ["A name that signifies confidence and certainty."],
+  },
+  {
+    name: "Wazirah",
+    meaning: "Minister, advisor",
+    stories: ["Represents a girl who is a minister or advisor."],
+  },
+  {
+    name: "Widaad",
+    meaning: "Friendship, love",
+    stories: ["Signifies friendship and love."],
+  },
+  {
+    name: "Widad",
+    meaning: "Love, affection",
+    stories: ["A name that means love and affection."],
+  },
+  {
+    name: "Wifaq",
+    meaning: "Harmony, agreement",
+    stories: ["Represents harmony and agreement."],
+  },
+  {
+    name: "Wijdan",
+    meaning: "Ecstasy, passion",
+    stories: ["Signifies intense passion and ecstasy."],
+  },
+  {
+    name: "Wirda",
+    meaning: "Flower, rose",
+    stories: ["A name that signifies a beautiful flower or rose."],
+  },
+  {
+    name: "Wisaal",
+    meaning: "Reunion, communion",
+    stories: ["Represents the concept of reunion and communion."],
+  },
+  {
+    name: "Wisam",
+    meaning: "Badge of honor, insignia",
+    stories: ["A name that signifies a badge of honor or insignia."],
+  },
+  {
+    name: "Wuraqa",
+    meaning: "Petal of a flower",
+    stories: ["Represents the delicate petal of a flower."],
+  },
+  {
+    name: "Wurood",
+    meaning: "Roses, flowers",
+    stories: ["Signifies beautiful roses and flowers."],
   },
   {
     name: "Xayah",
@@ -1357,7 +2847,7 @@ export const nameList = [
   {
     name: "Yasfeen",
     meaning: "Shefa, Healthiness",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Yasira",
@@ -1376,7 +2866,7 @@ export const nameList = [
   {
     name: "Yasna",
     meaning: "It means white rose in arabic",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "yass",
@@ -1393,7 +2883,7 @@ export const nameList = [
   {
     name: "Yoan",
     meaning: "Allah's Grace",
-    stories: ["Originated from arabic word"],
+    stories: [],
   },
   {
     name: "Yumna",
@@ -1452,30 +2942,30 @@ export const nameList = [
   },
 ];
 export const positions = [
-  [0, 20],
-  [21, 27],
-  [28, 28],
-  [29, 36],
-  [37, 40],
-  [41, 47],
-  [48, 50],
-  [51, 61],
-  [62, 68],
-  [69, 73],
-  [74, 78],
-  [79, 85],
-  [86, 106],
-  [107, 117],
-  [118, 118],
-  [119, 123],
-  [124, 128],
-  [129, 141],
-  [142, 162],
-  [163, 174],
-  [-1, -1],
-  [-1, -1],
-  [175, 182],
-  [183, 187],
-  [188, 202],
-  [203, 207],
+  [0, 21],
+  [22, 28],
+  [29, 41],
+  [42, 67],
+  [68, 89],
+  [90, 114],
+  [115, 134],
+  [135, 152],
+  [153, 171],
+  [172, 186],
+  [187, 198],
+  [199, 204],
+  [205, 224],
+  [225, 269],
+  [270, 282],
+  [283, 298],
+  [299, 321],
+  [322, 340],
+  [341, 361],
+  [362, 392],
+  [393, 412],
+  [413, 431],
+  [432, 459],
+  [460, 464],
+  [465, 479],
+  [480, 484],
 ];

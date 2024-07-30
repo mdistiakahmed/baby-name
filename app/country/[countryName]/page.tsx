@@ -8,7 +8,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCountryByName } from "@/utils/constants";
-import { getData } from "@/utils/getData";
+import { getData, getDataUpdated } from "@/utils/getData";
 
 export async function generateMetadata({
   params,
@@ -43,11 +43,15 @@ const SelectedCountryPage = async ({ params }: any) => {
   const countryDetails = getCountryByName(countryName);
   const currentYear = new Date().getFullYear();
 
-  const top20BoyNames = await getData(
-    countryName.toLowerCase() === "india" ? "indiaBoyName" : "usaBoyName"
+  const top20BoyNames: any = await getDataUpdated(
+    countryName.toLowerCase(),
+    null,
+    "boy"
   );
-  const top20GirlNames = await getData(
-    countryName.toLowerCase() === "india" ? "indiaGirlName" : "usagirlName"
+  const top20GirlNames: any = await getDataUpdated(
+    countryName.toLowerCase(),
+    null,
+    "girl"
   );
 
   return (

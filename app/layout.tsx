@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
     type: "article",
     locale: "en_US",
-    url: `http://babynamenestlings.com/`,
+    url: `https://babynamenestlings.com/`,
     siteName: "BabyNameNestlings",
     images: [
       {

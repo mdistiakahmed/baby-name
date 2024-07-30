@@ -83,6 +83,15 @@ export const getDataUpdated = async (
 
           break;
         case "india":
+          if (gender === "boy") {
+            ({ nameList, positions } = await import(
+              "../data/country/india/boy/india-boy-names"
+            ));
+          } else {
+            ({ nameList, positions } = await import(
+              "../data/country/india/girl/india-girl-names"
+            ));
+          }
           break;
         default:
           throw new Error(`No data file found for param: ${gender}`);
@@ -109,6 +118,17 @@ export const getDataUpdated = async (
           } else {
             ({ nameList, positions } = await import(
               "../data/religion/islam/girl/muslim-girl-names"
+            ));
+          }
+          break;
+        case "hindu":
+          if (gender === "boy") {
+            ({ nameList, positions } = await import(
+              "../data/religion/hindu/boy/india-boy-names"
+            ));
+          } else {
+            ({ nameList, positions } = await import(
+              "../data/religion/hindu/girl/india-girl-names"
             ));
           }
           break;

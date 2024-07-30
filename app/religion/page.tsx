@@ -76,7 +76,7 @@ const ReligionCategoryPage = () => {
           </div>
         </div>
 
-        {religions.map((r, index) => (
+        {/* {religions.map((r, index) => (
           <div className="rounded-lg w-full" key={index}>
             <div className="flex flex-col items-center justify-center mb-5">
               <h3 className="text-2xl font-bold text-center mt-5 ">
@@ -123,7 +123,7 @@ const ReligionCategoryPage = () => {
               </Link>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
