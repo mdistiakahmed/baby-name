@@ -1,31 +1,10 @@
 export const countries = [
   {
-    name: "Bangladesh",
-    code: "bd",
-    desc: "Bangladeshi",
-    shortDescription:
-      "Explore traditional and modern Bangladeshi baby names with rich cultural heritage.",
-  },
-  {
     name: "India",
     code: "in",
     desc: "Indian",
     shortDescription:
       "Discover beautiful Indian baby names that reflect a vibrant culture and heritage.",
-  },
-  {
-    name: "Japan",
-    code: "jp",
-    desc: "Japanese",
-    shortDescription:
-      "Find unique Japanese baby names inspired by ancient traditions and modern trends.",
-  },
-  {
-    name: "Korea",
-    code: "kr",
-    desc: "Korean",
-    shortDescription:
-      "Uncover Korean baby names that blend traditional values with contemporary appeal.",
   },
   {
     name: "USA",
@@ -37,14 +16,14 @@ export const countries = [
 ];
 
 export const religions = [
-  {
-    name: "Buddhist",
-    desc: "Buddhist",
-    image: "/buddhism-icon.svg",
-    path: "buddhist",
-    shortDescription:
-      "Uncover serene Buddhist baby names that embody peace and enlightenment.",
-  },
+  // {
+  //   name: "Buddhist",
+  //   desc: "Buddhist",
+  //   image: "/buddhism-icon.svg",
+  //   path: "buddhist",
+  //   shortDescription:
+  //     "Uncover serene Buddhist baby names that embody peace and enlightenment.",
+  // },
   {
     name: "Christian",
     desc: "Christian",
