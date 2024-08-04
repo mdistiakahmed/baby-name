@@ -53,6 +53,18 @@ const Footer = () => {
             />
           </a>
         </div>
+
+        <div className="flex mt-4 md:mt-0 gap-2">
+          <Link href="/about">
+            <p className="underline">About</p>
+          </Link>
+          <Link href="/about/privacy">
+            <p className="underline">Privacy</p>
+          </Link>
+          <Link href="/about/contact">
+            <p className="underline">Contact</p>
+          </Link>
+        </div>
       </div>
     </footer>
   );
