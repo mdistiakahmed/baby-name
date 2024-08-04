@@ -9,17 +9,17 @@ const About = () => {
         </h1>
         <p className="mb-4">
           At Baby Name Nestlings, we believe the perfect name for your little
-          one is waiting to be discovered. We're here to make that exciting
+          one is waiting to be discovered. We&apos;re here to make that exciting
           journey of choosing a name both fun and informative.
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
         <p className="mb-4">
-          We're passionate about helping parents find the perfect name for their
-          precious baby. We offer a vast collection of names from all over the
-          world, with detailed meanings, origins, and pronunciations. Whether
-          you're looking for a classic favorite or a unique gem, we have
-          something for every taste.
+          We&apos;re passionate about helping parents find the perfect name for
+          their precious baby. We offer a vast collection of names from all over
+          the world, with detailed meanings, origins, and pronunciations.
+          Whether you&apos;re looking for a classic favorite or a unique gem, we
+          have something for every taste.
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">
@@ -53,7 +53,7 @@ const About = () => {
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">
-          Let's Make Finding the Perfect Name Easy and Enjoyable!
+          Let&apos;s Make Finding the Perfect Name Easy and Enjoyable!
         </h2>
         <p className="mb-4">
           We invite you to explore our website, discover the magic of baby
