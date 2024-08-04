@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData, getDataUpdated } from "@/utils/getData";
+import { getDataUpdated } from "@/utils/getData";
 import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
@@ -19,10 +19,10 @@ export async function generateMetadata({
 
   return {
     title: `${title}  | BabyNameNestlings`,
-    description: `Find most beautiful ${title} name for your baby.`,
+    description: countryDetails[gender].metaDescription,
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
-      description: `Find most beautiful ${title} name for your baby.`,
+      description: countryDetails[gender].metaDescription,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/country/${countryName}/${gender}`,
@@ -55,6 +55,12 @@ const SelectedCountryByGenderNames = async ({ params }: any) => {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] ">
         <div className="mb-5 rounded-lg">
+          <h1 className="text-2xl font-bold text-center py-2">{`Find most beautiful ${countryDetails.desc.toLowerCase()}  ${gender} name for your baby`}</h1>
+          <div>
+            <p className="text-xl text-center py-4">
+              {countryDetails[gender].shortDescription}
+            </p>
+          </div>
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"
@@ -64,6 +70,7 @@ const SelectedCountryByGenderNames = async ({ params }: any) => {
               className="rounded-lg"
             />
           </div>
+
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <div className="flex gap-4 items-center">
               <Image
@@ -120,6 +127,17 @@ const SelectedCountryByGenderNames = async ({ params }: any) => {
 
           <div className="flex items-center justify-center p-10">
             <PaginationComponent totalItem={totalItem} />
+          </div>
+
+          <div className="flex flex-col gap-5">
+            {countryDetails[gender].notes &&
+              countryDetails[gender].notes.map((n: any, index: any) => {
+                return (
+                  <p key={index} className="text-xl text-center">
+                    {n}
+                  </p>
+                );
+              })}
           </div>
         </div>
       </div>

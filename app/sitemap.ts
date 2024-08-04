@@ -1,4 +1,6 @@
-import { countries, gender, religions } from "@/utils/constants";
+import { countries } from "@/data/countryMetadata";
+import { religions } from "@/data/religionMetadata";
+import { gender } from "@/utils/constants";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {

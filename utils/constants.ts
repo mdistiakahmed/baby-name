@@ -1,54 +1,5 @@
-export const countries = [
-  {
-    name: "India",
-    code: "in",
-    desc: "Indian",
-    shortDescription:
-      "Discover beautiful Indian baby names that reflect a vibrant culture and heritage.",
-  },
-  {
-    name: "USA",
-    code: "us",
-    desc: "American",
-    shortDescription:
-      "Browse American baby names that range from classic to modern, reflecting diverse influences.",
-  },
-];
-
-export const religions = [
-  // {
-  //   name: "Buddhist",
-  //   desc: "Buddhist",
-  //   image: "/buddhism-icon.svg",
-  //   path: "buddhist",
-  //   shortDescription:
-  //     "Uncover serene Buddhist baby names that embody peace and enlightenment.",
-  // },
-  {
-    name: "Christian",
-    desc: "Christian",
-    image: "/church-icon.svg",
-    path: "christian",
-    shortDescription:
-      "Find classic and modern Christian baby names inspired by biblical traditions.",
-  },
-  {
-    name: "Hindu",
-    desc: "Hindu",
-    image: "/hindu-temple-icon.svg",
-    path: "hindu",
-    shortDescription:
-      "Explore beautiful Hindu baby names that reflect spiritual beliefs and cultural heritage.",
-  },
-  {
-    name: "Islam",
-    desc: "Islamic",
-    image: "/islam-icon.svg",
-    path: "islam",
-    shortDescription:
-      "Discover meaningful Islamic baby names inspired by rich traditions and values.",
-  },
-];
+import { countries } from "@/data/countryMetadata";
+import { religions } from "@/data/religionMetadata";
 
 export const gender = [
   {
@@ -106,7 +57,7 @@ export const countryMap = countries.reduce(
     map[country.name.toLowerCase()] = country;
     return map;
   },
-  {} as Record<string, { name: string; code: string; desc: string }>
+  {} as Record<string, any>
 );
 
 export const getCountryByName = (name: string) => {
@@ -118,7 +69,7 @@ export const religionMap = religions.reduce(
     map[religion.name.toLowerCase()] = religion;
     return map;
   },
-  {} as Record<string, { name: string; image: string; desc: string }>
+  {} as Record<string, any>
 );
 
 export const getReligionByName = (name: string) => {

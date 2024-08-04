@@ -18,10 +18,10 @@ export async function generateMetadata({
 
   return {
     title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
-    description: `Find most beautiful ${countryDetails.desc} name for your baby.`,
+    description: `${countryDetails.metaDescription}`,
     openGraph: {
       title: `${countryDetails.desc} Baby Name | BabyNameNestlings`,
-      description: `Find most beautiful ${countryDetails.desc} name for your baby.`,
+      description: `${countryDetails.metaDescription}`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/country/${countryName}`,
@@ -69,9 +69,7 @@ const SelectedCountryPage = async ({ params }: any) => {
             {countryDetails.desc} Baby Name
           </h1>
         </div>
-        <p className="text-xl text-center">
-          Find most beautiful {countryDetails.desc} name for your baby.
-        </p>
+        <p className="text-xl text-center">{countryDetails.shortDescription}</p>
 
         <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
           <Link href={`/country/${countryName}/boy`}>
@@ -104,12 +102,12 @@ const SelectedCountryPage = async ({ params }: any) => {
           </Link>
         </div>
 
-        <div className="boy-girl-example-container">
+        <div>
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
-              <h3 className="text-2xl font-bold text-center mt-5 ">
+              <h2 className="text-2xl font-bold text-center mt-5 ">
                 Top 20 {countryDetails.desc} Girl Name in {currentYear}
-              </h3>
+              </h2>
             </div>
 
             {top20GirlNames.nameList
@@ -156,9 +154,9 @@ const SelectedCountryPage = async ({ params }: any) => {
 
           <div className="rounded-lg">
             <div className="flex flex-col items-center justify-center mb-5">
-              <h3 className="text-2xl font-bold text-center mt-5 ">
+              <h2 className="text-2xl font-bold text-center mt-5 ">
                 Top 20 {countryDetails.desc} Boy Name in {currentYear}
-              </h3>
+              </h2>
             </div>
 
             {top20BoyNames.nameList
@@ -202,6 +200,17 @@ const SelectedCountryPage = async ({ params }: any) => {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-5">
+          {countryDetails.notes &&
+            countryDetails.notes.map((n: any, index: any) => {
+              return (
+                <p key={index} className="text-xl text-center">
+                  {n}
+                </p>
+              );
+            })}
         </div>
       </div>
     </div>

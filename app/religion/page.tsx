@@ -7,7 +7,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList, religions } from "@/utils/constants";
+import { dummanyNameList } from "@/utils/constants";
+import { religions } from "@/data/religionMetadata";
 
 export const metadata: Metadata = {
   title: "Baby Names By Religion | BabyNameNestlings",

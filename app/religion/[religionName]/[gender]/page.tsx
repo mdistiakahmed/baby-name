@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData, getDataUpdated } from "@/utils/getData";
+import { getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
 
 export async function generateMetadata({
@@ -17,10 +17,10 @@ export async function generateMetadata({
 
   return {
     title: `${religionDetails.desc} ${gender} Names`,
-    description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
+    description: religionDetails[gender].metaDescription,
     openGraph: {
       title: `${religionDetails.desc} ${gender} Names`,
-      description: `Discover ${religionDetails.desc} ${gender} Names along with their meaning and ${religionDetails.desc} values`,
+      description: religionDetails[gender].metaDescription,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}/${gender}`,
@@ -53,6 +53,12 @@ const ReligiousNames = async ({ params }: any) => {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] ">
         <div className="mb-5 rounded-lg">
+          <h1 className="text-2xl font-bold text-center py-2">{`Find most beautiful ${religionDetails.desc.toLowerCase()}  ${gender} name for your baby`}</h1>
+          <div>
+            <p className="text-xl text-center py-4">
+              {religionDetails[gender].shortDescription}
+            </p>
+          </div>
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"
@@ -118,6 +124,17 @@ const ReligiousNames = async ({ params }: any) => {
 
           <div className="flex items-center justify-center p-10">
             <PaginationComponent totalItem={totalItem} />
+          </div>
+
+          <div className="flex flex-col gap-5">
+            {religionDetails[gender].notes &&
+              religionDetails[gender].notes.map((n: any, index: any) => {
+                return (
+                  <p key={index} className="text-xl text-center">
+                    {n}
+                  </p>
+                );
+              })}
           </div>
         </div>
       </div>

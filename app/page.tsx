@@ -5,9 +5,9 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
 import Link from "next/link";
-import { articleList, countries, religions } from "@/utils/constants";
 import { getData } from "@/utils/getData";
-import YouMayLIkeSection from "@/components/you-may-like/YouMayLIkeSection";
+import { countries } from "@/data/countryMetadata";
+import { religions } from "@/data/religionMetadata";
 
 const HomePage = async () => {
   const currentYear = new Date().getFullYear();
@@ -96,7 +96,9 @@ const HomePage = async () => {
                 <p className="text-2xl text-center font-semibold">
                   {r.desc} baby name
                 </p>
-                <p className="text-sm text-center mt-2">{r.shortDescription}</p>
+                <p className="text-sm text-center mt-2">
+                  {r.shortDescription.substr(0, 60)}...
+                </p>
               </div>
             </Link>
           );
@@ -123,10 +125,6 @@ const HomePage = async () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-[40px] cursor-pointer">
         {countries.map((c, index) => {
-          const mobileBgClass =
-            index % 2 === 0
-              ? "bg-[#f06246] hover:bg-[#f3917d]"
-              : "bg-[#006fee] hover:bg-[#88b3e3]";
           const mediumBgClass =
             index % 2 === 0
               ? "bg-[#f06246] hover:bg-[#f3917d]"
@@ -146,7 +144,9 @@ const HomePage = async () => {
                 <p className="text-xl text-center font-semibold">
                   {c.desc} baby name
                 </p>
-                <p className="text-sm text-center mt-2">{c.shortDescription}</p>
+                <p className="text-sm text-center mt-2">
+                  {c.metaDescription?.substring(0, 80)}...
+                </p>
               </div>
             </Link>
           );

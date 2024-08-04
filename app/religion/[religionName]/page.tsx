@@ -18,12 +18,10 @@ export async function generateMetadata({
 
   return {
     title: `${religionDetails.desc} Baby Name  | BabyNameNestlings`,
-    description: `Find ${religionDetails.desc.toLocaleLowerCase()} names having
-          referrenced in holy book and historial values`,
+    description: `${religionDetails.metaDescription}`,
     openGraph: {
       title: `${religionDetails.desc} Baby Name  | BabyNameNestlings`,
-      description: `Find ${religionDetails.desc.toLocaleLowerCase()} names having
-          referrenced in holy book and historial values`,
+      description: `${religionDetails.metaDescription}`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/${religionName}`,
@@ -62,13 +60,12 @@ const ReligionPage = async ({ params }: any) => {
             className="w-6 h-6"
             src={`${religionDetails.image}`}
           />
-          <h3 className="text-2xl font-bold text-center ">
+          <h1 className="text-2xl font-bold text-center ">
             {religionDetails.desc} Baby Names
-          </h3>
+          </h1>
         </div>
         <p className="text-xl text-center">
-          Find {religionDetails.desc.toLocaleLowerCase()} names having
-          referrenced in holy book and historial values
+          {religionDetails.shortDescription}
         </p>
 
         <div className="flex flex-col md:flex-row gap-2 my-[20px] cursor-pointer">
@@ -196,6 +193,17 @@ const ReligionPage = async ({ params }: any) => {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-5">
+          {religionDetails.notes &&
+            religionDetails.notes.map((n: any, index: any) => {
+              return (
+                <p key={index} className="text-xl text-center">
+                  {n}
+                </p>
+              );
+            })}
         </div>
       </div>
     </div>

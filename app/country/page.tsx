@@ -7,8 +7,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { countries, dummanyNameList } from "@/utils/constants";
-import { getData } from "@/utils/getData";
+import { dummanyNameList } from "@/utils/constants";
+import { countries } from "@/data/countryMetadata";
 
 export const metadata: Metadata = {
   title: "Baby Names By Country | BabyNameNestlings",

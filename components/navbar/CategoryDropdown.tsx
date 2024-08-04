@@ -8,8 +8,9 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
-import { countries, religions } from "@/utils/constants";
 import { useRouter } from "next/navigation";
+import { countries } from "@/data/countryMetadata";
+import { religions } from "@/data/religionMetadata";
 
 const CategoryDropdown = ({ isMobile }: any) => {
   const router = useRouter();
