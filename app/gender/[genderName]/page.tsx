@@ -47,6 +47,12 @@ const page = async ({ params }: any) => {
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] ">
         <div className="mb-5 rounded-lg">
+          <h1 className="text-2xl font-bold text-center py-2">{`Find most beautiful ${genderName} name`}</h1>
+          <div>
+            <p className="text-xl text-center py-4">
+              {genderDetalis.shortDescription}
+            </p>
+          </div>
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"
@@ -65,9 +71,9 @@ const page = async ({ params }: any) => {
                 className="w-auto h-10"
                 src={genderDetalis.image}
               />
-              <h1 className="text-2xl font-bold text-center ">
-                Beautiful {genderName} Names
-              </h1>
+              <h2 className="text-2xl font-bold text-center ">
+                {genderName} Names
+              </h2>
             </div>
 
             <div>
@@ -112,6 +118,17 @@ const page = async ({ params }: any) => {
 
           <div className="flex items-center justify-center p-10">
             <PaginationComponent totalItem={totalItem} />
+          </div>
+
+          <div className="flex flex-col gap-5">
+            {genderDetalis.notes &&
+              genderDetalis.notes.map((n: any, index: any) => {
+                return (
+                  <p key={index} className="text-xl text-center">
+                    {n}
+                  </p>
+                );
+              })}
           </div>
         </div>
       </div>

@@ -1,20 +1,6 @@
 import { countries } from "@/data/countryMetadata";
+import { gender } from "@/data/genderMetadata";
 import { religions } from "@/data/religionMetadata";
-
-export const gender = [
-  {
-    name: "Girl",
-    image: "/young-girl-icon.svg",
-    shortDescription:
-      "Explore a variety of beautiful baby names perfect for your little girl.",
-  },
-  {
-    name: "Boy",
-    image: "/young-boy-icon.svg",
-    shortDescription:
-      "Discover strong and unique baby names ideal for your baby boy.",
-  },
-];
 
 export const articleList = [
   {
@@ -45,7 +31,7 @@ export const genderMap = gender.reduce(
     map[g.name.toLowerCase()] = g;
     return map;
   },
-  {} as Record<string, { name: string; image: string }>
+  {} as Record<string, any>
 );
 
 export const getGenderByName = (name: string) => {

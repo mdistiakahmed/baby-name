@@ -77,9 +77,9 @@ const ReligiousNames = async ({ params }: any) => {
                 className="w-6 h-6"
                 src={religionDetails.image}
               />
-              <h1 className="text-2xl font-bold text-center ">
+              <h2 className="text-2xl font-bold text-center ">
                 {religionDetails.desc} {gender} Names
-              </h1>
+              </h2>
             </div>
 
             <div>

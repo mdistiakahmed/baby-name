@@ -80,9 +80,9 @@ const SelectedCountryByGenderNames = async ({ params }: any) => {
                 className="w-auto h-10"
                 src={`https://flagcdn.com/${countryDetails.code}.svg`}
               />
-              <h1 className="text-2xl text-center ">
+              <h2 className="text-2xl text-center ">
                 {countryDetails.desc} {gender} name
-              </h1>
+              </h2>
             </div>
 
             <div>
