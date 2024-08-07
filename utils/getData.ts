@@ -100,7 +100,7 @@ export const getDataUpdated = async (
             ));
           } else {
             ({ nameList, positions } = await import(
-              "../data/country/india/girl/india-girl-names"
+              "../data/country/india-tamil/girl/india-tamil-girl-names"
             ));
           }
           break;
