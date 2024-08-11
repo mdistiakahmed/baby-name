@@ -24,7 +24,7 @@ export const articleList = [
   },
 ];
 
-export const ITEMS_PER_PAGE = 50;
+export const ITEMS_PER_PAGE = 100;
 
 export const genderMap = gender.reduce(
   (map, g) => {
