@@ -1,20 +1,18 @@
-import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 async function getPosts() {
-  const query = `
-    *[_type == "post"] {
-      title,
-      slug,
-      heroImage
-    }
-  `;
-
-  const data = await client.fetch(query);
-  return data;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api/posts`, {
+    cache: "force-cache",
+    next: {
+      revalidate: 60 * 5, // Revalidate the cache every 5 * 60 seconds
+    },
+  });
+  const result = await res.json();
+  return result.data;
 }
 
 const ArticleHomePage = async () => {
@@ -26,7 +24,7 @@ const ArticleHomePage = async () => {
         <div className="flex flex-col items-center justify-center  py-8 bg-gray-100">
           <h3 className="text-2xl font-semibold mb-6">Articles</h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl px-4">
             {posts.map((article, index) => {
               const { heroImage } = article;
               return (
