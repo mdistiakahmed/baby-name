@@ -8,6 +8,7 @@ import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export async function generateMetadata({
   params,
@@ -58,6 +59,7 @@ const ReligiousNames = async ({ params }: any) => {
             <p className="text-xl text-center py-4">
               {religionDetails[gender].shortDescription}
             </p>
+            <ShareWidget />
           </div>
           <div className="flex items-center justify-center rounded-lg">
             <Image

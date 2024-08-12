@@ -8,6 +8,7 @@ import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getDataUpdated } from "@/utils/getData";
 import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export async function generateMetadata({
   params,
@@ -61,6 +62,7 @@ const SelectedCountryByGenderNames = async ({ params }: any) => {
               {countryDetails[gender].shortDescription}
             </p>
           </div>
+          <ShareWidget />
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"

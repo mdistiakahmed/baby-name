@@ -1,3 +1,4 @@
+import ShareWidget from "@/components/share/ShareWidget";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { Metadata } from "next";
@@ -75,6 +76,8 @@ const SingleArticlePage = async ({ params }: any) => {
             <h1 className="text-2xl font-bold text-center leading-relaxed">
               {post?.title}
             </h1>
+
+            <ShareWidget />
 
             <div className="w-full flex justify-center">
               {heroImage && heroImage.asset && (

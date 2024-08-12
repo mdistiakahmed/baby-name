@@ -8,6 +8,7 @@ import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import { Metadata } from "next";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export async function generateMetadata({
   params,
@@ -53,6 +54,7 @@ const page = async ({ params }: any) => {
               {genderDetalis.shortDescription}
             </p>
           </div>
+          <ShareWidget />
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby-boy.webp"
@@ -62,6 +64,7 @@ const page = async ({ params }: any) => {
               className="rounded-lg"
             />
           </div>
+
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <div className="flex gap-4 items-center">
               <Image

@@ -73,6 +73,7 @@ const ReligionCategoryNameByLetter = async ({ params }: any) => {
               className="rounded-lg"
             />
           </div>
+
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <Image

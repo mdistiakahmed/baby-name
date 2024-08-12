@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getData } from "@/utils/getData";
 import { countries } from "@/data/countryMetadata";
 import { religions } from "@/data/religionMetadata";
+import ShareWidget from "@/components/share/ShareWidget";
 
 const HomePage = async () => {
   const currentYear = new Date().getFullYear();
@@ -174,6 +175,7 @@ const HomePage = async () => {
           meaningful baby names, carefully curated to help you choose a name
           that your family will treasure forever.
         </p>
+        <ShareWidget />
         <div className="p-5 mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
             <Image

@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { dummanyNameList } from "@/utils/constants";
 import { religions } from "@/data/religionMetadata";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export const metadata: Metadata = {
   title: "Baby Names By Religion | BabyNameNestlings",
@@ -43,6 +44,7 @@ const ReligionCategoryPage = () => {
         <p className="text-xl text-center">
           Find baby names based on religious significance
         </p>
+        <ShareWidget />
 
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-[40px] cursor-pointer">

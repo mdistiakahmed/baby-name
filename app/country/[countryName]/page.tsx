@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCountryByName } from "@/utils/constants";
 import { getData, getDataUpdated } from "@/utils/getData";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export async function generateMetadata({
   params,
@@ -70,6 +71,7 @@ const SelectedCountryPage = async ({ params }: any) => {
           </h1>
         </div>
         <p className="text-xl text-center">{countryDetails.shortDescription}</p>
+        <ShareWidget />
 
         <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
           <Link href={`/country/${countryName}/boy`}>

@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { dummanyNameList, getReligionByName } from "@/utils/constants";
 import { getDataUpdated } from "@/utils/getData";
+import ShareWidget from "@/components/share/ShareWidget";
 
 export async function generateMetadata({
   params,
@@ -67,6 +68,8 @@ const ReligionPage = async ({ params }: any) => {
         <p className="text-xl text-center">
           {religionDetails.shortDescription}
         </p>
+
+        <ShareWidget />
 
         <div className="flex flex-col md:flex-row gap-2 my-[20px] cursor-pointer">
           <Link href={`/religion/${religionName}/boy`}>
