@@ -4,15 +4,26 @@ import Link from "next/link";
 import React from "react";
 
 async function getPosts() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/posts`, {
-    cache: "force-cache",
-    next: {
-      revalidate: 60 * 5, // Revalidate the cache every 5 * 60 seconds
-    },
-  });
-  const result = await res.json();
-  return result.data;
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/posts`, {
+      cache: "force-cache",
+      next: {
+        revalidate: 60 * 5, // Revalidate the cache every 5 * 60 seconds
+      },
+    });
+
+    // Check if the response is OK (status 200-299)
+    if (!res.ok) {
+      throw new Error(`Failed to fetch posts: ${res.statusText}`);
+    }
+
+    const result = await res.json();
+    return result.data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return []; // Return an empty array or handle the error as needed
+  }
 }
 
 const ArticleHomePage = async () => {
