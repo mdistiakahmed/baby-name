@@ -5,20 +5,20 @@ import { religions } from "@/data/religionMetadata";
 export const articleList = [
   {
     title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",
-    image: "/kids-movies-watch-with-family.webp",
+    image: "/mov-baby.jpg",
     excerpt: `Hollywood movies have long served as a mirror reflecting societal
             trends, including the popularity of names given to characters.`,
     url: "/articles/a/hollywood-movies-baby-names",
   },
   {
     title: "Things to Consider While Choosing a Baby Name",
-    image: "/choose-a-name.webp",
+    image: "/ch-baby.jpg",
     excerpt: ``,
     url: "/articles/a/things-to-consider-while-choosing-a-baby-name",
   },
   {
     title: "Exploring American Baby Names: Diversity and Tradition",
-    image: "/american-baby.webp",
+    image: "/am-baby.jpg",
     excerpt: ``,
     url: "/articles/a/american-baby-names",
   },

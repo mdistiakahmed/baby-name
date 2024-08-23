@@ -10,7 +10,7 @@ const ThingsToConsiderWhileNameChoosing = () => {
           </h1>
           <div className="flex items-center justify-center h-[200px] md:h-[350px]">
             <Image
-              src="/choose-a-name.webp"
+              src="/ch-baby.jpg"
               height={400}
               width={400}
               className="h-[200px] md:h-[350px] w-auto"

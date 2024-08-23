@@ -11,11 +11,11 @@ const HollywoodMovieBabyName = () => {
           </h1>
           <div className="flex items-center justify-center h-[200px] md:h-[350px]">
             <Image
-              src="/kids-movies-watch-with-family.webp"
+              src="/mov-baby.jpg"
               height={400}
               width={400}
               className="h-[200px] md:h-[350px] w-auto"
-              alt="kids movies watch with family"
+              alt="kid reading book"
             />
           </div>
 
