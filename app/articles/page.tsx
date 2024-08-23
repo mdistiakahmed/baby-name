@@ -7,10 +7,7 @@ async function getPosts() {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(`${baseUrl}/api/posts`, {
-      cache: "force-cache",
-      next: {
-        revalidate: 60 * 5, // Revalidate the cache every 5 * 60 seconds
-      },
+      cache: "no-cache",
     });
 
     // Check if the response is OK (status 200-299)
