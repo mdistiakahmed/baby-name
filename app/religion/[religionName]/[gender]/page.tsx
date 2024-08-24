@@ -31,6 +31,7 @@ export async function generateMetadata({
           url: "/baby.webp",
           width: 1200,
           height: 630,
+          alt: "Smiling babies",
         },
       ],
     },
@@ -64,7 +65,7 @@ const ReligiousNames = async ({ params }: any) => {
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby.webp"
-              alt="B"
+              alt="Smiling babies"
               height={300}
               width={400}
               className="rounded-lg"

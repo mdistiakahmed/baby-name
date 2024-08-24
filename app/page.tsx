@@ -180,7 +180,7 @@ const HomePage = async () => {
           <div className="flex items-center justify-center rounded-lg">
             <Image
               src="/baby.webp"
-              alt="Baby name"
+              alt="Smiling babies"
               height={300}
               width={400}
               className="rounded-lg"

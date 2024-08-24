@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/baby.webp",
         width: 1200,
         height: 630,
-        alt: "Smiling baby",
+        alt: "Smiling babies",
       },
     ],
   },
