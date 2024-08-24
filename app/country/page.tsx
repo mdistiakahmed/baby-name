@@ -117,14 +117,6 @@ const CountryHomePage = async () => {
           );
         })}
       </div>
-      <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-        <Link
-          href={`/country`}
-          className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-        >
-          See More
-        </Link>
-      </div>
     </div>
   );
 
@@ -139,7 +131,6 @@ const CountryHomePage = async () => {
         </p>
 
         <div>{countrySection}</div>
-        <div>{countryTop50}</div>
       </div>
     </div>
   );

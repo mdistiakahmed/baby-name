@@ -11,15 +11,16 @@ import {
 
 import { AcmeLogo } from "./AcmeLogo";
 import CategoryDropdown from "./CategoryDropdown";
+import MobileCategoryDropdown from "./MobileCategoryDropdown";
 
 const NavComponent = () => {
   return (
     <Navbar isBordered className="bg-[#f06246]">
-      <NavbarContent className="sm:hidden" justify="start">
-        <CategoryDropdown isMobile={true} />
+      <NavbarContent className="md:hidden" justify="start">
+        <MobileCategoryDropdown />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
+      <NavbarContent className="md:hidden pr-3" justify="center">
         <NavbarBrand>
           <Link href={`/`} className="text-white">
             <AcmeLogo />
@@ -28,7 +29,7 @@ const NavComponent = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarBrand>
           <Link href={`/`} className="text-white">
             <AcmeLogo />
@@ -37,14 +38,35 @@ const NavComponent = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent justify="end" className="hidden sm:flex">
+      <NavbarContent justify="end" className="hidden md:flex">
         <NavbarItem>
-          <CategoryDropdown />
+          <Link href="/gender/girl" className="text-white font-medium">
+            <p>Girl Name</p>
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/articles" className="text-white font-medium">
-            <p>articles</p>
+          <Link href="/gender/boy" className="text-white font-medium">
+            <p>Boy Name</p>
           </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/religion/christian" className="text-white font-medium">
+            <p>Christian Name</p>
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/religion/hindu" className="text-white font-medium">
+            <p>Hindu Name</p>
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/religion/islam" className="text-white font-medium">
+            <p>Muslim Name</p>
+          </Link>
+        </NavbarItem>
+
+        <NavbarItem>
+          <CategoryDropdown />
         </NavbarItem>
       </NavbarContent>
     </Navbar>

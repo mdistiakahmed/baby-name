@@ -12,12 +12,66 @@ import { useRouter } from "next/navigation";
 import { countries } from "@/data/countryMetadata";
 import { religions } from "@/data/religionMetadata";
 
-const CategoryDropdown = () => {
+const MobileCategoryDropdown = () => {
   const router = useRouter();
 
   const handleItemClick = (path: string) => {
     router.push(path);
   };
+
+  const religionsOptions = religions.flatMap((r, index) => [
+    <DropdownItem
+      textValue={r.name}
+      key={index}
+      startContent={
+        <Image
+          alt={"R"}
+          height={6}
+          width={6}
+          className="w-6 h-6"
+          src={r.image}
+        />
+      }
+      onClick={() => handleItemClick(`/religion/${r.name.toLocaleLowerCase()}`)}
+    >
+      {`${r.desc} name`}
+    </DropdownItem>,
+  ]);
+
+  const genderOptions = [
+    <DropdownItem
+      key={`girl`}
+      textValue={`girl`}
+      startContent={
+        <Image
+          alt={"girl"}
+          height={6}
+          width={6}
+          className="w-6 h-6"
+          src={`/young-girl-icon.svg`}
+        />
+      }
+      onClick={() => handleItemClick(`/gender/girl`)}
+    >
+      Girl name
+    </DropdownItem>,
+    <DropdownItem
+      key={`boy`}
+      textValue={`boy`}
+      startContent={
+        <Image
+          alt={"girl"}
+          height={6}
+          width={6}
+          className="w-6 h-6"
+          src={`/young-boy-icon.svg`}
+        />
+      }
+      onClick={() => handleItemClick(`/gender/boy`)}
+    >
+      Boy name
+    </DropdownItem>,
+  ];
 
   const articlesOptions = [
     <DropdownItem
@@ -54,7 +108,6 @@ const CategoryDropdown = () => {
       {c.desc} name
     </DropdownItem>,
   ]);
-
   return (
     <Dropdown
       showArrow
@@ -65,9 +118,7 @@ const CategoryDropdown = () => {
     >
       <DropdownTrigger>
         <div>
-          <p className="bg-[#006fee] text-white font-bold p-2 px-4 rounded-lg cursor-pointer">
-            More
-          </p>{" "}
+          <MenuIcon sx={{ color: "white" }} />
         </div>
       </DropdownTrigger>
       <DropdownMenu
@@ -75,6 +126,10 @@ const CategoryDropdown = () => {
         aria-label="Dropdown menu with description"
         style={{ maxHeight: "400px", overflowY: "auto" }}
       >
+        <DropdownSection title="By Gender">{genderOptions}</DropdownSection>
+        <DropdownSection title="By Religion">
+          {religionsOptions}
+        </DropdownSection>
         <DropdownSection title="By Country">{countriesOptions}</DropdownSection>
         <DropdownSection title="Articles">{articlesOptions}</DropdownSection>
       </DropdownMenu>
@@ -82,4 +137,4 @@ const CategoryDropdown = () => {
   );
 };
 
-export default CategoryDropdown;
+export default MobileCategoryDropdown;
