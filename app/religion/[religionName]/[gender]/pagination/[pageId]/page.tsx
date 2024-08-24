@@ -28,7 +28,7 @@ export async function generateMetadata({
       siteName: "BabyNameNestlings",
       images: [
         {
-          url: "/baby-boy.webp",
+          url: "/baby.webp",
           width: 1200,
           height: 630,
           alt: "Smiling baby",
@@ -61,7 +61,7 @@ const PaginatedReligiousGenderPage = async ({ params }: any) => {
         <div className="mb-5 rounded-lg">
           <div className="flex items-center justify-center rounded-lg">
             <Image
-              src="/baby-boy.webp"
+              src="/baby.webp"
               alt="B"
               height={300}
               width={400}

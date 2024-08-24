@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "BabyNameNestlings",
     images: [
       {
-        url: "/baby-boy.webp",
+        url: "/baby.webp",
         width: 1200,
         height: 630,
         alt: "Smiling baby",
