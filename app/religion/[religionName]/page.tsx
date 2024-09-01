@@ -7,7 +7,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList, getReligionByName } from "@/utils/constants";
+import { getReligionByName } from "@/utils/constants";
 import { getDataUpdated } from "@/utils/getData";
 import ShareWidget from "@/components/share/ShareWidget";
 

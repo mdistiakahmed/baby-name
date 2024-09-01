@@ -9,6 +9,8 @@ import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import { Metadata } from "next";
 import ShareWidget from "@/components/share/ShareWidget";
+import { capitalize } from "@/utils/converters";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -16,10 +18,10 @@ export async function generateMetadata({
   const { genderName } = params;
 
   return {
-    title: `${genderName} baby Names | BabyNameNestlings`,
+    title: `Baby ${capitalize(genderName)} Names | BabyNameNestlings`,
     description: `Find most beautiful ${genderName} name for your baby.`,
     openGraph: {
-      title: `${genderName} baby Names | BabyNameNestlings`,
+      title: `${capitalize(genderName)} baby Names | BabyNameNestlings`,
       description: `Find most beautiful ${genderName} name for your baby.`,
       type: "article",
       locale: "en_US",
@@ -75,7 +77,7 @@ const page = async ({ params }: any) => {
                 src={genderDetalis.image}
               />
               <h2 className="text-2xl font-bold text-center ">
-                {genderName} Names
+                Baby {capitalize(genderName)} Names
               </h2>
             </div>
 
@@ -92,6 +94,11 @@ const page = async ({ params }: any) => {
           </Accordion>
 
           {firstPageData?.map((nameObj: any, index: any) => {
+            // first 00 -> country
+            // second 0 -> religion
+            // third 0 -> boy / girl
+            // fourth 00 -> page number
+            // fifth 000 -> index
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -113,6 +120,12 @@ const page = async ({ params }: any) => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/gender/${genderName}/details?userId=123`}
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>

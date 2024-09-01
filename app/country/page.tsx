@@ -7,7 +7,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { dummanyNameList } from "@/utils/constants";
 import { countries } from "@/data/countryMetadata";
 
 export const metadata: Metadata = {
@@ -33,59 +32,6 @@ export const metadata: Metadata = {
 
 const CountryHomePage = async () => {
   const currentYear = new Date().getFullYear();
-
-  const countryTop50 = (
-    <div>
-      {countries.map((c: any, index: any) => (
-        <div className="rounded-lg" key={index}>
-          <div className="flex flex-col items-center justify-center mb-5">
-            <h3 className="text-2xl font-bold text-center mt-5 ">
-              Top 10 {c.desc} Name in {currentYear}
-            </h3>
-          </div>
-
-          {dummanyNameList.map((nameObj: any, index2: any) => {
-            return (
-              <Accordion key={index2}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    {nameObj.name}
-                  </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
-                    {nameObj.meaning}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                    {nameObj.stories.map((story: any, idx: any) => {
-                      return (
-                        <li key={idx} className="mb-2">
-                          <p className="text-gray-800 text-md">{story}</p>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </AccordionDetails>
-              </Accordion>
-            );
-          })}
-
-          <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-            <Link
-              href={`/religion/${""}`}
-              className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-            >
-              See More
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
 
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
