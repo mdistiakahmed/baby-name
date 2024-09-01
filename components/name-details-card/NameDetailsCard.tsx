@@ -1,6 +1,8 @@
+import { capitalize } from "@/utils/converters";
 import React from "react";
 
-const NameDetailsCard = () => {
+const NameDetailsCard = ({ params, gender }: any) => {
+  console.log(params);
   return (
     <div>
       {/* Card Header */}
@@ -13,7 +15,9 @@ const NameDetailsCard = () => {
         />
         {/* Name Section */}
         <div className="ml-4">
-          <h2 className="text-3xl font-semibold text-gray-800">Istiak</h2>
+          <h2 className="text-3xl font-semibold text-gray-800">
+            {params.name}
+          </h2>
         </div>
       </div>
 
@@ -23,9 +27,9 @@ const NameDetailsCard = () => {
       <div className="mb-4  flex justify-between">
         <div>
           <h3 className="text-xl font-medium text-gray-700">Gender</h3>
-          <p className="text-gray-600 mt-1">Girl</p>
+          <p className="text-gray-600 mt-1">{capitalize(gender)}</p>
         </div>
-        <div>
+        <div className="hidden">
           <h3 className="text-xl font-medium text-gray-700">Origin</h3>
           <p className="text-gray-600 mt-1">Arabic</p>
         </div>
@@ -37,10 +41,7 @@ const NameDetailsCard = () => {
       {/* Meaning Section */}
       <div className="mb-4">
         <h3 className="text-xl font-medium text-gray-700">Meaning</h3>
-        <p className="text-gray-600 mt-1">
-          Meaning of the name goes here. This could be a sentence or two
-          explaining the significance or origin of the name.
-        </p>
+        <p className="text-gray-600 mt-1">{params.meaning}</p>
       </div>
 
       {/* Divider */}
@@ -51,11 +52,14 @@ const NameDetailsCard = () => {
         <h3 className="text-xl font-medium text-gray-700">
           Additional Remarks
         </h3>
-        <p className="text-gray-600 mt-1">
-          Any additional remarks or interesting facts about the name. This could
-          include cultural significance, popularity, or other notable
-          information.
-        </p>
+        <ul>
+          {params.stories.map((s: any, index: any) => (
+            <li key={index} className="text-gray-600 mt-1">
+              {s}
+            </li>
+          ))}
+          <li></li>
+        </ul>
       </div>
     </div>
   );

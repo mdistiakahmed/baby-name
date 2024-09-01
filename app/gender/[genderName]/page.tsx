@@ -9,7 +9,7 @@ import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import { Metadata } from "next";
 import ShareWidget from "@/components/share/ShareWidget";
-import { capitalize } from "@/utils/converters";
+import { capitalize, encodeNameIndex } from "@/utils/converters";
 import Link from "next/link";
 
 export async function generateMetadata({
@@ -94,11 +94,6 @@ const page = async ({ params }: any) => {
           </Accordion>
 
           {firstPageData?.map((nameObj: any, index: any) => {
-            // first 00 -> country
-            // second 0 -> religion
-            // third 0 -> boy / girl
-            // fourth 00 -> page number
-            // fifth 000 -> index
             return (
               <Accordion key={index}>
                 <AccordionSummary
@@ -121,7 +116,8 @@ const page = async ({ params }: any) => {
                       );
                     })}
                     <Link
-                      href={`/gender/${genderName}/details?userId=123`}
+                      href={`/name-details/${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, 1, index)}`}
+                      target="_blank"
                       className="font-semibold underline"
                     >
                       View More

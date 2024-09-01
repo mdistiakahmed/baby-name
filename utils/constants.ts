@@ -62,8 +62,24 @@ export const getReligionByName = (name: string) => {
   return religionMap[name.toLowerCase()];
 };
 
-const countryCodeMap: Map<string, string> = new Map([
+export const countryToNumberMap: Map<string, string> = new Map([
   ["usa", "01"],
-  ["bd", "02"],
-  ["in", "03"],
+  ["india", "02"],
+]);
+
+export const NumberToCountryMap: Map<string, string> = new Map([
+  ["01", "usa"],
+  ["02", "india"],
+]);
+
+export const religionToNumberMap: Map<string, string> = new Map([
+  ["islam", "01"],
+  ["hindu", "02"],
+  ["christian", "03"],
+]);
+
+export const NumberToReligionMap: Map<string, string> = new Map([
+  ["01", "islam"],
+  ["02", "hindu"],
+  ["03", "christian"],
 ]);
