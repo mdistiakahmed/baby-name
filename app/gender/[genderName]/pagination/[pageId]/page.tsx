@@ -12,6 +12,8 @@ import {
   getGenderByName,
   ITEMS_PER_PAGE,
 } from "@/utils/constants";
+import Link from "next/link";
+import { encodeNameIndex } from "@/utils/converters";
 
 export async function generateMetadata({
   params,
@@ -113,6 +115,13 @@ const PaginatedGenderPage = async ({ params }: any) => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/name-details/${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, pageNumber, index)}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>
