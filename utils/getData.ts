@@ -64,8 +64,10 @@ export const getDataUpdated = async (
           ({ nameList, positions } = await import(
             "../data/country/usa/girl/use-girl-names"
           ));
+
           break;
         default:
+          console.log("i should nto here..");
           throw new Error(`No data file found for param: ${gender}`);
       }
     } else if (country) {

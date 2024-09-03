@@ -2,11 +2,6 @@ import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { countries } from "@/data/countryMetadata";
 
 export const metadata: Metadata = {

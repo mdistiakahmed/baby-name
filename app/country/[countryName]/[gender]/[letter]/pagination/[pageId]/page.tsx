@@ -8,6 +8,8 @@ import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData, getDataUpdated } from "@/utils/getData";
 import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import { encodeNameIndex } from "@/utils/converters";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -61,6 +63,22 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
     (pageNumber - 1) * ITEMS_PER_PAGE,
     pageNumber * ITEMS_PER_PAGE
   );
+
+  const calculatePageNumber = (currentIndex: any) => {
+    return (
+      Math.floor(
+        (boundary[0] + (pageNumber - 1) * ITEMS_PER_PAGE + currentIndex) /
+          ITEMS_PER_PAGE
+      ) + 1
+    );
+  };
+
+  const calculatePageIndex = (currentIndex: any) => {
+    return (
+      (boundary[0] + (pageNumber - 1) * ITEMS_PER_PAGE + currentIndex) %
+      ITEMS_PER_PAGE
+    );
+  };
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -124,6 +142,13 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, gender, calculatePageNumber(index), calculatePageIndex(index))}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>

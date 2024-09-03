@@ -9,23 +9,32 @@ export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const { id } = params;
-  const encodedId = id.split("-")[1];
+  const encodedId = id.split("-")[4];
   const { country, religion, gender, pageNumber, index } =
     decodeNameIndex(encodedId);
 
   let paginatedNameList: any = [];
   let nameDetailsObject: any = {};
 
+  let countryParam = null,
+    religionParam = null;
+
   if (!country && !religion) {
-    const { nameList } = await getDataUpdated(null, null, gender);
-
-    paginatedNameList = nameList?.slice(
-      (pageNumber - 1) * ITEMS_PER_PAGE,
-      pageNumber * ITEMS_PER_PAGE
-    );
-
-    nameDetailsObject = paginatedNameList[index];
+  } else if (!country && religion) {
+    religionParam = religion;
   }
+  const { nameList } = await getDataUpdated(
+    countryParam,
+    religionParam,
+    gender
+  );
+
+  paginatedNameList = nameList?.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
+  );
+
+  nameDetailsObject = paginatedNameList[index];
 
   return {
     title: `${nameDetailsObject.name} - Meaning, Origin, and Description | BabyNameNestlings.com`,
@@ -51,67 +60,74 @@ export async function generateMetadata({
 
 const NameDetails = async ({ params }: any) => {
   const { id } = params;
-  const encodedId = id.split("-")[1];
+  const encodedId = id.split("-")[4];
   const { country, religion, gender, pageNumber, index } =
     decodeNameIndex(encodedId);
+
+  console.log(country, religion, gender, pageNumber, index);
 
   let paginatedNameList: any = [];
   let nameDetailsObject: any = {};
   const similarNames = [];
 
+  let countryParam = null,
+    religionParam = null;
+
   if (!country && !religion) {
-    const { nameList } = await getDataUpdated(null, null, gender);
+  } else if (!country && religion) {
+    religionParam = religion;
+  }
+  const { nameList } = await getDataUpdated(
+    countryParam,
+    religionParam,
+    gender
+  );
 
-    paginatedNameList = nameList?.slice(
-      (pageNumber - 1) * ITEMS_PER_PAGE,
-      pageNumber * ITEMS_PER_PAGE
+  paginatedNameList = nameList?.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
+  );
+
+  nameDetailsObject = paginatedNameList[index];
+  nameDetailsObject.gender = gender;
+  nameDetailsObject.code = id;
+
+  const actualItemPosition = (pageNumber - 1) * ITEMS_PER_PAGE + index;
+  let currentStart = actualItemPosition - 1;
+  let totalSimilarTake = 0;
+
+  while (totalSimilarTake < 10 && nameList && currentStart > 0) {
+    const updatedPageNumber = Math.floor(currentStart / ITEMS_PER_PAGE) + 1;
+    const updatedPageIndex = currentStart % ITEMS_PER_PAGE;
+
+    const id = encodeNameIndex(
+      country,
+      religion,
+      gender,
+      updatedPageNumber,
+      updatedPageIndex
     );
+    similarNames.push({ ...nameList[currentStart], id });
+    currentStart--;
+    totalSimilarTake++;
+  }
 
-    nameDetailsObject = paginatedNameList[index];
-    nameDetailsObject.gender = gender;
-    nameDetailsObject.code = id;
+  currentStart = actualItemPosition + 1;
 
-    const actualItemPosition = (pageNumber - 1) * ITEMS_PER_PAGE + index;
-    let currentStart = actualItemPosition - 1;
-    let totalSimilarTake = 0;
+  while (totalSimilarTake < 10 && nameList && currentStart < nameList.length) {
+    const updatedPageNumber = Math.floor(currentStart / ITEMS_PER_PAGE) + 1;
+    const updatedPageIndex = currentStart % ITEMS_PER_PAGE;
+    const id = encodeNameIndex(
+      country,
+      religion,
+      gender,
+      updatedPageNumber,
+      updatedPageIndex
+    );
+    similarNames.push({ ...nameList[currentStart], id });
 
-    while (totalSimilarTake < 10 && nameList && currentStart > 0) {
-      const updatedPageNumber = Math.floor(currentStart / ITEMS_PER_PAGE) + 1;
-      const updatedPageIndex = currentStart % ITEMS_PER_PAGE;
-
-      const id = encodeNameIndex(
-        country,
-        religion,
-        gender,
-        updatedPageNumber,
-        updatedPageIndex
-      );
-      similarNames.push({ ...nameList[currentStart], id });
-      currentStart--;
-      totalSimilarTake++;
-    }
-
-    currentStart = actualItemPosition + 1;
-
-    while (
-      totalSimilarTake < 10 &&
-      nameList &&
-      currentStart < nameList.length
-    ) {
-      const updatedPageNumber = Math.floor(currentStart / ITEMS_PER_PAGE) + 1;
-      const updatedPageIndex = currentStart % ITEMS_PER_PAGE;
-      const id = encodeNameIndex(
-        country,
-        religion,
-        gender,
-        updatedPageNumber,
-        updatedPageIndex
-      );
-      similarNames.push({ ...nameList[currentStart], id });
-
-      currentStart++;
-      totalSimilarTake++;
-    }
+    currentStart++;
+    totalSimilarTake++;
   }
 
   return (

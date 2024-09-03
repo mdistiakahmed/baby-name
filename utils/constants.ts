@@ -73,13 +73,13 @@ export const NumberToCountryMap: Map<string, string> = new Map([
 ]);
 
 export const religionToNumberMap: Map<string, string> = new Map([
-  ["islam", "01"],
-  ["hindu", "02"],
-  ["christian", "03"],
+  ["islam", "1"],
+  ["hindu", "2"],
+  ["christian", "3"],
 ]);
 
 export const NumberToReligionMap: Map<string, string> = new Map([
-  ["01", "islam"],
-  ["02", "hindu"],
-  ["03", "christian"],
+  ["1", "islam"],
+  ["2", "hindu"],
+  ["3", "christian"],
 ]);

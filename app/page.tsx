@@ -9,6 +9,7 @@ import { getData } from "@/utils/getData";
 import { countries } from "@/data/countryMetadata";
 import { religions } from "@/data/religionMetadata";
 import ShareWidget from "@/components/share/ShareWidget";
+import { encodeNameIndex } from "@/utils/converters";
 
 const HomePage = async () => {
   const currentYear = new Date().getFullYear();
@@ -219,6 +220,13 @@ const HomePage = async () => {
                               </li>
                             );
                           })}
+                          <Link
+                            href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "girl", 1, index)}`}
+                            target="_blank"
+                            className="font-semibold underline"
+                          >
+                            View More
+                          </Link>
                         </ul>
                       </AccordionDetails>
                     </Accordion>
@@ -267,6 +275,13 @@ const HomePage = async () => {
                               </li>
                             );
                           })}
+                          <Link
+                            href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "boy", 1, index)}`}
+                            target="_blank"
+                            className="font-semibold underline"
+                          >
+                            View More
+                          </Link>
                         </ul>
                       </AccordionDetails>
                     </Accordion>

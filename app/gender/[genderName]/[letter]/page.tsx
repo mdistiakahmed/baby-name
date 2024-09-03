@@ -132,8 +132,9 @@ const CountryGenderLetterPage = async ({ params }: any) => {
                         </li>
                       );
                     })}
+
                     <Link
-                      href={`/name-details/${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, calculatePageNumber(index), calculatePageIndex(index))}`}
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, calculatePageNumber(index), calculatePageIndex(index))}`}
                       target="_blank"
                       className="font-semibold underline"
                     >

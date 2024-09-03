@@ -10,6 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getReligionByName } from "@/utils/constants";
 import { getDataUpdated } from "@/utils/getData";
 import ShareWidget from "@/components/share/ShareWidget";
+import { encodeNameIndex } from "@/utils/converters";
 
 export async function generateMetadata({
   params,
@@ -134,6 +135,13 @@ const ReligionPage = async ({ params }: any) => {
                           </li>
                         );
                       })}
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, religionName, "girl", 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -181,6 +189,13 @@ const ReligionPage = async ({ params }: any) => {
                           </li>
                         );
                       })}
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, religionName, "boy", 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
                     </ul>
                   </AccordionDetails>
                 </Accordion>

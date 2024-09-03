@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
-import { getData, getDataUpdated } from "@/utils/getData";
+import { getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import { Metadata } from "next";
 import ShareWidget from "@/components/share/ShareWidget";
@@ -116,7 +116,7 @@ const page = async ({ params }: any) => {
                       );
                     })}
                     <Link
-                      href={`/name-details/${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, 1, index)}`}
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, 1, index)}`}
                       target="_blank"
                       className="font-semibold underline"
                     >

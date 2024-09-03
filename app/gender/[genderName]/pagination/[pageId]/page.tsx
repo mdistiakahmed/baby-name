@@ -116,7 +116,7 @@ const PaginatedGenderPage = async ({ params }: any) => {
                       );
                     })}
                     <Link
-                      href={`/name-details/${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, pageNumber, index)}`}
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, pageNumber, index)}`}
                       target="_blank"
                       className="font-semibold underline"
                     >

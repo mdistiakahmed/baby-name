@@ -9,6 +9,8 @@ import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData, getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
+import { encodeNameIndex } from "@/utils/converters";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -116,6 +118,13 @@ const PaginatedReligiousGenderPage = async ({ params }: any) => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, religionName, gender, pageNumber, index)}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>

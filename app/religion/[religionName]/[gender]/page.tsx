@@ -9,6 +9,8 @@ import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import ShareWidget from "@/components/share/ShareWidget";
+import { encodeNameIndex } from "@/utils/converters";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -119,6 +121,13 @@ const ReligiousNames = async ({ params }: any) => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, religionName, gender, 1, index)}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Metadata } from "next";
 import { getData } from "@/utils/getData";
+import { encodeNameIndex } from "@/utils/converters";
 
 export const metadata: Metadata = {
   title: "Baby Names By Gender | BabyNameNestlings",
@@ -94,6 +95,13 @@ const GenderCategoryPage = async () => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "girl", 1, index)}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>
@@ -141,6 +149,13 @@ const GenderCategoryPage = async () => {
                         </li>
                       );
                     })}
+                    <Link
+                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "boy", 1, index)}`}
+                      target="_blank"
+                      className="font-semibold underline"
+                    >
+                      View More
+                    </Link>
                   </ul>
                 </AccordionDetails>
               </Accordion>

@@ -49,7 +49,7 @@ const NameDetailsCard = ({
           Additional Remarks
         </h3>
         <ul className="list-disc">
-          {stories.map((s: any, index: any) => (
+          {stories?.map((s: any, index: any) => (
             <li key={index} className="text-gray-600 mt-1">
               {s}
             </li>

@@ -13,7 +13,7 @@ export const capitalize = (input: string): string => {
 export const encodeNameIndex = (
   country: any,
   religion: any,
-  gender: string,
+  gender: any,
   pageNumber: number,
   index: number
 ): string => {
@@ -57,7 +57,7 @@ export const decodeNameIndex = (encodedString: string) => {
   const religion = NumberToReligionMap.get(religionCode);
 
   // Convert gender code back to gender string
-  let gender = "unknown";
+  let gender = undefined;
   if (genderCode === "1") {
     gender = "boy";
   } else if (genderCode === "2") {

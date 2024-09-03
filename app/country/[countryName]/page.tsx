@@ -10,6 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCountryByName } from "@/utils/constants";
 import { getData, getDataUpdated } from "@/utils/getData";
 import ShareWidget from "@/components/share/ShareWidget";
+import { encodeNameIndex } from "@/utils/converters";
 
 export async function generateMetadata({
   params,
@@ -138,6 +139,13 @@ const SelectedCountryPage = async ({ params }: any) => {
                             </li>
                           );
                         })}
+                        <Link
+                          href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, "girl", 1, index)}`}
+                          target="_blank"
+                          className="font-semibold underline"
+                        >
+                          View More
+                        </Link>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -187,6 +195,13 @@ const SelectedCountryPage = async ({ params }: any) => {
                             </li>
                           );
                         })}
+                        <Link
+                          href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, "boy", 1, index)}`}
+                          target="_blank"
+                          className="font-semibold underline"
+                        >
+                          View More
+                        </Link>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
