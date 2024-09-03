@@ -59,7 +59,7 @@ const NameDetailsCard = ({
       {short ? (
         <div hidden={!short} className="flex items-center justify-center">
           <Link
-            href={`/name-details/${name.toLowerCase()}-${id}`}
+            href={`/meaning-of-name-${name.toLowerCase()}-${id}`}
             target="_blank"
             className="bg-[#006fee] text-white font-bold p-2 px-4 rounded-lg cursor-pointer"
           >
