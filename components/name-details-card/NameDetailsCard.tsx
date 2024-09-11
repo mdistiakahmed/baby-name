@@ -8,12 +8,10 @@ const NameDetailsCard = ({
   gender,
   stories,
   short,
+  pronunciation,
+  religion,
   id,
 }: any) => {
-  if (gender) {
-    stories.push(`Popularly used as a ${gender} name`);
-  }
-
   return (
     <div className="bg-white rounded-lg shadow-lg p-10">
       <div className="flex items-center justify-between mb-4">
@@ -31,7 +29,7 @@ const NameDetailsCard = ({
             {!short && (
               <div className="flex items-center justify-center gap-2 mt-1">
                 <img src="/sound.svg" alt="sound icon" className="w-5 h-5" />
-                <p className="text-gray-600">Is-tee-ack</p>
+                <p className="text-gray-600">{pronunciation}</p>
               </div>
             )}
           </div>
@@ -42,7 +40,7 @@ const NameDetailsCard = ({
             <h3 className="text-xl font-medium text-gray-700">Pronunciation</h3>
             <div className="flex items-center justify-center gap-2 mt-1">
               <img src="/sound.svg" alt="sound icon" className="w-5 h-5" />
-              <p className="text-gray-600">Is-tee-ack</p>
+              <p className="text-gray-600">{pronunciation}</p>
             </div>
           </div>
         )}
@@ -77,13 +75,7 @@ const NameDetailsCard = ({
         <h3 className="text-xl font-medium text-gray-700">
           {name} Name Meaning and History
         </h3>
-        <ul className="list-disc">
-          {stories?.map((s: any, index: any) => (
-            <li key={index} className="text-gray-600 mt-1">
-              {s}
-            </li>
-          ))}
-        </ul>
+        <p>{stories}</p>
       </div>
       {short ? (
         <div hidden={!short} className="flex items-center justify-center">

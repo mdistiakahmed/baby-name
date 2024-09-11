@@ -1,26 +1,35 @@
-const QuestionAndAnswerCard = () => {
+const QuestionAndAnswerCard = ({
+  name,
+  meaning,
+  origin,
+  gender,
+  stories,
+  short,
+  pronunciation,
+  religion,
+  id,
+}: any) => {
   const questionsAndAnswers = [
     {
-      question: "What is the meaning of the name Istiak?",
-      answer: `The name Istiak means "desire" or "longing."`,
+      question: `What is the meaning of the name ${name}?`,
+      answer: `The name ${name} means ${meaning}`,
     },
     {
-      question: "What is the origin of the name Istiak?",
-      answer: `The name Istiak has its origins in Arabic, 
-      commonly used in Muslim cultures. It reflects strong cultural and traditional values.`,
+      question: `What is the origin of the name ${name}?`,
+      answer: `The name ${name} has its origins in ${origin}, 
+      commonly used in ${religion} cultures. It reflects strong cultural and traditional values.`,
     },
     {
-      question: "How do you pronounce the name Istiak?",
-      answer: `The pronunciation of Istiak is "Is-tee-ack." It’s a simple and smooth-sounding name.`,
+      question: `How do you pronounce the name ${name}?`,
+      answer: `The pronunciation of ${name} is ${pronunciation}. It’s a simple and smooth-sounding name.`,
     },
     {
-      question: "Is Istiak a boy's or girl's name?",
-      answer:
-        "Istiak is traditionally a boy's name. However, names can sometimes be unisex depending on cultural contexts.",
+      question: `Is ${name} a boy's or girl's name?`,
+      answer: `${name} is traditionally a ${gender}'s name. However, names can sometimes be unisex depending on cultural contexts.`,
     },
     {
-      question: "How many letters in baby name Istiak have?",
-      answer: "Istiak has 6 letters",
+      question: `How many letters in baby name ${name} have?`,
+      answer: `${name} has ${name.length} letters`,
     },
   ];
 

@@ -122,7 +122,7 @@ const ReligiousNames = async ({ params }: any) => {
                       );
                     })}
 
-                    {!nameObj.isDetailsPresent ? (
+                    {nameObj.isDetailsPresent ? (
                       <Link
                         href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, religionName, gender, 1, index)}`}
                         target="_blank"

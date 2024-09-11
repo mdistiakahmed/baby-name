@@ -177,7 +177,7 @@ const NameDetails = async ({ params }: any) => {
           Frequently Asked Questions
         </h2>
         <div>
-          <QuestionAndAnswerCard />
+          <QuestionAndAnswerCard {...nameDetailsObject} />
         </div>
 
         <h2
