@@ -4,7 +4,7 @@ import React from "react";
 const WhatsOnThisPageCard = ({ name }: any) => {
   return (
     <div className="p-4 bg-white shadow-md rounded-md mb-6">
-      <h3 className="text-xl font-bold mb-4">What's On This Page</h3>
+      <h3 className="text-xl font-bold mb-4">What&apos;s On This Page</h3>
       <ul className="list-disc list-inside">
         <li>
           <Link href="#famous-people" className="text-blue-500 hover:underline">
