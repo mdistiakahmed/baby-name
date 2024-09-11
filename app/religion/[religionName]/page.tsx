@@ -131,7 +131,9 @@ const ReligionPage = async ({ params }: any) => {
                       {nameObj.stories.map((story: any, idx: any) => {
                         return (
                           <li key={idx} className="mb-2">
-                            <p className="text-gray-800 text-md">{story}</p>
+                            <p className="text-gray-800 text-md">
+                              {nameObj.stories}
+                            </p>
                           </li>
                         );
                       })}
