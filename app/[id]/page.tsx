@@ -1,4 +1,8 @@
+import FamousPeoplesCard from "@/components/name-details-card/FamousPeoplesCard";
 import NameDetailsCard from "@/components/name-details-card/NameDetailsCard";
+import NamesByLetterCard from "@/components/name-details-card/NamesByLetterCard";
+import QuestionAndAnswerCard from "@/components/name-details-card/QuestionAndAnswerCard";
+import RelatedBabyNamesListCard from "@/components/name-details-card/RelatedBabyNamesListCard";
 import ShareWidget from "@/components/share/ShareWidget";
 import { ITEMS_PER_PAGE } from "@/utils/constants";
 import { decodeNameIndex, encodeNameIndex } from "@/utils/converters";
@@ -37,11 +41,11 @@ export async function generateMetadata({
   nameDetailsObject = paginatedNameList[index];
 
   return {
-    title: `${nameDetailsObject.name} - Meaning, Origin, and Description | BabyNameNestlings.com`,
-    description: `Discover the meaning, origin, and detailed description of the baby name ${nameDetailsObject.name}. Learn about the cultural significance and popularity of ${nameDetailsObject.name} for your little one.`,
+    title: `${nameDetailsObject.name} Name Meaning`,
+    description: `What does the name ${nameDetailsObject.name} mean? Find out its origin, meaning, and other interesting facts about this unique name.`,
     openGraph: {
-      title: `${nameDetailsObject.name} - Meaning, Origin, and Description | BabyNameNestlings.com`,
-      description: `Discover the meaning, origin, and detailed description of the baby name ${nameDetailsObject.name}. Learn about the cultural significance and popularity of ${nameDetailsObject.name} for your little one.`,
+      title: `${nameDetailsObject.name} Name Meaning`,
+      description: `What does the name ${nameDetailsObject.name} mean? Find out its origin, meaning, and other interesting facts about this unique name.`,
       type: "article",
       locale: "en_US",
       url: `http://babynamenestlings.com/name-details/${id}`,
@@ -130,21 +134,26 @@ const NameDetails = async ({ params }: any) => {
     totalSimilarTake++;
   }
 
+  const famousPople = ["a", "b", "c", "d", "e", "f", "g"];
+
   return (
     <div className="flex items-center justify-center w-full  bg-gray-100">
       <div className="w-[95vw] md:w-[70vw] p-2 md:p-6">
-        <h1 className="text-2xl font-bold text-center py-2">
-          {nameDetailsObject.name} - Meaning, Origin, and Description
-        </h1>
-        <p className="text-xl text-center py-4">
-          Discover the meaning, origin, and detailed description of the baby
-          name {nameDetailsObject.name}. Learn about the cultural significance
-          and popularity of {nameDetailsObject.name} for your little one.
-        </p>
         <NameDetailsCard {...nameDetailsObject} gender={gender} />
         <div className="flex items-center gap-4 p-2 justify-end">
           <p className="font-medium">Share on</p>
           <ShareWidget />
+        </div>
+
+        <h2 className="text-2xl font-bold py-10 underline">
+          Famous People Named {nameDetailsObject.name}
+        </h2>
+        <div className="flex flex-col md:flex-row gap-5 overflow-x-auto p-2">
+          {famousPople.map((s, index) => (
+            <div key={index} className="min-w-[300px] gap-4">
+              <FamousPeoplesCard />
+            </div>
+          ))}
         </div>
 
         <h2 className="text-2xl font-bold py-10 underline">Similar Names</h2>
@@ -152,10 +161,30 @@ const NameDetails = async ({ params }: any) => {
         <div className="flex flex-col md:flex-row gap-5 overflow-x-auto p-2">
           {similarNames.map((s, index) => (
             <div key={index} className="min-w-[300px] gap-4">
-              {/* Use min-w instead of w to allow cards to be scrollable */}
               <NameDetailsCard {...s} gender={gender} short={true} />
             </div>
           ))}
+        </div>
+
+        <h2 className="text-2xl font-bold py-10 underline">
+          Frequently Asked Questions
+        </h2>
+        <div>
+          <QuestionAndAnswerCard />
+        </div>
+
+        <h2 className="text-2xl font-bold py-10 underline">
+          Related Baby Names Lists
+        </h2>
+        <div className="my-5">
+          <RelatedBabyNamesListCard />
+        </div>
+
+        <h2 className="text-2xl font-bold py-10 underline">
+          Baby Names by Letter
+        </h2>
+        <div className="my-5">
+          <NamesByLetterCard gender={gender} />
         </div>
       </div>
     </div>
