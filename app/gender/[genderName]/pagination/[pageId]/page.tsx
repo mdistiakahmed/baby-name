@@ -115,13 +115,16 @@ const PaginatedGenderPage = async ({ params }: any) => {
                         </li>
                       );
                     })}
-                    <Link
-                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, pageNumber, index)}`}
-                      target="_blank"
-                      className="font-semibold underline"
-                    >
-                      View More
-                    </Link>
+
+                    {nameObj.isDetailsPresent ? (
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, pageNumber, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
+                    ) : null}
                   </ul>
                 </AccordionDetails>
               </Accordion>

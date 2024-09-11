@@ -3,6 +3,7 @@ import NameDetailsCard from "@/components/name-details-card/NameDetailsCard";
 import NamesByLetterCard from "@/components/name-details-card/NamesByLetterCard";
 import QuestionAndAnswerCard from "@/components/name-details-card/QuestionAndAnswerCard";
 import RelatedBabyNamesListCard from "@/components/name-details-card/RelatedBabyNamesListCard";
+import WhatsOnThisPageCard from "@/components/name-details-card/WhatsOnThisPageCard";
 import ShareWidget from "@/components/share/ShareWidget";
 import { ITEMS_PER_PAGE } from "@/utils/constants";
 import { decodeNameIndex, encodeNameIndex } from "@/utils/converters";
@@ -137,7 +138,7 @@ const NameDetails = async ({ params }: any) => {
   const famousPople = ["a", "b", "c", "d", "e", "f", "g"];
 
   return (
-    <div className="flex items-center justify-center w-full  bg-gray-100">
+    <div className="flex items-center justify-center w-full  bg-gray-100 ">
       <div className="w-[95vw] md:w-[70vw] p-2 md:p-6">
         <NameDetailsCard {...nameDetailsObject} gender={gender} />
         <div className="flex items-center gap-4 p-2 justify-end">
@@ -145,7 +146,11 @@ const NameDetails = async ({ params }: any) => {
           <ShareWidget />
         </div>
 
-        <h2 className="text-2xl font-bold py-10 underline">
+        <div>
+          <WhatsOnThisPageCard name={nameDetailsObject.name} />
+        </div>
+
+        <h2 className="text-2xl font-bold py-10 underline" id="famous-people">
           Famous People Named {nameDetailsObject.name}
         </h2>
         <div className="flex flex-col md:flex-row gap-5 overflow-x-auto p-2">
@@ -156,7 +161,9 @@ const NameDetails = async ({ params }: any) => {
           ))}
         </div>
 
-        <h2 className="text-2xl font-bold py-10 underline">Similar Names</h2>
+        <h2 className="text-2xl font-bold py-10 underline" id="similar-names">
+          Similar Names
+        </h2>
 
         <div className="flex flex-col md:flex-row gap-5 overflow-x-auto p-2">
           {similarNames.map((s, index) => (
@@ -166,21 +173,27 @@ const NameDetails = async ({ params }: any) => {
           ))}
         </div>
 
-        <h2 className="text-2xl font-bold py-10 underline">
+        <h2 className="text-2xl font-bold py-10 underline" id="faq">
           Frequently Asked Questions
         </h2>
         <div>
           <QuestionAndAnswerCard />
         </div>
 
-        <h2 className="text-2xl font-bold py-10 underline">
+        <h2
+          className="text-2xl font-bold py-10 underline"
+          id="related-baby-names"
+        >
           Related Baby Names Lists
         </h2>
         <div className="my-5">
           <RelatedBabyNamesListCard />
         </div>
 
-        <h2 className="text-2xl font-bold py-10 underline">
+        <h2
+          className="text-2xl font-bold py-10 underline"
+          id="baby-names-letter"
+        >
           Baby Names by Letter
         </h2>
         <div className="my-5">

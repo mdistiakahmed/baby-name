@@ -115,13 +115,15 @@ const page = async ({ params }: any) => {
                         </li>
                       );
                     })}
-                    <Link
-                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, 1, index)}`}
-                      target="_blank"
-                      className="font-semibold underline"
-                    >
-                      View More
-                    </Link>
+                    {nameObj.isDetailsPresent ? (
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
+                    ) : null}
                   </ul>
                 </AccordionDetails>
               </Accordion>

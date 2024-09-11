@@ -95,13 +95,15 @@ const GenderCategoryPage = async () => {
                         </li>
                       );
                     })}
-                    <Link
-                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "girl", 1, index)}`}
-                      target="_blank"
-                      className="font-semibold underline"
-                    >
-                      View More
-                    </Link>
+                    {nameObj.isDetailsPresent ? (
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "girl", 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
+                    ) : null}
                   </ul>
                 </AccordionDetails>
               </Accordion>
@@ -149,13 +151,15 @@ const GenderCategoryPage = async () => {
                         </li>
                       );
                     })}
-                    <Link
-                      href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "boy", 1, index)}`}
-                      target="_blank"
-                      className="font-semibold underline"
-                    >
-                      View More
-                    </Link>
+                    {nameObj.isDetailsPresent ? (
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, "boy", 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
+                    ) : null}
                   </ul>
                 </AccordionDetails>
               </Accordion>

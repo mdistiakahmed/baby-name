@@ -18,6 +18,10 @@ const QuestionAndAnswerCard = () => {
       answer:
         "Istiak is traditionally a boy's name. However, names can sometimes be unisex depending on cultural contexts.",
     },
+    {
+      question: "How many letters in baby name Istiak have?",
+      answer: "Istiak has 6 letters",
+    },
   ];
 
   return (
