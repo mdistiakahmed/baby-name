@@ -114,13 +114,24 @@ const ReligiousNames = async ({ params }: any) => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                    {nameObj.stories.map((story: any, idx: any) => {
-                      return (
-                        <li key={idx} className="mb-2">
-                          <p className="text-gray-800 text-md">{story} </p>
-                        </li>
-                      );
-                    })}
+                    {nameObj.isDetailsPresent
+                      ? nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">
+                                {story.substring(0, 90)}
+                                {" ..."}
+                              </p>
+                            </li>
+                          );
+                        })
+                      : nameObj.stories.map((story: any, idx: any) => {
+                          return (
+                            <li key={idx} className="mb-2">
+                              <p className="text-gray-800 text-md">{story} </p>
+                            </li>
+                          );
+                        })}
 
                     {nameObj.isDetailsPresent ? (
                       <Link

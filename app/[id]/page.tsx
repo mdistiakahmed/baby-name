@@ -135,8 +135,6 @@ const NameDetails = async ({ params }: any) => {
     totalSimilarTake++;
   }
 
-  const famousPople = ["a", "b", "c", "d", "e", "f", "g"];
-
   return (
     <div className="flex items-center justify-center w-full  bg-gray-100 ">
       <div className="w-[95vw] md:w-[70vw] p-2 md:p-6">
@@ -154,9 +152,9 @@ const NameDetails = async ({ params }: any) => {
           Famous People Named {nameDetailsObject.name}
         </h2>
         <div className="flex flex-col md:flex-row gap-5 overflow-x-auto p-2">
-          {famousPople.map((s, index) => (
+          {nameDetailsObject.peoples.map((s: any, index: any) => (
             <div key={index} className="min-w-[300px] gap-4">
-              <FamousPeoplesCard />
+              <FamousPeoplesCard people={s} />
             </div>
           ))}
         </div>
