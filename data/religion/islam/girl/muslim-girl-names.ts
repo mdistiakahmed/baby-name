@@ -15,15 +15,15 @@ export const nameList = [
         profession: "Islamic Scholar",
       },
       {
-        name: " Aabidah Bibi",
+        name: "Aabidah Bibi",
         profession: "Activist",
       },
       {
-        name: " Aabidah Khanum",
+        name: "Aabidah Khanum",
         profession: "Author",
       },
       {
-        name: " Aabidah Qureshi",
+        name: "Aabidah Qureshi",
         profession: "Philanthropist",
       },
     ],
@@ -44,11 +44,11 @@ export const nameList = [
         profession: "Philanthropist",
       },
       {
-        name: " Aabirah Ahmed",
+        name: "Aabirah Ahmed",
         profession: "Social Worker",
       },
       {
-        name: " Aabirah Hussain",
+        name: "Aabirah Hussain",
         profession: "Entrepreneur",
       },
     ],
@@ -69,11 +69,11 @@ export const nameList = [
         profession: "Artist",
       },
       {
-        name: " Aabish Khan",
+        name: "Aabish Khan",
         profession: "Painter",
       },
       {
-        name: " Aabish Siddiqui",
+        name: "Aabish Siddiqui",
         profession: "Sculptor",
       },
     ],
@@ -94,11 +94,11 @@ export const nameList = [
         profession: "Activist",
       },
       {
-        name: " Aabroo Khan",
+        name: "Aabroo Khan",
         profession: "Women's Rights Advocate",
       },
       {
-        name: " Aabroo Ahmed",
+        name: "Aabroo Ahmed",
         profession: "Humanitarian",
       },
     ],
@@ -119,11 +119,11 @@ export const nameList = [
         profession: "Poet",
       },
       {
-        name: " Aadab Khan",
+        name: "Aadab Khan",
         profession: "Writer",
       },
       {
-        name: " Aadab Ahmed",
+        name: "Aadab Ahmed",
         profession: "Literary Critic",
       },
     ],
@@ -144,11 +144,11 @@ export const nameList = [
         profession: "Lawyer",
       },
       {
-        name: " Aadila Khan",
+        name: "Aadila Khan",
         profession: "Judge",
       },
       {
-        name: " Aadila Ahmed",
+        name: "Aadila Ahmed",
         profession: "Human Rights Advocate",
       },
     ],
@@ -184,14 +184,14 @@ export const nameList = [
     peoples: [
       {
         name: "Ayesha Curry",
-        profession: " Chef/Author/TV Personality",
+        profession: "Chef/Author/TV Personality",
       },
       {
-        name: " Ayesha Jalal",
+        name: "Ayesha Jalal",
         profession: "Historian",
       },
       {
-        name: "  Aisha Buhari",
+        name: "Aisha Buhari",
         profession: "First Lady of Nigeria",
       },
     ],
@@ -210,14 +210,14 @@ export const nameList = [
     peoples: [
       {
         name: "Aafiya Khan",
-        profession: " Pediatrician",
+        profession: "Pediatrician",
       },
       {
-        name: " Afiya salam",
-        profession: " journalist",
+        name: "Afiya salam",
+        profession: "journalist",
       },
       {
-        name: " Afiya siddidui",
+        name: "Afiya siddidui",
         profession: "Pakistani journalist",
       },
     ],
@@ -254,6 +254,9 @@ export const nameList = [
         name: "Aafreen Vaz",
         profession: "Doctor",
       },
+      {
+        name: "",
+      },
     ],
   },
   {
@@ -272,8 +275,8 @@ export const nameList = [
         profession: "Husseini",
       },
       {
-        name: " Aaida Garcia",
-        profession: " Marketing Executive",
+        name: "Aaida Garcia",
+        profession: "Marketing Executive",
       },
     ],
   },
@@ -290,7 +293,7 @@ export const nameList = [
     peoples: [
       {
         name: "Aaidah Malik",
-        profession: " Philanthropist",
+        profession: "Philanthropist",
       },
     ],
   },
@@ -345,8 +348,8 @@ export const nameList = [
         profession: "Fashion Designer",
       },
       {
-        name: " Aaina Singh",
-        profession: " Psychologist",
+        name: "Aaina Singh",
+        profession: "Psychologist",
       },
     ],
   },
@@ -363,7 +366,7 @@ export const nameList = [
     peoples: [
       {
         name: "Aaira Zafar",
-        profession: " Software Developer",
+        profession: "Software Developer",
       },
     ],
   },
@@ -397,7 +400,7 @@ export const nameList = [
     peoples: [
       {
         name: "Aakifah Iqbal",
-        profession: " University Lecturer",
+        profession: "University Lecturer",
       },
     ],
   },
@@ -430,7 +433,7 @@ export const nameList = [
     isDetailsPresent: true,
     peoples: [
       {
-        name: "Aaleyah ",
+        name: "Aaleyah",
         profession: "Performer",
       },
     ],
@@ -481,12 +484,12 @@ export const nameList = [
     isDetailsPresent: true,
     peoples: [
       {
-        name: "Aliya Mustafina ",
-        profession: "Artistic gymnast",
+        name: "Aliya Mustafina",
+        profession: "artistic gymnast",
       },
       {
         name: "Aliya bint Ali",
-        profession: "Queen of Iraq",
+        profession: "queen of Iraq",
       },
     ],
   },
@@ -539,6 +542,9 @@ export const nameList = [
         name: "Aamanee Rahman",
         profession: "Community Organizer",
       },
+      {
+        name: "",
+      },
     ],
   },
   {
@@ -554,7 +560,7 @@ export const nameList = [
     peoples: [
       {
         name: "Aamilah Khan",
-        profession: " Social Worker",
+        profession: "Social Worker",
       },
     ],
   },
@@ -574,8 +580,7 @@ export const nameList = [
         profession: "PhD Researcher",
       },
       {
-        name: " Aaminah Durrani ",
-        profession: "Author",
+        name: "Aaminah Durrani, Author",
       },
     ],
   },
@@ -593,6 +598,9 @@ export const nameList = [
       {
         name: "Aamira Khatoon",
         profession: "Business Executive",
+      },
+      {
+        name: "",
       },
     ],
   },
@@ -616,7 +624,7 @@ export const nameList = [
         profession: "Tunisian long",
       },
       {
-        name: " Amira Abdelrasoul",
+        name: "Amira Abdelrasoul",
         profession: "Canadian researcher and associate professor.",
       },
     ],
@@ -635,6 +643,9 @@ export const nameList = [
       {
         name: "Aamirah Ali",
         profession: "Artist",
+      },
+      {
+        name: "",
       },
     ],
   },
@@ -773,8 +784,8 @@ export const nameList = [
         profession: "Politician",
       },
       {
-        name: "Aasia Al Hassan",
-        profession: "Writer",
+        name: "Aasia Al",
+        profession: "Hassan",
       },
     ],
   },
@@ -828,8 +839,8 @@ export const nameList = [
         profession: "Medical Professional",
       },
       {
-        name: "Aasma Al Sharif",
-        profession: "Writer",
+        name: "Aasma Al",
+        profession: "Sharif",
       },
     ],
   },
@@ -892,9 +903,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    pronunciation: "aa-al-",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-bal\r",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abal Rahim",
+        profession: "Writer",
+      },
+      {
+        name: "Abal Noor",
+        profession: "Poet",
+      },
+    ],
   },
   {
     name: "Abasah",
@@ -905,8 +925,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-as-ah",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abasah Ahmed",
+        profession: "Historian",
+      },
+      {
+        name: "Abasah Rahim",
+        profession: "Artist",
+      },
+    ],
   },
   {
     name: "Abbaasah",
@@ -917,8 +946,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-ba-asah",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abbaasah Malik",
+        profession: "Engineer",
+      },
+      {
+        name: "Abbaasah Karim",
+        profession: "Architect",
+      },
+    ],
   },
   {
     name: "Abda",
@@ -929,8 +967,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-da-",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abda Sheikh",
+        profession: "Teacher",
+      },
+      {
+        name: "Abda Nisa",
+        profession: "Social Worker",
+      },
+    ],
   },
   {
     name: "Abdah",
@@ -941,8 +988,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-da-h",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abdah Rahim",
+        profession: "Scientist",
+      },
+      {
+        name: "Abdah Aliya",
+        profession: "Author",
+      },
+    ],
   },
   {
     name: "Abdiqani",
@@ -953,8 +1009,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-di-qani",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abdiqani Noor",
+        profession: "Entrepreneur",
+      },
+      {
+        name: "Abdiqani Yasmin",
+        profession: "Researcher",
+      },
+    ],
   },
   {
     name: "Abeedah",
@@ -965,8 +1030,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-ee-dah",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abeedah Malik",
+        profession: "Philanthropist",
+      },
+      {
+        name: "Abeedah Zara",
+        profession: "Poet",
+      },
+    ],
   },
   {
     name: "Abeer",
@@ -977,8 +1051,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-ee-r",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abeer Rahim",
+        profession: "Medical Professional",
+      },
+      {
+        name: "Abeer Alia",
+        profession: "Fashion Designer",
+      },
+    ],
   },
   {
     name: "Abeera",
@@ -989,8 +1072,17 @@ export const nameList = [
     origin: "Arabic",
     religion: "muslim",
     pronunciation: "aa-ee-ra",
-    isDetailsPresent: false,
-    peoples: [],
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abeera Nisa",
+        profession: "Teacher",
+      },
+      {
+        name: "Abeera Yasmin",
+        profession: "Artist",
+      },
+    ],
   },
   {
     name: "Abida",
@@ -1000,19 +1092,39 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "ah-bee-dah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abida Zahra",
+        profession: "Scholar",
+      },
+      {
+        name: "Abida Nisa",
+        profession: "Author",
+      },
+    ],
   },
   {
     name: "Abla",
-    meaning: "Well-Rounded",
+    meaning: "Well-Rounded, perfectly formed, attractive",
     stories: [
       'Abla is a name that signifies completeness and fullness, meaning "one who is full" or "complete." It reflects a person who embodies wholeness and balance in life, suggesting someone who has achieved a sense of fulfillment in their personal and spiritual journey. Abla evokes feelings of harmony and contentment, symbolizing an individual who is at peace with themselves and their surroundings. This name is ideal for those who wish for their child to grow up with a strong sense of self and fulfillment.',
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "ab-lah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abla Rahim",
+        profession: "Medical Professional",
+      },
+      {
+        name: "Abla Yasmin",
+        profession: "Writer",
+      },
+    ],
   },
   {
     name: "Ablaa",
@@ -1022,8 +1134,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-blah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Ablaa Karim",
+        profession: "Teacher",
+      },
+      {
+        name: "Ablaa Nisa",
+        profession: "Historian",
+      },
+    ],
   },
   {
     name: "Ablah",
@@ -1033,8 +1155,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "ah-blah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Ablah Rahim",
+        profession: "Engineer",
+      },
+      {
+        name: "Ablah Zara",
+        profession: "Poet",
+      },
+    ],
   },
   {
     name: "Abqurah",
@@ -1044,8 +1176,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AB-koo-rah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abqurah Yasmin",
+        profession: "Artist",
+      },
+      {
+        name: "Abqurah Nisa",
+        profession: "Architect",
+      },
+    ],
   },
   {
     name: "Abra",
@@ -1055,8 +1197,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-brah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abra Malik",
+        profession: "Writer",
+      },
+      {
+        name: "Abra Yasmin",
+        profession: "Poet",
+      },
+    ],
   },
   {
     name: "Abroo",
@@ -1066,8 +1218,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-broo",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abroo Aliya",
+        profession: "Fashion Designer",
+      },
+      {
+        name: "Abroo Nisa",
+        profession: "Teacher",
+      },
+    ],
   },
   {
     name: "Abtahi",
@@ -1077,8 +1239,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AB-tah-hee",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Abtahi Zahra",
+        profession: "Poet",
+      },
+      {
+        name: "Abtahi Yasmin",
+        profession: "Researcher",
+      },
+    ],
   },
   {
     name: "Adab",
@@ -1088,8 +1260,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-dab",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Adab Malik",
+        profession: "Author",
+      },
+      {
+        name: "Adab Zara",
+        profession: "Historian",
+      },
+    ],
   },
   {
     name: "Adala",
@@ -1099,8 +1281,18 @@ export const nameList = [
     ],
     origin: "Arabic",
     religion: "muslim",
-    isDetailsPresent: false,
-    peoples: [],
+    pronunciation: "AH-dah-lah",
+    isDetailsPresent: true,
+    peoples: [
+      {
+        name: "Adala Noor",
+        profession: "Activist",
+      },
+      {
+        name: "Adala Rahim",
+        profession: "Judge",
+      },
+    ],
   },
   {
     name: "Adan",
