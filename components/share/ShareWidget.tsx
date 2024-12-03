@@ -26,7 +26,8 @@ const ShareWidget = () => {
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   };
   return (
-    <div className="flex justify-end gap-4 ">
+    <div className="flex justify-end items-center gap-4 ">
+      <p>Share</p>
       <FaFacebook
         style={{ color: "#4267B2" }}
         className="cursor-pointer"

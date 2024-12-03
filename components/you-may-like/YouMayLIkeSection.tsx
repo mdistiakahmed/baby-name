@@ -1,52 +1,117 @@
 "use client";
 
-import { articleList } from "@/utils/constants";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { urlForImage } from "@/sanity/lib/image";
 
-const YouMayLIkeSection = () => {
-  const pathname = usePathname();
+interface Post {
+  title: string;
+  slug: { current: string };
+  publishedAt: string;
+  mainImage: any;
+  category: string;
+  excerpt: string;
+}
 
-  if (pathname === "/articles" || pathname.includes("/studio")) {
-    return null;
+interface Props {
+  category?: string;
+}
+
+const YouMayLikeSection = ({ category = "" }: Props) => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(
+          `/api/posts?category=${category}&page=1&pageSize=20`,
+          {
+            cache: "no-cache",
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch posts");
+        }
+
+        const data = await res.json();
+        setPosts(data.posts);
+      } catch (error) {
+        console.error("Error fetching related posts:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, [category]);
+
+  if (isLoading) {
+    return (
+      <div className="w-full p-8">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="bg-gray-100 rounded-lg p-4">
+                <div className="h-40 bg-gray-200 rounded mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col items-center justify-center my-10 py-8 bg-gray-100">
-      <h3 className="text-2xl font-semibold mb-6">You May Also Like</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl px-4">
-        {articleList.map((article, index) => {
-          return (
-            <Link
-              href={article.url}
-              key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer"
-            >
-              <Image
-                src={article.image}
-                height={200}
-                width={200}
-                className="h-[200px] w-full object-cover"
-                alt={article.title.substring(0, 10)}
-              />
+    <div className="w-full p-8">
+      <h2 className="text-2xl font-bold mb-8 text-[#212529] text-center">
+        {category ? `More from ${category}` : "You May Also Like"}
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {posts.map((post) => (
+          <Link
+            href={`/articles/${post.slug.current}`}
+            key={post.slug.current}
+            className="group"
+          >
+            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
+              {post.mainImage && (
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src={urlForImage(post.mainImage)}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-200"
+                  />
+                </div>
+              )}
               <div className="p-4">
-                <h4 className="text-lg font-medium mb-2">{article.title}</h4>
+                <h3 className="font-semibold text-lg mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-gray-600 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <div className="mt-2 text-xs text-gray-500">
+                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </div>
               </div>
-            </Link>
-          );
-        })}
-      </div>
-      <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-        <Link
-          href={`/articles`}
-          className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-        >
-          See More
-        </Link>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
 };
 
-export default YouMayLIkeSection;
+export default YouMayLikeSection;

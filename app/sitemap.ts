@@ -13,26 +13,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as any,
+      changeFrequency: "daily" as any,
       priority: 1,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as any,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as any,
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as any,
+      priority: 0.6,
     },
     {
       url: `${BASE_URL}/country`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as any,
-      priority: 0.2,
+      changeFrequency: "daily" as any,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/religion`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as any,
-      priority: 0.2,
+      changeFrequency: "daily" as any,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/articles`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as any,
-      priority: 0.8,
+      changeFrequency: "daily" as any,
+      priority: 0.9,
     },
   ];
 
@@ -41,21 +59,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/country/${country.name.toLowerCase()}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as any,
-      priority: 0.8,
+      priority: 0.7,
     },
     ...gender.flatMap((g) => [
       {
         url: `${BASE_URL}/country/${country.name.toLowerCase()}/${g.name.toLowerCase()}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as any,
-        priority: 0.8,
+        priority: 0.6,
       },
-      // ...alphabet.map((letter) => ({
-      //   url: `${BASE_URL}/country/${country.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
-      //   lastModified: new Date(),
-      //   changeFrequency: "monthly" as any,
-      //   priority: 0.5,
-      // })),
     ]),
   ]);
 
@@ -64,53 +76,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/religion/${religion.name.toLowerCase()}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as any,
-      priority: 0.8,
+      priority: 0.7,
     },
     ...gender.flatMap((g) => [
       {
         url: `${BASE_URL}/religion/${religion.name.toLowerCase()}/${g.name.toLowerCase()}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as any,
-        priority: 0.8,
+        priority: 0.6,
       },
-      // ...alphabet.map((letter) => ({
-      //   url: `${BASE_URL}/religion/${religion.name.toLowerCase()}/${g.name.toLowerCase()}/${letter}`,
-      //   lastModified: new Date(),
-      //   changeFrequency: "monthly" as any,
-      //   priority: 0.5,
-      // })),
     ]),
   ]);
 
-  const genderCategories = [
+  const alphabetCategories = alphabet.flatMap((letter) => [
     {
-      url: `${BASE_URL}/gender`,
+      url: `${BASE_URL}/names/${letter.toLowerCase()}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as any,
-      priority: 0.8,
+      priority: 0.5,
     },
-    ...gender.flatMap((g) => [
-      {
-        url: `${BASE_URL}/gender/${g.name.toLowerCase()}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as any,
-        priority: 0.8,
-      },
-      // ...alphabet.map((letter) => ({
-      //   url: `${BASE_URL}/gender/${g.name.toLowerCase()}/${letter}`,
-      //   lastModified: new Date(),
-      //   changeFrequency: "monthly" as any,
-      //   priority: 0.5,
-      // })),
-    ]),
-  ];
+  ]);
 
-  const siteMapArray = [
+  return [
     ...mainPages,
     ...countryCategories,
     ...religionCategories,
-    ...genderCategories,
+    ...alphabetCategories,
   ];
-
-  return siteMapArray;
 }

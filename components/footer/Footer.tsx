@@ -1,6 +1,6 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import YouTubeIcon from "@mui/icons-material/YouTube";
+import Twitter from "@mui/icons-material/Twitter";
 import Link from "next/link";
 
 const Footer = () => {
@@ -31,12 +31,12 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/namenestlings"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lg hover:text-gray-400"
           >
-            <YouTubeIcon
+            <Twitter
               sx={{ color: "#bc002d", background: "white" }}
               className="rounded-md"
             />
@@ -58,10 +58,10 @@ const Footer = () => {
           <Link href="/about">
             <p className="underline">About</p>
           </Link>
-          <Link href="/about/privacy">
+          <Link href="/privacy">
             <p className="underline">Privacy</p>
           </Link>
-          <Link href="/about/contact">
+          <Link href="/contact">
             <p className="underline">Contact</p>
           </Link>
         </div>

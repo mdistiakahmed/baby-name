@@ -1,72 +1,184 @@
-import { urlForImage } from "@/sanity/lib/image";
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { FormControl, Select, MenuItem, Pagination, Box, Grid, Typography, CircularProgress } from "@mui/material";
+import { urlForImage } from "@/sanity/lib/image";
 
-async function getPosts() {
+type Category = "Baby Care" | "Mother Care" | "Baby Names" | '';
+
+interface Post {
+  title: string;
+  slug: { current: string };
+  publishedAt: string;
+  mainImage: any;
+  category: string;
+  excerpt: string;
+}
+
+interface PostsResponse {
+  posts: Post[];
+  pagination: {
+    total: number;
+    page: number;
+    pageSize: number;
+    totalPages: number;
+  };
+}
+
+async function getPosts(category: Category = '', page: number = 1) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/posts`, {
+    const queryParams = new URLSearchParams();
+    
+    if (category) {
+      queryParams.append('category', category);
+      queryParams.append('pageSize', '20');
+    } else {
+      queryParams.append('pageSize', '20'); // 10 items per category x 3 categories
+    }
+    
+    queryParams.append('page', page.toString());
+    
+    const res = await fetch(`${baseUrl}/api/posts?${queryParams.toString()}`, {
       cache: "no-cache",
     });
 
-    // Check if the response is OK (status 200-299)
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.statusText}`);
     }
 
-    const result = await res.json();
-    return result.data;
+    const result: PostsResponse = await res.json();
+    return result;
   } catch (error) {
     console.error("Error fetching posts:", error);
-    return []; // Return an empty array or handle the error as needed
+    return {
+      posts: [],
+      pagination: {
+        total: 0,
+        page: 1,
+        pageSize: 20,
+        totalPages: 1,
+      }
+    };
   }
 }
 
-const ArticleHomePage = async () => {
-  const posts: any[] = await getPosts();
+const ArticleHomePage = () => {
+  const [category, setCategory] = useState<Category>('');
+  const [page, setPage] = useState(1);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const result = await getPosts(category, page);
+        console.log(result.posts);
+        setPosts(result.posts);
+        setTotalPages(result.pagination.totalPages);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchPosts();
+  }, [category, page]);
+
+  const handleCategoryChange = (event: any) => {
+    setCategory(event.target.value as Category);
+    setPage(1); // Reset to first page when category changes
+  };
+
+  const handlePageChange = (event: any, value: number) => {
+    setPage(value);
+  };
+
+  const categories = [
+    { value: "Baby Care", label: "Baby Care" },
+    { value: "Mother Care", label: "Mother Care" },
+    { value: "Baby Names", label: "Baby Names" },
+  ];
 
   return (
     <div className="flex items-center justify-center w-full">
-      <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
-        <div className="flex flex-col items-center justify-center  py-8 bg-gray-100">
-          <h3 className="text-2xl font-semibold mb-6">Articles</h3>
+      <div className="w-[95vw] md:w-[70vw] py-[20px]">
+        <Box sx={{ p: 3 }}>
+          <FormControl sx={{ mb: 3, minWidth: 200 }}>
+            <Select
+              value={category}
+              onChange={handleCategoryChange}
+              displayEmpty
+            >
+              <MenuItem value="">All Categories</MenuItem>
+              {categories.map((cat) => (
+                <MenuItem key={cat.value} value={cat.value}>
+                  {cat.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl px-4">
-            {posts.map((article, index) => {
-              const { heroImage } = article;
-              return (
-                <Link
-                  href={`/articles/${article?.slug?.current}`}
-                  key={index}
-                  className="bg-white shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer"
-                >
-                  <Image
-                    src={urlForImage(heroImage)}
-                    height={200}
-                    width={200}
-                    className="h-[200px] w-full object-cover"
-                    alt={heroImage.alt || "post"}
-                  />
-                  <div className="p-4 pb-0">
-                    <h4 className="text-lg font-medium mb-2">
-                      {article.title}
-                    </h4>
-                  </div>
+          {isLoading ? (
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+              <CircularProgress />
+            </Box>
+          ) : (
+            <Grid container spacing={3}>
+              {posts.map((post, index) => (
+                <Grid item xs={12} sm={6} md={4} key={post.slug.current}>
+                  <Link href={`/articles/${post.slug.current}`}>
+                    <Box sx={{ 
+                      border: '1px solid #eee', 
+                      borderRadius: 2,
+                      overflow: 'hidden',
+                      height: '100%',
+                      transition: 'transform 0.2s',
+                      '&:hover': {
+                        transform: 'translateY(-5px)',
+                      }
+                    }}>
+                      {post.mainImage && (
+                        <Image
+                          src={urlForImage(post.mainImage)}
+                          alt={post.title}
+                          width={400}
+                          height={250}
+                          style={{ objectFit: 'cover', width: '100%', height: 200 }}
+                        />
+                      )}
+                      <Box sx={{ p: 2 }}>
+                        <Typography variant="h6" gutterBottom>{post.title}</Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {post.excerpt}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
+                          {new Date(post.publishedAt).toLocaleDateString()}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          )}
 
-                  <div className="flex items-center justify-center pb-2">
-                    <Image
-                      src="/button-arrow.svg"
-                      height={20}
-                      width={80}
-                      alt="see more"
-                    />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+          {totalPages > 1 && (
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+              <Pagination
+                count={totalPages}
+                page={page}
+                onChange={handlePageChange}
+                color="primary"
+              />
+            </Box>
+          )}
+        </Box>
       </div>
     </div>
   );
