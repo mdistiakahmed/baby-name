@@ -8,9 +8,12 @@ import hljs from "highlight.js";
 
 async function getPost(slug: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/posts/${slug}`, {
-      cache: "no-cache",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/posts/${slug}`,
+      {
+        cache: "no-cache",
+      }
+    );
 
     if (!res.ok) {
       throw new Error(`Failed to fetch post: ${res.statusText}`);
@@ -30,15 +33,17 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata | undefined> {
   const post = await getPost(params.slug);
-  
+
   if (!post) {
     return {
-      title: 'Article Not Found | BabyNameNestlings',
-      description: 'The requested article could not be found.',
+      title: "Article Not Found | BabyNameNestlings",
+      description: "The requested article could not be found.",
     };
   }
 
-  const ogImage = post.mainImage ? urlForImage(post.mainImage) : '/default-og-image.jpg';
+  const ogImage = post.mainImage
+    ? urlForImage(post.mainImage)
+    : "/default-og-image.jpg";
 
   return {
     title: `${post.title} | BabyNameNestlings`,
@@ -54,14 +59,14 @@ export async function generateMetadata({
           width: 1200,
           height: 630,
           alt: post.title,
-        }
+        },
       ],
       locale: "en_US",
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/articles/${params.slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/articles/${params.slug}`,
       siteName: "BabyNameNestlings",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       images: [ogImage],
@@ -77,7 +82,7 @@ const SingleArticlePage = async ({ params }: { params: { slug: string } }) => {
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
-          <p>The article you're looking for could not be found.</p>
+          <p>The article you&apos;re looking for could not be found.</p>
         </div>
       </div>
     );
@@ -91,13 +96,13 @@ const SingleArticlePage = async ({ params }: { params: { slug: string } }) => {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#212529] font-custom tracking-tight">
               {post.title}
             </h1>
-            
+
             <div className="flex items-center justify-center space-x-4 text-gray-600 mb-4">
               <time dateTime={post.publishedAt} className="text-sm">
-                {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
+                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })}
               </time>
               {post.category && (
@@ -112,33 +117,30 @@ const SingleArticlePage = async ({ params }: { params: { slug: string } }) => {
           </div>
 
           {post.mainImage && (
-           <div className="mb-8 flex justify-center">
-           <div className="w-full md:w-[400px] lg:w-[600px] relative">
-             <div className="aspect-[16/9]">
-               <Image
-                 src={urlForImage(post.mainImage)}
-                 alt={post.title}
-                 fill
-                 className="rounded-lg object-cover"
-                 priority
-               />
-             </div>
-           </div>
-         </div>
+            <div className="mb-8 flex justify-center">
+              <div className="w-full md:w-[400px] lg:w-[600px] relative">
+                <div className="aspect-[16/9]">
+                  <Image
+                    src={urlForImage(post.mainImage)}
+                    alt={post.title}
+                    fill
+                    className="rounded-lg object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           )}
 
-        <article className="prose lg:prose-xl">
-          <PortableText
-            value={post.body}
-            components={myPortableTextComponents}
-          />
-        </article>
-
+          <article className="prose lg:prose-xl">
+            <PortableText
+              value={post.body}
+              components={myPortableTextComponents}
+            />
+          </article>
 
           <div className="mt-8">
-            <ShareWidget
-
-            />
+            <ShareWidget />
           </div>
         </div>
       </div>
@@ -147,7 +149,6 @@ const SingleArticlePage = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default SingleArticlePage;
-
 
 const CodeBlock = ({ value }: any) => {
   const { language, code } = value;
