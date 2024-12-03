@@ -86,6 +86,8 @@ const ArticleHomePage = () => {
       setIsLoading(true);
       try {
         console.log(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
+        console.log(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
+        console.log("================");
         const result = await getPosts(category, page);
         console.log(result.posts);
         setPosts(result.posts);
