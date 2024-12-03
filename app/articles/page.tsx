@@ -1,12 +1,21 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { FormControl, Select, MenuItem, Pagination, Box, Grid, Typography, CircularProgress } from "@mui/material";
+import {
+  FormControl,
+  Select,
+  MenuItem,
+  Pagination,
+  Box,
+  Grid,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import { urlForImage } from "@/sanity/lib/image";
 
-type Category = "Baby Care" | "Mother Care" | "Baby Names" | '';
+type Category = "Baby Care" | "Mother Care" | "Baby Names" | "";
 
 interface Post {
   title: string;
@@ -27,20 +36,20 @@ interface PostsResponse {
   };
 }
 
-async function getPosts(category: Category = '', page: number = 1) {
+async function getPosts(category: Category = "", page: number = 1) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const queryParams = new URLSearchParams();
-    
+
     if (category) {
-      queryParams.append('category', category);
-      queryParams.append('pageSize', '20');
+      queryParams.append("category", category);
+      queryParams.append("pageSize", "20");
     } else {
-      queryParams.append('pageSize', '20'); // 10 items per category x 3 categories
+      queryParams.append("pageSize", "20"); // 10 items per category x 3 categories
     }
-    
-    queryParams.append('page', page.toString());
-    
+
+    queryParams.append("page", page.toString());
+
     const res = await fetch(`${baseUrl}/api/posts?${queryParams.toString()}`, {
       cache: "no-cache",
     });
@@ -60,13 +69,13 @@ async function getPosts(category: Category = '', page: number = 1) {
         page: 1,
         pageSize: 20,
         totalPages: 1,
-      }
+      },
     };
   }
 }
 
 const ArticleHomePage = () => {
-  const [category, setCategory] = useState<Category>('');
+  const [category, setCategory] = useState<Category>("");
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState<Post[]>([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -76,17 +85,18 @@ const ArticleHomePage = () => {
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
+        console.log(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
         const result = await getPosts(category, page);
         console.log(result.posts);
         setPosts(result.posts);
         setTotalPages(result.pagination.totalPages);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error("Error fetching posts:", error);
       } finally {
         setIsLoading(false);
       }
     };
-    
+
     fetchPosts();
   }, [category, page]);
 
@@ -125,7 +135,14 @@ const ArticleHomePage = () => {
           </FormControl>
 
           {isLoading ? (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "400px",
+              }}
+            >
               <CircularProgress />
             </Box>
           ) : (
@@ -133,31 +150,43 @@ const ArticleHomePage = () => {
               {posts.map((post, index) => (
                 <Grid item xs={12} sm={6} md={4} key={post.slug.current}>
                   <Link href={`/articles/${post.slug.current}`}>
-                    <Box sx={{ 
-                      border: '1px solid #eee', 
-                      borderRadius: 2,
-                      overflow: 'hidden',
-                      height: '100%',
-                      transition: 'transform 0.2s',
-                      '&:hover': {
-                        transform: 'translateY(-5px)',
-                      }
-                    }}>
+                    <Box
+                      sx={{
+                        border: "1px solid #eee",
+                        borderRadius: 2,
+                        overflow: "hidden",
+                        height: "100%",
+                        transition: "transform 0.2s",
+                        "&:hover": {
+                          transform: "translateY(-5px)",
+                        },
+                      }}
+                    >
                       {post.mainImage && (
                         <Image
                           src={urlForImage(post.mainImage)}
                           alt={post.title}
                           width={400}
                           height={250}
-                          style={{ objectFit: 'cover', width: '100%', height: 200 }}
+                          style={{
+                            objectFit: "cover",
+                            width: "100%",
+                            height: 200,
+                          }}
                         />
                       )}
                       <Box sx={{ p: 2 }}>
-                        <Typography variant="h6" gutterBottom>{post.title}</Typography>
+                        <Typography variant="h6" gutterBottom>
+                          {post.title}
+                        </Typography>
                         <Typography variant="body2" color="text.secondary">
                           {post.excerpt}
                         </Typography>
-                        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          sx={{ mt: 1, display: "block" }}
+                        >
                           {new Date(post.publishedAt).toLocaleDateString()}
                         </Typography>
                       </Box>
@@ -169,7 +198,7 @@ const ArticleHomePage = () => {
           )}
 
           {totalPages > 1 && (
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
               <Pagination
                 count={totalPages}
                 page={page}
