@@ -15,7 +15,7 @@ const Footer = () => {
         </Link>
 
         <div className="flex  space-x-4">
-          &copy; 1994 - {currentYear} All Rights Reserved
+          &copy; {currentYear} All Rights Reserved
         </div>
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           <p>Follow Us</p>
