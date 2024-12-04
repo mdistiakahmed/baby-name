@@ -23,14 +23,15 @@ const YouMayLikeSection = ({ category = "" }: Props) => {
 
   const pathname = usePathname();
 
-  if (pathname === "/articles" || pathname.includes("/studio")) {
-    return null;
-  }
   
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (pathname === "/articles" || pathname.includes("/studio")) {
+      return;
+    }
+
     const fetchPosts = async () => {
       try {
         const res = await fetch(
@@ -55,6 +56,10 @@ const YouMayLikeSection = ({ category = "" }: Props) => {
 
     fetchPosts();
   }, [category]);
+
+  if (pathname === "/articles" || pathname.includes("/studio")) {
+    return null;
+  }
 
   if (isLoading) {
     return (
