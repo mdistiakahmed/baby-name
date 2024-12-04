@@ -24,16 +24,18 @@ const Breadcrumb = () => {
   }
 
   return (
-    <Breadcrumbs className="p-4">
-      <BreadcrumbItem key={1000}>
-        <Link href="/">Home</Link>
-      </BreadcrumbItem>
-      {breadcrumbs.map((breadcrumb, index) => (
-        <BreadcrumbItem key={index}>
-          <Link href={breadcrumb.href}>{breadcrumb.displayName}</Link>
+    <div className="overflow-x-auto max-w-full">
+      <Breadcrumbs className="p-4">
+        <BreadcrumbItem key={1000}>
+          <Link href="/">Home</Link>
         </BreadcrumbItem>
-      ))}
-    </Breadcrumbs>
+        {breadcrumbs.map((breadcrumb, index) => (
+          <BreadcrumbItem key={index}>
+            <Link href={breadcrumb.href}>{breadcrumb.displayName}</Link>
+          </BreadcrumbItem>
+        ))}
+      </Breadcrumbs>
+    </div>
   );
 };
 

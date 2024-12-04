@@ -90,58 +90,56 @@ const SingleArticlePage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="flex items-center justify-center w-full">
-      <div className="w-[95vw] md:w-[70vw] py-[20px]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#212529] font-custom tracking-tight">
-              {post.title}
-            </h1>
+      <div className=" w-[95vw] md:w-[70vw] flex flex-col  gap-4 items-center justify-center m-5">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#212529] font-custom tracking-tight">
+            {post.title}
+          </h1>
 
-            <div className="flex items-center justify-center space-x-4 text-gray-600 mb-4">
-              <time dateTime={post.publishedAt} className="text-sm">
-                {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              {post.category && (
-                <>
-                  <span className="text-gray-400">•</span>
-                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium text-gray-700">
-                    {post.category}
-                  </span>
-                </>
-              )}
-            </div>
+          <div className="flex items-center justify-center space-x-4 text-gray-600 mb-4">
+            <time dateTime={post.publishedAt} className="text-sm">
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            {post.category && (
+              <>
+                <span className="text-gray-400">•</span>
+                <span className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium text-gray-700">
+                  {post.category}
+                </span>
+              </>
+            )}
           </div>
+        </div>
 
-          {post.mainImage && (
-            <div className="mb-8 flex justify-center">
-              <div className="w-full md:w-[400px] lg:w-[600px] relative">
-                <div className="aspect-[16/9]">
-                  <Image
-                    src={urlForImage(post.mainImage)}
-                    alt={post.title}
-                    fill
-                    className="rounded-lg object-cover"
-                    priority
-                  />
-                </div>
+        {post.mainImage && (
+          <div className="mb-8 flex justify-center">
+            <div className="w-[95vw] md:w-[400px] lg:w-[600px] relative">
+              <div className="aspect-[16/9]">
+                <Image
+                  src={urlForImage(post.mainImage)}
+                  alt={post.title}
+                  fill
+                  className="rounded-lg object-cover"
+                  priority
+                />
               </div>
             </div>
-          )}
-
-          <article className="prose lg:prose-xl">
-            <PortableText
-              value={post.body}
-              components={myPortableTextComponents}
-            />
-          </article>
-
-          <div className="mt-8">
-            <ShareWidget />
           </div>
+        )}
+
+        <article className="prose lg:prose-xl w-full">
+          <PortableText
+            value={post.body}
+            components={myPortableTextComponents}
+          />
+        </article>
+
+        <div className="mt-8">
+          <ShareWidget />
         </div>
       </div>
     </div>
@@ -158,7 +156,7 @@ const CodeBlock = ({ value }: any) => {
   }).value;
 
   return (
-    <pre className="border md:mx-10 my-4 md:p-4 overflow-x-auto">
+    <pre className="border md:mx-10 my-4 p-4 overflow-x-auto">
       <code
         className={`hljs language-${language || "java"}`}
         dangerouslySetInnerHTML={{ __html: highlightedCode }}
@@ -167,16 +165,28 @@ const CodeBlock = ({ value }: any) => {
   );
 };
 
+function extractImageDimensions(ref: any) {
+  const match = ref.match(/-(\d+)x(\d+)-/);
+  if (!match) {
+    throw new Error("Invalid image reference format");
+  }
+  const width = parseInt(match[1], 10);
+  const height = parseInt(match[2], 10);
+  return { width, height };
+}
+
 const MyPortableTextImage = ({ value }: any) => {
   const { asset, alt } = value;
+  const dimensions = extractImageDimensions(asset._ref);
 
   return (
-    <div className="w-full flex justify-center">
+    <div className={`w-full flex justify-center min-h-[400px]`}>
       <Image
         src={urlForImage(value)}
         alt={alt || "image"}
-        width={400}
-        height={200}
+        width={dimensions.width}
+        height={dimensions.height}
+        className="text-center h-auto w-auto max-h-[600px]"
       />
     </div>
   );
@@ -201,11 +211,40 @@ const MyPortableTextVideo = ({ value }: any) => {
   );
 };
 
+const TableComponent = ({ value }: any) => {
+  return (
+    <div className="md:mx-10 my-4  overflow-x-auto">
+      <table className="min-w-full border-collapse border border-gray-300">
+        <tbody>
+          {value.rows.map((row: any, rowIndex: number) => (
+            <tr
+              key={rowIndex}
+              className={`border-b border-gray-300 ${
+                rowIndex === 0 ? "bg-gray-200" : ""
+              }`}
+            >
+              {row.cells.map((cell: any, cellIndex: number) => (
+                <td
+                  key={cellIndex}
+                  className="px-4 lg:px-4 py-2 border border-gray-300 text-left"
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
 const myPortableTextComponents = {
   types: {
     image: MyPortableTextImage,
     videoEmbed: MyPortableTextVideo,
     myCodeField: CodeBlock,
+    table: TableComponent,
   },
   marks: {
     myCodeField: ({ children }: any) => <CodeBlock>{children}</CodeBlock>,
@@ -255,16 +294,21 @@ const myPortableTextComponents = {
       );
     },
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-gray-400 pl-4 italic text-gray-700 my-4 font-custom leading-[28px]">
+      <blockquote className="border-l-4 border-gray-400 pl-4 italic text-gray-700 my-4 font-custom leading-[28px] text-xl">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc pl-6 font-custom leading-[26px] text-[#212529] text-justify">
+      <ul className="list-disc pl-6 ml-2 md:ml-6 font-custom text-[#212529] text-justify text-xl">
         {children}
       </ul>
+    ),
+    number: ({ children }: any) => (
+      <ol className="list-decimal pl-6 ml-2 md:ml-6 font-custom  text-[#212529] text-justify text-xl ">
+        {children}
+      </ol>
     ),
   },
 };
