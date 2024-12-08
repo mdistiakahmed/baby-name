@@ -55,6 +55,25 @@ const CategoryDropdown = () => {
     </DropdownItem>,
   ]);
 
+  const toolsOptions = [
+    <DropdownItem
+      key={`tools`}
+      textValue={`Weel of Names`}
+      startContent={
+        <Image
+          alt={"blog"}
+          height={6}
+          width={6}
+          className="w-6 h-6"
+          src={`/wheel.svg`}
+        />
+      }
+      onClick={() => handleItemClick(`/name-wheel`)}
+    >
+      Wheel of Names
+    </DropdownItem>,
+  ];
+
   return (
     <Dropdown
       showArrow
@@ -77,6 +96,7 @@ const CategoryDropdown = () => {
       >
         <DropdownSection title="By Country">{countriesOptions}</DropdownSection>
         <DropdownSection title="Articles">{articlesOptions}</DropdownSection>
+        <DropdownSection title="Tools">{toolsOptions}</DropdownSection>
       </DropdownMenu>
     </Dropdown>
   );
