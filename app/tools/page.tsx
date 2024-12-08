@@ -20,7 +20,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 const WheelOfNames = () => {
   const canvasRef = useRef<any>(null);
-  const rotationRef = useRef(0); // Track the current rotation angle
+  const rotationRef = useRef(0);
   const animationIdRef = useRef<any>(null);
   const isSpinningRef = useRef(false);
   const soundTimeoutRef = useRef<any>(null);
@@ -28,9 +28,6 @@ const WheelOfNames = () => {
   const [tickSound, setTickSound] = useState<any>(null);
   const [clapSound, setClapSound] = useState<any>(null);
 
-  // Load tick sound
-
-  // State for names list
   const [names, setNames] = useState([
     "Alice",
     "Bob",
@@ -56,43 +53,37 @@ const WheelOfNames = () => {
     const ctx = canvas.getContext("2d");
     const colors = ["#3369e8", "#009925", "#d50f25", "#EEB211", "#d50f25"];
 
-    // Set canvas dimensions
     canvas.width = 400;
     canvas.height = 400;
+    canvas.style.cursor = "pointer";
 
     const radius = canvas.width / 2 - 10;
-
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const segmentAngle = (2 * Math.PI) / names.length;
 
-    // Function to draw the wheel
     const drawWheel = (rotation: any) => {
-      // Clear the canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw each segment
+      // Draw wheel segments
       names.forEach((name, index) => {
         const startAngle = index * segmentAngle + rotation;
         const endAngle = startAngle + segmentAngle;
 
-        // Draw the segment
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, radius, startAngle, endAngle);
         ctx.closePath();
 
-        // Fill with color
         ctx.fillStyle = colors[index % colors.length];
         ctx.fill();
 
-        // Draw the text
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(startAngle + segmentAngle / 2);
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillStyle = "#ffffff"; // Text color
+        ctx.fillStyle = "#ffffff";
         ctx.font = "24px Arial";
         ctx.fillText(name, radius / 2, 0);
         ctx.restore();
@@ -105,73 +96,96 @@ const WheelOfNames = () => {
       ctx.fill();
       ctx.closePath();
 
-      // Draw the triangle marker
+      // Draw curved "Click to Spin!" text on the upper arc
+      if (!isSpinningRef.current) {
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        
+        // Set up text properties
+        ctx.font = "bold 28px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        
+        // Add shadow effect
+        ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
 
+        // Draw curved text
+        const text = "Click to Spin!";
+        const arcRadius = radius * 0.85; // Slightly inside the wheel's edge
+        const startAngle = -Math.PI / 2 - 0.6; // Start from top, slightly to the left
+        const endAngle = -Math.PI / 2 + 0.6; // End at top, slightly to the right
+        const angleStep = (endAngle - startAngle) / text.length;
+
+        for (let i = 0; i < text.length; i++) {
+          const angle = startAngle + (i * angleStep);
+          ctx.save();
+          ctx.rotate(angle);
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillText(text[i], 0, -arcRadius);
+          ctx.restore();
+        }
+        
+        ctx.restore();
+      }
+
+      // Draw the triangle marker
       ctx.beginPath();
-      ctx.moveTo(canvas.width, centerY); // Right middle border
+      ctx.moveTo(canvas.width, centerY);
       ctx.lineTo(canvas.width, centerY + 15);
       ctx.lineTo(canvas.width - 30, centerY);
       ctx.lineTo(canvas.width, centerY - 15);
-
       ctx.closePath();
-      // Fill and stroke the triangle
-      ctx.fillStyle = "white"; // Fill color
+      ctx.fillStyle = "white";
       ctx.fill();
-      ctx.strokeStyle = "black"; // Border color
+      ctx.strokeStyle = "black";
       ctx.stroke();
 
-      // Apply shadow effect
-      ctx.shadowColor = "rgba(0, 0, 0, 0.5)"; // Shadow color
-      ctx.shadowBlur = 10; // Blur effect
-      ctx.shadowOffsetX = 2; // Horizontal shadow offset
-      ctx.shadowOffsetY = 2; // Vertical shadow offset
+      ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 2;
     };
 
-    // Function to spin the wheel at a constant speed
     const constantSpin = () => {
-      rotationRef.current += 0.005; // Increment rotation angle for constant speed
+      rotationRef.current += 0.005;
       drawWheel(rotationRef.current);
-      animationIdRef.current = requestAnimationFrame(constantSpin); // Continue the animation
+      animationIdRef.current = requestAnimationFrame(constantSpin);
     };
 
-    // Function to play tick sound with dynamic intervals
     const playTickSound = (interval: number) => {
-      if (interval > 1000) return; // Stop sound at very slow intervals
-
+      if (interval > 1000) return;
       tickSound?.play();
-
       soundTimeoutRef.current = setTimeout(() => {
-        playTickSound(interval * 1.1); // Gradually increase the interval
+        playTickSound(interval * 1.1);
       }, interval);
     };
 
-    // Function to stop the tick sound
     const stopTickSound = () => {
       clearTimeout(soundTimeoutRef.current);
     };
 
-    // Function to spin the wheel
     const spinWheel = () => {
-      if (isSpinningRef.current) return; // Prevent multiple spins
+      if (isSpinningRef.current) return;
       playTickSound(1);
 
       isSpinningRef.current = true;
-      cancelAnimationFrame(animationIdRef.current); // Stop the constant spin
-      const totalRotations = Math.random() * 3 + 5; // Random rotations between 5 and 8
-      let currentSpeed = 0.5; // Initial speed
-      let deceleration = 0.98; // Deceleration factor
+      cancelAnimationFrame(animationIdRef.current);
+      const totalRotations = Math.random() * 3 + 5;
+      let currentSpeed = 0.5;
+      let deceleration = 0.98;
 
       const animateSpin = () => {
         currentSpeed *= deceleration;
         rotationRef.current += currentSpeed;
 
-        // Stop spinning when speed is very low
         if (currentSpeed < 0.001) {
           isSpinningRef.current = false;
-          stopTickSound(); // Stop the tick sound
+          stopTickSound();
           cancelAnimationFrame(animationIdRef.current);
 
-          // Determine the selected name
           const finalAngle = rotationRef.current % (2 * Math.PI);
           const index = Math.floor(
             ((2 * Math.PI - finalAngle) % (2 * Math.PI)) / segmentAngle
@@ -182,10 +196,10 @@ const WheelOfNames = () => {
           });
 
           const confettiConfig = {
-            particleCount: 100, // Number of confetti particles
-            spread: 100, // Spread of confetti particles
-            origin: { y: 0.7 }, // Origin point for confetti (adjust as needed)
-            colors: ["#EBEAFF", "#9694FF", "#3D3BF3", "#FF2929"], // Confetti colors
+            particleCount: 100,
+            spread: 100,
+            origin: { y: 0.7 },
+            colors: ["#EBEAFF", "#9694FF", "#3D3BF3", "#FF2929"],
           };
           confetti(confettiConfig);
 
@@ -193,9 +207,8 @@ const WheelOfNames = () => {
             confetti(confettiConfig);
           }, 3000);
 
-          setWinner(names[index]); // Set the winner name
+          setWinner(names[index]);
           setIsModalOpen(true);
-          //alert(`The wheel stopped on: ${names[index]}`);
           return;
         }
 
@@ -206,104 +219,89 @@ const WheelOfNames = () => {
       animateSpin();
     };
 
-    // Start the constant spin
     constantSpin();
-
-    // Add click event listener to spin the wheel
     canvas.addEventListener("click", spinWheel);
 
-    // Cleanup on unmount
     return () => {
       canvas.removeEventListener("click", spinWheel);
       cancelAnimationFrame(animationIdRef.current);
-      stopTickSound(); // Stop the tick sound if component unmounts
     };
-  }, [names]);
+  }, [names, tickSound, clapSound]);
 
-  // Add name to the list
-  const addName = () => {
+  const handleAddName = () => {
     if (inputName.trim()) {
-      setNames((prev) => [...prev, inputName.trim()]);
+      setNames([...names, inputName.trim()]);
       setInputName("");
     }
   };
 
-  // Function to delete a name
-  const deleteName = (nameToDelete: string) => {
-    setNames(names.filter((name) => name !== nameToDelete));
+  const handleDeleteName = (index: number) => {
+    const newNames = names.filter((_, i) => i !== index);
+    setNames(newNames);
   };
 
-  // Shuffle names
-  const shuffleNames = () => {
-    const shuffled = [...names].sort(() => Math.random() - 0.5);
-    setNames(shuffled);
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      handleAddName();
+    }
   };
 
   const removeNameAndClose = () => {
-    setNames((prev) => prev.filter((name) => name !== winner)); // Remove winner
-    setWinner(null);
-    setIsModalOpen(false);
-  };
-
-  const closeModal = () => {
-    setWinner(null);
-    setIsModalOpen(false);
-  };
-
-  const modalStyle = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    boxShadow: 24,
-    p: 4,
-    borderRadius: 2,
+    if (winner) {
+      const newNames = names.filter(name => name !== winner);
+      setNames(newNames);
+      setIsModalOpen(false);
+      setWinner(null);
+    }
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-10">
-      <canvas
-        ref={canvasRef}
-        className="w-full max-w-md aspect-square border border-gray-300"
-      />
+    <div className="flex flex-col md:flex-row gap-4 justify-center min-h-screen bg-gray-100 p-4">
+      <div className="mb-8">
+        <canvas
+          ref={canvasRef}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            borderRadius: "50%",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        />
+      </div>
 
-      <div>
-        <div className="flex items-center justify-center">
+      <div className="mt-5 md:ml-14">
+        <div className="flex gap-2 mb-4">
           <TextField
-            label="Add Name"
+            fullWidth
+            variant="outlined"
             value={inputName}
             onChange={(e) => setInputName(e.target.value)}
-            variant="outlined"
+            onKeyPress={handleKeyPress}
+            placeholder="Enter a name"
             size="small"
           />
           <IconButton
-            onClick={addName}
             color="primary"
-            style={{ marginLeft: "1rem" }}
+            onClick={handleAddName}
+            disabled={!inputName.trim()}
           >
             <AddIcon />
-            Add
           </IconButton>
         </div>
 
-        {/* List of names */}
-        <List>
+
+<div className="h-72 overflow-y-scroll">
+
+
+        <List className="bg-white rounded-lg shadow">
           {names.map((name, index) => (
-            <ListItem
-              key={index}
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <ListItemText
-                primary={name}
-                style={{ textAlign: "right" }} // Right-align the text
-              />
+            <ListItem key={index}>
+              <ListItemText primary={name} />
               <ListItemSecondaryAction>
-                {/* Delete button for each name */}
                 <IconButton
-                  onClick={() => deleteName(name)}
                   edge="end"
-                  color="error"
+                  aria-label="delete"
+                  onClick={() => handleDeleteName(index)}
                 >
                   <DeleteIcon />
                 </IconButton>
@@ -311,35 +309,34 @@ const WheelOfNames = () => {
             </ListItem>
           ))}
         </List>
-
-        {/* Shuffle button */}
-        <IconButton
-          onClick={shuffleNames}
-          color="secondary"
-          style={{ marginTop: "1rem" }}
-        >
-          <ShuffleIcon />
-          Shuffle
-        </IconButton>
+        </div>
       </div>
 
       <Modal
         open={isModalOpen}
-        onClose={closeModal}
-        aria-labelledby="winner-modal-title"
-        aria-describedby="winner-modal-description"
+        onClose={() => setIsModalOpen(false)}
+        aria-labelledby="winner-modal"
       >
-        <Box sx={modalStyle}>
-          <Typography
-            id="winner-modal-title"
-            variant="h6"
-            component="h2"
-            textAlign="center"
-            gutterBottom
-          >
-            🎉 Winner: {winner} 🎉
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 2,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h6" component="h2" gutterBottom>
+            🎉 The Winner is...
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-around", mt: 2 }}>
+          <Typography variant="h4" component="h3" gutterBottom>
+            {winner}
+          </Typography>
+          <div className="flex gap-4 whitespace-nowrap">
             <Button
               variant="contained"
               color="error"
@@ -347,10 +344,10 @@ const WheelOfNames = () => {
             >
               Remove Name and Close
             </Button>
-            <Button variant="outlined" onClick={closeModal}>
+            <Button variant="outlined" onClick={() => setIsModalOpen(false)}>
               Close
             </Button>
-          </Box>
+          </div>
         </Box>
       </Modal>
     </div>
