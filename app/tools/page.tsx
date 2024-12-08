@@ -2,6 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
+import {
+  TextField,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  Modal,
+  Box,
+  Typography,
+  Button,
+} from "@mui/material";
+import ShuffleIcon from "@mui/icons-material/Shuffle";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const WheelOfNames = () => {
   const canvasRef = useRef<any>(null);
@@ -9,7 +24,6 @@ const WheelOfNames = () => {
   const animationIdRef = useRef<any>(null);
   const isSpinningRef = useRef(false);
   const soundTimeoutRef = useRef<any>(null);
-  const clapsoundTimeoutRef = useRef<any>(null);
 
   // Load tick sound
   const tickSound = new Audio("/audio.mp3");
@@ -23,7 +37,9 @@ const WheelOfNames = () => {
     "Diana",
     "Jordan",
   ]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [winner, setWinner] = useState<any>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -166,6 +182,9 @@ const WheelOfNames = () => {
           setTimeout(() => {
             confetti(confettiConfig);
           }, 3000);
+
+          setWinner(names[index]); // Set the winner name
+          setIsModalOpen(true);
           //alert(`The wheel stopped on: ${names[index]}`);
           return;
         }
@@ -193,10 +212,15 @@ const WheelOfNames = () => {
 
   // Add name to the list
   const addName = () => {
-    if (inputValue.trim()) {
-      setNames((prev) => [...prev, inputValue.trim()]);
-      setInputValue("");
+    if (inputName.trim()) {
+      setNames((prev) => [...prev, inputName.trim()]);
+      setInputName("");
     }
+  };
+
+  // Function to delete a name
+  const deleteName = (nameToDelete: string) => {
+    setNames(names.filter((name) => name !== nameToDelete));
   };
 
   // Shuffle names
@@ -205,36 +229,119 @@ const WheelOfNames = () => {
     setNames(shuffled);
   };
 
+  const removeNameAndClose = () => {
+    setNames((prev) => prev.filter((name) => name !== winner)); // Remove winner
+    setWinner(null);
+    setIsModalOpen(false);
+  };
+
+  const closeModal = () => {
+    setWinner(null);
+    setIsModalOpen(false);
+  };
+
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+    borderRadius: 2,
+  };
+
   return (
-    <div className="flex items-center justify-center gap-2">
-      <canvas ref={canvasRef} style={{ border: "1px solid #ccc" }} />
+    <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-10">
+      <canvas
+        ref={canvasRef}
+        className="w-full max-w-md aspect-square border border-gray-300"
+      />
 
       <div>
-        <div style={{ display: "flex", gap: "0.5rem" }}>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter name"
-          />
-          <button onClick={addName} style={{ cursor: "pointer" }}>
-            Add
-          </button>
-        </div>
-        <div>
-          <ul className="text-right">
-            {names.map((name, index) => (
-              <li key={index}>{name}</li>
-            ))}
-          </ul>
-          <button
-            onClick={shuffleNames}
-            style={{ cursor: "pointer", marginTop: "1rem" }}
-          >
-            Shuffle Names
-          </button>
-        </div>
+        <TextField
+          label="Add Name"
+          value={inputName}
+          onChange={(e) => setInputName(e.target.value)}
+          variant="outlined"
+          size="small"
+          style={{ marginBottom: "1rem" }}
+        />
+        <IconButton
+          onClick={addName}
+          color="primary"
+          style={{ marginLeft: "1rem" }}
+        >
+          <AddIcon />
+          Add
+        </IconButton>
+
+        {/* List of names */}
+        <List>
+          {names.map((name, index) => (
+            <ListItem
+              key={index}
+              style={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <ListItemText
+                primary={name}
+                style={{ textAlign: "right" }} // Right-align the text
+              />
+              <ListItemSecondaryAction>
+                {/* Delete button for each name */}
+                <IconButton
+                  onClick={() => deleteName(name)}
+                  edge="end"
+                  color="error"
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+          ))}
+        </List>
+
+        {/* Shuffle button */}
+        <IconButton
+          onClick={shuffleNames}
+          color="secondary"
+          style={{ marginTop: "1rem" }}
+        >
+          <ShuffleIcon />
+          Shuffle
+        </IconButton>
       </div>
+
+      <Modal
+        open={isModalOpen}
+        onClose={closeModal}
+        aria-labelledby="winner-modal-title"
+        aria-describedby="winner-modal-description"
+      >
+        <Box sx={modalStyle}>
+          <Typography
+            id="winner-modal-title"
+            variant="h6"
+            component="h2"
+            textAlign="center"
+            gutterBottom
+          >
+            🎉 Winner: {winner} 🎉
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "space-around", mt: 2 }}>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={removeNameAndClose}
+            >
+              Remove Name and Close
+            </Button>
+            <Button variant="outlined" onClick={closeModal}>
+              Close
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
     </div>
   );
 };
