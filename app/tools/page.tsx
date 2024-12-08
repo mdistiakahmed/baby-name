@@ -25,9 +25,10 @@ const WheelOfNames = () => {
   const isSpinningRef = useRef(false);
   const soundTimeoutRef = useRef<any>(null);
 
+  const [tickSound, setTickSound] = useState<any>(null);
+  const [clapSound, setClapSound] = useState<any>(null);
+
   // Load tick sound
-  const tickSound = new Audio("/audio.mp3");
-  const clapSound = new Audio("/clap.wav");
 
   // State for names list
   const [names, setNames] = useState([
@@ -40,6 +41,15 @@ const WheelOfNames = () => {
   const [inputName, setInputName] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [winner, setWinner] = useState<any>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const tickSound = new Audio("/audio.mp3");
+      const clapSound = new Audio("/clap.wav");
+      setTickSound(tickSound);
+      setClapSound(clapSound);
+    }
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -127,7 +137,7 @@ const WheelOfNames = () => {
     const playTickSound = (interval: number) => {
       if (interval > 1000) return; // Stop sound at very slow intervals
 
-      tickSound.play();
+      tickSound?.play();
 
       soundTimeoutRef.current = setTimeout(() => {
         playTickSound(interval * 1.1); // Gradually increase the interval
@@ -166,8 +176,7 @@ const WheelOfNames = () => {
             ((2 * Math.PI - finalAngle) % (2 * Math.PI)) / segmentAngle
           );
 
-          clapSound.currentTime = 0; // Reset clap sound to start
-          clapSound.play().catch((error) => {
+          clapSound?.play().catch((error: any) => {
             console.error("Failed to play clap sound:", error);
           });
 
