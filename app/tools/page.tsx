@@ -55,11 +55,12 @@ const WheelOfNames = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const colors = ["#3369e8", "#009925", "#d50f25", "#EEB211", "#d50f25"];
-    const radius = canvas.width / 2 - 10;
 
     // Set canvas dimensions
     canvas.width = 400;
     canvas.height = 400;
+
+    const radius = canvas.width / 2 - 10;
 
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
@@ -268,22 +269,23 @@ const WheelOfNames = () => {
       />
 
       <div>
-        <TextField
-          label="Add Name"
-          value={inputName}
-          onChange={(e) => setInputName(e.target.value)}
-          variant="outlined"
-          size="small"
-          style={{ marginBottom: "1rem" }}
-        />
-        <IconButton
-          onClick={addName}
-          color="primary"
-          style={{ marginLeft: "1rem" }}
-        >
-          <AddIcon />
-          Add
-        </IconButton>
+        <div className="flex items-center justify-center">
+          <TextField
+            label="Add Name"
+            value={inputName}
+            onChange={(e) => setInputName(e.target.value)}
+            variant="outlined"
+            size="small"
+          />
+          <IconButton
+            onClick={addName}
+            color="primary"
+            style={{ marginLeft: "1rem" }}
+          >
+            <AddIcon />
+            Add
+          </IconButton>
+        </div>
 
         {/* List of names */}
         <List>
