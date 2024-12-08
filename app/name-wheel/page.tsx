@@ -110,7 +110,9 @@ export default function NameWheelPage() {
             </h2>
             <ol className="list-decimal pl-6 space-y-2">
               <li>Enter names in the input field</li>
-              <li>Click the "+" button or press Enter to add each name</li>
+              <li>
+                Click the &quot;+&quot; button or press Enter to add each name
+              </li>
               <li>Use the shuffle button to randomize the order (optional)</li>
               <li>Click the wheel to spin</li>
               <li>Wait for the wheel to stop to see your selected name</li>
