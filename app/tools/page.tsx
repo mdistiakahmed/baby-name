@@ -6,11 +6,12 @@ const WheelOfNames = () => {
   const canvasRef = useRef<any>(null);
   const rotationRef = useRef(0); // Track the current rotation angle
   const animationIdRef = useRef<any>(null);
+  const isSpinningRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const names = ["Alice", "Bob", "Charlie", "Diana", "Eve"];
+    const names = ["Alice", "Bob", "Charlie", "Diana", "Jordan"];
     const colors = ["#3369e8", "#009925", "#d50f25", "#EEB211", "#d50f25"];
     const radius = canvas.width / 2;
 
@@ -49,7 +50,7 @@ const WheelOfNames = () => {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "#ffffff"; // Text color
-        ctx.font = "16px Arial";
+        ctx.font = "24px Arial";
         ctx.fillText(name, radius / 2, 0);
         ctx.restore();
       });
@@ -60,19 +61,72 @@ const WheelOfNames = () => {
       ctx.fillStyle = "white";
       ctx.fill();
       ctx.closePath();
+
+      // Draw the triangle marker
+      ctx.beginPath();
+      ctx.moveTo(centerX + radius + 10, centerY);
+      ctx.lineTo(centerX + radius - 10, centerY - 10);
+      ctx.lineTo(centerX + radius - 10, centerY + 10);
+      ctx.closePath();
+      ctx.fillStyle = "white";
+      ctx.fill();
     };
+
+    // Function to spin the wheel
+    const spinWheel = () => {
+      if (isSpinningRef.current) return; // Prevent multiple spins
+
+      isSpinningRef.current = true;
+      const totalRotations = Math.random() * 3 + 5; // Random rotations between 5 and 8
+      let currentSpeed = 0.5; // Initial speed
+      let deceleration = 0.98; // Deceleration factor
+
+      const animateSpin = () => {
+        currentSpeed *= deceleration;
+        rotationRef.current += currentSpeed;
+
+        // Stop spinning when speed is very low
+        if (currentSpeed < 0.001) {
+          isSpinningRef.current = false;
+          cancelAnimationFrame(animationIdRef.current);
+
+          // Determine the selected name
+          const finalAngle = rotationRef.current % (2 * Math.PI);
+          const index = Math.floor(
+            ((2 * Math.PI - finalAngle) % (2 * Math.PI)) / segmentAngle
+          );
+          alert(`The wheel stopped on: ${names[index]}`);
+          return;
+        }
+
+        drawWheel(rotationRef.current);
+        animationIdRef.current = requestAnimationFrame(animateSpin);
+      };
+
+      animateSpin();
+    };
+
+    // Initial draw
+    drawWheel(rotationRef.current);
+
+    // Add click event listener to spin the wheel
+    canvas.addEventListener("click", spinWheel);
 
     // Animation loop
-    const animate = () => {
-      rotationRef.current += 0.01; // Increment rotation angle for constant speed
-      drawWheel(rotationRef.current);
-      animationIdRef.current = requestAnimationFrame(animate); // Continue the animation
+    // const animate = () => {
+    //   rotationRef.current += 0.01; // Increment rotation angle for constant speed
+    //   drawWheel(rotationRef.current);
+    //   animationIdRef.current = requestAnimationFrame(animate); // Continue the animation
+    // };
+
+    // // Start the animation
+    // animate();
+
+    // Cleanup on unmount
+    return () => {
+      canvas.removeEventListener("click", spinWheel);
+      cancelAnimationFrame(animationIdRef.current);
     };
-
-    // Start the animation
-    animate();
-
-    return () => cancelAnimationFrame(animationIdRef.current); // Cleanup on unmount
   }, []);
 
   return (
