@@ -114,11 +114,11 @@ export const getDataUpdated = async (
         case "christian":
           if (gender === "boy") {
             ({ nameList, positions } = await import(
-              "../data/country/usa/boy/usa-boy-names"
+              "../data/religion/christian/boy/christian-boy-names"
             ));
           } else {
             ({ nameList, positions } = await import(
-              "../data/country/usa/girl/use-girl-names"
+              "../data/religion/christian/girl/christian-girl-names"
             ));
           }
 
