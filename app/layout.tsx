@@ -13,15 +13,23 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Find the Perfect Baby Name | BabyNameNestlings",
   description:
-    "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
+    `Discover thousands of meaningful baby names across cultures, religions, and countries. Find the perfect name that reflects your heritage and values.`,
   other: {
     "google-site-verification": "cm72aHj1hmDL3KsA8DhR_aZDEngjkhWG8tPokxyCK54",
   },
+  keywords: [
+    "baby names", 
+    "name finder", 
+    "cultural names", 
+    "religious names", 
+    "baby naming", 
+    "name meanings", 
+    "international names"
+  ],
   openGraph: {
     title: "Find the Perfect Baby Name | BabyNameNestlings",
-    description:
-      "Discover thousands of baby names and find the perfect one for your little one at BabyNameNestlings.",
-    type: "article",
+    description: `Discover thousands of meaningful baby names across cultures, religions, and countries.`,
+    type: "website",
     locale: "en_US",
     url: `https://babynamenestlings.com/`,
     siteName: "BabyNameNestlings",
@@ -30,10 +38,21 @@ export const metadata: Metadata = {
         url: "baby.webp",
         width: 1200,
         height: 630,
-        alt: "Three baby smiling",
+        alt: "Diverse babies representing global naming traditions",
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  }
 };
 
 export default function RootLayout({
@@ -45,6 +64,15 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="google-adsense-account" content="ca-pub-9516918341435316" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <GoogleAnalytics gaId="G-P2GM4FBYCH" />
       <body className={inter.className}>

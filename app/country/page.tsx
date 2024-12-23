@@ -26,7 +26,6 @@ export const metadata: Metadata = {
 };
 
 const CountryHomePage = async () => {
-  const currentYear = new Date().getFullYear();
 
   const countrySection = (
     <div className="flex flex-col items-center justify-center">

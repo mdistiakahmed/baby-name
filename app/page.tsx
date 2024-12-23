@@ -19,7 +19,7 @@ const HomePage = async () => {
 
   const genderSection = (
     <div className="my-20">
-      <h2 className="text-center text-xl font-semibold">
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">
         Find Names By Gender
       </h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
@@ -67,7 +67,7 @@ const HomePage = async () => {
 
   const religionSection = (
     <div className="flex flex-col items-center justify-center">
-      <h3 className="text-xl font-semibold">Find Name by Religion</h3>
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">Find Name by Religion</h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Find meaningful baby names inspired by religious beliefs and traditions.
         Our curated list includes baby names from diverse religious backgrounds,
@@ -119,13 +119,13 @@ const HomePage = async () => {
 
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
-      <h3 className="text-xl font-semibold">Baby Name by Country</h3>
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">Baby Name by Country</h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Explore our extensive collection of baby names from various countries
         around the world. Discover unique and popular baby names that reflect
         the cultural heritage and traditions of different nations.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-[40px] cursor-pointer">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-[40px] cursor-pointer">
         {countries.map((c, index) => {
           const mediumBgClass =
             index % 2 === 0
@@ -164,10 +164,98 @@ const HomePage = async () => {
       </div>
     </div>
   );
+
+  const faqData = [
+    {
+      question: "How do I choose the perfect baby name?",
+      answer: "Consider factors like cultural significance, family traditions, name meaning, sound, and personal connection. Think about how the name might grow with your child and potential nicknames."
+    },
+    {
+      question: "Do names really impact a child's life?",
+      answer: "Research suggests names can influence perceptions and self-image. A meaningful name can provide a sense of identity and cultural connection."
+    },
+    {
+      question: "How many names should I consider before deciding?",
+      answer: "We recommend creating a shortlist of 5-10 names. Discuss with your partner, say them out loud, and see how they feel over time."
+    },
+    {
+      question: "Are unique names better than traditional names?",
+      answer: "There's no universal 'better' - it depends on your personal preference. Unique names can be memorable, while traditional names offer a sense of familiarity and connection."
+    },
+    {
+      question: "How can I ensure my baby's name is meaningful?",
+      answer: "Research the name's origin, meaning, and cultural significance. Consider names that reflect your family's heritage, values, or aspirations for your child."
+    },
+    {
+      question: "What should I avoid when naming my baby?",
+      answer: "Avoid names that could lead to potential teasing, difficult pronunciations, or unfortunate initials. Consider how the name sounds with your last name and potential nicknames."
+    },
+    {
+      question: "How do cultural backgrounds influence baby naming?",
+      answer: "Different cultures have unique naming traditions. Some follow family naming patterns, others have religious significance, and some prioritize meanings or family honors."
+    },
+    {
+      question: "Can I change my baby's name later?",
+      answer: "While possible, changing a name legally can be complex. Most name changes require a legal process and can be costly. It's best to choose carefully from the start."
+    },
+    {
+      question: "How do I handle family pressure about naming?",
+      answer: "Communicate openly with family. Explain your reasoning, listen to their suggestions, but remember the final decision is yours. Balance respect for traditions with your personal preferences."
+    },
+    {
+      question: "What are the trends in baby naming?",
+      answer: "Current trends include nature-inspired names, gender-neutral names, vintage revivals, and names with cultural significance. However, choose a name that resonates with you, not just trends."
+    }
+  ];
+
+  const FAQSection = (
+    <section 
+      className="py-16 px-4 md:px-0" 
+      aria-labelledby="faq-section-title"
+    >
+      <div className="max-w-5xl mx-auto">
+        <h2 
+          id="faq-section-title" 
+          className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {faqData.map((faq, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6"
+            >
+              <div className="flex items-start mb-4">
+                <div className="mr-4 text-3xl font-bold text-[#f06246] opacity-50">
+                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  {faq.question}
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link 
+            href="/contact" 
+            className="bg-[#f06246] text-white px-6 py-3 rounded-full hover:bg-[#d84e2f] transition-colors duration-300 inline-block shadow-md hover:shadow-lg"
+          >
+            Contact Us For More Help
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] py-[20px] text-black">
-        <h1 className="text-2xl font-bold text-center">
+        <h1 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-40 after:h-1 after:bg-[#f06246]">
           Discover Beautiful Baby Names You&apos;ll Cherish
         </h1>
         <p className="text-center text-lg leading-relaxed text-gray-800 mt-4">
@@ -307,6 +395,8 @@ const HomePage = async () => {
         <div>{religionSection}</div>
 
         <div className="mt-10">{countrySection}</div>
+
+        {FAQSection}
 
         <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
           Choosing the perfect baby name is a cherished and significant decision
