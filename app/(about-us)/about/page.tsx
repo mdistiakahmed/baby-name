@@ -150,9 +150,10 @@ export default function AboutPage() {
         </section>
 
         {/* Unique Approach Section */}
-<section className="bg-gradient-to-br from-[#f9f5f0] to-[#f1f5f9] py-16 rounded-2xl shadow-xl mb-16">
-  <div className="container mx-auto px-4">
-    <h2 className="
+        <section className="bg-gradient-to-br from-[#f9f5f0] to-[#f1f5f9] py-16 rounded-2xl shadow-xl mb-16">
+          <div className="container mx-auto px-4">
+            <h2
+              className="
       text-3xl 
       font-bold 
       text-center 
@@ -167,46 +168,50 @@ export default function AboutPage() {
       after:w-40 
       after:h-1 
       after:bg-[#f06246]
-    ">
-      Our Unique Naming Approach
-    </h2>
+    "
+            >
+              Our Unique Naming Approach
+            </h2>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      {[
-        {
-          title: "Cultural Depth",
-          description: "We dive deep into the rich tapestry of global naming traditions, offering insights that go beyond surface-level meanings.",
-          benefits: [
-            "Comprehensive cultural research",
-            "Authentic name origins",
-            "Meaningful context"
-          ],
-          icon: "🌐"
-        },
-        {
-          title: "Personalized Guidance",
-          description: "Our expert team provides tailored advice, understanding that each family's naming journey is unique.",
-          benefits: [
-            "One-on-one consultations",
-            "Customized name recommendations",
-            "Supportive naming experience"
-          ],
-          icon: "❤️"
-        },
-        {
-          title: "Linguistic Expertise",
-          description: "Leveraging linguistic research to explore the phonetic and semantic nuances of names across languages.",
-          benefits: [
-            "Pronunciation guides",
-            "Multilingual name analysis",
-            "Semantic meaning exploration"
-          ],
-          icon: "📚"
-        }
-      ].map((approach, index) => (
-        <div 
-          key={index} 
-          className="
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Cultural Depth",
+                  description:
+                    "We dive deep into the rich tapestry of global naming traditions, offering insights that go beyond surface-level meanings.",
+                  benefits: [
+                    "Comprehensive cultural research",
+                    "Authentic name origins",
+                    "Meaningful context",
+                  ],
+                  icon: "🌐",
+                },
+                {
+                  title: "Personalized Guidance",
+                  description:
+                    "Our expert team provides tailored advice, understanding that each family's naming journey is unique.",
+                  benefits: [
+                    "One-on-one consultations",
+                    "Customized name recommendations",
+                    "Supportive naming experience",
+                  ],
+                  icon: "❤️",
+                },
+                {
+                  title: "Linguistic Expertise",
+                  description:
+                    "Leveraging linguistic research to explore the phonetic and semantic nuances of names across languages.",
+                  benefits: [
+                    "Pronunciation guides",
+                    "Multilingual name analysis",
+                    "Semantic meaning exploration",
+                  ],
+                  icon: "📚",
+                },
+              ].map((approach, index) => (
+                <div
+                  key={index}
+                  className="
             bg-white 
             p-6 
             rounded-2xl 
@@ -217,16 +222,19 @@ export default function AboutPage() {
             hover:-translate-y-2 
             hover:shadow-xl
           "
-        >
-          <div className="text-5xl text-center mb-4">{approach.icon}</div>
-          <h3 className="
+                >
+                  <div className="text-5xl text-center mb-4">
+                    {approach.icon}
+                  </div>
+                  <h3
+                    className="
             text-xl 
             font-semibold 
             text-gray-800 
             text-center 
             mb-4 
             relative 
-            after:content-[''] 
+            after:content-['']  
             after:absolute 
             after:-bottom-2 
             after:left-1/2 
@@ -234,41 +242,43 @@ export default function AboutPage() {
             after:w-20 
             after:h-1 
             after:bg-[#f06246]
-          ">
-            {approach.title}
-          </h3>
-          <p className="text-gray-600 text-center mb-6">
-            {approach.description}
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            {approach.benefits.map((benefit, benefitIndex) => (
-              <li 
-                key={benefitIndex} 
-                className="
+          "
+                  >
+                    {approach.title}
+                  </h3>
+                  <p className="text-gray-600 text-center mb-6">
+                    {approach.description}
+                  </p>
+                  <ul className="space-y-2 text-gray-700">
+                    {approach.benefits.map((benefit, benefitIndex) => (
+                      <li
+                        key={benefitIndex}
+                        className="
                   flex 
                   items-center 
                   before:content-['✓'] 
                   before:text-[#f06246] 
                   before:mr-2
                 "
-              >
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+                      >
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
 
-    <div className="mt-12 text-center max-w-3xl mx-auto">
-      <p className="text-lg text-gray-700 leading-relaxed">
-        At BabyNameNestlings, we don&apos;t just provide names – we offer a 
-        comprehensive journey of discovery, helping you find a name that 
-        resonates with your family&apos;s unique story and cultural heritage.
-      </p>
-    </div>
-  </div>
-</section>
+            <div className="mt-12 text-center max-w-3xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                At BabyNameNestlings, we don&apos;t just provide names – we
+                offer a comprehensive journey of discovery, helping you find a
+                name that resonates with your family&apos;s unique story and
+                cultural heritage.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Closing Section */}
         <section className="text-center bg-gradient-to-r from-[#f06246] to-[#006fee] text-white p-12 rounded-2xl">

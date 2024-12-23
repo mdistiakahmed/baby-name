@@ -66,7 +66,7 @@ export default function ContactPage() {
             text-gray-900 
             mb-6 
             relative 
-            after:content-[''] 
+            after:content-['']  
             after:absolute 
             after:-bottom-4 
             after:left-1/2 
@@ -376,7 +376,7 @@ export default function ContactPage() {
             <div className="mt-12 text-center">
               <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 At BabyNameNestlings, we believe that a name is more than just a
-                word. It's a powerful expression of identity, heritage, and
+                word. It&apos;s a powerful expression of identity, heritage, and
                 hope. Our mission is to guide you through the meaningful journey
                 of choosing a name that will accompany your child throughout
                 their life.
