@@ -58,27 +58,37 @@ const YouMayLikeSection = ({ category = "" }: Props) => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center w-ful">
-      <div className="w-[95vw] md:w-[70vw] p-8">
-        <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-gray-100 rounded-lg p-4">
-                <div className="h-40 bg-gray-200 rounded mb-4"></div>
-                <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-              </div>
-            ))}
+      <section 
+        aria-label="Loading related articles" 
+        className="flex items-center justify-center w-full"
+      >
+        <div className="w-[95vw] md:w-[70vw] p-8">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
+            <div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              role="status" 
+              aria-label="Loading content"
+            >
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="bg-gray-100 rounded-lg p-4">
+                  <div className="h-40 bg-gray-200 rounded mb-4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <section 
+      className="flex items-center justify-center w-full" 
+      aria-labelledby="related-articles-title"
+    >
       <div className=" w-[95vw] md:w-[70vw] flex flex-col  gap-4 items-center justify-center m-5">
         <h2 className="text-2xl font-bold mb-8 text-[#212529] text-center">
           {category ? `More from ${category}` : "You May Also Like"}
@@ -122,7 +132,7 @@ const YouMayLikeSection = ({ category = "" }: Props) => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

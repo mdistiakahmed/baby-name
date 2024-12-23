@@ -7,10 +7,17 @@ import ShareWidget from "@/components/share/ShareWidget";
 
 export const metadata: Metadata = {
   title: "Baby Names By Religion | BabyNameNestlings",
-  description: "Find baby names based on religious values",
+  description: `Discover meaningful baby names across various religious traditions. Find the perfect name that reflects your faith and cultural heritage.`,
+  keywords: [
+    "baby names", 
+    "religious baby names", 
+    "spiritual names", 
+    "faith-based names", 
+    "religious naming traditions"
+  ],
   openGraph: {
     title: "Baby Names By Religion | BabyNameNestlings",
-    description: "Find baby names based on religious values",
+    description: `Discover meaningful baby names across various religious traditions. Find the perfect name that reflects your faith and cultural heritage.`,
     type: "article",
     locale: "en_US",
     url: `http://babynamenestlings.com/religion`,
@@ -27,7 +34,6 @@ export const metadata: Metadata = {
 };
 
 const ReligionCategoryPage = () => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <div className="flex items-center justify-center w-full">
