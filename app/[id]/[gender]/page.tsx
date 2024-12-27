@@ -61,6 +61,14 @@ export async function generateMetadata({
           type: "website",
           locale: "en_US",
           siteName: "Baby Name Nestlings",
+          images: [
+            {
+              url: "baby.webp",
+              width: 1200,
+              height: 630,
+              alt: "Diverse babies representing global naming traditions",
+            },
+          ],
         }
       };
     }
@@ -86,6 +94,14 @@ export async function generateMetadata({
           type: "website",
           locale: "en_US",
           siteName: "Baby Name Nestlings",
+          images: [
+            {
+              url: "baby.webp",
+              width: 1200,
+              height: 630,
+              alt: "Diverse babies representing global naming traditions",
+            },
+          ],
         }
       };
     }

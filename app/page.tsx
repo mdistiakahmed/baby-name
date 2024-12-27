@@ -376,6 +376,13 @@ const HomePage = async () => {
           </div>
         </div>
         <div>{genderSection}</div>
+
+        
+
+
+
+
+        
         <div>{religionSection}</div>
 
         <div className="mt-10">{countrySection}</div>

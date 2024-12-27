@@ -11,122 +11,146 @@ import ShareWidget from "@/components/share/ShareWidget";
 import { encodeNameIndex } from "@/utils/converters";
 import Link from "next/link";
 
-const CountryGenderComponent = async ({ countryName, gender, pageNumber } : any) => {
-    const countryDetails = getCountryByName(countryName);
-    const { nameList, positions } = (await getDataUpdated(
-      countryName,
-      null,
-      gender
-    )) as any;
-  
-    const totalItem = nameList.length;
-    const paginatedNameList = nameList.slice(
-        (pageNumber - 1) * ITEMS_PER_PAGE,
-        pageNumber * ITEMS_PER_PAGE
-      );
-  
-    return (
-      <div className="flex items-center justify-center w-full">
-        <div className=" w-[95vw] md:w-[70vw] ">
-          <div className="mb-5 rounded-lg">
-            <h1 className="text-2xl font-bold text-center py-2">{`Find most beautiful ${countryDetails.desc.toLowerCase()}  ${gender} name for your baby`}</h1>
-            <div>
-              <p className="text-xl text-center py-4">
-                {countryDetails[gender].shortDescription}
-              </p>
-            </div>
+const CountryGenderComponent = async ({
+  countryName,
+  gender,
+  pageNumber,
+}: any) => {
+  const countryDetails = getCountryByName(countryName);
+  const { nameList, positions } = (await getDataUpdated(
+    countryName,
+    null,
+    gender
+  )) as any;
+
+  const totalItem = nameList.length;
+  const paginatedNameList = nameList.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
+  );
+
+  return (
+    <div className="flex items-center justify-center w-full">
+      <div className=" w-[95vw] md:w-[70vw] ">
+        <div className="mb-5 rounded-lg">
+          <h1 className="text-2xl font-bold text-center py-2 text-gray-800">
+            Find Most Beautiful {countryDetails.desc}{" "}
+            {gender.charAt(0).toUpperCase() + gender.slice(1)} Names
+          </h1>
+
+          <div>
+            <p className="text-xl text-center py-4  text-gray-600">
+              {countryDetails[gender].shortDescription}
+            </p>
             <ShareWidget />
-            <div className="flex items-center justify-center rounded-lg">
+          </div>
+          <div className="flex items-center justify-center rounded-lg">
+            <Image
+              src="/baby.webp"
+              alt="Smiling babies"
+              height={300}
+              width={400}
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
+            <div className="flex gap-4 items-center">
               <Image
-                src="/baby.webp"
-                alt="Smiling babies"
-                height={300}
-                width={400}
-                className="rounded-lg"
+                alt={countryName}
+                height={10}
+                width={10}
+                className="w-auto h-10"
+                src={`https://flagcdn.com/${countryDetails.code}.svg`}
               />
+              <h2 className="text-2xl text-center ">
+                {countryDetails.desc} {gender} names
+              </h2>
             </div>
-  
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
-              <div className="flex gap-4 items-center">
-                <Image
-                  alt={countryName}
-                  height={10}
-                  width={10}
-                  className="w-auto h-10"
-                  src={`https://flagcdn.com/${countryDetails.code}.svg`}
-                />
-                <h2 className="text-2xl text-center ">
-                  {countryDetails.desc} {gender} name
-                </h2>
-              </div>
-  
-              <div>
-                <LetterSearch positions={positions} />
-              </div>
-            </div>
-  
-            <Accordion>
-              <AccordionSummary aria-controls="panel1-content" id="panel1-header">
-                <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
-                <p className="text-sm  font-bold text-black">Meaning</p>
-              </AccordionSummary>
-            </Accordion>
-  
-            {paginatedNameList.map((nameObj: any, index: any) => {
-              return (
-                <Accordion key={index}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                  >
-                    <p className="w-[40%] flex-shrink-0  text-black">
-                      {nameObj.name}
-                    </p>
-                    <p className="text-sm  text-black">{nameObj.meaning}</p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
-                      {nameObj.stories.map((story: any, idx: any) => {
-                        return (
-                          <li key={idx} className="mb-2">
-                            <p className="text-gray-800 text-md">{story} </p>
-                          </li>
-                        );
-                      })}
-                      {nameObj.isDetailsPresent ? (
-                        <Link
-                          href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, gender, 1, index)}`}
-                          target="_blank"
-                          className="font-semibold underline"
-                        >
-                          View More
-                        </Link>
-                      ) : null}
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
-  
-            <div className="flex items-center justify-center p-10">
-              <PaginationComponent totalItem={totalItem} pageNumber={Number(pageNumber)}/>
-            </div>
-  
-            <div className="flex flex-col gap-5">
-              {countryDetails[gender].notes &&
-                countryDetails[gender].notes.map((n: any, index: any) => {
-                  return (
-                    <p key={index} className="text-xl text-center">
-                      {n}
-                    </p>
-                  );
-                })}
+
+            <div>
+              <LetterSearch positions={positions} />
             </div>
           </div>
+
+          <div className="flex items-center justify-center p-10">
+            <PaginationComponent
+              totalItem={totalItem}
+              pageNumber={Number(pageNumber)}
+            />
+          </div>
+
+          <Accordion>
+            <AccordionSummary aria-controls="panel1-content" id="panel1-header">
+              <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
+              <p className="text-sm  font-bold text-black">Meaning</p>
+            </AccordionSummary>
+          </Accordion>
+
+          {paginatedNameList.map((nameObj: any, index: any) => {
+            return (
+              <Accordion key={index}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  <p className="w-[40%] flex-shrink-0  text-black">
+                    {nameObj.name}
+                  </p>
+                  <p className="text-sm  text-black">{nameObj.meaning}</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                    {nameObj.stories.map((story: any, idx: any) => {
+                      return (
+                        <li key={idx} className="mb-2">
+                          <p className="text-gray-800 text-md">{story} </p>
+                        </li>
+                      );
+                    })}
+                    {nameObj.isDetailsPresent ? (
+                      <Link
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, gender, 1, index)}`}
+                        target="_blank"
+                        className="font-semibold underline"
+                      >
+                        View More
+                      </Link>
+                    ) : null}
+                  </ul>
+                </AccordionDetails>
+              </Accordion>
+            );
+          })}
+
+          <div className="flex items-center justify-center p-10">
+            <PaginationComponent
+              totalItem={totalItem}
+              pageNumber={Number(pageNumber)}
+            />
+          </div>
+
+          {countryDetails[gender].notes && (
+            <section className="mt-12 p-8 text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                Additional Insights
+              </h3>
+              {countryDetails[gender].notes.map(
+                (note: string, index: number) => (
+                  <p key={index} className="text-lg text-gray-600 mb-4">
+                    {note}
+                  </p>
+                )
+              )}
+            </section>
+          )}
+
+          
         </div>
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default CountryGenderComponent
+export default CountryGenderComponent;
