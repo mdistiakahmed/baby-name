@@ -2,6 +2,10 @@ import { countries } from "@/data/countryMetadata";
 import { gender } from "@/data/genderMetadata";
 import { religions } from "@/data/religionMetadata";
 
+
+export const supportedReligions = ['islam', 'hindu', 'christian'];
+export const supportedCountries = ['usa', 'india-tamil'];
+
 export const articleList = [
   {
     title: "Girls' Names in Hollywood Movies: From Classic to Contemporary",

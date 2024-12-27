@@ -11,15 +11,25 @@ import { Metadata } from "next";
 import ShareWidget from "@/components/share/ShareWidget";
 import { capitalize, encodeNameIndex } from "@/utils/converters";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({
   params,
+  searchParams
 }: any): Promise<Metadata | undefined> {
   const { genderName } = params;
+
+  // Canonical URL strategy
+  const canonicalUrl = searchParams['page'] === '1' 
+    ? `/gender/${genderName}` 
+    : `/gender/${genderName}?page=${searchParams['page']}`;
 
   return {
     title: `Baby ${capitalize(genderName)} Names | BabyNameNestlings`,
     description: `Find most beautiful ${genderName} name for your baby.`,
+    alternates: {
+      canonical: canonicalUrl
+    },
     openGraph: {
       title: `${capitalize(genderName)} baby Names | BabyNameNestlings`,
       description: `Find most beautiful ${genderName} name for your baby.`,
@@ -39,13 +49,31 @@ export async function generateMetadata({
   };
 }
 
-const page = async ({ params }: any) => {
+const page = async ({ params, searchParams }: any) => {
+  // Redirect if page is 1
+  if (searchParams['page'] === '1') {
+    redirect(`/gender/${params.genderName}`);
+  }
   const { genderName } = params;
+  const currentPage = searchParams['page'] ? String(searchParams['page']) : '1';
+
   const genderDetalis = getGenderByName(genderName);
   const { nameList, positions } = await getDataUpdated(null, null, genderName);
 
+  const pageNumber = Number(currentPage);
   const totalItem = nameList?.length;
-  const firstPageData = nameList?.slice(0, ITEMS_PER_PAGE);
+
+  const paginatedNameList = nameList?.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
+  );
+
+
+
+
+
+  //const totalItem = nameList?.length;
+  //const firstPageData = nameList?.slice(0, ITEMS_PER_PAGE);
   return (
     <div className="flex items-center justify-center w-full">
       <div className=" w-[95vw] md:w-[70vw] ">
@@ -86,6 +114,10 @@ const page = async ({ params }: any) => {
             </div>
           </div>
 
+          <div className="flex items-center justify-center p-10">
+            <PaginationComponent totalItem={totalItem} />
+          </div>
+
           <Accordion>
             <AccordionSummary aria-controls="panel1-content" id="panel1-header">
               <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
@@ -93,7 +125,7 @@ const page = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {firstPageData?.map((nameObj: any, index: any) => {
+          {paginatedNameList?.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary

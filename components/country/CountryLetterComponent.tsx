@@ -3,64 +3,32 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Metadata } from "next";
 import LetterSearch from "@/components/search/LetterSearch";
 import PaginationComponent from "@/components/pagination/PaginationComponent";
 import { getData, getDataUpdated } from "@/utils/getData";
-import {
-  getCountryByName,
-  getGenderByName,
-  ITEMS_PER_PAGE,
-} from "@/utils/constants";
+import { getCountryByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import Link from "next/link";
 import { encodeNameIndex } from "@/utils/converters";
 
-export async function generateMetadata({
-  params,
-}: any): Promise<Metadata | undefined> {
-  const { genderName, letter } = params;
+const CountryLetterComponent = async ({
+  countryName,
+  gender,
+  letter,
+  pageNumber,
+}: any) => {
+  const countryDetails = getCountryByName(countryName);
 
-  const title = `${genderName} name starts with ${letter
-    .charAt(0)
-    .toUpperCase()}`;
-
-  return {
-    title: `${title}  | BabyNameNestlings`,
-    description: `Discover ${title} with their meaning and historic importance`,
-    openGraph: {
-      title: `${title}  | BabyNameNestlings`,
-      description: `Discover ${title} with their meaning and historic importance`,
-      type: "article",
-      locale: "en_US",
-      url: `http://babynamenestlings.com/gender/${genderName}/${letter}`,
-      siteName: "BabyNameNestlings",
-      images: [
-        {
-          url: "/baby.webp",
-          width: 1200,
-          height: 630,
-          alt: "Smiling babies",
-        },
-      ],
-    },
-  };
-}
-
-const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
-  const { genderName, letter, pageId } = params;
-  const genderDetalis = getGenderByName(genderName);
-
-  const { nameList, positions }: any = await getDataUpdated(
+  const { nameList, positions } = (await getDataUpdated(
+    countryName,
     null,
-    null,
-    genderName
-  );
-  const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
+    gender
+  )) as any;
+
+  const pos = letter.toLowerCase().charCodeAt(0) - "a".charCodeAt(0);
   const boundary = positions[pos];
 
   const letterNameList = nameList.slice(boundary[0], boundary[1] + 1);
 
-  const pageNumber = Number(pageId);
   const totalItem = letterNameList.length;
 
   const paginatedNameList = letterNameList.slice(
@@ -68,25 +36,16 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
     pageNumber * ITEMS_PER_PAGE
   );
 
+  const title = `${countryDetails.desc} ${gender} name starts with 
+                  ${letter.charAt(0).toUpperCase()}`;
+
   const calculatePageNumber = (currentIndex: any) => {
-    return (
-      Math.floor(
-        (boundary[0] + (pageNumber - 1) * ITEMS_PER_PAGE + currentIndex) /
-          ITEMS_PER_PAGE
-      ) + 1
-    );
+    return Math.floor((boundary[0] + currentIndex) / ITEMS_PER_PAGE) + 1;
   };
 
   const calculatePageIndex = (currentIndex: any) => {
-    return (
-      (boundary[0] + (pageNumber - 1) * ITEMS_PER_PAGE + currentIndex) %
-      ITEMS_PER_PAGE
-    );
+    return (boundary[0] + currentIndex) % ITEMS_PER_PAGE;
   };
-
-  const title = `${genderDetalis.name} name starts with ${letter
-    .charAt(0)
-    .toUpperCase()}`;
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -102,13 +61,13 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
             />
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center m-5">
-            <div className="flex gap-4 items-center">
+            <div className="flex flex-col md:flex-row gap-4 items-center">
               <Image
-                alt={genderName}
+                alt={countryDetails.name}
                 height={10}
                 width={10}
                 className="w-auto h-10"
-                src={genderDetalis.image}
+                src={`https://flagcdn.com/${countryDetails.code}.svg`}
               />
               <h1 className="text-2xl text-center ">{title}</h1>
             </div>
@@ -149,7 +108,7 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
                     })}
                     {nameObj.isDetailsPresent ? (
                       <Link
-                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(null, null, genderName, calculatePageNumber(index), calculatePageIndex(index))}`}
+                        href={`/meaning-of-name-${nameObj.name.toLowerCase()}-${encodeNameIndex(countryName, null, gender, calculatePageNumber(index), calculatePageIndex(index))}`}
                         target="_blank"
                         className="font-semibold underline"
                       >
@@ -165,7 +124,7 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
           <div className="flex items-center justify-center p-10">
             <PaginationComponent
               totalItem={totalItem}
-              pageNumber={pageNumber}
+              pageNumber={Number(pageNumber)}
             />
           </div>
         </div>
@@ -174,4 +133,4 @@ const PaginatedCountryGenderLetterPage = async ({ params }: any) => {
   );
 };
 
-export default PaginatedCountryGenderLetterPage;
+export default CountryLetterComponent;

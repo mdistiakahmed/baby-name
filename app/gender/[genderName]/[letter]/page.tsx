@@ -10,11 +10,17 @@ import { getData, getDataUpdated } from "@/utils/getData";
 import { getGenderByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import Link from "next/link";
 import { encodeNameIndex } from "@/utils/converters";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({
-  params,
+  params, searchParams
 }: any): Promise<Metadata | undefined> {
   const { genderName, letter } = params;
+
+  // Canonical URL strategy
+  const canonicalUrl = searchParams['page'] === '1' 
+    ? `/gender/${genderName}/${letter}` 
+    : `/gender/${genderName}/${letter}?page=${searchParams['page']}`;
 
   const title = `${genderName} name starts with ${letter
     .charAt(0)
@@ -23,6 +29,9 @@ export async function generateMetadata({
   return {
     title: `${title}  | BabyNameNestlings`,
     description: `Discover ${title} with their meaning and historic importance`,
+    alternates: {
+      canonical: canonicalUrl
+    },
     openGraph: {
       title: `${title}  | BabyNameNestlings`,
       description: `Discover ${title} with their meaning and historic importance`,
@@ -42,8 +51,13 @@ export async function generateMetadata({
   };
 }
 
-const CountryGenderLetterPage = async ({ params }: any) => {
+const CountryGenderLetterPage = async ({ params, searchParams }: any) => {
+  // Redirect if page is 1
+  if (searchParams['page'] === '1') {
+    redirect(`/gender/${params.genderName}/${params.letter}`);
+  }
   const { genderName, letter } = params;
+  const currentPage = searchParams['page'] ? String(searchParams['page']) : '1';
   const genderDetalis = getGenderByName(genderName);
 
   const { nameList, positions }: any = await getDataUpdated(
@@ -52,15 +66,21 @@ const CountryGenderLetterPage = async ({ params }: any) => {
     genderName
   );
 
-  const pos = letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0);
+  const pos = letter.toLowerCase().charCodeAt(0) - "a".charCodeAt(0);
   const boundary = positions[pos];
 
-  const letterNameList = nameList.slice(
-    boundary[0],
-    Math.min(boundary[1] + 1, boundary[0] + ITEMS_PER_PAGE)
+  const letterNameList = nameList.slice(boundary[0], boundary[1] + 1);
+
+  const pageNumber = Number(currentPage);
+  const totalItem = letterNameList.length;
+
+  const paginatedNameList = letterNameList.slice(
+    (pageNumber - 1) * ITEMS_PER_PAGE,
+    pageNumber * ITEMS_PER_PAGE
   );
 
-  const totalItem = boundary[1] - boundary[0] + 1;
+  
+
   const title = `${genderDetalis.name} name starts with ${letter
     .charAt(0)
     .toUpperCase()}`;
@@ -103,6 +123,10 @@ const CountryGenderLetterPage = async ({ params }: any) => {
             </div>
           </div>
 
+          <div className="flex items-center justify-center p-10">
+            <PaginationComponent totalItem={totalItem} />
+          </div>
+
           <Accordion>
             <AccordionSummary aria-controls="panel1-content" id="panel1-header">
               <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
@@ -110,7 +134,7 @@ const CountryGenderLetterPage = async ({ params }: any) => {
             </AccordionSummary>
           </Accordion>
 
-          {letterNameList.map((nameObj: any, index: any) => {
+          {paginatedNameList.map((nameObj: any, index: any) => {
             return (
               <Accordion key={index}>
                 <AccordionSummary

@@ -69,28 +69,25 @@ const LetterSearch = ({ positions }: any) => {
   };
 
   const onSelect = (letter: string) => {
-    const segments = pathname.split("/");
-    const lastSegment = segments[segments.length - 1];
-    const isPaginatedPage = segments.includes("pagination");
-
-    // Check if last segment ends with a single letter
-    if (isPaginatedPage) {
-      segments.pop();
-      segments.pop();
-      if (segments[segments.length - 1].length === 1) {
-        segments.pop();
-      }
-      const newUrl = segments.join("/");
-      router.push(`${newUrl}/${letter}`);
-    } else if (lastSegment.length === 1) {
-      const newPath = pathname.replace(/\/[A-Z]$/, `/${letter}`);
-      router.push(newPath);
+    console.log("pathname", pathname)
+    // Split the current pathname
+    const pathSegments = pathname.split('/');
+    
+    // Check if the last segment is a single letter
+    if (pathSegments[pathSegments.length - 1].length === 1) {
+      // Replace the last letter segment
+      pathSegments[pathSegments.length - 1] = letter.toLowerCase();
     } else {
-      const newPath = `${pathname}/${letter}`;
-      router.push(newPath);
+      // Append the letter if no letter segment exists
+      pathSegments.push(letter.toLowerCase());
     }
 
-    setAnchorEl(null);
+    // Reconstruct the new path
+    const newPath = pathSegments.join('/');
+    
+    // Navigate to the new path
+    router.push(newPath);
+    handleClose();
   };
 
   const alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(
