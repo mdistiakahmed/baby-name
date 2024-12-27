@@ -32,7 +32,7 @@ const MobileCategoryDropdown = () => {
           src={r.image}
         />
       }
-      onClick={() => handleItemClick(`/religion/${r.name.toLocaleLowerCase()}`)}
+      onClick={() => handleItemClick(`/${r.name.toLocaleLowerCase()}`)}
     >
       {`${r.desc} name`}
     </DropdownItem>,
@@ -51,7 +51,7 @@ const MobileCategoryDropdown = () => {
           src={`/young-girl-icon.svg`}
         />
       }
-      onClick={() => handleItemClick(`/gender/girl`)}
+      onClick={() => handleItemClick(`/usa/girl`)}
     >
       Girl name
     </DropdownItem>,
@@ -67,7 +67,7 @@ const MobileCategoryDropdown = () => {
           src={`/young-boy-icon.svg`}
         />
       }
-      onClick={() => handleItemClick(`/gender/boy`)}
+      onClick={() => handleItemClick(`/usa/boy`)}
     >
       Boy name
     </DropdownItem>,
@@ -122,7 +122,7 @@ const MobileCategoryDropdown = () => {
           src={`https://flagcdn.com/${c.code}.svg`}
         />
       }
-      onClick={() => handleItemClick(`/country/${c.name.toLocaleLowerCase()}`)}
+      onClick={() => handleItemClick(`/${c.name.toLocaleLowerCase()}`)}
     >
       {c.desc} name
     </DropdownItem>,

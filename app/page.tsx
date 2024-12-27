@@ -309,7 +309,7 @@ const HomePage = async () => {
 
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/gender/girl`}
+                  href={`/usa/girl`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More
@@ -366,7 +366,7 @@ const HomePage = async () => {
 
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/gender/boy`}
+                  href={`/usa/boy`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More

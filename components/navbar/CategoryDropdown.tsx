@@ -49,7 +49,7 @@ const CategoryDropdown = () => {
           src={`https://flagcdn.com/${c.code}.svg`}
         />
       }
-      onClick={() => handleItemClick(`/country/${c.name.toLocaleLowerCase()}`)}
+      onClick={() => handleItemClick(`/${c.name.toLocaleLowerCase()}`)}
     >
       {c.desc} name
     </DropdownItem>,
