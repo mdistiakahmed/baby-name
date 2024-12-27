@@ -180,11 +180,11 @@ const ReligionLetterComponent = async ({
 
             <p>
               Each name in our curated list carries a unique story, deeply
-              rooted in {religionDetails.desc} cultural contexts. Whether you're
-              seeking a name that honors spiritual significance, carries
-              historical weight, or simply sounds beautiful, our collection
-              provides insights into the rich tapestry of {gender} naming
-              conventions.
+              rooted in {religionDetails.desc} cultural contexts. Whether
+              you&apos;re seeking a name that honors spiritual significance,
+              carries historical weight, or simply sounds beautiful, our
+              collection provides insights into the rich tapestry of {gender}{" "}
+              naming conventions.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-800">

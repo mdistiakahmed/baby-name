@@ -146,17 +146,19 @@ const ReligionGenderComponent = async ({
           </div>
 
           {religionDetails[gender].notes && (
-          <section className="mt-12 p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800">
-              Additional Insights
-            </h3>
-            {religionDetails[gender].notes.map((note: string, index: number) => (
-              <p key={index} className="text-lg text-gray-600 mb-4">
-                {note}
-              </p>
-            ))}
-          </section>
-        )}
+            <section className="mt-12 p-8 text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                Additional Insights
+              </h3>
+              {religionDetails[gender].notes.map(
+                (note: string, index: number) => (
+                  <p key={index} className="text-lg text-gray-600 mb-4">
+                    {note}
+                  </p>
+                )
+              )}
+            </section>
+          )}
         </div>
       </div>
     </div>
