@@ -21,6 +21,16 @@
   background-color: #456d91;
 }
 
+@layer utilities {
+  .filter-orange {
+    filter: invert(57%) sepia(74%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  }
+
+  .filter-blue {
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(204deg) brightness(94%) contrast(94%);
+  }
+}
+
 
 .custom-botton::before {
     content: "";

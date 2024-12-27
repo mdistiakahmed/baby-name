@@ -14,8 +14,8 @@ import { encodeNameIndex } from "@/utils/converters";
 const HomePage = async () => {
   const currentYear = new Date().getFullYear();
 
-  const top20BoyNames = await getData("usaBoyName");
-  const top20GirlNames = await getData("usagirlName");
+  const top100BoyNames = await getData("usaTop100BoyName");
+  const top100GirlNames = await getData("usaTop100GirlName");
 
   const genderSection = (
     <div className="my-20">
@@ -67,7 +67,9 @@ const HomePage = async () => {
 
   const religionSection = (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">Find Name by Religion</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">
+        Find Name by Religion
+      </h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Find meaningful baby names inspired by religious beliefs and traditions.
         Our curated list includes baby names from diverse religious backgrounds,
@@ -111,7 +113,9 @@ const HomePage = async () => {
 
   const countrySection = (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">Baby Name by Country</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]">
+        Baby Name by Country
+      </h2>
       <p className="text-center px-4 py-6 mx-auto max-w-3xl text-lg leading-relaxed text-gray-800">
         Explore our extensive collection of baby names from various countries
         around the world. Discover unique and popular baby names that reflect
@@ -152,62 +156,69 @@ const HomePage = async () => {
   const faqData = [
     {
       question: "How do I choose the perfect baby name?",
-      answer: "Consider factors like cultural significance, family traditions, name meaning, sound, and personal connection. Think about how the name might grow with your child and potential nicknames."
+      answer:
+        "Consider factors like cultural significance, family traditions, name meaning, sound, and personal connection. Think about how the name might grow with your child and potential nicknames.",
     },
     {
       question: "Do names really impact a child's life?",
-      answer: "Research suggests names can influence perceptions and self-image. A meaningful name can provide a sense of identity and cultural connection."
+      answer:
+        "Research suggests names can influence perceptions and self-image. A meaningful name can provide a sense of identity and cultural connection.",
     },
     {
       question: "How many names should I consider before deciding?",
-      answer: "We recommend creating a shortlist of 5-10 names. Discuss with your partner, say them out loud, and see how they feel over time."
+      answer:
+        "We recommend creating a shortlist of 5-10 names. Discuss with your partner, say them out loud, and see how they feel over time.",
     },
     {
       question: "Are unique names better than traditional names?",
-      answer: "There's no universal 'better' - it depends on your personal preference. Unique names can be memorable, while traditional names offer a sense of familiarity and connection."
+      answer:
+        "There's no universal 'better' - it depends on your personal preference. Unique names can be memorable, while traditional names offer a sense of familiarity and connection.",
     },
     {
       question: "How can I ensure my baby's name is meaningful?",
-      answer: "Research the name's origin, meaning, and cultural significance. Consider names that reflect your family's heritage, values, or aspirations for your child."
+      answer:
+        "Research the name's origin, meaning, and cultural significance. Consider names that reflect your family's heritage, values, or aspirations for your child.",
     },
     {
       question: "What should I avoid when naming my baby?",
-      answer: "Avoid names that could lead to potential teasing, difficult pronunciations, or unfortunate initials. Consider how the name sounds with your last name and potential nicknames."
+      answer:
+        "Avoid names that could lead to potential teasing, difficult pronunciations, or unfortunate initials. Consider how the name sounds with your last name and potential nicknames.",
     },
     {
       question: "How do cultural backgrounds influence baby naming?",
-      answer: "Different cultures have unique naming traditions. Some follow family naming patterns, others have religious significance, and some prioritize meanings or family honors."
+      answer:
+        "Different cultures have unique naming traditions. Some follow family naming patterns, others have religious significance, and some prioritize meanings or family honors.",
     },
     {
       question: "Can I change my baby's name later?",
-      answer: "While possible, changing a name legally can be complex. Most name changes require a legal process and can be costly. It's best to choose carefully from the start."
+      answer:
+        "While possible, changing a name legally can be complex. Most name changes require a legal process and can be costly. It's best to choose carefully from the start.",
     },
     {
       question: "How do I handle family pressure about naming?",
-      answer: "Communicate openly with family. Explain your reasoning, listen to their suggestions, but remember the final decision is yours. Balance respect for traditions with your personal preferences."
+      answer:
+        "Communicate openly with family. Explain your reasoning, listen to their suggestions, but remember the final decision is yours. Balance respect for traditions with your personal preferences.",
     },
     {
       question: "What are the trends in baby naming?",
-      answer: "Current trends include nature-inspired names, gender-neutral names, vintage revivals, and names with cultural significance. However, choose a name that resonates with you, not just trends."
-    }
+      answer:
+        "Current trends include nature-inspired names, gender-neutral names, vintage revivals, and names with cultural significance. However, choose a name that resonates with you, not just trends.",
+    },
   ];
 
   const FAQSection = (
-    <section 
-      className="py-16 px-4 md:px-0" 
-      aria-labelledby="faq-section-title"
-    >
+    <section className="py-16 px-4 md:px-0" aria-labelledby="faq-section-title">
       <div className="max-w-5xl mx-auto">
-        <h2 
-          id="faq-section-title" 
+        <h2
+          id="faq-section-title"
           className="text-3xl font-bold text-center mb-12 text-gray-900 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#f06246]"
         >
           Frequently Asked Questions
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {faqData.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6"
             >
               <div className="flex items-start mb-4">
@@ -218,15 +229,13 @@ const HomePage = async () => {
                   {faq.question}
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                {faq.answer}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
             </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             className="bg-[#f06246] text-white px-6 py-3 rounded-full hover:bg-[#d84e2f] transition-colors duration-300 inline-block shadow-md hover:shadow-lg"
           >
             Contact Us For More Help
@@ -262,12 +271,13 @@ const HomePage = async () => {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="flex-1">
               <div className="flex flex-col items-center justify-center mb-5">
-                <h3 className="text-xl font-bold text-center mt-5 break-words">
-                  Popular baby names (girl) from 1994 - {currentYear}
-                </h3>
+                <h2 className="text-xl font-bold text-center mt-5 break-words">
+                  Top Girl Names in the USA for {currentYear}: Most Popular
+                  Choice
+                </h2>
               </div>
-              {top20GirlNames.nameList
-                .slice(0, 20)
+              {top100GirlNames.nameList
+                .slice(0, 30)
                 .map((nameObj: any, index: any) => {
                   return (
                     <Accordion key={index}>
@@ -276,7 +286,17 @@ const HomePage = async () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                       >
-                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        <Typography
+                          sx={{ width: "33%", flexShrink: 0 }}
+                          className="flex items-center"
+                        >
+                          <Image
+                            alt="girls name"
+                            height={20}
+                            width={20}
+                            className="mr-2 w-5 h-5 filter-orange"
+                            src={"/young-girl-icon.svg"}
+                          />
                           {nameObj.name}
                         </Typography>
                         <Typography sx={{ color: "text.secondary" }}>
@@ -319,12 +339,13 @@ const HomePage = async () => {
 
             <div className="flex-1">
               <div className="flex flex-col items-center justify-center mb-5">
-                <h3 className="text-xl font-bold text-center mt-5 ">
-                  Popular baby names (boy) from 1994 - {currentYear}
-                </h3>
+                <h2 className="text-xl font-bold text-center mt-5 ">
+                  Top Boy Names in the USA for {currentYear}: Most Popular
+                  Choice
+                </h2>
               </div>
-              {top20BoyNames.nameList
-                .slice(0, 20)
+              {top100BoyNames.nameList
+                .slice(0, 30)
                 .map((nameObj: any, index: any) => {
                   return (
                     <Accordion key={index}>
@@ -333,7 +354,17 @@ const HomePage = async () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                       >
-                        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                        <Typography
+                          sx={{ width: "33%", flexShrink: 0 }}
+                          className="flex items-center"
+                        >
+                          <Image
+                            alt="boys name"
+                            height={20}
+                            width={20}
+                            className="mr-2 w-5 h-5 filter-blue"
+                            src={"/young-boy-icon.svg"}
+                          />
                           {nameObj.name}
                         </Typography>
                         <Typography sx={{ color: "text.secondary" }}>
@@ -377,12 +408,6 @@ const HomePage = async () => {
         </div>
         <div>{genderSection}</div>
 
-        
-
-
-
-
-        
         <div>{religionSection}</div>
 
         <div className="mt-10">{countrySection}</div>
