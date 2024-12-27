@@ -45,41 +45,43 @@ const ReligionComponent = async ({ religionName }: any) => {
   
           <div className="flex flex-col md:flex-row gap-2 my-[20px] cursor-pointer">
             <Link href={`/${religionName}/boy`}>
-              <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
-                <Image
-                  alt={religionName}
-                  height={20}
-                  width={20}
-                  className="w-20 h-20"
-                  src={"/young-boy-icon.svg"}
-                />
-                <p className="text-xl text-center ">
-                  Find {religionDetails.desc} Boys Name
-                </p>
-              </div>
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-2xl p-6 flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out transform hover:-translate-y-2 shadow-2xl">
+              <Image
+                alt="Boys Names"
+                height={80}
+                width={80}
+                className="w-24 h-24 group-hover:scale-110 transition-transform"
+                src="/young-boy-icon.svg"
+                loading="lazy"
+              />
+              <h2 className="text-xl font-semibold text-center">
+                {religionDetails.desc} Boys Names
+              </h2>
+            </div>
             </Link>
             <Link href={`/${religionName}/girl`}>
-              <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
-                <Image
-                  alt={religionName}
-                  height={20}
-                  width={20}
-                  className="w-20 h-20"
-                  src={"/young-girl-icon.svg"}
-                />
-                <p className="text-xl text-center ">
-                  Find {religionDetails.desc} Girls Name
-                </p>
-              </div>
+            <div className="bg-gradient-to-r from-[#f06246] to-[#f3917d] hover:from-[#f3917d] hover:to-[#f8c194] text-white rounded-2xl p-6 flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out transform hover:-translate-y-2 shadow-2xl">
+              <Image
+                alt="Girls Names"
+                height={80}
+                width={80}
+                className="w-24 h-24 group-hover:scale-110 transition-transform"
+                src="/young-girl-icon.svg"
+                loading="lazy"
+              />
+              <h2 className="text-xl font-semibold text-center">
+                {religionDetails.desc} Girls Names
+              </h2>
+            </div>
             </Link>
           </div>
   
           <div className="w-full">
             <div className="rounded-lg w-full">
               <div className="flex flex-col items-center justify-center mb-5">
-                <h3 className="text-2xl font-bold text-center mt-5 ">
-                  Top 20 {religionDetails.desc} Girls Name in {currentYear}
-                </h3>
+              <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+              Top 20 {religionDetails.desc} Girls Names in {currentYear}
+            </h2>
               </div>
   
               {girlNameList.slice(0, 20).map((nameObj: any, index: any) => {
@@ -98,7 +100,7 @@ const ReligionComponent = async ({ religionName }: any) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                      <ul className="list-disc py-5 px-10">
                         {nameObj.stories.map((story: any, idx: any) => {
                           return (
                             <li key={idx} className="mb-2">
@@ -135,9 +137,9 @@ const ReligionComponent = async ({ religionName }: any) => {
   
             <div className="rounded-lg w-full">
               <div className="flex flex-col items-center justify-center mb-5">
-                <h3 className="text-2xl font-bold text-center mt-5 ">
-                  Top 20 {religionDetails.desc} Boys Name in {currentYear}
-                </h3>
+              <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+              Top 20 {religionDetails.desc} Boys Names in {currentYear}
+            </h2>
               </div>
   
               {boyNameList.slice(0, 20).map((nameObj: any, index: any) => {
@@ -156,7 +158,7 @@ const ReligionComponent = async ({ religionName }: any) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                      <ul className="list-disc py-5 px-10">
                         {nameObj.stories.map((story: any, idx: any) => {
                           return (
                             <li key={idx} className="mb-2">
@@ -191,14 +193,18 @@ const ReligionComponent = async ({ religionName }: any) => {
           </div>
   
           <div className="flex flex-col gap-5">
-            {religionDetails.notes &&
-              religionDetails.notes.map((n: any, index: any) => {
-                return (
-                  <p key={index} className="text-xl text-center">
-                    {n}
-                  </p>
-                );
-              })}
+          {religionDetails.notes && (
+          <section className="mt-12  p-8 text-center">
+            <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+              Additional Insights
+            </h3>
+            {religionDetails.notes.map((note: string, index: number) => (
+              <p key={index} className="text-lg text-gray-600 mb-4">
+                {note}
+              </p>
+            ))}
+          </section>
+        )}
           </div>
         </div>
       </div>
