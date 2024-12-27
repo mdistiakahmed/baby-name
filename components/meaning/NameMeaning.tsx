@@ -11,8 +11,6 @@ import { getDataUpdated } from "@/utils/getData";
 import { Metadata } from "next";
 
 const NameMeaning = async ({id}: any) => {
-    console.log(id);
-
     const encodedId = id.split("-")[4];
     const { country, religion, gender, pageNumber, index } =
       decodeNameIndex(encodedId);
