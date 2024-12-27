@@ -44,7 +44,7 @@ const ReligionComponent = async ({ religionName }: any) => {
           <ShareWidget />
   
           <div className="flex flex-col md:flex-row gap-2 my-[20px] cursor-pointer">
-            <Link href={`/religion/${religionName}/boy`}>
+            <Link href={`/${religionName}/boy`}>
               <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
                 <Image
                   alt={religionName}
@@ -58,7 +58,7 @@ const ReligionComponent = async ({ religionName }: any) => {
                 </p>
               </div>
             </Link>
-            <Link href={`/religion/${religionName}/girl`}>
+            <Link href={`/${religionName}/girl`}>
               <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
                 <Image
                   alt={religionName}
@@ -125,7 +125,7 @@ const ReligionComponent = async ({ religionName }: any) => {
   
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/religion/${religionName}/girl`}
+                  href={`/${religionName}/girl`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More
@@ -181,7 +181,7 @@ const ReligionComponent = async ({ religionName }: any) => {
   
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/religion/${religionName}/boy`}
+                  href={`/${religionName}/boy`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More

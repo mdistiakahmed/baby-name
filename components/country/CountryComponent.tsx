@@ -46,7 +46,7 @@ const CountryComponent = async ({ countryName } : any) => {
           <ShareWidget />
   
           <div className="flex flex-col md:flex-row gap-2 my-[40px] cursor-pointer">
-            <Link href={`/country/${countryName}/boy`}>
+            <Link href={`/${countryName}/boy`}>
               <div className="h-[250px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
                 <Image
                   alt={countryName}
@@ -60,7 +60,7 @@ const CountryComponent = async ({ countryName } : any) => {
                 </p>
               </div>
             </Link>
-            <Link href={`/country/${countryName}/girl`}>
+            <Link href={`/${countryName}/girl`}>
               <div className="h-[250px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
                 <Image
                   alt={countryName}
@@ -127,7 +127,7 @@ const CountryComponent = async ({ countryName } : any) => {
   
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/country/${countryName}/girl`}
+                  href={`/${countryName}/girl`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More
@@ -185,7 +185,7 @@ const CountryComponent = async ({ countryName } : any) => {
   
               <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
                 <Link
-                  href={`/country/${countryName}/boy`}
+                  href={`/${countryName}/boy`}
                   className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
                 >
                   See More

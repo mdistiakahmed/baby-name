@@ -29,7 +29,7 @@ const HomePage = async () => {
         and style.
       </p>
       <div className="flex flex-col md:flex-row items-center justify-center gap-2 my-[20px] cursor-pointer">
-        <Link href={`/gender/boy`}>
+        <Link href={`/usa/boy`}>
           <div className="h-[180px] w-[300px]  rounded-xl flex flex-col  items-center justify-center bg-[#006fee] hover:bg-[#88b3e3]  text-white hover:text-black">
             <Image
               alt="boyes name"
@@ -45,7 +45,7 @@ const HomePage = async () => {
             </p>
           </div>
         </Link>
-        <Link href={`/gender/girl`}>
+        <Link href={`/usa/girl`}>
           <div className="h-[180px] w-[300px]  rounded-xl flex flex-col items-center justify-center bg-[#f06246] hover:bg-[#f3917d] text-white hover:text-black">
             <Image
               alt="girls name"
@@ -84,7 +84,7 @@ const HomePage = async () => {
               ? "bg-[#f06246] hover:bg-[#f3917d]"
               : "bg-[#006fee] hover:bg-[#88b3e3]";
           return (
-            <Link href={`/religion/${r.path}`} key={index}>
+            <Link href={`/${r.path.toLowerCase()}`} key={index}>
               <div
                 className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
               >
@@ -106,14 +106,6 @@ const HomePage = async () => {
           );
         })}
       </div>
-      <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-        <Link
-          href={`/religion`}
-          className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-        >
-          See More
-        </Link>
-      </div>
     </div>
   );
 
@@ -132,7 +124,7 @@ const HomePage = async () => {
               ? "bg-[#f06246] hover:bg-[#f3917d]"
               : "bg-[#006fee] hover:bg-[#88b3e3]";
           return (
-            <Link href={`/country/${c.name}`} key={index}>
+            <Link href={`/${c.name.toLowerCase()}`} key={index}>
               <div
                 className={`h-[250px] w-[300px] rounded-xl flex flex-col items-center justify-center text-white hover:text-black ${mediumBgClass}`}
               >
@@ -153,14 +145,6 @@ const HomePage = async () => {
             </Link>
           );
         })}
-      </div>
-      <div className="flex items-center justify-end p-5 mr-[60px] md:mr-[80px]">
-        <Link
-          href={`/country`}
-          className="bg-[#f06246] hover:bg-[#f8c194] hover:text-black p-2 px-5 text-white font-bold relative custom-botton"
-        >
-          See More
-        </Link>
       </div>
     </div>
   );

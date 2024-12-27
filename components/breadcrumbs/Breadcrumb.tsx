@@ -9,7 +9,7 @@ const generateBreadcrumbs = (pathname: string) => {
 
   return pathSegments.map((segment, index) => {
     const href = "/" + pathSegments.slice(0, index + 1).join("/");
-    const displayName = segment.charAt(0).toUpperCase() + segment.slice(1);
+    const displayName = segment.toUpperCase();
 
     return { href, displayName };
   });
@@ -27,7 +27,7 @@ const Breadcrumb = () => {
     <div className="overflow-x-auto max-w-full">
       <Breadcrumbs className="p-4">
         <BreadcrumbItem key={1000}>
-          <Link href="/">Home</Link>
+          <Link href="/">HOME</Link>
         </BreadcrumbItem>
         {breadcrumbs.map((breadcrumb, index) => (
           <BreadcrumbItem key={index}>

@@ -75,7 +75,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <GoogleAnalytics gaId="G-P2GM4FBYCH" />
-      <body className={inter.className}>
+      <body className={`${inter.className}  bg-[url('/snowflakes.png')]`}>
         <NextUIProvider>
           <NavComponent />
           <Breadcrumb />
