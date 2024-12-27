@@ -287,7 +287,7 @@ const HomePage = async () => {
                         id="panel1-header"
                       >
                         <Typography
-                          sx={{ width: "33%", flexShrink: 0 }}
+                          sx={{ width: "45%", flexShrink: 0 }}
                           className="flex items-center"
                         >
                           <Image
@@ -355,7 +355,7 @@ const HomePage = async () => {
                         id="panel1-header"
                       >
                         <Typography
-                          sx={{ width: "33%", flexShrink: 0 }}
+                          sx={{ width: "45%", flexShrink: 0 }}
                           className="flex items-center"
                         >
                           <Image
