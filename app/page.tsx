@@ -304,7 +304,7 @@ const HomePage = async () => {
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        <ul className="list-disc py-5 px-10">
                           {nameObj.stories.map((story: any, idx: any) => {
                             return (
                               <li key={idx} className="mb-2">
@@ -372,7 +372,7 @@ const HomePage = async () => {
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
+                        <ul className="list-disc py-5 px-10 ">
                           {nameObj.stories.map((story: any, idx: any) => {
                             return (
                               <li key={idx} className="mb-2">
