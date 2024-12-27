@@ -40,27 +40,27 @@ const NavComponent = () => {
 
       <NavbarContent justify="end" className="hidden md:flex">
         <NavbarItem>
-          <Link href="/gender/girl" className="text-white font-medium">
+          <Link href="/usa/girl" className="text-white font-medium">
             <p>Girl Name</p>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/gender/boy" className="text-white font-medium">
+          <Link href="/usa/boy" className="text-white font-medium">
             <p>Boy Name</p>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/religion/christian" className="text-white font-medium">
+          <Link href="/christian" className="text-white font-medium">
             <p>Christian Name</p>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/religion/hindu" className="text-white font-medium">
+          <Link href="/hindu" className="text-white font-medium">
             <p>Hindu Name</p>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/religion/islam" className="text-white font-medium">
+          <Link href="/islam" className="text-white font-medium">
             <p>Muslim Name</p>
           </Link>
         </NavbarItem>
