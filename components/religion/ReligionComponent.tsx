@@ -92,7 +92,17 @@ const ReligionComponent = async ({ religionName }: any) => {
                     aria-controls="panel1-content"
                     id="panel1-header"
                   >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography
+                      sx={{ width: "45%", flexShrink: 0 }}
+                      className="flex items-center"
+                    >
+                      <Image
+                        alt={"girls name"}
+                        height={20}
+                        width={20}
+                        className={"mr-2 w-5 h-5 filter-orange"}
+                        src={"/young-girl-icon.svg"}
+                      />
                       {nameObj.name}
                     </Typography>
                     <Typography sx={{ color: "text.secondary" }}>
@@ -150,7 +160,17 @@ const ReligionComponent = async ({ religionName }: any) => {
                     aria-controls="panel1-content"
                     id="panel1-header"
                   >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography
+                      sx={{ width: "45%", flexShrink: 0 }}
+                      className="flex items-center"
+                    >
+                      <Image
+                        alt={"boys name"}
+                        height={20}
+                        width={20}
+                        className={"mr-2 w-5 h-5 filter-blue"}
+                        src={"/young-boy-icon.svg"}
+                      />
                       {nameObj.name}
                     </Typography>
                     <Typography sx={{ color: "text.secondary" }}>

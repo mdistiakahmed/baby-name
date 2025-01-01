@@ -10,6 +10,7 @@ import { getData, getDataUpdated } from "@/utils/getData";
 import { getReligionByName, ITEMS_PER_PAGE } from "@/utils/constants";
 import Link from "next/link";
 import { encodeNameIndex } from "@/utils/converters";
+import { Typography } from "@mui/material";
 
 const ReligionLetterComponent = async ({
   religionName,
@@ -89,8 +90,13 @@ const ReligionLetterComponent = async ({
 
         <Accordion>
           <AccordionSummary aria-controls="panel1-content" id="panel1-header">
-            <p className="w-[40%] flex-shrink-0 font-bold text-black">Name</p>
-            <p className="text-sm  font-bold text-black">Meaning</p>
+            <Typography
+              sx={{ width: "45%", flexShrink: 0 }}
+              className="flex items-center"
+            >
+              Name
+            </Typography>
+            <Typography>Meaning</Typography>
           </AccordionSummary>
         </Accordion>
 
@@ -102,10 +108,30 @@ const ReligionLetterComponent = async ({
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <p className="w-[40%] flex-shrink-0  text-black">
+                <Typography
+                  sx={{ width: "45%", flexShrink: 0 }}
+                  className="flex items-center"
+                >
+                  <Image
+                    alt={gender === "boy" ? "boys name" : "girls name"}
+                    height={20}
+                    width={20}
+                    className={
+                      gender.toLowerCase() === "boy"
+                        ? "mr-2 w-5 h-5 filter-blue"
+                        : "mr-2 w-5 h-5 filter-orange"
+                    }
+                    src={
+                      gender.toLowerCase() === "boy"
+                        ? "/young-boy-icon.svg"
+                        : "/young-girl-icon.svg"
+                    }
+                  />
                   {nameObj.name}
-                </p>
-                <p className="text-sm  text-black">{nameObj.meaning}</p>
+                </Typography>
+                <Typography sx={{ color: "text.secondary" }}>
+                  {nameObj.meaning}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">

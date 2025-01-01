@@ -35,18 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${BASE_URL}/country`,
-      lastModified: new Date(),
-      changeFrequency: "daily" as any,
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/religion`,
-      lastModified: new Date(),
-      changeFrequency: "daily" as any,
-      priority: 0.8,
-    },
-    {
       url: `${BASE_URL}/articles`,
       lastModified: new Date(),
       changeFrequency: "daily" as any,
@@ -56,14 +44,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const countryCategories = countries.flatMap((country) => [
     {
-      url: `${BASE_URL}/country/${country.name.toLowerCase()}`,
+      url: `${BASE_URL}/${country.name.toLowerCase()}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as any,
       priority: 0.7,
     },
     ...gender.flatMap((g) => [
       {
-        url: `${BASE_URL}/country/${country.name.toLowerCase()}/${g.name.toLowerCase()}`,
+        url: `${BASE_URL}/${country.name.toLowerCase()}/${g.name.toLowerCase()}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as any,
         priority: 0.6,
@@ -73,14 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const religionCategories = religions.flatMap((religion) => [
     {
-      url: `${BASE_URL}/religion/${religion.name.toLowerCase()}`,
+      url: `${BASE_URL}/${religion.name.toLowerCase()}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as any,
       priority: 0.7,
     },
     ...gender.flatMap((g) => [
       {
-        url: `${BASE_URL}/religion/${religion.name.toLowerCase()}/${g.name.toLowerCase()}`,
+        url: `${BASE_URL}/${religion.name.toLowerCase()}/${g.name.toLowerCase()}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as any,
         priority: 0.6,
@@ -89,12 +77,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]);
 
   const alphabetCategories = alphabet.flatMap((letter) => [
-    {
-      url: `${BASE_URL}/names/${letter.toLowerCase()}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as any,
-      priority: 0.5,
-    },
+    ...religions.flatMap((religion) => 
+      gender.flatMap((g) => [
+        {
+          url: `${BASE_URL}/${religion.name.toLowerCase()}/${g.name.toLowerCase()}/${letter.toLowerCase()}`,
+          lastModified: new Date(),
+          changeFrequency: "weekly" as const,
+          priority: 0.4,
+        }
+      ])
+    )
   ]);
 
   return [

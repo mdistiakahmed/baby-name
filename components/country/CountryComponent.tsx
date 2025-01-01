@@ -16,16 +16,26 @@ const CountryComponent = async ({ countryName }: any) => {
   const countryDetails = getCountryByName(countryName);
   const currentYear = new Date().getFullYear();
 
-  const top20BoyNames: any = await getDataUpdated(
+  const top100BoyNames = await getData("usaTop100BoyName");
+  const top100GirlNames = await getData("usaTop100GirlName");
+
+  let top20BoyNames: any = await getDataUpdated(
     countryName.toLowerCase(),
     null,
     "boy"
   );
-  const top20GirlNames: any = await getDataUpdated(
+  let top20GirlNames: any = await getDataUpdated(
     countryName.toLowerCase(),
     null,
     "girl"
   );
+
+  if(countryName === "usa") {
+    top20BoyNames ={nameList: [...top100BoyNames.nameList.slice(0, 10), ...top20BoyNames.nameList.slice(0, 10)]};
+    top20GirlNames = {nameList: [...top100GirlNames.nameList.slice(0, 10), ...top20GirlNames.nameList.slice(0, 10)]};
+  }
+
+  const isBigWidth = countryName ==="india-tamil";
 
   return (
     <div className="flex items-center justify-center w-full">
@@ -94,12 +104,22 @@ const CountryComponent = async ({ countryName }: any) => {
                       aria-controls="panel1-content"
                       id="panel1-header"
                     >
-                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                        {nameObj.name}
-                      </Typography>
-                      <Typography sx={{ color: "text.secondary" }}>
-                        {nameObj.meaning}
-                      </Typography>
+                      <Typography
+                          sx={{width: isBigWidth ? "50%" : "45%", flexShrink: 0 }}
+                          className="flex items-center"
+                        >
+                          <Image
+                            alt="girls name"
+                            height={20}
+                            width={20}
+                            className="mr-2 w-5 h-5 filter-orange"
+                            src={"/young-girl-icon.svg"}
+                          />
+                          {nameObj.name}
+                        </Typography>
+                        <Typography sx={{ color: "text.secondary" }}>
+                          {nameObj.meaning}
+                        </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
@@ -152,12 +172,22 @@ const CountryComponent = async ({ countryName }: any) => {
                       aria-controls="panel1-content"
                       id="panel1-header"
                     >
-                      <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                        {nameObj.name}
-                      </Typography>
-                      <Typography sx={{ color: "text.secondary" }}>
-                        {nameObj.meaning}
-                      </Typography>
+                      <Typography
+                          sx={{ width: isBigWidth ? "50%" : "45%", flexShrink: 0 }}
+                          className="flex items-center"
+                        >
+                          <Image
+                            alt="boys name"
+                            height={20}
+                            width={20}
+                            className="mr-2 w-5 h-5 filter-blue"
+                            src={"/young-boy-icon.svg"}
+                          />
+                          {nameObj.name}
+                        </Typography>
+                        <Typography sx={{ color: "text.secondary" }}>
+                          {nameObj.meaning}
+                        </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul className="list-disc py-5 px-10 bg-gray-100 rounded-lg shadow-md">
