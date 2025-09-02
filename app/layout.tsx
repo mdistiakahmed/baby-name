@@ -90,8 +90,8 @@ export default function RootLayout({
                 <ins
                   className="adsbygoogle"
                   style={{ display: "block" }}
-                  data-ad-client="ca-pub-9516918341435316"
-                  data-ad-slot="5795252154"
+                  data-ad-client="ca-pub-9851111861096184"
+                  data-ad-slot="9159383020"
                   data-ad-format="auto"
                   data-full-width-responsive="true"
                 ></ins>
@@ -103,8 +103,8 @@ export default function RootLayout({
                 <ins
                   className="adsbygoogle"
                   style={{ display: "block" }}
-                  data-ad-client="ca-pub-9516918341435316"
-                  data-ad-slot="9056674468"
+                  data-ad-client="ca-pub-9851111861096184"
+                  data-ad-slot="3739535380"
                   data-ad-format="auto"
                   data-full-width-responsive="true"
                 ></ins>
